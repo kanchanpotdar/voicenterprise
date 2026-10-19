@@ -1,0 +1,45 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Datasets and benchmark binaries (DO NOT PUSH)
+EnterpriseRAG-Bench/
+*.parquet
+data/splits/*.parquet
+data/subsets/*.parquet
+data/ingested/
+data/qdrant_dev_10k/
+*.duckdb
+*.sqlite
+*.sqlite3
+*.lock
+
+# Environment and secrets
+.env
+.env.local
+*.env
+!.env.example
+
+# Testing and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# OS and IDE files
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo

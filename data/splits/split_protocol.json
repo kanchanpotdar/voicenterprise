@@ -1,0 +1,87 @@
+{
+  "seed": 42,
+  "num_dev_folds": 5,
+  "total_questions": 500,
+  "dev_questions": 193,
+  "held_out_test_questions": 307,
+  "unique_dev_expected_docs": 277,
+  "unique_held_out_test_expected_docs": 445,
+  "shared_expected_docs_between_splits": 0,
+  "num_multi_question_components": 11,
+  "category_breakdown": {
+    "basic": {
+      "total": 175,
+      "dev": 61,
+      "held_out_test": 114,
+      "dev_ratio": 0.3486,
+      "low_sample_warning": false
+    },
+    "completeness": {
+      "total": 20,
+      "dev": 10,
+      "held_out_test": 10,
+      "dev_ratio": 0.5,
+      "low_sample_warning": true
+    },
+    "conflicting_info": {
+      "total": 20,
+      "dev": 10,
+      "held_out_test": 10,
+      "dev_ratio": 0.5,
+      "low_sample_warning": true
+    },
+    "constrained": {
+      "total": 30,
+      "dev": 15,
+      "held_out_test": 15,
+      "dev_ratio": 0.5,
+      "low_sample_warning": false
+    },
+    "high_level": {
+      "total": 10,
+      "dev": 5,
+      "held_out_test": 5,
+      "dev_ratio": 0.5,
+      "low_sample_warning": true
+    },
+    "info_not_found": {
+      "total": 20,
+      "dev": 10,
+      "held_out_test": 10,
+      "dev_ratio": 0.5,
+      "low_sample_warning": true
+    },
+    "intra_document_reasoning": {
+      "total": 40,
+      "dev": 14,
+      "held_out_test": 26,
+      "dev_ratio": 0.35,
+      "low_sample_warning": true
+    },
+    "miscellaneous": {
+      "total": 20,
+      "dev": 10,
+      "held_out_test": 10,
+      "dev_ratio": 0.5,
+      "low_sample_warning": true
+    },
+    "project_related": {
+      "total": 40,
+      "dev": 14,
+      "held_out_test": 26,
+      "dev_ratio": 0.35,
+      "low_sample_warning": true
+    },
+    "semantic": {
+      "total": 125,
+      "dev": 44,
+      "held_out_test": 81,
+      "dev_ratio": 0.352,
+      "low_sample_warning": false
+    }
+  },
+  "protocol_rules": {
+    "holdout_policy": "questions_held_out_test.parquet must NEVER be inspected for prompt engineering, chunk size tuning, threshold selection, or entity-extraction rule design.",
+    "small_category_policy": "Categories with low_sample_warning=True have <=15 examples per split; use 5-fold cross-validation on dev (dev_fold 0..4) and report sample sizes (n) alongside any category-level claims."
+  }
+}

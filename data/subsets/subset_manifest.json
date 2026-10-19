@@ -1,0 +1,58 @@
+{
+  "subsets": {
+    "corpus_dev_10k.parquet": {
+      "path": "data/subsets/corpus_dev_10k.parquet",
+      "num_documents": 10001,
+      "size_bytes": 30610781,
+      "size_mb": 29.19,
+      "conditioned_on_held_out_questions": false,
+      "dev_gold_docs_present": 277,
+      "dev_gold_docs_total": 277,
+      "incidental_held_out_gold_docs_present": 9,
+      "by_inclusion_reason": {
+        "stratified_background": 7523,
+        "dev_hard_negative": 2200,
+        "dev_gold": 278
+      },
+      "by_source_type": {
+        "slack": 4332,
+        "gmail": 2781,
+        "linear": 1103,
+        "google_drive": 591,
+        "github": 262,
+        "fireflies": 250,
+        "hubspot": 249,
+        "confluence": 231,
+        "jira": 202
+      }
+    },
+    "corpus_benchmark_conditioned_12k.parquet": {
+      "path": "data/subsets/corpus_benchmark_conditioned_12k.parquet",
+      "num_documents": 11937,
+      "size_bytes": 35479466,
+      "size_mb": 33.84,
+      "conditioned_on_held_out_questions": true,
+      "all_gold_docs_present": 722,
+      "all_gold_docs_total": 722,
+      "methodological_note": "This subset includes expected_doc_ids and title-matched hard negatives for both dev and held-out test questions so held-out questions are answerable without indexing all 511,962 documents. For strictly unconditioned final evaluation, index the full documents/test.parquet.",
+      "by_inclusion_reason": {
+        "stratified_background": 7523,
+        "dev_hard_negative": 2200,
+        "held_out_hard_negative": 1500,
+        "held_out_gold": 436,
+        "dev_gold": 278
+      },
+      "by_source_type": {
+        "slack": 5762,
+        "gmail": 2866,
+        "linear": 1165,
+        "google_drive": 651,
+        "confluence": 354,
+        "github": 311,
+        "jira": 291,
+        "fireflies": 271,
+        "hubspot": 266
+      }
+    }
+  }
+}

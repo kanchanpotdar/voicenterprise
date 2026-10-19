@@ -1,0 +1,219 @@
+{
+  "dataset_repo": "onyx-dot-app/EnterpriseRAG-Bench",
+  "git_commit": "69916e31c68aa5963c00248fd7f0bc12d04fd235",
+  "license": "MIT",
+  "files": {
+    "questions/test.parquet": {
+      "size_bytes": 408737,
+      "sha256": "e25066f4eff3843dd0f3df0d1348113471e072e75007ffe390a0aa83f2a80af2",
+      "expected_lfs_sha256": "e25066f4eff3843dd0f3df0d1348113471e072e75007ffe390a0aa83f2a80af2",
+      "sha256_verified": true,
+      "num_rows": 500,
+      "num_row_groups": 1,
+      "columns": [
+        "question_id",
+        "question_type",
+        "element",
+        "question",
+        "element",
+        "gold_answer",
+        "element"
+      ]
+    },
+    "documents/test.parquet": {
+      "size_bytes": 1409893131,
+      "sha256": "6b0747bf160af9427b12101537d53056ac592ada9831c1a98ae01fa50a8d2a9f",
+      "expected_lfs_sha256": "6b0747bf160af9427b12101537d53056ac592ada9831c1a98ae01fa50a8d2a9f",
+      "sha256_verified": true,
+      "num_rows": 511962,
+      "num_row_groups": 1,
+      "columns": [
+        "doc_id",
+        "source_type",
+        "title",
+        "content"
+      ]
+    }
+  },
+  "questions_audit": {
+    "total_rows": 500,
+    "unique_question_ids": 500,
+    "empty_question_id": 0,
+    "empty_question": 0,
+    "empty_gold_answer": 0,
+    "categories": [
+      {
+        "question_type": "basic",
+        "count": 175,
+        "min_expected_docs": 1,
+        "median_expected_docs": 1.0,
+        "max_expected_docs": 1,
+        "total_expected_doc_refs": 175,
+        "avg_answer_facts": 2.93
+      },
+      {
+        "question_type": "semantic",
+        "count": 125,
+        "min_expected_docs": 1,
+        "median_expected_docs": 1.0,
+        "max_expected_docs": 1,
+        "total_expected_doc_refs": 125,
+        "avg_answer_facts": 4.0
+      },
+      {
+        "question_type": "intra_document_reasoning",
+        "count": 40,
+        "min_expected_docs": 1,
+        "median_expected_docs": 1.0,
+        "max_expected_docs": 1,
+        "total_expected_doc_refs": 40,
+        "avg_answer_facts": 2.75
+      },
+      {
+        "question_type": "project_related",
+        "count": 40,
+        "min_expected_docs": 2,
+        "median_expected_docs": 3.5,
+        "max_expected_docs": 9,
+        "total_expected_doc_refs": 169,
+        "avg_answer_facts": 11.72
+      },
+      {
+        "question_type": "constrained",
+        "count": 30,
+        "min_expected_docs": 1,
+        "median_expected_docs": 1.0,
+        "max_expected_docs": 2,
+        "total_expected_doc_refs": 43,
+        "avg_answer_facts": 10.57
+      },
+      {
+        "question_type": "completeness",
+        "count": 20,
+        "min_expected_docs": 2,
+        "median_expected_docs": 6.0,
+        "max_expected_docs": 10,
+        "total_expected_doc_refs": 130,
+        "avg_answer_facts": 14.2
+      },
+      {
+        "question_type": "conflicting_info",
+        "count": 20,
+        "min_expected_docs": 2,
+        "median_expected_docs": 2.0,
+        "max_expected_docs": 2,
+        "total_expected_doc_refs": 40,
+        "avg_answer_facts": 6.9
+      },
+      {
+        "question_type": "info_not_found",
+        "count": 20,
+        "min_expected_docs": 0,
+        "median_expected_docs": 0.0,
+        "max_expected_docs": 0,
+        "total_expected_doc_refs": 0,
+        "avg_answer_facts": 1.0
+      },
+      {
+        "question_type": "miscellaneous",
+        "count": 20,
+        "min_expected_docs": 1,
+        "median_expected_docs": 1.0,
+        "max_expected_docs": 1,
+        "total_expected_doc_refs": 20,
+        "avg_answer_facts": 2.3
+      },
+      {
+        "question_type": "high_level",
+        "count": 10,
+        "min_expected_docs": 0,
+        "median_expected_docs": 0.0,
+        "max_expected_docs": 0,
+        "total_expected_doc_refs": 0,
+        "avg_answer_facts": 3.0
+      }
+    ]
+  },
+  "documents_audit": {
+    "total_rows": 511962,
+    "unique_doc_ids": 511958,
+    "empty_doc_id": 0,
+    "empty_source_type": 0,
+    "empty_title": 15,
+    "empty_content": 1,
+    "avg_content_chars": 4814.8,
+    "median_content_chars": 4276,
+    "max_content_chars": 41317,
+    "sources": [
+      {
+        "source_type": "slack",
+        "doc_count": 285605,
+        "share_pct": 55.79,
+        "avg_chars": 3347.9,
+        "median_chars": 3239
+      },
+      {
+        "source_type": "gmail",
+        "doc_count": 121390,
+        "share_pct": 23.71,
+        "avg_chars": 7102.0,
+        "median_chars": 7036
+      },
+      {
+        "source_type": "linear",
+        "doc_count": 35308,
+        "share_pct": 6.9,
+        "avg_chars": 5180.7,
+        "median_chars": 5041
+      },
+      {
+        "source_type": "google_drive",
+        "doc_count": 25108,
+        "share_pct": 4.9,
+        "avg_chars": 7052.6,
+        "median_chars": 7005
+      },
+      {
+        "source_type": "hubspot",
+        "doc_count": 15017,
+        "share_pct": 2.93,
+        "avg_chars": 3139.0,
+        "median_chars": 3025
+      },
+      {
+        "source_type": "fireflies",
+        "doc_count": 10173,
+        "share_pct": 1.99,
+        "avg_chars": 11493.0,
+        "median_chars": 11080
+      },
+      {
+        "source_type": "github",
+        "doc_count": 8052,
+        "share_pct": 1.57,
+        "avg_chars": 4723.5,
+        "median_chars": 4616
+      },
+      {
+        "source_type": "jira",
+        "doc_count": 6120,
+        "share_pct": 1.2,
+        "avg_chars": 5532.8,
+        "median_chars": 5558
+      },
+      {
+        "source_type": "confluence",
+        "doc_count": 5189,
+        "share_pct": 1.01,
+        "avg_chars": 9782.7,
+        "median_chars": 9579
+      }
+    ]
+  },
+  "referential_integrity": {
+    "total_unique_expected_docs": 722,
+    "found_in_corpus": 722,
+    "missing_from_corpus": 0,
+    "all_expected_docs_present": true
+  }
+}
