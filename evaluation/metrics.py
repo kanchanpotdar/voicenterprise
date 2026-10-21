@@ -161,7 +161,8 @@ def evaluate_retrieval_predictions(
     for q in questions:
         qid = q["question_id"]
         qtype = q["question_type"]
-        expected = list(q.get("expected_doc_ids") or [])
+        raw_exp = q.get("expected_doc_ids")
+        expected = [] if raw_exp is None else [str(x) for x in raw_exp]
         retrieved = list(predictions_by_qid.get(qid, []))
 
         q_res: Dict[str, Any] = {

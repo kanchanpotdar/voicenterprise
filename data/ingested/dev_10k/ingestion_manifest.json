@@ -1,0 +1,55 @@
+{
+  "input_file": "corpus_dev_10k.parquet",
+  "input_sha256": "537a733afb73aaf14844ee10dbbdc502aa74958b1592dbeb61a5cdccc4a70b4b",
+  "config": {
+    "max_chunk_chars": 2000,
+    "overlap_chars": 200
+  },
+  "document_counts": {
+    "raw_input_rows": 10001,
+    "normalized_records": 10001,
+    "unique_parent_doc_ids": 10000,
+    "conflicting_duplicate_doc_id_records": 2,
+    "empty_title_synthesized_count": 2,
+    "empty_content_record_count": 0
+  },
+  "metadata_extraction_coverage": {
+    "docs_with_dates": 4146,
+    "date_confidence_breakdown": {
+      "none": 5855,
+      "medium": 2232,
+      "high": 1914
+    },
+    "docs_with_slack_channels": 1093,
+    "docs_with_ticket_ids": 4519,
+    "docs_with_emails": 3210
+  },
+  "chunk_counts": {
+    "total_chunks": 34354,
+    "unique_parent_doc_ids_in_chunks": 10000,
+    "avg_chunks_per_doc": 3.44,
+    "avg_chunk_chars": 1613.1,
+    "max_chunk_chars_observed": 2187,
+    "chunks_by_source_type": {
+      "gmail": 12189,
+      "slack": 10170,
+      "linear": 3905,
+      "google_drive": 2734,
+      "fireflies": 1944,
+      "confluence": 1212,
+      "github": 861,
+      "jira": 750,
+      "hubspot": 589
+    }
+  },
+  "output_files": {
+    "documents_normalized.parquet": {
+      "size_bytes": 32421227,
+      "sha256": "c2d747dfea13b18ed33f262bb2dce55b3bfd6d32c4d86740c83af557d6acfa13"
+    },
+    "chunks.parquet": {
+      "size_bytes": 63526632,
+      "sha256": "a577a3551c6fdcd6555b8faf3741d1d80efb458cb3665462868328116784e550"
+    }
+  }
+}

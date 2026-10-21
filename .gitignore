@@ -14,7 +14,8 @@ EnterpriseRAG-Bench/
 *.parquet
 data/splits/*.parquet
 data/subsets/*.parquet
-data/ingested/
+data/ingested/*.parquet
+data/ingested/**/*.parquet
 data/qdrant_dev_10k/
 *.duckdb
 *.sqlite
