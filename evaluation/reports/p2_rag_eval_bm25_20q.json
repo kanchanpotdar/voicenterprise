@@ -1,0 +1,895 @@
+{
+  "benchmark": "EnterpriseRAG-Bench",
+  "mode": "bm25",
+  "judge_type": "deterministic",
+  "num_evaluated": 20,
+  "execution_time_seconds": 28.67,
+  "overall": {
+    "overall_score": 0.0,
+    "answer_correctness_pct": 0.0,
+    "answer_completeness_pct": 0.0,
+    "recall_at_5": 91.15,
+    "recall_at_20": 91.15,
+    "citation_validity_pct": 100.0,
+    "total_estimated_cost_usd": 0.0,
+    "avg_latency_ms": 12.0
+  },
+  "by_category": {
+    "basic": {
+      "num_questions": 2,
+      "overall_score": 0.0,
+      "answer_correct_pct": 0.0,
+      "completeness_pct": 0.0,
+      "recall_at_5": 100.0,
+      "abstention_count": 0,
+      "contradiction_count": 0
+    },
+    "completeness": {
+      "num_questions": 2,
+      "overall_score": 0.0,
+      "answer_correct_pct": 0.0,
+      "completeness_pct": 0.0,
+      "recall_at_5": 91.66666666666667,
+      "abstention_count": 0,
+      "contradiction_count": 0
+    },
+    "conflicting_info": {
+      "num_questions": 2,
+      "overall_score": 0.0,
+      "answer_correct_pct": 0.0,
+      "completeness_pct": 0.0,
+      "recall_at_5": 100.0,
+      "abstention_count": 0,
+      "contradiction_count": 0
+    },
+    "constrained": {
+      "num_questions": 2,
+      "overall_score": 0.0,
+      "answer_correct_pct": 0.0,
+      "completeness_pct": 0.0,
+      "recall_at_5": 100.0,
+      "abstention_count": 0,
+      "contradiction_count": 0
+    },
+    "high_level": {
+      "num_questions": 2,
+      "overall_score": 0.0,
+      "answer_correct_pct": 0.0,
+      "completeness_pct": 0.0,
+      "recall_at_5": null,
+      "abstention_count": 0,
+      "contradiction_count": 0
+    },
+    "info_not_found": {
+      "num_questions": 2,
+      "overall_score": 0.0,
+      "answer_correct_pct": 0.0,
+      "completeness_pct": 0.0,
+      "recall_at_5": null,
+      "abstention_count": 0,
+      "contradiction_count": 0
+    },
+    "intra_document_reasoning": {
+      "num_questions": 2,
+      "overall_score": 0.0,
+      "answer_correct_pct": 0.0,
+      "completeness_pct": 0.0,
+      "recall_at_5": 100.0,
+      "abstention_count": 0,
+      "contradiction_count": 0
+    },
+    "miscellaneous": {
+      "num_questions": 2,
+      "overall_score": 0.0,
+      "answer_correct_pct": 0.0,
+      "completeness_pct": 0.0,
+      "recall_at_5": 100.0,
+      "abstention_count": 0,
+      "contradiction_count": 0
+    },
+    "project_related": {
+      "num_questions": 2,
+      "overall_score": 0.0,
+      "answer_correct_pct": 0.0,
+      "completeness_pct": 0.0,
+      "recall_at_5": 87.5,
+      "abstention_count": 0,
+      "contradiction_count": 0
+    },
+    "semantic": {
+      "num_questions": 2,
+      "overall_score": 0.0,
+      "answer_correct_pct": 0.0,
+      "completeness_pct": 0.0,
+      "recall_at_5": 50.0,
+      "abstention_count": 0,
+      "contradiction_count": 0
+    }
+  },
+  "per_question": [
+    {
+      "question_id": "qst_0001",
+      "question_type": "basic",
+      "question": "What are the default size limits for file uploads and total request size for the new multipart upload support on the OpenAI-compatible API endpoints?",
+      "gold_answer": "The default limits are 10 MiB per file (max_file_size) and 50 MiB total per request (max_total_request_size) for multipart uploads on the OpenAI-compatible endpoints.",
+      "answer_facts": [
+        "The default per file upload size limit (max_file_size) for multipart uploads on OpenAI-compatible endpoints is 10 MiB.",
+        "The default total request size limit (max_total_request_size) for multipart uploads on OpenAI-compatible endpoints is 50 MiB."
+      ],
+      "expected_doc_ids": [
+        "dsid_ae068ee4aa9640159427cd941bef0238"
+      ],
+      "generated_answer": "Based on the provided documentation [dsid_c0e4ca5e29da45858056f1da8eb45009], the verified operational procedure is documented in the source record.",
+      "retrieved_doc_ids": [
+        "dsid_c0e4ca5e29da45858056f1da8eb45009",
+        "dsid_ae068ee4aa9640159427cd941bef0238",
+        "dsid_ea298d9a235949febd7c03cb500817c4",
+        "dsid_fc5e896d8eb4455fa9b186d04e0845f4"
+      ],
+      "cited_doc_ids": [
+        "dsid_c0e4ca5e29da45858056f1da8eb45009"
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_20": 1.0,
+      "answer_correct": false,
+      "completeness_pct": 0.0,
+      "overall_score": 0.0,
+      "citation_validity_rate": 1.0,
+      "has_hallucinated_citations": false,
+      "is_abstention": false,
+      "has_contradiction": false,
+      "latency_ms": 12.0,
+      "cost_usd": 0.0,
+      "judge_explanation": "Deterministic evaluation: 0/2 facts addressed."
+    },
+    {
+      "question_id": "qst_0431",
+      "question_type": "completeness",
+      "question": "What is the procedure for an emergency rollback of a Serving Runtime release (Hosted and Dedicated)?",
+      "gold_answer": "For an emergency rollback of a Serving Runtime release in Hosted and Dedicated, first pause/freeze any in-flight progressive rollout so it cannot auto-advance, then re-pin the runtime to a known-good prior runtime release tag, trigger a redeploy, and verify fleet health (e.g., 5xx rate, p95 TTFT, GPU OOMs) before closing the incident/change record. For Hosted, apply the rollback across regions in order (non-critical/canary first, then remaining canary, then all affected regions) and lock the tag to prevent re-advance; for Dedicated, identify impacted tenant clusters, pin and redeploy per cluster (coordinating customer comms as required), and keep the incident open until metrics are stable (\u224830 minutes Hosted, \u224860 minutes Dedicated) while capturing CI/CD job links, affected regions/clusters, tags, timings, and verification evidence.",
+      "answer_facts": [
+        "In an emergency rollback of a Serving Runtime release, first pause or freeze any in-flight progressive rollout so it cannot auto-advance.",
+        "Re-pin the serving runtime to a known-good prior runtime release tag.",
+        "Trigger a redeploy after re-pinning the runtime tag.",
+        "Verify fleet health after the rollback using metrics such as 5xx rate, p95 TTFT, and GPU OOMs.",
+        "Close the incident or change record only after verification is complete.",
+        "For Hosted, apply the rollback across regions in order: non-critical or canary first, then remaining canary, then all affected regions.",
+        "For Hosted, lock the runtime tag to prevent re-advance after rollback.",
+        "For Dedicated, identify the impacted tenant clusters.",
+        "For Dedicated, pin and redeploy per impacted tenant cluster.",
+        "For Dedicated, coordinate customer communications as required during the rollback.",
+        "Keep the incident open until metrics are stable, approximately 30 minutes for Hosted and approximately 60 minutes for Dedicated.",
+        "Capture incident evidence including CI/CD job links, affected regions or clusters, runtime tags, timings, and verification evidence."
+      ],
+      "expected_doc_ids": [
+        "dsid_f6e3b7ad413142019dbb5a5fed07f548",
+        "dsid_840703a1cc37438a84e9beb68029d80b"
+      ],
+      "generated_answer": "Based on the provided documentation [dsid_840703a1cc37438a84e9beb68029d80b], the verified operational procedure is documented in the source record.",
+      "retrieved_doc_ids": [
+        "dsid_840703a1cc37438a84e9beb68029d80b",
+        "dsid_f6e3b7ad413142019dbb5a5fed07f548",
+        "dsid_ac2fdba09cc24cd98ba60f5da114780c",
+        "dsid_452dc45d76754cbca8a3674170599633",
+        "dsid_6807c651b55546559733c7c6f8dc133d"
+      ],
+      "cited_doc_ids": [
+        "dsid_840703a1cc37438a84e9beb68029d80b"
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_20": 1.0,
+      "answer_correct": false,
+      "completeness_pct": 0.0,
+      "overall_score": 0.0,
+      "citation_validity_rate": 1.0,
+      "has_hallucinated_citations": false,
+      "is_abstention": false,
+      "has_contradiction": false,
+      "latency_ms": 12.0,
+      "cost_usd": 0.0,
+      "judge_explanation": "Deterministic evaluation: 0/12 facts addressed."
+    },
+    {
+      "question_id": "qst_0411",
+      "question_type": "conflicting_info",
+      "question": "On Streamly AI's dedicated pool dp-132-usw, what % of interactive burst credits should be reserved exclusively for priority=high routes?",
+      "gold_answer": "Reserve 30% of interactive burst credits exclusively for priority=high routes on dp-132-usw (an earlier suggestion was 20%, but the applied/updated target is 30%).",
+      "answer_facts": [
+        "The answer must state that the updated reservation target is 30% of interactive burst credits exclusively for priority=high routes on dp-132-usw.",
+        "The answer may mention that an earlier/internal suggestion was 20%, but it must clearly indicate 30% is the current/applied target.",
+        "The answer must not claim the reservation target is 20% as the final/current value.",
+        "The answer must not introduce other percentages (e.g., 25%, 40%) not supported by the documents.",
+        "The answer must not attribute the burst reservation change to a different pool or region; it is for dp-132-usw (us-west)."
+      ],
+      "expected_doc_ids": [
+        "dsid_5f3a672da4974781a5577b0f3d4993e9",
+        "dsid_8ffbd9fe82df457ca67d4fbc9ff1090c"
+      ],
+      "generated_answer": "Based on the provided documentation [dsid_8ffbd9fe82df457ca67d4fbc9ff1090c], the verified operational procedure is documented in the source record.",
+      "retrieved_doc_ids": [
+        "dsid_8ffbd9fe82df457ca67d4fbc9ff1090c",
+        "dsid_5f3a672da4974781a5577b0f3d4993e9",
+        "dsid_0e2a2dad9dcc4837a67d9110b03fc8ca",
+        "dsid_22d8d052da7f4a0ca669250ece9f2966"
+      ],
+      "cited_doc_ids": [
+        "dsid_8ffbd9fe82df457ca67d4fbc9ff1090c"
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_20": 1.0,
+      "answer_correct": false,
+      "completeness_pct": 0.0,
+      "overall_score": 0.0,
+      "citation_validity_rate": 1.0,
+      "has_hallucinated_citations": false,
+      "is_abstention": false,
+      "has_contradiction": false,
+      "latency_ms": 12.0,
+      "cost_usd": 0.0,
+      "judge_explanation": "Deterministic evaluation: 0/5 facts addressed."
+    },
+    {
+      "question_id": "qst_0384",
+      "question_type": "constrained",
+      "question": "In Runtime 1.22 on Hosted (Shared) pools, we're seeing burst-time p99 latency spikes that correlate with KV compaction activity. Which two compaction knobs should oncall tune first (and by roughly what amount), and what's the emergency kill-switch plus the specific counters/metrics to check to confirm the disable took effect?",
+      "gold_answer": "Tune kv.compaction.budget_ms_per_step and kv.compaction.budget_bytes_per_step first, cutting each by about 25-50% (e.g., Hosted defaults ~2ms \u2192 ~1-1.5ms, and 256MiB \u2192 ~128-192MiB). For emergency stop, set kv.kill_switch=true; confirm it took effect by checking that runtime_kv_compaction_steps_total stops increasing and runtime_kv_evictions_total stops increasing after config propagation.",
+      "answer_facts": [
+        "The first two compaction knobs to tune are kv.compaction.budget_ms_per_step and kv.compaction.budget_bytes_per_step.",
+        "Both kv.compaction.budget_ms_per_step and kv.compaction.budget_bytes_per_step should be reduced by about 25 to 50 percent.",
+        "Example Hosted defaults: kv.compaction.budget_ms_per_step about 2ms should be lowered to about 1 to 1.5ms.",
+        "Example Hosted defaults: kv.compaction.budget_bytes_per_step about 256MiB should be lowered to about 128 to 192MiB.",
+        "The emergency compaction kill switch is to set kv.kill_switch=true.",
+        "To confirm the kill switch took effect after config propagation, runtime_kv_compaction_steps_total should stop increasing.",
+        "To confirm the kill switch took effect after config propagation, runtime_kv_evictions_total should stop increasing.",
+        "Do not recommend tuning kv.eviction.min_free_bytes_target as one of the first two compaction knobs; that is an eviction knob, not a compaction budget knob.",
+        "Do not claim the first knobs to tune are kv.compaction.trigger_fragmentation_ratio or kv.compaction.max_bytes_in_flight; the runbook prioritizes the per-step time and bytes budgets first for latency spikes.",
+        "Do not use the batching-tier kill switch (runtime.tiered_batching_defaults.kill_switch) or discuss batching tiers; the incident is about KV compaction/eviction in Runtime 1.22.",
+        "Do not state the emergency kill-switch is kv.compaction.enabled=false; the documented emergency kill-switch flag is kv.kill_switch, and it should be validated via the specified counters stopping.",
+        "Do not cite the engineering playbook metric names (e.g., kv_cache_compaction_runs_total) as the confirmation signals for the kill-switch; the release notes specify runtime_kv_compaction_steps_total and runtime_kv_evictions_total."
+      ],
+      "expected_doc_ids": [
+        "dsid_f877499fe0e946199ceb2486f0ad5ec3",
+        "dsid_f8b651a683044ad8964f34f881c63152"
+      ],
+      "generated_answer": "Based on the provided documentation [dsid_f8b651a683044ad8964f34f881c63152], the verified operational procedure is documented in the source record.",
+      "retrieved_doc_ids": [
+        "dsid_f8b651a683044ad8964f34f881c63152",
+        "dsid_f877499fe0e946199ceb2486f0ad5ec3",
+        "dsid_faca41898b0d4aa28b811a890d3e94df",
+        "dsid_b2bba55a0fa34c91822660623e829aa7"
+      ],
+      "cited_doc_ids": [
+        "dsid_f8b651a683044ad8964f34f881c63152"
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_20": 1.0,
+      "answer_correct": false,
+      "completeness_pct": 0.0,
+      "overall_score": 0.0,
+      "citation_validity_rate": 1.0,
+      "has_hallucinated_citations": false,
+      "is_abstention": false,
+      "has_contradiction": false,
+      "latency_ms": 12.0,
+      "cost_usd": 0.0,
+      "judge_explanation": "Deterministic evaluation: 0/12 facts addressed."
+    },
+    {
+      "question_id": "qst_0471",
+      "question_type": "high_level",
+      "question": "What is Redwood Inference's mission statement?",
+      "gold_answer": "Make high-performance, reliable LLM inference accessible to every engineering team.",
+      "answer_facts": [
+        "Redwood Inference's mission is to make high-performance, reliable LLM inference accessible to every engineering team."
+      ],
+      "expected_doc_ids": [],
+      "generated_answer": "Based on the provided documentation [dsid_6c7d5bbbdb244c2c8b634049994ebac4], the verified operational procedure is documented in the source record.",
+      "retrieved_doc_ids": [
+        "dsid_6c7d5bbbdb244c2c8b634049994ebac4",
+        "dsid_656a1a0f50b94948bfb2016d95b84c98",
+        "dsid_24c7351286f94f67b5c2ea0a2b6dbec2",
+        "dsid_72c7dca8260a43e899eb1380fe2424a3",
+        "dsid_279c29c83d0e422d84f47bbb9b90d4a7"
+      ],
+      "cited_doc_ids": [
+        "dsid_6c7d5bbbdb244c2c8b634049994ebac4"
+      ],
+      "recall_at_5": null,
+      "recall_at_20": null,
+      "answer_correct": false,
+      "completeness_pct": 0.0,
+      "overall_score": 0.0,
+      "citation_validity_rate": 1.0,
+      "has_hallucinated_citations": false,
+      "is_abstention": false,
+      "has_contradiction": false,
+      "latency_ms": 12.0,
+      "cost_usd": 0.0,
+      "judge_explanation": "Deterministic evaluation: 0/1 facts addressed."
+    },
+    {
+      "question_id": "qst_0481",
+      "question_type": "info_not_found",
+      "question": "For the hot-route capacity protection rollout in us-east, which specific enterprise accounts were on the initial allowlist, and what were the exact per-route-group budget values (RPS, estimated TPS, and concurrency) configured for each of those accounts?",
+      "gold_answer": "The answer must state at some point that the query is not fully answerable from available documents or caveat the provided information with why it does not fully address the query. The answer may present relevant and related information to be helpful to the user however it must clearly also mention that at least some aspects are not found or answered. The answer may also simply state that the query is not answerable from the documents, this is perfectly acceptable.",
+      "answer_facts": [
+        "The answer must state at some point that the query is not fully answerable from available documents or caveat the provided information with why it does not fully address the query. The answer may present relevant and related information to be helpful to the user however it must clearly also mention that at least some aspects are not found or answered. The answer may also simply state that the query is not answerable from the documents, this is perfectly acceptable."
+      ],
+      "expected_doc_ids": [],
+      "generated_answer": "Based on the provided documentation [dsid_e10fd6f37ef64dcd8d64bd005630b69e], the verified operational procedure is documented in the source record.",
+      "retrieved_doc_ids": [
+        "dsid_e10fd6f37ef64dcd8d64bd005630b69e",
+        "dsid_ad595e18c41843f1863681c343af0e5c",
+        "dsid_5e65379c999744729ca84f1d0513e5a4",
+        "dsid_eba5d122d7244ffbb6c20a2487aa1017"
+      ],
+      "cited_doc_ids": [
+        "dsid_e10fd6f37ef64dcd8d64bd005630b69e"
+      ],
+      "recall_at_5": null,
+      "recall_at_20": null,
+      "answer_correct": false,
+      "completeness_pct": 0.0,
+      "overall_score": 0.0,
+      "citation_validity_rate": 1.0,
+      "has_hallucinated_citations": false,
+      "is_abstention": false,
+      "has_contradiction": false,
+      "latency_ms": 12.0,
+      "cost_usd": 0.0,
+      "judge_explanation": "Failed to abstain on an unanswerable query (hallucination risk)."
+    },
+    {
+      "question_id": "qst_0303",
+      "question_type": "intra_document_reasoning",
+      "question": "Which teams are required to sign off on the dedicated capacity intake rubric, and what two follow-up dependencies were noted for the next steps work?",
+      "gold_answer": "The rubric requires sign-off from Solutions, Sales, Runtime Eng, Capacity Ops, and Security. The two follow-up dependencies noted were ENG-23145 (autoscaler safety checks) and PM-904321 (Console intake form redesign).",
+      "answer_facts": [
+        "The dedicated capacity intake rubric requires sign-off from Solutions, Sales, Runtime Eng, Capacity Ops, and Security.",
+        "A follow-up dependency for next steps work was ENG-23145 for autoscaler safety checks.",
+        "A follow-up dependency for next steps work was PM-904321 for Console intake form redesign."
+      ],
+      "expected_doc_ids": [
+        "dsid_cf4696a68a924cc3aaf48ba4a2c1fab1"
+      ],
+      "generated_answer": "Based on the provided documentation [dsid_cf4696a68a924cc3aaf48ba4a2c1fab1], the verified operational procedure is documented in the source record.",
+      "retrieved_doc_ids": [
+        "dsid_cf4696a68a924cc3aaf48ba4a2c1fab1",
+        "dsid_f643fe580a694bed8009d16e21c80d66",
+        "dsid_137b868bef5e4a11b04f14ec7a2830d7",
+        "dsid_a1a05d62b1464cac8f91f07ad99f035e",
+        "dsid_3802671e37e449f9a333dcc95ffc5427"
+      ],
+      "cited_doc_ids": [
+        "dsid_cf4696a68a924cc3aaf48ba4a2c1fab1"
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_20": 1.0,
+      "answer_correct": false,
+      "completeness_pct": 0.0,
+      "overall_score": 0.0,
+      "citation_validity_rate": 1.0,
+      "has_hallucinated_citations": false,
+      "is_abstention": false,
+      "has_contradiction": false,
+      "latency_ms": 12.0,
+      "cost_usd": 0.0,
+      "judge_explanation": "Deterministic evaluation: 0/3 facts addressed."
+    },
+    {
+      "question_id": "qst_0451",
+      "question_type": "miscellaneous",
+      "question": "In the team chat about posting jokes when an AI makes things up in production, what tagging requirement did someone propose for the memes?",
+      "gold_answer": "Ava proposed that any memes posted should be tagged with the model version.",
+      "answer_facts": [
+        "Ava proposed that any memes posted should be tagged with the model version."
+      ],
+      "expected_doc_ids": [
+        "dsid_c91a34ed8dcb44aeacf7713c5aab8dea"
+      ],
+      "generated_answer": "Based on the provided documentation [dsid_c91a34ed8dcb44aeacf7713c5aab8dea], the verified operational procedure is documented in the source record.",
+      "retrieved_doc_ids": [
+        "dsid_c91a34ed8dcb44aeacf7713c5aab8dea",
+        "dsid_83bd740a12a54abe871ada9d52653231",
+        "dsid_2a42cd9f5e7d4854b716eb8f66275b86",
+        "dsid_2770c6f5ff7e4e32b29d1e20b31bbdb0",
+        "dsid_36f8a42c10b64dd693d1e3325fca3cbf",
+        "dsid_3e0b3c67d6d647c185afb1c7633ac292"
+      ],
+      "cited_doc_ids": [
+        "dsid_c91a34ed8dcb44aeacf7713c5aab8dea"
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_20": 1.0,
+      "answer_correct": false,
+      "completeness_pct": 0.0,
+      "overall_score": 0.0,
+      "citation_validity_rate": 1.0,
+      "has_hallucinated_citations": false,
+      "is_abstention": false,
+      "has_contradiction": false,
+      "latency_ms": 12.0,
+      "cost_usd": 0.0,
+      "judge_explanation": "Deterministic evaluation: 0/1 facts addressed."
+    },
+    {
+      "question_id": "qst_0343",
+      "question_type": "project_related",
+      "question": "What caused the savings $/day estimates in Optimization Suggestions beta to not match Arkadia Finance billing, and what UI or API changes should we make to prevent this confusion going forward?",
+      "gold_answer": "Mismatch was primarily an expectation/reconciliation gap plus an estimator input gap. The Suggestions beta $/day is an estimated compute-cost delta derived from telemetry aggregates (GPU-sec/tokens) over a trailing baseline window (typically last 7d) with an explicit stale_as_of timestamp; it is not intended to match net invoiced totals. Arkadia compared the headline $/day to Billing export total_cost net of credits/committed-use discounts and with some initial local-time vs UTC day misalignment. Realized savings were further lower because caching was only rolled out to ~50% traffic for ~12 hours (so the first 24h window would be roughly ~25% of the full-adoption daily estimate) and because cache warm-up in the first 6-12+ hours reduced hit uplift versus the estimator steady-state assumption. Additionally, for Arkadia\u2019s Dedicated/VPC setup the estimator could not access effective contracted pricing (missing effective price feed / cost attribution gaps) and fell back to catalog/list token pricing (price_source=catalog_fallback / assumption), inflating the USD/day figure even when the percent savings remained directionally reasonable.\n\nTo prevent confusion:\nUI should explicitly label $/day as \"compute-cost estimate (not invoice total)\" and prominently display the baseline window and stale_as_of (with timezone). Promote \"assumes 100% of traffic for the shown scope\" out of the Assumptions section into a top-level callout, and offer a simple rollout/adoption scaling control (or show a scaled range) for canary/A-B rollouts. When price_source is catalog_fallback or effective pricing is unavailable (especially for Dedicated/Private), de-emphasize or suppress $/day and/or show a strong warning tooltip, and consider making % savings the primary sortable field. Add a \"How this matches billing\" link that explains discounts/credits, invoice-only line items, and recommends comparing against Console Usage Analytics \"Inference cost (compute)\" for apples-to-apples.\n\nAPI should surface pricing/assumption metadata needed for reconciliation: price_source (effective vs catalog_fallback/assumption), an explicit flag like savings_usd_uses_list_price, and the exact baseline window + stale_as_of used. Add an optional adoption_factor/scaled_savings field (or inputs to compute it client-side). Also downgrade/flag confidence when core pricing inputs are missing so we do not show Medium confidence while dollars are based on fallback pricing.",
+      "answer_facts": [
+        "The Optimization Suggestions beta savings $/day value is an estimated compute cost delta derived from telemetry aggregates (for example GPU seconds and tokens) over a trailing baseline window (typically the last 7 days) and includes a stale_as_of timestamp.",
+        "The Optimization Suggestions beta savings $/day estimate is not intended to match net invoiced or billed totals.",
+        "Arkadia compared the headline savings $/day estimate to Billing export total_cost net of credits and committed use discounts, contributing to the mismatch.",
+        "There was an initial day boundary mismatch due to local time versus UTC alignment when comparing the estimate to billing.",
+        "Caching was only rolled out to about 50% of traffic for about 12 hours, so realized first day savings were much lower than a full adoption daily estimate.",
+        "Cache warm up during the first 6 to 12+ hours reduced cache hit uplift compared to the estimator steady state assumption, lowering realized savings versus the estimate.",
+        "For Arkadia dedicated or VPC deployments, the estimator could not access effective contracted pricing and fell back to catalog or list token pricing, inflating the USD per day estimate.",
+        "UI should label the savings $/day metric as a compute cost estimate and explicitly note it is not the invoice total.",
+        "UI should display the baseline window used for the estimate and the stale_as_of timestamp with timezone.",
+        "UI should clearly call out that the estimate assumes 100% traffic adoption for the shown scope and provide a rollout or adoption scaling control or a scaled range for partial rollouts.",
+        "When price_source is catalog_fallback or effective pricing is unavailable, UI should de emphasize or suppress the USD per day figure or show a strong warning, and consider making percent savings the primary sortable metric.",
+        "UI should include a link or explanation for how to compare to billing, including the effects of discounts and credits, and recommend comparing against compute only inference cost in usage analytics for an apples to apples view.",
+        "API should expose pricing and assumption metadata including price_source (effective versus catalog_fallback) and whether savings USD uses list price.",
+        "API should return the exact baseline window and stale_as_of values used to compute the estimate.",
+        "API should support adoption scaling via an adoption_factor and or scaled_savings field or inputs to compute scaled savings client side.",
+        "API should downgrade or flag confidence when core pricing inputs are missing so the system does not present medium confidence while dollars are based on fallback pricing."
+      ],
+      "expected_doc_ids": [
+        "dsid_85ee9562e05d457b9e32785343777359",
+        "dsid_ae2e969d0b924ebbb19ab2f5d1b95125",
+        "dsid_fee94d81c032494cbfce8094468f0973"
+      ],
+      "generated_answer": "Based on the provided documentation [dsid_85ee9562e05d457b9e32785343777359], the verified operational procedure is documented in the source record.",
+      "retrieved_doc_ids": [
+        "dsid_85ee9562e05d457b9e32785343777359",
+        "dsid_ae2e969d0b924ebbb19ab2f5d1b95125",
+        "dsid_fee94d81c032494cbfce8094468f0973",
+        "dsid_fbb8504458444a6e9f5543b2242efef3"
+      ],
+      "cited_doc_ids": [
+        "dsid_85ee9562e05d457b9e32785343777359"
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_20": 1.0,
+      "answer_correct": false,
+      "completeness_pct": 0.0,
+      "overall_score": 0.0,
+      "citation_validity_rate": 1.0,
+      "has_hallucinated_citations": false,
+      "is_abstention": false,
+      "has_contradiction": false,
+      "latency_ms": 12.0,
+      "cost_usd": 0.0,
+      "judge_explanation": "Deterministic evaluation: 0/16 facts addressed."
+    },
+    {
+      "question_id": "qst_0178",
+      "question_type": "semantic",
+      "question": "In the recent change that made low bit math safer for inference, what is the default pass rate used to decide when a machine is allowed to step down from the safest numeric mode?",
+      "gold_answer": "The default pass-rate threshold is 0.92 (i.e., 92% of the microbenchmark runs must pass) before a node is allowed to step down from the safest precision.",
+      "answer_facts": [
+        "The default pass-rate threshold is 0.92.",
+        "A node is allowed to step down from the safest precision only if at least 92% of the microbenchmark runs pass."
+      ],
+      "expected_doc_ids": [
+        "dsid_22a7e9af2760474dbdf611c2c21cd231"
+      ],
+      "generated_answer": "Based on the provided documentation [dsid_799b6a0dd0f44b6c94f8e6998f2e3687], the verified operational procedure is documented in the source record.",
+      "retrieved_doc_ids": [
+        "dsid_799b6a0dd0f44b6c94f8e6998f2e3687",
+        "dsid_b7a1cd90e2624f30b66e2040ef943fdc",
+        "dsid_6b56bb2ad94e49f0930815f4060edd6b",
+        "dsid_67b1a01a28604af5acadd78715d5a124"
+      ],
+      "cited_doc_ids": [
+        "dsid_799b6a0dd0f44b6c94f8e6998f2e3687"
+      ],
+      "recall_at_5": 0.0,
+      "recall_at_20": 0.0,
+      "answer_correct": false,
+      "completeness_pct": 0.0,
+      "overall_score": 0.0,
+      "citation_validity_rate": 1.0,
+      "has_hallucinated_citations": false,
+      "is_abstention": false,
+      "has_contradiction": false,
+      "latency_ms": 12.0,
+      "cost_usd": 0.0,
+      "judge_explanation": "Deterministic evaluation: 0/2 facts addressed."
+    },
+    {
+      "question_id": "qst_0003",
+      "question_type": "basic",
+      "question": "What are the acceptance criteria for the project introducing an algorithm to generate interactive UI color states and a Kappa-style elevation scale for dense table and grid components?",
+      "gold_answer": "The acceptance criteria are: (1) deliver a stable design JSON token spec including the base palette, interactive derivative tokens (e.g., color.interactive.primary.hover), and elevation.kappa.0-6 with explicit shadow parameters; (2) land an implementation-ready tokens PR in the frontend repo, with DataGrid and Table consuming the new tokens behind a feature flag; (3) pass accessibility contrast checks for all interactive states (3:1 where applicable and 4.5:1 for primary actionable text); (4) add per-component visual regression snapshots/tolerances with no regressions beyond approved deltas; (5) update the Figma design kit with tokenized components and guidance notes; and (6) execute a rollout plan from internal canary on analytics dashboards to staged rollout and full migration with a fallback.",
+      "answer_facts": [
+        "Deliver a stable design JSON token spec that includes the base palette, interactive derivative tokens (for example color.interactive.primary.hover), and elevation.kappa.0-6 with explicit shadow parameters",
+        "Land an implementation-ready tokens PR in the frontend repo with DataGrid and Table consuming the new tokens behind a feature flag",
+        "Pass accessibility contrast checks for all interactive states, meeting 3:1 where applicable and 4.5:1 for primary actionable text",
+        "Add per-component visual regression snapshots and tolerances with no regressions beyond approved deltas",
+        "Update the Figma design kit with tokenized components and guidance notes",
+        "Execute a rollout plan from an internal canary on analytics dashboards to staged rollout and full migration with a fallback"
+      ],
+      "expected_doc_ids": [
+        "dsid_3fd6af404fae48e6b8ea5a57875ef78f"
+      ],
+      "generated_answer": "Based on the provided documentation [dsid_3fd6af404fae48e6b8ea5a57875ef78f], the verified operational procedure is documented in the source record.",
+      "retrieved_doc_ids": [
+        "dsid_3fd6af404fae48e6b8ea5a57875ef78f",
+        "dsid_c9daef44a723431d9411a977dc67d04d",
+        "dsid_20e420e48c2148c6b64611124911952e",
+        "dsid_64fca1c103ef41ec9ea8ae04e54216d0",
+        "dsid_b467a120ead34a62917ae3196ba14641"
+      ],
+      "cited_doc_ids": [
+        "dsid_3fd6af404fae48e6b8ea5a57875ef78f"
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_20": 1.0,
+      "answer_correct": false,
+      "completeness_pct": 0.0,
+      "overall_score": 0.0,
+      "citation_validity_rate": 1.0,
+      "has_hallucinated_citations": false,
+      "is_abstention": false,
+      "has_contradiction": false,
+      "latency_ms": 12.0,
+      "cost_usd": 0.0,
+      "judge_explanation": "Deterministic evaluation: 0/6 facts addressed."
+    },
+    {
+      "question_id": "qst_0433",
+      "question_type": "completeness",
+      "question": "What is Redwood Inference's end-to-end process for rotating secrets and credentials used by production services (including emergency rotation)?",
+      "gold_answer": "For planned rotation, the owning service team identifies the secret (Vault path) and **all consumers** via the Credential Dependencies inventory, confirms tier/cadence and access, then rotates using a repeatable pattern: preferably **dual-valid overlap** (generate new credential \u2192 write as a new Vault version without deleting old \u2192 deploy/update consumers to read latest and, if applicable, accept old+new \u2192 monitor auth/health for \u226530 minutes (\u226560 for Tier 0) \u2192 disable/deprecate the old credential at the issuer \u2192 remove the old Vault version after the overlap window, default 7 days) or, if overlap isn't possible, a **cutover** (scheduled change window \u2192 change issuer-side credential \u2192 immediately update Vault \u2192 restart/redeploy all consumers \u2192 validate/rollback if needed). After any rotation, they complete the verification checklist (ensure all rollouts/reloads completed, monitor auth/dependency metrics, run critical canaries, confirm audit logs and that any break-glass access is revoked) and record the event in a change record.\n\nFor **emergency rotation** (suspected compromise/exposure/anomalies), an incident is opened and \"emergency secret rotation\" is declared (secret names/paths only), break-glass may be used via the approved workflow for **time-limited (60 min)** Tier 0/1 rotate access with full audit logging; the IC/Security/SRE prioritize and rotate **Tier 0 then Tier 1**, selecting dual-valid where possible or cutover otherwise, updating issuer + Vault and restarting/redeploying all consumers, pausing to reassess if impact worsens, recording exact timestamps, then revoking break-glass immediately and documenting rotated secrets/services plus any follow-up rotations (derived/cached tokens) in the incident timeline and post-incident summary for Security review.",
+      "answer_facts": [
+        "For planned rotation, the owning service team identifies the secret (Vault path) and all consumers via the Credential Dependencies inventory.",
+        "For planned rotation, the owning service team confirms tier and cadence and access before rotating.",
+        "Preferred planned rotation method is dual-valid overlap: generate a new credential, write it as a new Vault version without deleting the old, deploy/update consumers to read the latest and if applicable accept both old and new, monitor authentication and service health for at least 30 minutes (at least 60 minutes for Tier 0), then disable or deprecate the old credential at the issuer, and remove the old Vault version after the overlap window (default 7 days).",
+        "If overlap is not possible, planned rotation uses a cutover: schedule a change window, change the credential at the issuer, immediately update Vault, restart or redeploy all consumers, and validate with rollback if needed.",
+        "After any rotation, the team completes a verification checklist that includes ensuring all rollouts/reloads completed, monitoring auth/dependency metrics, running critical canaries, confirming audit logs, and revoking any break-glass access.",
+        "After any rotation, the rotation event is recorded in a change record.",
+        "For emergency rotation (suspected compromise, exposure, or anomalies), an incident is opened and emergency secret rotation is declared using secret names/paths only.",
+        "During emergency rotation, break-glass access may be used via the approved workflow for time-limited (60 minute) Tier 0/1 rotate access with full audit logging.",
+        "During emergency rotation, IC/Security/SRE prioritize rotating Tier 0 then Tier 1.",
+        "During emergency rotation, they use dual-valid overlap where possible or cutover otherwise, update the issuer and Vault, and restart/redeploy all consumers.",
+        "During emergency rotation, they pause to reassess if impact worsens and record exact timestamps.",
+        "After emergency rotation, break-glass access is revoked immediately and the rotated secrets/services and any follow-up rotations (derived/cached tokens) are documented in the incident timeline and post-incident summary for Security review."
+      ],
+      "expected_doc_ids": [
+        "dsid_8c92178c254d467c9854db67aac7c9be",
+        "dsid_a898d2541b944cdebeec03ec9d9ba130",
+        "dsid_cf06e75be4f94156ac338f62e3ee028b",
+        "dsid_97b25b6f83c542e7b81d6504b5653dcb",
+        "dsid_3e991a24c7bc4e91b99eb5846b927558",
+        "dsid_74ebb73359364bc791707a92a3227e3a"
+      ],
+      "generated_answer": "Based on the provided documentation [dsid_8c92178c254d467c9854db67aac7c9be], the verified operational procedure is documented in the source record.",
+      "retrieved_doc_ids": [
+        "dsid_8c92178c254d467c9854db67aac7c9be",
+        "dsid_3e991a24c7bc4e91b99eb5846b927558",
+        "dsid_cf06e75be4f94156ac338f62e3ee028b",
+        "dsid_a898d2541b944cdebeec03ec9d9ba130",
+        "dsid_74ebb73359364bc791707a92a3227e3a"
+      ],
+      "cited_doc_ids": [
+        "dsid_8c92178c254d467c9854db67aac7c9be"
+      ],
+      "recall_at_5": 0.8333333333333334,
+      "recall_at_20": 0.8333333333333334,
+      "answer_correct": false,
+      "completeness_pct": 0.0,
+      "overall_score": 0.0,
+      "citation_validity_rate": 1.0,
+      "has_hallucinated_citations": false,
+      "is_abstention": false,
+      "has_contradiction": false,
+      "latency_ms": 12.0,
+      "cost_usd": 0.0,
+      "judge_explanation": "Deterministic evaluation: 0/12 facts addressed."
+    },
+    {
+      "question_id": "qst_0412",
+      "question_type": "conflicting_info",
+      "question": "For extraction, what price-normalization correctness is reported at temp=0.0 with strict JSON + canonicalization, and what earlier % is it compared to?",
+      "gold_answer": "The updated mini-results report ~96% price-normalization correctness at temp=0.0 when using strict JSON plus canonicalization rules; this is compared to an earlier ~89% figure from scratch runs that did not include canonicalization.",
+      "answer_facts": [
+        "The answer must state that the updated reported price-normalization correctness at temp=0.0 (with strict JSON + canonicalization rules) is ~96%.",
+        "The answer must state that this updated result is compared against an earlier ~89% figure.",
+        "The answer must attribute the improvement to adding canonicalization rules (e.g., stripping currency symbols), not to unrelated changes.",
+        "The answer must not claim the earlier result was ~96% or that the updated result was ~89%.",
+        "The answer must not introduce other percentages (e.g., 92%, 98%) as the reported temp=0.0 extraction normalization correctness."
+      ],
+      "expected_doc_ids": [
+        "dsid_89c0c31e220c4777b15c3c6ff0eff61d",
+        "dsid_a2bf755670ad44e09b42c11e9d73e5d3"
+      ],
+      "generated_answer": "Based on the provided documentation [dsid_a2bf755670ad44e09b42c11e9d73e5d3], the verified operational procedure is documented in the source record.",
+      "retrieved_doc_ids": [
+        "dsid_a2bf755670ad44e09b42c11e9d73e5d3",
+        "dsid_89c0c31e220c4777b15c3c6ff0eff61d",
+        "dsid_4d4185ecbd674e559f58ee3c080c52bd",
+        "dsid_fe96e08703eb49de94095bbb4b4d19bb"
+      ],
+      "cited_doc_ids": [
+        "dsid_a2bf755670ad44e09b42c11e9d73e5d3"
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_20": 1.0,
+      "answer_correct": false,
+      "completeness_pct": 0.0,
+      "overall_score": 0.0,
+      "citation_validity_rate": 1.0,
+      "has_hallucinated_citations": false,
+      "is_abstention": false,
+      "has_contradiction": false,
+      "latency_ms": 12.0,
+      "cost_usd": 0.0,
+      "judge_explanation": "Deterministic evaluation: 0/5 facts addressed."
+    },
+    {
+      "question_id": "qst_0386",
+      "question_type": "constrained",
+      "question": "In the Feb 2026 SEV-2 incident where the Dedicated autoscaler in us-west stopped scaling above minimum because its metrics query returned no data, what was the underlying cause and what hotfix restored scale-out?",
+      "gold_answer": "It was caused by a PromQL refactor that switched label matching from cluster_id to cluster, so clusters that only emitted cluster_id returned empty metrics and the autoscaler made no scale-out decisions. A hotfix restored compatibility by querying with the legacy label (and adding a fallback query when no series are returned), which resumed scale-out.",
+      "answer_facts": [
+        "The incident was caused by a PromQL refactor that changed label matching from cluster_id to cluster.",
+        "Clusters that only emitted the cluster_id label returned empty metrics after the refactor, so the autoscaler made no scale-out decisions and stayed at minimum.",
+        "A hotfix restored scale-out by querying using the legacy cluster_id label and adding a fallback query when no series were returned.",
+        "The answer must not attribute the Feb 2026 us-west stuck-at-min issue to autoscaler cooldown/stabilization window changes or capacity thrashing; that was the 2026-01-09 incident.",
+        "The answer must not say scale-out failed due to a GPU cloud quota ceiling or provisioning quota errors; that was a 2025-03-03 incident in eu-west.",
+        "The answer must not discuss an API Gateway 5xx surge, warm pool prewarm regression, hedged retries, or runtime watchdog restarts; that was a separate 2026-03-10 us-east-1 incident.",
+        "The answer must not claim the underlying cause was a control plane config schema rollout leading to cache-key cardinality/OOM; that was the 2026-02-07 P0 control plane outage."
+      ],
+      "expected_doc_ids": [
+        "dsid_5e65a1cb22b6464e9f36d0fa2d1f4317"
+      ],
+      "generated_answer": "Based on the provided documentation [dsid_5e65a1cb22b6464e9f36d0fa2d1f4317], the verified operational procedure is documented in the source record.",
+      "retrieved_doc_ids": [
+        "dsid_5e65a1cb22b6464e9f36d0fa2d1f4317",
+        "dsid_1fc82e3fc8a34c9fbffd8c2940c41434",
+        "dsid_8ed76c18586f47d890445df41ae09d3b",
+        "dsid_d10b65e9f2434c4fbc46c5b8adc23627"
+      ],
+      "cited_doc_ids": [
+        "dsid_5e65a1cb22b6464e9f36d0fa2d1f4317"
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_20": 1.0,
+      "answer_correct": false,
+      "completeness_pct": 0.0,
+      "overall_score": 0.0,
+      "citation_validity_rate": 1.0,
+      "has_hallucinated_citations": false,
+      "is_abstention": false,
+      "has_contradiction": false,
+      "latency_ms": 12.0,
+      "cost_usd": 0.0,
+      "judge_explanation": "Deterministic evaluation: 0/7 facts addressed."
+    },
+    {
+      "question_id": "qst_0472",
+      "question_type": "high_level",
+      "question": "What is the company's thesis about where competitive advantage shifts as LLM ecosystems expand?",
+      "gold_answer": "As LLM capabilities and open model ecosystems expand, competitive advantage shifts from model ownership to serving: latency, cost, reliability, deployment flexibility, and operational tooling.",
+      "answer_facts": [
+        "As LLM capabilities and open model ecosystems expand, competitive advantage shifts from model ownership to serving.",
+        "In the expanded LLM ecosystem, serving advantages include latency, cost, reliability, deployment flexibility, and operational tooling."
+      ],
+      "expected_doc_ids": [],
+      "generated_answer": "Based on the provided documentation [dsid_ff60e78a4dee42219c02220bd1d1b30c], the verified operational procedure is documented in the source record.",
+      "retrieved_doc_ids": [
+        "dsid_ff60e78a4dee42219c02220bd1d1b30c",
+        "dsid_d6f63f895961447792e2df8af10db8aa",
+        "dsid_06464e95b7cc44de8a9677f3260c336e",
+        "dsid_590868d5927a4567a026479e24cf3d2b"
+      ],
+      "cited_doc_ids": [
+        "dsid_ff60e78a4dee42219c02220bd1d1b30c"
+      ],
+      "recall_at_5": null,
+      "recall_at_20": null,
+      "answer_correct": false,
+      "completeness_pct": 0.0,
+      "overall_score": 0.0,
+      "citation_validity_rate": 1.0,
+      "has_hallucinated_citations": false,
+      "is_abstention": false,
+      "has_contradiction": false,
+      "latency_ms": 12.0,
+      "cost_usd": 0.0,
+      "judge_explanation": "Deterministic evaluation: 0/2 facts addressed."
+    },
+    {
+      "question_id": "qst_0482",
+      "question_type": "info_not_found",
+      "question": "What exact queue-depth threshold and prefill/decode interleaving-ratio cutoffs are currently configured in production to allow FP8 attention in **decode** on H100 hosted pools (i.e., the scheduler interaction guardrail mentioned in the FP8/INT8 kernel auto-selection heuristics)?",
+      "gold_answer": "The answer must state at some point that the query is not fully answerable from available documents or caveat the provided information with why it does not fully address the query. The answer may present relevant and related information to be helpful to the user however it must clearly also mention that at least some aspects are not found or answered. The answer may also simply state that the query is not answerable from the documents, this is perfectly acceptable.",
+      "answer_facts": [
+        "The answer must state at some point that the query is not fully answerable from available documents or caveat the provided information with why it does not fully address the query. The answer may present relevant and related information to be helpful to the user however it must clearly also mention that at least some aspects are not found or answered. The answer may also simply state that the query is not answerable from the documents, this is perfectly acceptable."
+      ],
+      "expected_doc_ids": [],
+      "generated_answer": "Based on the provided documentation [dsid_8be47e742d7c4ddaae9b7d73410df51a], the verified operational procedure is documented in the source record.",
+      "retrieved_doc_ids": [
+        "dsid_8be47e742d7c4ddaae9b7d73410df51a",
+        "dsid_be286e63a11445edaca7630db846442d",
+        "dsid_c2311f29aff1409285086c579f2cb14b",
+        "dsid_6890307583394b5e83c30a1cffcc171b"
+      ],
+      "cited_doc_ids": [
+        "dsid_8be47e742d7c4ddaae9b7d73410df51a"
+      ],
+      "recall_at_5": null,
+      "recall_at_20": null,
+      "answer_correct": false,
+      "completeness_pct": 0.0,
+      "overall_score": 0.0,
+      "citation_validity_rate": 1.0,
+      "has_hallucinated_citations": false,
+      "is_abstention": false,
+      "has_contradiction": false,
+      "latency_ms": 12.0,
+      "cost_usd": 0.0,
+      "judge_explanation": "Failed to abstain on an unanswerable query (hallucination risk)."
+    },
+    {
+      "question_id": "qst_0308",
+      "question_type": "intra_document_reasoning",
+      "question": "For the Praxis Health Redwood Private connectivity plan, what hybrid approach did Redwood recommend for a customer with both on-prem colo and AWS us-west-2, and when was the proposed 30-minute follow-up call scheduled?",
+      "gold_answer": "Redwood recommended a hybrid setup: use AWS PrivateLink for the control plane and scoped inference access, a peered ingress VPC in the Praxis AWS account for sustained low-latency/high-throughput traffic, and a site-to-site VPN to the on-prem colo for redundancy/backfill. The proposed 30-minute follow-up call was scheduled for Monday, Nov 22, 2026 at 10:00am PST.",
+      "answer_facts": [
+        "Redwood recommended using AWS PrivateLink for the control plane and scoped inference access.",
+        "Redwood recommended using a peered ingress VPC in the Praxis AWS account for sustained low latency and high throughput traffic.",
+        "Redwood recommended using a site to site VPN to the on prem colo for redundancy and backfill.",
+        "The proposed 30 minute follow up call was scheduled for Monday, Nov 22, 2026 at 10:00am PST."
+      ],
+      "expected_doc_ids": [
+        "dsid_a07c9545aad04538877d041a649400d9"
+      ],
+      "generated_answer": "Based on the provided documentation [dsid_a07c9545aad04538877d041a649400d9], the verified operational procedure is documented in the source record.",
+      "retrieved_doc_ids": [
+        "dsid_a07c9545aad04538877d041a649400d9",
+        "dsid_ac0de0336abb482bae3e4b7dc03e2f4b",
+        "dsid_b98e120329c4490190d34ce3c48384a2"
+      ],
+      "cited_doc_ids": [
+        "dsid_a07c9545aad04538877d041a649400d9"
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_20": 1.0,
+      "answer_correct": false,
+      "completeness_pct": 0.0,
+      "overall_score": 0.0,
+      "citation_validity_rate": 1.0,
+      "has_hallucinated_citations": false,
+      "is_abstention": false,
+      "has_contradiction": false,
+      "latency_ms": 12.0,
+      "cost_usd": 0.0,
+      "judge_explanation": "Deterministic evaluation: 0/4 facts addressed."
+    },
+    {
+      "question_id": "qst_0455",
+      "question_type": "miscellaneous",
+      "question": "Are sneakers acceptable for the first few weeks of the company summer softball league, or do we need cleats right away?",
+      "gold_answer": "Sneakers are acceptable for the first few weeks; cleats are optional and not required right away.",
+      "answer_facts": [
+        "Sneakers are acceptable for the first few weeks of the company summer softball league",
+        "Cleats are optional and not required right away"
+      ],
+      "expected_doc_ids": [
+        "dsid_a5503307a8bc45d1b2155968543598df"
+      ],
+      "generated_answer": "Based on the provided documentation [dsid_a5503307a8bc45d1b2155968543598df], the verified operational procedure is documented in the source record.",
+      "retrieved_doc_ids": [
+        "dsid_a5503307a8bc45d1b2155968543598df",
+        "dsid_70fffe7de6d545bcbbc47b448b17164d",
+        "dsid_0714b09be5344489884cc5ee734e5f25",
+        "dsid_7d9551aa21124d70b0e247c390d88622"
+      ],
+      "cited_doc_ids": [
+        "dsid_a5503307a8bc45d1b2155968543598df"
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_20": 1.0,
+      "answer_correct": false,
+      "completeness_pct": 0.0,
+      "overall_score": 0.0,
+      "citation_validity_rate": 1.0,
+      "has_hallucinated_citations": false,
+      "is_abstention": false,
+      "has_contradiction": false,
+      "latency_ms": 12.0,
+      "cost_usd": 0.0,
+      "judge_explanation": "Deterministic evaluation: 0/2 facts addressed."
+    },
+    {
+      "question_id": "qst_0351",
+      "question_type": "project_related",
+      "question": "If Console shows a canary step change to a lower percentage but one region keeps serving the old split, how do we tell whether it is cohorting key behavior, router version skew, or stale config propagation, and what is the recommended mitigation?",
+      "gold_answer": "First confirm the control-plane target: fetch rollout from orchestrator (current step %) and compare to observed canary % per region over a 10-15m window. Then check the data plane in the affected region: (1) If router decision logs show configured_canary_percent still equals the old step (even though Console/orchestrator shows the lower %), it's stale config propagation (often watch disconnect / cache); verify per-region route config version/last-applied age and fix by forcing a router config resync/rolling restart in that region (or re-apply/reconcile), and pause/rollback if safety is at risk. (2) If configured_canary_percent matches the new lower % but the region's split stays biased, inspect router logs for cohort_key_source/cohort_key_present/fallback_source/hash_seed: missing stable key causing fallback (e.g., request_id/UUID gives correct aggregate % but no stickiness; legacy IP/route-only seed indicates wrong/old cohorting behavior). (3) If only one region shows legacy cohorting fields/behavior or different hash seed/fallback order, check router build/version by region; that's router version skew-mitigate by redeploying/rolling forward that region to the minimum router version, and optionally set canary_pct=0 for that region as immediate containment. Recommended mitigation when unsure: pause rollout; if any chance of overexposing canary, rollback to baseline; use kill switch only if normal pause/rollback cannot take effect. Longer-term: ensure routers have watchdog + periodic resync and recommend customers send X-Redwood-Cohort-Key or Idempotency-Key (and region affinity if needed) to make cohorting predictable.",
+      "answer_facts": [
+        "Confirm the control-plane target by fetching the rollout step percent from the orchestrator and comparing it to the observed canary percent per region over a 10 to 15 minute window.",
+        "If router decision logs in the affected region show configured_canary_percent still equals the old step while Console or orchestrator shows the lower percent, the issue is stale config propagation in that region.",
+        "To validate stale config propagation, check the per-region route config version and last-applied age in the affected region.",
+        "Mitigate stale config propagation by forcing a router config resync or doing a rolling restart in that region (or re-apply and reconcile), and pause or rollback if safety is at risk.",
+        "If configured_canary_percent matches the new lower percent but the region split remains biased, investigate cohorting key behavior rather than config propagation.",
+        "Diagnose cohorting key issues by inspecting router logs for cohort key source and presence, fallback source, and hash seed, looking for missing stable keys causing fallback or legacy cohorting behavior.",
+        "If only one region shows legacy cohorting fields or behavior or a different hash seed or fallback order, the likely cause is router version skew across regions.",
+        "Mitigate router version skew by redeploying or rolling forward the affected region to the minimum router version, and optionally set canary percent to 0 in that region for immediate containment.",
+        "When the cause is unclear, the recommended mitigation is to pause the rollout and rollback to baseline if there is any chance of overexposing canary.",
+        "Use a kill switch only if normal pause or rollback cannot take effect.",
+        "Longer term, ensure routers have watchdog plus periodic resync, and recommend clients send a stable cohort key header such as X-Redwood-Cohort-Key or Idempotency-Key to make cohorting predictable."
+      ],
+      "expected_doc_ids": [
+        "dsid_150b485e7fd54251b937ab3d08a850dc",
+        "dsid_8ae540be8e4c458ca15e122040ea2418",
+        "dsid_8c24fd15fe5b473eb71341751d292b6e",
+        "dsid_94f568e4161d4d78b0db60af2b611746"
+      ],
+      "generated_answer": "Based on the provided documentation [dsid_8ae540be8e4c458ca15e122040ea2418], the verified operational procedure is documented in the source record.",
+      "retrieved_doc_ids": [
+        "dsid_8ae540be8e4c458ca15e122040ea2418",
+        "dsid_94f568e4161d4d78b0db60af2b611746",
+        "dsid_4c78776193c24ecba95a113641358565",
+        "dsid_150b485e7fd54251b937ab3d08a850dc"
+      ],
+      "cited_doc_ids": [
+        "dsid_8ae540be8e4c458ca15e122040ea2418"
+      ],
+      "recall_at_5": 0.75,
+      "recall_at_20": 0.75,
+      "answer_correct": false,
+      "completeness_pct": 0.0,
+      "overall_score": 0.0,
+      "citation_validity_rate": 1.0,
+      "has_hallucinated_citations": false,
+      "is_abstention": false,
+      "has_contradiction": false,
+      "latency_ms": 12.0,
+      "cost_usd": 0.0,
+      "judge_explanation": "Deterministic evaluation: 0/11 facts addressed."
+    },
+    {
+      "question_id": "qst_0179",
+      "question_type": "semantic",
+      "question": "What caused an enterprise tenant in Western Europe to suddenly get routed to a Southeast Asia edge during a short mid March 2026 load spike on the vectorization service, adding about 200ms and triggering ingestion timeouts, even though the tenant was supposed to stay in Europe?",
+      "gold_answer": "A transient control-plane heartbeat lag delayed the tenant's residency-stamp refresh under high concurrent embedding load, causing the stamp to be treated as stale and triggering fallback routing. Combined with EU-edge NAT/DNS rebinds and brief EU auth timeouts, the edge selected the \"nearest healthy edge\" bucket-which included ap-southeast-so some requests were routed to Southeast Asia, adding ~220 ms RTT and causing ingestion timeouts.",
+      "answer_facts": [
+        "A transient control-plane heartbeat lag occurred during high concurrent embedding load.",
+        "The heartbeat lag delayed the tenants residency-stamp refresh.",
+        "The delayed refresh caused the residency stamp to be treated as stale and triggered fallback routing.",
+        "EU-edge NAT or DNS rebinds and brief EU authentication timeouts also occurred during the event.",
+        "Because of these issues, routing selected a nearest healthy edge bucket that included ap-southeast.",
+        "Some requests from the Western Europe tenant were routed to a Southeast Asia edge.",
+        "The Southeast Asia routing added about 200 ms (about 220 ms RTT) latency and caused ingestion timeouts."
+      ],
+      "expected_doc_ids": [
+        "dsid_a0f25cffcb264f0ea6eba5e501de0e08"
+      ],
+      "generated_answer": "Based on the provided documentation [dsid_a0f25cffcb264f0ea6eba5e501de0e08], the verified operational procedure is documented in the source record.",
+      "retrieved_doc_ids": [
+        "dsid_a0f25cffcb264f0ea6eba5e501de0e08",
+        "dsid_ed6e9eb39733486fbeea3ae01a208352",
+        "dsid_687abede67f7432da7c372c9fabc9b47",
+        "dsid_9c41939482f043b98382d3c91d6d78c8"
+      ],
+      "cited_doc_ids": [
+        "dsid_a0f25cffcb264f0ea6eba5e501de0e08"
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_20": 1.0,
+      "answer_correct": false,
+      "completeness_pct": 0.0,
+      "overall_score": 0.0,
+      "citation_validity_rate": 1.0,
+      "has_hallucinated_citations": false,
+      "is_abstention": false,
+      "has_contradiction": false,
+      "latency_ms": 12.0,
+      "cost_usd": 0.0,
+      "judge_explanation": "Deterministic evaluation: 0/7 facts addressed."
+    }
+  ]
+}

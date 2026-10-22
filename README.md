@@ -32,7 +32,7 @@ To maintain strict technical clarity between the completed foundation and planne
 | **Structure-Aware Markdown & Transcript Chunking (P1.3)** | **Implemented** | `ingestion/chunker.py`, `ingestion/pipeline.py` |
 | **Qdrant Dense (`BGE-small-en-v1.5`) + Sparse (`BM25` IDF) Indexing (P1.4)** | **Implemented** | `retrieval/indexer.py` |
 | **BM25 vs. Dense vs. Hybrid RRF Benchmark & Diagnostics (P1.5)** | **Implemented** | `retrieval/benchmark_p1.py`, `evaluation/inspect_p1_checks.py` |
-| **Grounded Answer Generation, Citations & Abstention (Phase 2)** | *Planned* | Not yet implemented |
+| **Baseline Grounded Text RAG System (Phase 2)** | **Implemented** | `rag/pipeline.py`, `rag/cli.py`, `evaluation/eval_rag.py` |
 | **Multi-Hop Investigation, Conflict Resolution & Entity Graph (Phase 3)** | *Planned* | Not yet implemented |
 | **Real-Time Streaming Voice Interface — STT / TTS / LiveKit (Phase 4–5)** | *Planned* | Not yet implemented |
 
@@ -201,7 +201,52 @@ Verified from `evaluation/reports/p1_retrieval_benchmark_dev.json`:
 
 ---
 
-## 9. Repository Structure
+## 9. Phase 2: Baseline Grounded Text RAG System
+
+Phase 2 implements the complete end-to-end question-answering architecture on top of the Phase 0 and Phase 1 foundations:
+
+```mermaid
+flowchart LR
+    Q["User Query"] --> R["Retriever (P1.4)\nBM25 (Default) / Dense / Hybrid"]
+    R --> CS["Top-K Candidate Chunks\n(e.g. top-20 docs)"]
+    CS --> CB["Context Builder (P2)\nMulti-Doc Balancing & Token Budget\n(rag/context_builder.py)"]
+    CB --> GP["Grounded Prompt\n[Evidence Passages + Provenance]\n(rag/generator.py)"]
+    GP --> LLM["LLM Client\nOpenAI / Groq / MockLLM\n(rag/llm.py)"]
+    LLM --> CV["Citation Validator (P2)\nDeterministic [dsid_...] Matcher\n(rag/citation_validator.py)"]
+    CV --> OUT["Structured RAGAnswer\nAnswer + Valid Citations + Abstention Flag\n(rag/pipeline.py)"]
+```
+
+### Core Architecture and Implemented Modules
+
+1. **Evidence Selection and Token Budgeting (`rag/context_builder.py`):**
+   - Implements multi-document balancing: guarantees candidate slots are distributed across distinct parent documents before packing multiple chunks of the same document (`max_chunks_per_doc=2`).
+   - Enforces a strict, configurable token budget (`max_context_tokens=2500`) using the BGE tokenizer. Never truncates mid-passage.
+   - Formats each passage with full provenance breadcrumbs: `[Evidence Passage N | Doc ID: dsid_... | Chunk ID: ... | Source: ... | Title: ... | Date: ...]`.
+
+2. **Replaceable LLM Provider Interface (`rag/llm.py`):**
+   - `BaseLLMClient`: standard abstraction for text generation, token accounting, latency measurement, and cost estimation.
+   - `OpenAICompatibleLLM`: lightweight client using `httpx` compatible with OpenAI (`gpt-4o-mini`), Groq (`llama-3.1-8b-instant`), Ollama, and vLLM. Reads `OPENAI_API_KEY` or `GROQ_API_KEY` from environment.
+   - `MockLLM`: fully deterministic mock provider enabling all unit and integration tests and offline evaluation without paid API calls or network access.
+
+3. **Grounded Generation and Abstention (`rag/generator.py`):**
+   - Grounding rules: the model is strictly constrained to the supplied evidence passages.
+   - Mandatory citations: every substantive factual statement must be cited with `[dsid_...]`.
+   - Missing information & abstention: automated regex detection (`detect_abstention`) for queries where evidence is absent.
+   - Contradiction handling: automated detection (`detect_contradiction`) when retrieved documents disagree.
+
+4. **Deterministic Citation Validation (`rag/citation_validator.py`):**
+   - Deterministically extracts `[dsid_...]`, `[dsid_...__c000]`, and `[Passage N]` citations.
+   - Verifies each citation against the exact documents supplied in the context.
+   - Computes `citation_precision` and separates hallucinated citations from answer correctness.
+
+5. **Evaluation Benchmark Runner (`evaluation/eval_rag.py`):**
+   - Implements official EnterpriseRAG-Bench scoring ($Overall\ Score = Correctness \times Completeness$).
+   - Evaluates Gold Document Recall@5 and Recall@20, Citation Validity Rate, Abstention Accuracy, and Latency.
+   - Serializes comprehensive JSON reports to `evaluation/reports/`.
+
+---
+
+## 10. Repository Structure
 
 ```text
 .
@@ -236,26 +281,56 @@ Verified from `evaluation/reports/p1_retrieval_benchmark_dev.json`:
 │   ├── indexer.py                                 # P1.4: Qdrant Dense (BGE) + Sparse (BM25 IDF)
 │   └── benchmark_p1.py                            # P1.5: Full 193-question dev benchmark runner
 │
+├── rag/
+│   ├── __init__.py
+│   ├── context_builder.py                         # P2: Evidence balancing & token budgeting
+│   ├── citation_validator.py                      # P2: Deterministic citation & claim validation
+│   ├── llm.py                                     # P2: Replaceable LLM client (OpenAI, Groq, Mock)
+│   ├── generator.py                               # P2: Grounded synthesis & abstention detection
+│   ├── pipeline.py                                # P2: End-to-end modular RAG pipeline
+│   └── cli.py                                     # P2: Interactive CLI and eval command
+│
+├── voice/
+│   ├── __init__.py
+│   └── voice_pipeline.py                          # Voice RAG: Groq Whisper STT -> RAG -> Streaming TTS
+│
 ├── evaluation/
 │   ├── __init__.py
 │   ├── metrics.py                                 # P0.4: Recall@K, Hit@K, MRR@K, InvalidExtraDocs
 │   ├── inspect_p1_checks.py                       # P1.5: 7-point diagnostic CLI & mode comparison
+│   ├── eval_rag.py                                # P2: Answer correctness & completeness benchmark
+│   ├── run_retrieval_experiments.py               # Step 2-3: K=40 & parent-document diversity ablation
+│   ├── benchmark_retrieval_full_dev.py            # Full 193-question BM25 vs Hybrid (K=20 vs K=40+Div)
+│   ├── run_milestone_1_2_evaluation.py            # Milestone 1.2 controlled downstream RAG evaluation
+│   ├── compare_groq_models.py                     # Head-to-head Groq model comparison (120B vs 27B vs 20B)
+│   ├── benchmark_fast_model.py                    # Streaming TTFT & quality benchmark (20B vs 120B)
+│   ├── measure_voice_ttfa.py                      # End-to-end Voice RAG Time-to-First-Audio (TTFA) runner
 │   └── reports/
-│       └── p1_retrieval_benchmark_dev.json        # Full 193-question dev benchmark report
+│       ├── p1_retrieval_benchmark_dev.json        # Phase 1 193-question dev benchmark report
+│       ├── full_dev_retrieval_comparison.json     # Full 193-question K=20 vs K=40+Diversity comparison
+│       ├── retrieval_experiments_report.json      # Step 2-3 retrieval optimization & diversity report
+│       ├── milestone_1_1_evaluation.json          # Milestone 1.1 baseline RAG evaluation report
+│       ├── milestone_1_2_evaluation.json          # Milestone 1.2 conflict/completeness RAG report
+│       ├── groq_model_comparison_30q.json         # Groq LLM comparison report
+│       ├── p2_rag_eval_bm25_20q.json              # Phase 2 BM25 RAG evaluation report (deterministic)
+│       ├── p2_rag_eval_hybrid_20q.json            # Phase 2 Hybrid RAG evaluation report (deterministic)
+│       └── voice_ttfa_report.json                 # End-to-end Voice RAG stage latency & TTFA baseline
 │
 └── tests/
     ├── test_p0_pipeline.py                        # P0 manifest, zero-leakage split & subset tests
     ├── test_metrics.py                            # Unit tests for retrieval & answer score metrics
     ├── test_ingestion.py                          # Duplicate-ID, empty-field, metadata & chunk tests
     ├── test_retrieval.py                          # Idempotent indexing & 3-mode retrieval smoke test
-    └── test_diagnostics.py                        # Stratified sampling & failure-label unit tests
+    ├── test_diagnostics.py                        # Stratified sampling & failure-label unit tests
+    ├── test_rag_pipeline.py                       # P2 RAG, token budget, citation & conflict tests
+    └── test_voice_pipeline.py                     # Voice STT/TTS sanitization & TTFA pipeline tests
 ```
 
 ---
 
 ## 10. Environment Setup and Dependencies
 
-Requires **Python 3.11+**. No external API keys or Docker containers are required for Phase 0 or Phase 1.
+Requires **Python 3.11+**. No external API keys or Docker containers are required for Phase 0, Phase 1, or deterministic `MockLLM` testing. Live LLM generation and Groq Whisper STT read `GROQ_API_KEY` or `OPENAI_API_KEY` from `.env` (never committed).
 
 ```bash
 # 1. Clone the repository
@@ -271,7 +346,7 @@ pip install --upgrade pip
 pip install -e ".[dev]"
 ```
 
-Core dependencies (defined in `pyproject.toml`): `pyarrow`, `pandas`, `duckdb`, `numpy`, `qdrant-client`, `fastembed`, `rank-bm25`, `torch`, `transformers`, and `pytest`.
+Core dependencies (defined in `pyproject.toml`): `pyarrow`, `pandas`, `duckdb`, `numpy`, `httpx`, `qdrant-client`, `fastembed`, `rank-bm25`, `torch`, `transformers`, and `pytest`.
 
 ---
 
@@ -317,7 +392,7 @@ curl -L https://huggingface.co/datasets/onyx-dot-app/EnterpriseRAG-Bench/resolve
 
 ## 12. Test and Diagnostic Commands
 
-### Run the Automated Test Suite (19 Tests)
+### Run the Automated Test Suite (47 Tests Across 7 Test Files)
 ```bash
 .venv/bin/pytest -v
 ```
@@ -343,7 +418,67 @@ curl -L https://huggingface.co/datasets/onyx-dot-app/EnterpriseRAG-Bench/resolve
 
 ---
 
-## 13. Data, Model, Index, and Benchmark Artifact Handling
+## 13. Phase 2 Retrieval Optimization, Grounded RAG, and Voice TTFA Baselines
+
+### 13.1 Full-Dev Retrieval Optimization (`K=40` + Parent Diversity)
+Recorded in `evaluation/reports/full_dev_retrieval_comparison.json` and `evaluation/reports/retrieval_experiments_report.json` across all 193 dev questions (178 with gold documents):
+
+| Retrieval Configuration | Recall@5 | Recall@10 | Recall@20 | Recall@40 | Hit@10 | MRR@10 | 13 Hard Failures Mean Recall | Duplicate Chunk Rate |
+| :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| **BM25 (`K=20` Baseline)** | 82.64% | 91.77% | **94.03%** | 94.03% | **93.82%** | **83.53%** | 18.30% | 0.09% |
+| **BM25 (`K=40` + Diversity)** | 82.64% | 91.77% | **94.03%** | **95.28%** | **93.82%** | **83.53%** | 35.31% | **0.00%** |
+| **Hybrid (`K=20` Baseline)** | **85.18%** | 89.04% | 92.98% | 92.98% | 91.57% | 81.94% | 24.07% | — |
+| **Hybrid (`K=40` + Diversity)** | **85.18%** | 89.04% | 92.98% | **95.30%** | 91.57% | 81.94% | **35.63%** | **0.00%** |
+
+- Expanding the parent candidate pool to `top_k_docs=40` (`candidate_chunk_limit=160`) with parent-document diversity (`max_chunks_per_doc=3`, Jaccard near-duplicate threshold `0.70`) eliminates duplicate chunks completely (`0.00%`) and nearly doubles gold recall on the 13 hardest Phase 1 failure queries (`18.30%` $\rightarrow$ `35.63%`), while Hybrid achieves the highest overall `Recall@5` (`85.18%`) and `Recall@40` (`95.30%`).
+
+### 13.2 Grounded Answer Generation & Conflict/Completeness Verification
+Recorded in `evaluation/reports/milestone_1_1_evaluation.json` and `evaluation/reports/milestone_1_2_evaluation.json`:
+- **Milestone 1.1 Baseline (`5` stratified queries, `openai/gpt-oss-120b`):** `80.0%` Overall Score, `80.0%` Answer Correctness, `85.45%` Completeness, and `100.0%` Citation ID Validity.
+- **Milestone 1.2 Stress-Test (`11` hard queries including multi-doc completeness, supersession conflicts, and rank-cutoff cases):**
+  - **Citation ID Validity:** `100.0%` (zero hallucinated document IDs).
+  - **Conflict & Supersession Resolution (`qst_0427`):** `100.0%` score — accurately identifies the authoritative Confluence policy (`SHA-256` hex digest, Tuesday `07:00 PT`) and explicitly labels the earlier June 2027 Gmail draft as superseded with aligned per-claim citations.
+  - **Multi-Document Completeness (`4` queries, up to `10` gold docs):** `86.36%` completeness & overall score.
+  - **Unanswerable Abstention (`info_not_found`):** `100.0%` abstention accuracy without speculation.
+
+### 13.3 End-to-End Voice RAG Latency & Time-to-First-Audio (TTFA) Baseline
+Recorded in `evaluation/reports/voice_ttfa_report.json` via `voice/voice_pipeline.py` and `evaluation/measure_voice_ttfa.py`:
+- **Pipeline:** Spoken Audio (`.aiff`/`.wav`) $\rightarrow$ Groq Whisper (`whisper-large-v3-turbo`) $\rightarrow$ BM25 (`K=40` + Diversity) $\rightarrow$ Balanced `ContextBuilder` $\rightarrow$ Streaming `openai/gpt-oss-20b` $\rightarrow$ Streaming TTS (`StreamingTTS` with citation/markdown sanitization).
+
+| Stage | Measured Latency (ms) | Notes |
+| :--- | ---: | :--- |
+| **1. Speech-to-Text (STT)** | `381.46 ms` | Groq `whisper-large-v3-turbo` |
+| **2. Retrieval (`BM25 K=40 + Div`)** | `1555.15 ms` | 34,354 chunks $\rightarrow$ 40 diverse parent docs |
+| **3. Context Assembly** | `10.34 ms` | Token-budgeted (`2500` tokens) + conflict date sorting |
+| **4. LLM Time-to-First-Token (TTFT)** | `1518.38 ms` | Streaming `openai/gpt-oss-20b` SSE |
+| **5. First-Chunk TTS Synthesis** | `1516.39 ms` | Sanitized speech synthesis |
+| **Total Time-to-First-Audio (TTFA)** | **`5065.04 ms`** | Spoken query input to first synthesized audio output |
+| **Total End-to-End (E2E)** | **`5236.15 ms`** | Complete multi-doc conflict-resolved response |
+
+### 13.4 Phase 2 & Voice CLI Usage
+```bash
+# 1. Ask a single question (BM25 default)
+.venv/bin/python3 -m rag.cli --query "What are the default size limits for file uploads and total request size for multipart uploads?"
+
+# 2. Ask with Hybrid retrieval and verbose debug inspection
+.venv/bin/python3 -m rag.cli \
+  --query "What is the procedure for an emergency rollback of a Serving Runtime release?" \
+  --mode hybrid \
+  --debug
+
+# 3. Ask without paid API keys (Deterministic MockLLM)
+.venv/bin/python3 -m rag.cli \
+  --query "What are the default size limits for file uploads?" \
+  --provider mock \
+  --debug
+
+# 4. Run end-to-end Voice RAG TTFA benchmark
+.venv/bin/python3 -m evaluation.measure_voice_ttfa
+```
+
+---
+
+## 14. Data, Model, Index, and Benchmark Artifact Handling
 
 To keep the Git repository lightweight and reproducible across machines, `.gitignore` enforces a strict separation between **tracked reproducibility manifests** and **untracked large binary artifacts**:
 
@@ -354,7 +489,8 @@ To keep the Git repository lightweight and reproducible across machines, `.gitig
 | `data/subsets/subset_manifest.json` | 1.9 KB | **Yes** | Provenance breakdown for `corpus_dev_10k` and `12k` subsets |
 | `data/ingested/dev_10k/ingestion_manifest.json` | 1.5 KB | **Yes** | Chunking config (`2000`/`200`), metadata counts, output SHA-256s |
 | `data/ingested/dev_10k/index_manifest.json` | 358 B | **Yes** | Embedding models (`BAAI/bge-small-en-v1.5`, `Qdrant/bm25`), point count |
-| `evaluation/reports/p1_retrieval_benchmark_dev.json` | 30.4 KB | **Yes** | Complete 193-question dev benchmark report across all 3 modes |
+| `evaluation/reports/*.json` | 1–800 KB | **Yes** | Preserved Phase 1, Phase 2, Retrieval Optimization, and Voice TTFA reports |
+| `.env` | Local | **No** | Never committed; template provided in `.env.example` |
 | `EnterpriseRAG-Bench/data/**/*.parquet` | 1.41 GB | **No** | Raw upstream Hugging Face dataset (download in Step 1) |
 | `data/splits/*.parquet` | ~350 KB | **No** | Regenerated deterministically via `python -m data.split_questions` |
 | `data/subsets/*.parquet` | ~63 MB | **No** | Regenerated deterministically via `python -m data.build_subset` |
@@ -363,10 +499,10 @@ To keep the Git repository lightweight and reproducible across machines, `.gitig
 
 ---
 
-## 14. Roadmap
+## 15. Roadmap
 
-- **Phase 2 — Baseline Grounded Text RAG & Evaluation:**
-  - Sibling-chunk / parent-document context assembly, weighted RRF / cross-encoder reranking calibration, grounded answer generation with inline `[doc_id]` citations, evidence-based abstention on `info_not_found`, and LLM-as-a-judge evaluation (`Answer Correctness` and `Answer Completeness`).
+- **Phase 2 — Baseline Grounded Text RAG & Evaluation (Completed):**
+  - Modular end-to-end pipeline, evidence balancing and token budgeting, OpenAI/Groq/Mock client, grounded generation with inline `[doc_id]` citations, deterministic citation validation, missing-information abstention, and official benchmark evaluation suite.
 - **Phase 3 — Multi-Hop Investigation, Conflict Resolution & Optional Entity Graph:**
   - Query decomposition for `project_related` and `completeness` queries, iterative retrieval following extracted `ticket_ids` / `slack_channels`, explicit timestamp-aware contradiction reporting on `conflicting_info`, and controlled ablation of a lightweight `NetworkX` entity/reference graph.
 - **Phase 4 — Real-Time Voice Interface:**
@@ -376,7 +512,7 @@ To keep the Git repository lightweight and reproducible across machines, `.gitig
 
 ---
 
-## 15. License and Dataset Attribution
+## 16. License and Dataset Attribution
 
 - **Repository License:** MIT License.
 - **Dataset Attribution:** This project uses the [**EnterpriseRAG-Bench**](https://huggingface.co/datasets/onyx-dot-app/EnterpriseRAG-Bench) dataset created by **Onyx** (`onyx-dot-app`), released under the **MIT License**:

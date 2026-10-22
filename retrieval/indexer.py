@@ -17,6 +17,7 @@ Supports three distinct, independently testable retrieval modes on the same inde
 
 from __future__ import annotations
 
+import re
 import time
 import uuid
 from dataclasses import asdict, dataclass
@@ -41,6 +42,15 @@ RetrievalMode = Literal["bm25", "dense", "hybrid"]
 def deterministic_point_uuid(chunk_id: str) -> str:
     """Generate a deterministic UUIDv5 from chunk_id so re-indexing is idempotent."""
     return str(uuid.uuid5(uuid.NAMESPACE_OID, f"enterpriserag_chunk:{chunk_id}"))
+
+
+def _jaccard_similarity(text1: str, text2: str) -> float:
+    """Fast word-level Jaccard similarity for near-duplicate chunk detection."""
+    words1 = set(re.findall(r"\b\w{3,}\b", text1.lower()))
+    words2 = set(re.findall(r"\b\w{3,}\b", text2.lower()))
+    if not words1 or not words2:
+        return 0.0
+    return len(words1.intersection(words2)) / len(words1.union(words2))
 
 
 @dataclass
@@ -383,14 +393,40 @@ class EnterpriseRetriever:
         top_k_docs: int = 20,
         chunk_oversample_factor: int = 4,
         source_types: Optional[Sequence[str]] = None,
+        diversity_filter: bool = False,
+        max_chunks_per_doc: int = 3,
+        near_duplicate_threshold: float = 0.70,
     ) -> Tuple[List[str], List[RetrievedChunk]]:
-        """Retrieve unique parent doc_ids ordered by best chunk score, plus top chunks."""
+        """Retrieve unique parent doc_ids ordered by best chunk score, plus top chunks.
+
+        When diversity_filter=True (Experiment B), caps sibling chunks per document in
+        the candidate stream and suppresses near-duplicate chunks (Jaccard >= 0.70)
+        to prevent redundant passages from crowding out distinct parent documents.
+        """
         chunks = self.retrieve_chunks(
             query=query,
             mode=mode,
             top_k_chunks=top_k_docs * chunk_oversample_factor,
             source_types=source_types,
         )
+
+        if diversity_filter:
+            filtered_chunks: List[RetrievedChunk] = []
+            doc_counts: Dict[str, int] = {}
+            for ch in chunks:
+                cnt = doc_counts.get(ch.doc_id, 0)
+                if cnt >= max_chunks_per_doc:
+                    continue
+                is_dup = False
+                for ex in [c for c in filtered_chunks if c.doc_id == ch.doc_id]:
+                    if _jaccard_similarity(ch.chunk_text, ex.chunk_text) >= near_duplicate_threshold:
+                        is_dup = True
+                        break
+                if not is_dup:
+                    filtered_chunks.append(ch)
+                    doc_counts[ch.doc_id] = cnt + 1
+            chunks = filtered_chunks
+
         seen_docs = set()
         ordered_doc_ids: List[str] = []
         for ch in chunks:

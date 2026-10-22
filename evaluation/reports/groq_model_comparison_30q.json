@@ -1,0 +1,327 @@
+{
+  "timestamp": "2026-10-21 22:05:29",
+  "sample_size": 5,
+  "summary": {
+    "openai/gpt-oss-120b": {
+      "num_questions": 5,
+      "overall_score": 40.0,
+      "answer_correct_pct": 40.0,
+      "completeness_pct": 65.0,
+      "citation_precision_pct": 100.0,
+      "hallucinated_citation_count": 0,
+      "abstention_accuracy_pct": 0.0,
+      "contradiction_accuracy_pct": 0.0,
+      "mean_latency_ms": 2826.8
+    },
+    "qwen/qwen3.8-27b": {
+      "num_questions": 5,
+      "overall_score": 40.0,
+      "answer_correct_pct": 40.0,
+      "completeness_pct": 69.0,
+      "citation_precision_pct": 100.0,
+      "hallucinated_citation_count": 0,
+      "abstention_accuracy_pct": 0.0,
+      "contradiction_accuracy_pct": 0.0,
+      "mean_latency_ms": 7990.9
+    },
+    "openai/gpt-oss-20b": {
+      "num_questions": 5,
+      "overall_score": 40.0,
+      "answer_correct_pct": 40.0,
+      "completeness_pct": 65.0,
+      "citation_precision_pct": 80.0,
+      "hallucinated_citation_count": 0,
+      "abstention_accuracy_pct": 0.0,
+      "contradiction_accuracy_pct": 0.0,
+      "mean_latency_ms": 1300.8
+    }
+  },
+  "results": {
+    "openai/gpt-oss-120b": [
+      {
+        "question_id": "qst_0001",
+        "question_type": "basic",
+        "model": "openai/gpt-oss-120b",
+        "answer_text": "The default limits are:\n\n* **Per\u2011file (per\u2011part) size:**\u202f10\u202fMiB (\u224810\u202fMB)\u202f[dsid_c0e4ca5e29da45858056f1da8eb45009]  \n* **Total request payload size:**\u202f50\u202fMiB (\u224850\u202fMB)\u202f[dsid_ae068ee4aa9640159427cd941bef0238]",
+        "answer_correct": true,
+        "completeness_pct": 100.0,
+        "overall_score": 100.0,
+        "cited_doc_ids": [
+          "dsid_c0e4ca5e29da45858056f1da8eb45009",
+          "dsid_ae068ee4aa9640159427cd941bef0238"
+        ],
+        "citation_precision": 1.0,
+        "has_hallucinated_citations": false,
+        "is_abstention": false,
+        "has_contradiction": false,
+        "latency_ms": 1641.6,
+        "judge_explanation": "Deterministic evaluation: 2/2 positive facts addressed."
+      },
+      {
+        "question_id": "qst_0016",
+        "question_type": "basic",
+        "model": "openai/gpt-oss-120b",
+        "answer_text": "The playbook specifies that contractor access is automatically set to expire after **30\u202fdays** by default (unless it is renewed).\u202f[dsid_ba7d1565b0694e359983bccaa4bf5977]",
+        "answer_correct": true,
+        "completeness_pct": 100.0,
+        "overall_score": 100.0,
+        "cited_doc_ids": [
+          "dsid_ba7d1565b0694e359983bccaa4bf5977"
+        ],
+        "citation_precision": 1.0,
+        "has_hallucinated_citations": false,
+        "is_abstention": false,
+        "has_contradiction": false,
+        "latency_ms": 1041.5,
+        "judge_explanation": "Deterministic evaluation: 1/1 positive facts addressed."
+      },
+      {
+        "question_id": "qst_0133",
+        "question_type": "basic",
+        "model": "openai/gpt-oss-120b",
+        "answer_text": "The documentation for the embedding\u2011robustness probe suite notes that the quick pull\u2011request smoke checks are designed to run in under\u202f30\u202fseconds (when cached) and that they \u201cprovide clear pass/fail thresholds and expected failure modes for triage\u201d\u202f[dsid_ae7131f5d64f4f37af677f702dc60d2b]. However, the specific numeric pass\u2011fail criteria (e.g., exact metric limits or error\u2011rate cut\u2011offs) are not included in the supplied passages. Consequently, the exact thresholds used for the quick PR smoke checks cannot be extracted from the available evidence.",
+        "answer_correct": false,
+        "completeness_pct": 25.0,
+        "overall_score": 0.0,
+        "cited_doc_ids": [
+          "dsid_ae7131f5d64f4f37af677f702dc60d2b"
+        ],
+        "citation_precision": 1.0,
+        "has_hallucinated_citations": false,
+        "is_abstention": false,
+        "has_contradiction": false,
+        "latency_ms": 1544.5,
+        "judge_explanation": "Deterministic evaluation: 1/4 positive facts addressed."
+      },
+      {
+        "question_id": "qst_0095",
+        "question_type": "basic",
+        "model": "openai/gpt-oss-120b",
+        "answer_text": "The provided evidence does not contain a description of five synthetic\u2011workload templates for the repeatable probe harness. The passages mention a probe harness that runs a few canonical workloads (e.g., three workloads in\u202f[dsid_5fbf425415da4b7487f0ebbf289a39d6] and three micro\u2011benchmarks in\u202f[dsid_84f026cc224c42e7b3e1cb200af25919]), but they do not enumerate five specific synthetic\u2011workload templates. Therefore, the requested information cannot be answered from the available documents.",
+        "answer_correct": false,
+        "completeness_pct": 100.0,
+        "overall_score": 0.0,
+        "cited_doc_ids": [
+          "dsid_5fbf425415da4b7487f0ebbf289a39d6",
+          "dsid_84f026cc224c42e7b3e1cb200af25919"
+        ],
+        "citation_precision": 1.0,
+        "has_hallucinated_citations": false,
+        "is_abstention": true,
+        "has_contradiction": false,
+        "latency_ms": 7742.1,
+        "judge_explanation": "Deterministic evaluation: 2/2 positive facts addressed."
+      },
+      {
+        "question_id": "qst_0043",
+        "question_type": "basic",
+        "model": "openai/gpt-oss-120b",
+        "answer_text": "The brief p99 latency spike was traced to a regression introduced when a new compile flag (`--enable\u2011async\u2011kernel`) was added together with an upgrade to a newer TensorRT runtime (TRT\u2011runtime\u2011v8.1), which caused paging\u2011related decode slow\u2011downs in the us\u2011west\u20112 cluster\u202f[dsid_52c4b848423b4a92bf56c42492b46c18].\n\nMitigation was to roll back the change: the async\u2011kernel flag was removed and the runtime was reverted to the prior TRT version (trt\u2011runtime\u2011v8.1) on the affected hosts, and a fallback model routing was enabled. After the rollback the p99 latency fell back toward normal levels\u202f[dsid_52c4b848423b4a92bf56c42492b46c18].",
+        "answer_correct": false,
+        "completeness_pct": 0.0,
+        "overall_score": 0.0,
+        "cited_doc_ids": [
+          "dsid_52c4b848423b4a92bf56c42492b46c18"
+        ],
+        "citation_precision": 1.0,
+        "has_hallucinated_citations": false,
+        "is_abstention": false,
+        "has_contradiction": false,
+        "latency_ms": 2164.5,
+        "judge_explanation": "Deterministic evaluation: 0/5 positive facts addressed."
+      }
+    ],
+    "qwen/qwen3.8-27b": [
+      {
+        "question_id": "qst_0001",
+        "question_type": "basic",
+        "model": "qwen/qwen3.8-27b",
+        "answer_text": "The default size limits for file uploads and total request size for the new multipart upload support on the OpenAI-compatible API endpoints are **10MB (or 10MiB) per part/file** and **50MB (or 50MiB) total**.\n\n*   **Per-part/file limit:** The default limit is 10MB per part [dsid_c0e4ca5e29da45858056f1da8eb45009]. Another document specifies this as a `max_file_size` default of 10MiB [dsid_ae068ee4aa9640159427cd941bef0238].\n*   **Total request limit:** The default total payload limit is 50MB [dsid_c0e4ca5e29da45858056f1da8eb45009]. Another document specifies this as a `max_total_request_size` default of 50MiB [dsid_ae068ee4aa9640159427cd941bef0238].\n\nThese limits are configurable via environment variables or API config, but the stated defaults are 10MB/10MiB per file and 50MB/50MiB total [dsid_c0e4ca5e29da45858056f1da8eb45009, dsid_ae068ee4aa9640159427cd941bef0238].",
+        "answer_correct": true,
+        "completeness_pct": 100.0,
+        "overall_score": 100.0,
+        "cited_doc_ids": [
+          "dsid_c0e4ca5e29da45858056f1da8eb45009",
+          "dsid_ae068ee4aa9640159427cd941bef0238"
+        ],
+        "citation_precision": 1.0,
+        "has_hallucinated_citations": false,
+        "is_abstention": false,
+        "has_contradiction": false,
+        "latency_ms": 1133.4,
+        "judge_explanation": "Deterministic evaluation: 2/2 positive facts addressed."
+      },
+      {
+        "question_id": "qst_0016",
+        "question_type": "basic",
+        "model": "qwen/qwen3.8-27b",
+        "answer_text": "According to the access and permissions playbook, the default expiration for contractor access requests is **30 days** [dsid_ba7d1565b0694e359983bccaa4bf5977].",
+        "answer_correct": true,
+        "completeness_pct": 100.0,
+        "overall_score": 100.0,
+        "cited_doc_ids": [
+          "dsid_ba7d1565b0694e359983bccaa4bf5977"
+        ],
+        "citation_precision": 1.0,
+        "has_hallucinated_citations": false,
+        "is_abstention": false,
+        "has_contradiction": false,
+        "latency_ms": 467.5,
+        "judge_explanation": "Deterministic evaluation: 1/1 positive facts addressed."
+      },
+      {
+        "question_id": "qst_0133",
+        "question_type": "basic",
+        "model": "qwen/qwen3.8-27b",
+        "answer_text": "Based on the provided evidence, the specific numerical pass/fail criteria (thresholds) for the quick pull request smoke checks are **not explicitly detailed** in the documents. However, the documents describe the design goals, the scope of the smoke tests, and the general mechanism for determining pass/fail status.\n\n**1. Scope and Speed of Smoke Checks**\nThe \"Embedding Robustness: Noise & Length Probe Suite\" is designed for \"quick PR smoke runs (< 30s if cached)\" [dsid_ae7131f5d64f4f37af677f702dc60d2b]. A separate plan for a synthetic probe suite specifies a \"small smoke set (50 queries) for fast PR checks\" [dsid_4256f3fb1b444d0c9cbb97f71617b5c1].\n\n**2. General Pass/Fail Mechanism**\n*   The \"Embedding Robustness\" suite states it will \"Provide clear pass/fail thresholds and expected failure modes for triage,\" but the specific values for these thresholds are not listed in the provided text [dsid_ae7131f5d64f4f37af677f702dc60d2b].\n*   The \"Synthetic probe suite\" plan indicates that the CI integration will \"block merge on fail\" for pre-merge smoke runs [dsid_4256f3fb1b444d0c9cbb97f71617b5c1].\n*   The \"Robustness-signal-fusion CI gate\" introduces a composite signal that \"emits a deterministic pass/fail with diagnostic score breakdown\" based on \"cohort-level thresholds\" [dsid_169786d6c0a94992aec15e3a6dbf2b12]. The rollout plan for this gate suggests proposing thresholds based on the \"95% historical percentile\" [dsid_169786d6c0a94992aec15e3a6dbf2b12].\n\n**3. Metrics Evaluated**\nWhile the specific pass/fail numbers are missing, the metrics used to determine the status include:\n*   **Noise/Length Suite:** Sensitivity to noise types (typos, punctuation, etc.) and length extremes (1\u20133 tokens to 513\u20132048 tokens) across tasks like semantic-search, clustering, and cross-lingual-retrieval [dsid_ae7131f5d64f4f37af677f702dc60d2b].\n*   **Synthetic Suite:** Recall, precision, nDCG, and embedding distribution stats [dsid_4256f3fb1b444d0c9cbb97f71617b5c1].\n*   **Fusion Gate:** A composite z-scored signal derived from semantic-similarity, length-stability, calibration-gap, perplexity-delta, and token-overlap [dsid_169786d6c0a94992aec15e3a6dbf2b12].\n\n**Conclusion**\nThe exact pass/fail criteria (e.g., specific nDCG drop limits or z-score thresholds) for the quick PR smoke checks are **not found** in the provided evidence. The documents confirm that such thresholds exist and are used to block merges, but the specific values are not disclosed in these passages.",
+        "answer_correct": false,
+        "completeness_pct": 25.0,
+        "overall_score": 0.0,
+        "cited_doc_ids": [
+          "dsid_ae7131f5d64f4f37af677f702dc60d2b",
+          "dsid_4256f3fb1b444d0c9cbb97f71617b5c1",
+          "dsid_169786d6c0a94992aec15e3a6dbf2b12"
+        ],
+        "citation_precision": 1.0,
+        "has_hallucinated_citations": false,
+        "is_abstention": true,
+        "has_contradiction": false,
+        "latency_ms": 1912.6,
+        "judge_explanation": "Deterministic evaluation: 1/4 positive facts addressed."
+      },
+      {
+        "question_id": "qst_0095",
+        "question_type": "basic",
+        "model": "qwen/qwen3.8-27b",
+        "answer_text": "Based on the provided evidence, the specific \"five synthetic workload templates\" are **not found** in the documents. The available passages describe the *types* of workloads or the *number* of workloads to be run, but they do not list exactly five distinct templates.\n\nThe evidence provides the following related information regarding synthetic workloads:\n\n*   **Three canonical workloads:** The API Behavioral Probe Matrix objective states the probe harness must be able to run \"3 canonical workloads across 4 regions\" [dsid_5fbf425415da4b7487f0ebbf289a39d6].\n*   **Three specific RAG/chat patterns:** The APAC buyer friction project defines \"3 synthetic workload microbench experiments across representative RAG patterns, short-context chat, and long-form generation\" [dsid_84f026cc224c42e7b3e1cb200af25919].\n*   **Three real customer intent categories:** The field catalyst project mentions a \"curated 200-prompt probe that reflects real customer intents (search summarization, RAG summarization, code-extraction)\" [dsid_820e992b6492479cbf2a53ff98153c6e].\n\nNo document explicitly enumerates a set of five distinct synthetic workload templates.",
+        "answer_correct": false,
+        "completeness_pct": 100.0,
+        "overall_score": 0.0,
+        "cited_doc_ids": [
+          "dsid_5fbf425415da4b7487f0ebbf289a39d6",
+          "dsid_84f026cc224c42e7b3e1cb200af25919",
+          "dsid_820e992b6492479cbf2a53ff98153c6e"
+        ],
+        "citation_precision": 1.0,
+        "has_hallucinated_citations": false,
+        "is_abstention": true,
+        "has_contradiction": false,
+        "latency_ms": 35101.4,
+        "judge_explanation": "Deterministic evaluation: 2/2 positive facts addressed."
+      },
+      {
+        "question_id": "qst_0043",
+        "question_type": "basic",
+        "model": "qwen/qwen3.8-27b",
+        "answer_text": "Based on the provided evidence, there are two distinct incidents involving latency in the us-west-2 region. The specific incident matching the description of a \"brief p99 latency jump\" on the \"hosted text generation endpoint\" (specifically streaming/decode) is detailed in Evidence Passage 3.\n\n**Cause:**\nThe p99 decode latency spike (reaching up to 2.1s) in the us-west-2 cluster was caused by a combination of a **compile flag** (`--enable-async-kernel`) and a **TensorRT (TRT) runtime bump** (to a version newer than v8.1), which resulted in a paging regression [dsid_52c4b848423b4a92bf56c42492b46c18].\n\n**Mitigation:**\nThe primary mitigation applied was a **runtime rollback** to `trt-runtime-v8.1` on the 30 most impacted hosts, which involved removing the problematic async kernel flag [dsid_52c4b848423b4a92bf56c42492b46c18]. Additional mitigations included **fallback model routing** and adding capacity [dsid_52c4b848423b4a92bf56c42492b46c18]. Following the rollback, p99 latency dropped from 2.1s to approximately 350ms [dsid_52c4b848423b4a92bf56c42492b46c18].\n\n*Note: Evidence Passage 2 describes a separate incident involving intermittent per-token latency spikes caused by network bandwidth contention and an autoscaler race condition that forced workers to a CPU fallback path [dsid_1e0daf5b242d41a893ab27b960f6cfd7]. Evidence Passage 1 describes an incident in US-West (not explicitly us-west-2) caused by a mis-sized batch configuration leading to GPU memory pressure [dsid_9448c00dd580497e8a60a6703476e1ec].*",
+        "answer_correct": false,
+        "completeness_pct": 20.0,
+        "overall_score": 0.0,
+        "cited_doc_ids": [
+          "dsid_52c4b848423b4a92bf56c42492b46c18",
+          "dsid_1e0daf5b242d41a893ab27b960f6cfd7",
+          "dsid_9448c00dd580497e8a60a6703476e1ec"
+        ],
+        "citation_precision": 1.0,
+        "has_hallucinated_citations": false,
+        "is_abstention": false,
+        "has_contradiction": false,
+        "latency_ms": 1339.6,
+        "judge_explanation": "Deterministic evaluation: 1/5 positive facts addressed."
+      }
+    ],
+    "openai/gpt-oss-20b": [
+      {
+        "question_id": "qst_0001",
+        "question_type": "basic",
+        "model": "openai/gpt-oss-20b",
+        "answer_text": "The OpenAI\u2011compatible API now enforces the following conservative defaults for multipart uploads:\n\n| Size limit | Default value | Source |\n|------------|---------------|--------|\n| Per\u2011file (per\u2011part) size | 10\u202fMiB (\u2248\u202f10\u202fMB) | [dsid_c0e4ca5e29da45858056f1da8eb45009] |\n| Total request size | 50\u202fMiB (\u2248\u202f50\u202fMB) | [dsid_c0e4ca5e29da45858056f1da8eb45009] |\n| (Additionally, the PR sets a default maximum of 20 parts per request, but the question asks only for file and total limits.) | | [dsid_ae068ee4aa9640159427cd941bef0238] |\n\nThese defaults are applied unless overridden by tenant\u2011 or route\u2011level configuration.",
+        "answer_correct": true,
+        "completeness_pct": 100.0,
+        "overall_score": 100.0,
+        "cited_doc_ids": [
+          "dsid_c0e4ca5e29da45858056f1da8eb45009",
+          "dsid_ae068ee4aa9640159427cd941bef0238"
+        ],
+        "citation_precision": 1.0,
+        "has_hallucinated_citations": false,
+        "is_abstention": false,
+        "has_contradiction": false,
+        "latency_ms": 1013.2,
+        "judge_explanation": "Deterministic evaluation: 2/2 positive facts addressed."
+      },
+      {
+        "question_id": "qst_0016",
+        "question_type": "basic",
+        "model": "openai/gpt-oss-20b",
+        "answer_text": "Contractor access is automatically set to expire after **30 days** by default, unless a longer period is explicitly requested and approved.  \n[dsid_ba7d1565b0694e359983bccaa4bf5977]",
+        "answer_correct": true,
+        "completeness_pct": 100.0,
+        "overall_score": 100.0,
+        "cited_doc_ids": [
+          "dsid_ba7d1565b0694e359983bccaa4bf5977"
+        ],
+        "citation_precision": 1.0,
+        "has_hallucinated_citations": false,
+        "is_abstention": false,
+        "has_contradiction": false,
+        "latency_ms": 1032.1,
+        "judge_explanation": "Deterministic evaluation: 1/1 positive facts addressed."
+      },
+      {
+        "question_id": "qst_0133",
+        "question_type": "basic",
+        "model": "openai/gpt-oss-20b",
+        "answer_text": "The available evidence does not specify the exact numeric or rule\u2011based pass/fail thresholds that are applied to the quick pull\u2011request smoke checks for the embedding robustness noise and input\u2011length evaluation suite. The documents state that the suite is designed to \u201cprovide clear pass/fail thresholds and expected failure modes for triage\u201d (dsid_ae7131f5d64f4f37af677f702dc60d2b) and that a small smoke set is used for fast PR checks (dsid_4256f3fb1b444d0c9cbb97f71617b5c1), but no specific criteria are listed. Therefore, the pass/fail criteria cannot be determined from the supplied passages.",
+        "answer_correct": false,
+        "completeness_pct": 25.0,
+        "overall_score": 0.0,
+        "cited_doc_ids": [
+          "dsid_ae7131f5d64f4f37af677f702dc60d2b",
+          "dsid_4256f3fb1b444d0c9cbb97f71617b5c1"
+        ],
+        "citation_precision": 1.0,
+        "has_hallucinated_citations": false,
+        "is_abstention": true,
+        "has_contradiction": false,
+        "latency_ms": 1349.5,
+        "judge_explanation": "Deterministic evaluation: 1/4 positive facts addressed."
+      },
+      {
+        "question_id": "qst_0095",
+        "question_type": "basic",
+        "model": "openai/gpt-oss-20b",
+        "answer_text": "The supplied evidence passages do not list five synthetic workload templates for the repeatable probe harness. The only explicit workload references are:\n\n* Three canonical workloads (RAG patterns, short\u2011context chat, long\u2011form generation) mentioned in Passage\u202f2\u202f[dsid_84f026cc224c42e7b3e1cb200af25919].  \n* A 200\u2011prompt probe set described in Passage\u202f4\u202f[dsid_820e992b6492479cbf2a53ff98153c6e].\n\nNo documentation of five distinct synthetic workload templates is present in the provided passages.",
+        "answer_correct": false,
+        "completeness_pct": 100.0,
+        "overall_score": 0.0,
+        "cited_doc_ids": [
+          "dsid_84f026cc224c42e7b3e1cb200af25919",
+          "dsid_820e992b6492479cbf2a53ff98153c6e"
+        ],
+        "citation_precision": 1.0,
+        "has_hallucinated_citations": false,
+        "is_abstention": true,
+        "has_contradiction": false,
+        "latency_ms": 1119.5,
+        "judge_explanation": "Deterministic evaluation: 2/2 positive facts addressed."
+      },
+      {
+        "question_id": "qst_0043",
+        "question_type": "basic",
+        "model": "openai/gpt-oss-20b",
+        "answer_text": "",
+        "answer_correct": false,
+        "completeness_pct": 0.0,
+        "overall_score": 0.0,
+        "cited_doc_ids": [],
+        "citation_precision": 0.0,
+        "has_hallucinated_citations": false,
+        "is_abstention": false,
+        "has_contradiction": false,
+        "latency_ms": 1989.5,
+        "judge_explanation": "Deterministic evaluation: 0/5 positive facts addressed."
+      }
+    ]
+  }
+}

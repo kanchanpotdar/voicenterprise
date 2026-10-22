@@ -1,0 +1,561 @@
+[
+  {
+    "qid": "qst_0043",
+    "category": "basic",
+    "question": "What caused the brief p99 latency jump on the hosted text generation endpoint in us-west-2, and what mitigation was applied to bring it back down?",
+    "total_gold": 1,
+    "gold_docs": [
+      "dsid_321eee6325824623833bbe754bf83a0b"
+    ],
+    "bm25_ranks": {
+      "dsid_321eee6325824623833bbe754bf83a0b": 39
+    },
+    "dense_ranks": {
+      "dsid_321eee6325824623833bbe754bf83a0b": ">50"
+    },
+    "hybrid_ranks": {
+      "dsid_321eee6325824623833bbe754bf83a0b": ">50"
+    },
+    "recalls": {
+      "bm25_r@5": 0.0,
+      "dense_r@5": 0.0,
+      "hybrid_r@5": 0.0,
+      "bm25_r@10": 0.0,
+      "dense_r@10": 0.0,
+      "hybrid_r@10": 0.0,
+      "bm25_r@20": 0.0,
+      "dense_r@20": 0.0,
+      "hybrid_r@20": 0.0,
+      "bm25_r@40": 1.0,
+      "dense_r@40": 0.0,
+      "hybrid_r@40": 0.0,
+      "bm25_r@50": 1.0,
+      "dense_r@50": 0.0,
+      "hybrid_r@50": 0.0
+    }
+  },
+  {
+    "qid": "qst_0139",
+    "category": "basic",
+    "question": "What false positive threshold did the prospect set for suggested code review comments in the evaluation criteria for their PR review assistant POC?",
+    "total_gold": 1,
+    "gold_docs": [
+      "dsid_9f92a42dc8d24c93a0a696a0727063b9"
+    ],
+    "bm25_ranks": {
+      "dsid_9f92a42dc8d24c93a0a696a0727063b9": 36
+    },
+    "dense_ranks": {
+      "dsid_9f92a42dc8d24c93a0a696a0727063b9": ">50"
+    },
+    "hybrid_ranks": {
+      "dsid_9f92a42dc8d24c93a0a696a0727063b9": ">50"
+    },
+    "recalls": {
+      "bm25_r@5": 0.0,
+      "dense_r@5": 0.0,
+      "hybrid_r@5": 0.0,
+      "bm25_r@10": 0.0,
+      "dense_r@10": 0.0,
+      "hybrid_r@10": 0.0,
+      "bm25_r@20": 0.0,
+      "dense_r@20": 0.0,
+      "hybrid_r@20": 0.0,
+      "bm25_r@40": 1.0,
+      "dense_r@40": 0.0,
+      "hybrid_r@40": 0.0,
+      "bm25_r@50": 1.0,
+      "dense_r@50": 0.0,
+      "hybrid_r@50": 0.0
+    }
+  },
+  {
+    "qid": "qst_0178",
+    "category": "semantic",
+    "question": "In the recent change that made low bit math safer for inference, what is the default pass rate used to decide when a machine is allowed to step down from the safest numeric mode?",
+    "total_gold": 1,
+    "gold_docs": [
+      "dsid_22a7e9af2760474dbdf611c2c21cd231"
+    ],
+    "bm25_ranks": {
+      "dsid_22a7e9af2760474dbdf611c2c21cd231": ">50"
+    },
+    "dense_ranks": {
+      "dsid_22a7e9af2760474dbdf611c2c21cd231": ">50"
+    },
+    "hybrid_ranks": {
+      "dsid_22a7e9af2760474dbdf611c2c21cd231": ">50"
+    },
+    "recalls": {
+      "bm25_r@5": 0.0,
+      "dense_r@5": 0.0,
+      "hybrid_r@5": 0.0,
+      "bm25_r@10": 0.0,
+      "dense_r@10": 0.0,
+      "hybrid_r@10": 0.0,
+      "bm25_r@20": 0.0,
+      "dense_r@20": 0.0,
+      "hybrid_r@20": 0.0,
+      "bm25_r@40": 0.0,
+      "dense_r@40": 0.0,
+      "hybrid_r@40": 0.0,
+      "bm25_r@50": 0.0,
+      "dense_r@50": 0.0,
+      "hybrid_r@50": 0.0
+    }
+  },
+  {
+    "qid": "qst_0203",
+    "category": "semantic",
+    "question": "How should we automate the creation and teardown of short-lived experiment workspaces so that a request ticket spins up the needed tracking/docs/chat area, requires an approver before access is enabled, expires on a default one month timer with a simple extension, and writes an encrypted audit bundle to object storage when it shuts down?",
+    "total_gold": 1,
+    "gold_docs": [
+      "dsid_3d745c88c7e4426c9548350824f0d9b8"
+    ],
+    "bm25_ranks": {
+      "dsid_3d745c88c7e4426c9548350824f0d9b8": ">50"
+    },
+    "dense_ranks": {
+      "dsid_3d745c88c7e4426c9548350824f0d9b8": 15
+    },
+    "hybrid_ranks": {
+      "dsid_3d745c88c7e4426c9548350824f0d9b8": 28
+    },
+    "recalls": {
+      "bm25_r@5": 0.0,
+      "dense_r@5": 0.0,
+      "hybrid_r@5": 0.0,
+      "bm25_r@10": 0.0,
+      "dense_r@10": 0.0,
+      "hybrid_r@10": 0.0,
+      "bm25_r@20": 0.0,
+      "dense_r@20": 1.0,
+      "hybrid_r@20": 0.0,
+      "bm25_r@40": 0.0,
+      "dense_r@40": 1.0,
+      "hybrid_r@40": 1.0,
+      "bm25_r@50": 0.0,
+      "dense_r@50": 1.0,
+      "hybrid_r@50": 1.0
+    }
+  },
+  {
+    "qid": "qst_0214",
+    "category": "semantic",
+    "question": "In the mid March 2026 incident where a regional dedicated serving cluster briefly ran out of spare capacity and the automatic scaler couldnt add nodes due to provider limit type errors, what exact build version did on call revert to in order to restore capacity?",
+    "total_gold": 1,
+    "gold_docs": [
+      "dsid_303196c831af4d1bb38a1e2546228a09"
+    ],
+    "bm25_ranks": {
+      "dsid_303196c831af4d1bb38a1e2546228a09": ">50"
+    },
+    "dense_ranks": {
+      "dsid_303196c831af4d1bb38a1e2546228a09": 7
+    },
+    "hybrid_ranks": {
+      "dsid_303196c831af4d1bb38a1e2546228a09": 15
+    },
+    "recalls": {
+      "bm25_r@5": 0.0,
+      "dense_r@5": 0.0,
+      "hybrid_r@5": 0.0,
+      "bm25_r@10": 0.0,
+      "dense_r@10": 1.0,
+      "hybrid_r@10": 0.0,
+      "bm25_r@20": 0.0,
+      "dense_r@20": 1.0,
+      "hybrid_r@20": 1.0,
+      "bm25_r@40": 0.0,
+      "dense_r@40": 1.0,
+      "hybrid_r@40": 1.0,
+      "bm25_r@50": 0.0,
+      "dense_r@50": 1.0,
+      "hybrid_r@50": 1.0
+    }
+  },
+  {
+    "qid": "qst_0229",
+    "category": "semantic",
+    "question": "After a customer rotated credentials during a migration, their staging probes started alternating between auth failures complaining about a signature mismatch and throttling errors; what short lived workaround did support create so both legacy and new signing methods would be accepted during the rollout?",
+    "total_gold": 1,
+    "gold_docs": [
+      "dsid_38963978d7944613855e7413fa3a3838"
+    ],
+    "bm25_ranks": {
+      "dsid_38963978d7944613855e7413fa3a3838": 44
+    },
+    "dense_ranks": {
+      "dsid_38963978d7944613855e7413fa3a3838": ">50"
+    },
+    "hybrid_ranks": {
+      "dsid_38963978d7944613855e7413fa3a3838": ">50"
+    },
+    "recalls": {
+      "bm25_r@5": 0.0,
+      "dense_r@5": 0.0,
+      "hybrid_r@5": 0.0,
+      "bm25_r@10": 0.0,
+      "dense_r@10": 0.0,
+      "hybrid_r@10": 0.0,
+      "bm25_r@20": 0.0,
+      "dense_r@20": 0.0,
+      "hybrid_r@20": 0.0,
+      "bm25_r@40": 0.0,
+      "dense_r@40": 0.0,
+      "hybrid_r@40": 0.0,
+      "bm25_r@50": 1.0,
+      "dense_r@50": 0.0,
+      "hybrid_r@50": 0.0
+    }
+  },
+  {
+    "qid": "qst_0242",
+    "category": "semantic",
+    "question": "In the partner integration call about getting a third party AI service into another companys cloud catalog, what date did the security lead target for completing the pre publication image security smoke test?",
+    "total_gold": 1,
+    "gold_docs": [
+      "dsid_3fc14ed9048e4e1f861e0632b06fc39b"
+    ],
+    "bm25_ranks": {
+      "dsid_3fc14ed9048e4e1f861e0632b06fc39b": ">50"
+    },
+    "dense_ranks": {
+      "dsid_3fc14ed9048e4e1f861e0632b06fc39b": ">50"
+    },
+    "hybrid_ranks": {
+      "dsid_3fc14ed9048e4e1f861e0632b06fc39b": ">50"
+    },
+    "recalls": {
+      "bm25_r@5": 0.0,
+      "dense_r@5": 0.0,
+      "hybrid_r@5": 0.0,
+      "bm25_r@10": 0.0,
+      "dense_r@10": 0.0,
+      "hybrid_r@10": 0.0,
+      "bm25_r@20": 0.0,
+      "dense_r@20": 0.0,
+      "hybrid_r@20": 0.0,
+      "bm25_r@40": 0.0,
+      "dense_r@40": 0.0,
+      "hybrid_r@40": 0.0,
+      "bm25_r@50": 0.0,
+      "dense_r@50": 0.0,
+      "hybrid_r@50": 0.0
+    }
+  },
+  {
+    "qid": "qst_0282",
+    "category": "semantic",
+    "question": "During a traffic surge in the US East production cluster for a healthcare customer with dedicated capacity, why did conversations that were supposed to stay locked to a specific model version sometimes get served by an experimental fallback instead?",
+    "total_gold": 1,
+    "gold_docs": [
+      "dsid_9adc7c1c81f54e0a88d0e0bee59a6588"
+    ],
+    "bm25_ranks": {
+      "dsid_9adc7c1c81f54e0a88d0e0bee59a6588": ">50"
+    },
+    "dense_ranks": {
+      "dsid_9adc7c1c81f54e0a88d0e0bee59a6588": ">50"
+    },
+    "hybrid_ranks": {
+      "dsid_9adc7c1c81f54e0a88d0e0bee59a6588": ">50"
+    },
+    "recalls": {
+      "bm25_r@5": 0.0,
+      "dense_r@5": 0.0,
+      "hybrid_r@5": 0.0,
+      "bm25_r@10": 0.0,
+      "dense_r@10": 0.0,
+      "hybrid_r@10": 0.0,
+      "bm25_r@20": 0.0,
+      "dense_r@20": 0.0,
+      "hybrid_r@20": 0.0,
+      "bm25_r@40": 0.0,
+      "dense_r@40": 0.0,
+      "hybrid_r@40": 0.0,
+      "bm25_r@50": 0.0,
+      "dense_r@50": 0.0,
+      "hybrid_r@50": 0.0
+    }
+  },
+  {
+    "qid": "qst_0356",
+    "category": "project_related",
+    "question": "For the Acme AI dedicated failover incident with intermittent 500s and fallback churn, what v1 incident type and primary owner should we set, and what time-to-mitigate and time-to-fix targets should CS use in customer updates?",
+    "total_gold": 4,
+    "gold_docs": [
+      "dsid_863d0cda2c984154baad1973513ed3da",
+      "dsid_5217b3a64c4a433c89ba2a3186dea82a",
+      "dsid_8e77536c5e0f4521b756d7b79b640e24",
+      "dsid_020bac2fb6ac4de28d5afb63e39a0c10"
+    ],
+    "bm25_ranks": {
+      "dsid_863d0cda2c984154baad1973513ed3da": 15,
+      "dsid_5217b3a64c4a433c89ba2a3186dea82a": 3,
+      "dsid_8e77536c5e0f4521b756d7b79b640e24": 1,
+      "dsid_020bac2fb6ac4de28d5afb63e39a0c10": ">50"
+    },
+    "dense_ranks": {
+      "dsid_863d0cda2c984154baad1973513ed3da": 44,
+      "dsid_5217b3a64c4a433c89ba2a3186dea82a": 48,
+      "dsid_8e77536c5e0f4521b756d7b79b640e24": 5,
+      "dsid_020bac2fb6ac4de28d5afb63e39a0c10": 37
+    },
+    "hybrid_ranks": {
+      "dsid_863d0cda2c984154baad1973513ed3da": 39,
+      "dsid_5217b3a64c4a433c89ba2a3186dea82a": 9,
+      "dsid_8e77536c5e0f4521b756d7b79b640e24": 1,
+      "dsid_020bac2fb6ac4de28d5afb63e39a0c10": 44
+    },
+    "recalls": {
+      "bm25_r@5": 0.5,
+      "dense_r@5": 0.25,
+      "hybrid_r@5": 0.25,
+      "bm25_r@10": 0.5,
+      "dense_r@10": 0.25,
+      "hybrid_r@10": 0.5,
+      "bm25_r@20": 0.75,
+      "dense_r@20": 0.25,
+      "hybrid_r@20": 0.5,
+      "bm25_r@40": 0.75,
+      "dense_r@40": 0.5,
+      "hybrid_r@40": 0.75,
+      "bm25_r@50": 0.75,
+      "dense_r@50": 1.0,
+      "hybrid_r@50": 1.0
+    }
+  },
+  {
+    "qid": "qst_0413",
+    "category": "conflicting_info",
+    "question": "Who approves terminating STALE-ORPHAN test instances after the 72h grace window-infra manager or cost-ops?",
+    "total_gold": 1,
+    "gold_docs": [
+      "dsid_6df52fdb96ae4edcb76464738bca3340"
+    ],
+    "bm25_ranks": {
+      "dsid_6df52fdb96ae4edcb76464738bca3340": 1
+    },
+    "dense_ranks": {
+      "dsid_6df52fdb96ae4edcb76464738bca3340": 1
+    },
+    "hybrid_ranks": {
+      "dsid_6df52fdb96ae4edcb76464738bca3340": 1
+    },
+    "recalls": {
+      "bm25_r@5": 1.0,
+      "dense_r@5": 1.0,
+      "hybrid_r@5": 1.0,
+      "bm25_r@10": 1.0,
+      "dense_r@10": 1.0,
+      "hybrid_r@10": 1.0,
+      "bm25_r@20": 1.0,
+      "dense_r@20": 1.0,
+      "hybrid_r@20": 1.0,
+      "bm25_r@40": 1.0,
+      "dense_r@40": 1.0,
+      "hybrid_r@40": 1.0,
+      "bm25_r@50": 1.0,
+      "dense_r@50": 1.0,
+      "hybrid_r@50": 1.0
+    }
+  },
+  {
+    "qid": "qst_0436",
+    "category": "completeness",
+    "question": "Across Redwood's Go, Python, and TypeScript SDKs, which SDK has the highest number of customer-reported auth-related bug reports, and what are the corresponding support ticket IDs?",
+    "total_gold": 10,
+    "gold_docs": [
+      "dsid_a8af533a3f89402ca739bfdc5322b42e",
+      "dsid_3a5484e7e7164e389e76d188bce9f86e",
+      "dsid_1a160e1c00934f108e17183f44e3ca77",
+      "dsid_6f37b2b4341947028019bd41748eaff9",
+      "dsid_1f13ed74ef87494b81a2fc2617ab7746",
+      "dsid_1159814f66a340d79536516db194f623",
+      "dsid_c6efd46ecc6449ac8be1e53ed3803e92",
+      "dsid_8c707328a7fc444f84a8e00f90021866",
+      "dsid_98d534e949ce4fdd8ed5d651ec5ebe4b",
+      "dsid_65b12644ea52428b9c032d2cd9b75d8a"
+    ],
+    "bm25_ranks": {
+      "dsid_a8af533a3f89402ca739bfdc5322b42e": ">50",
+      "dsid_3a5484e7e7164e389e76d188bce9f86e": ">50",
+      "dsid_1a160e1c00934f108e17183f44e3ca77": ">50",
+      "dsid_6f37b2b4341947028019bd41748eaff9": ">50",
+      "dsid_1f13ed74ef87494b81a2fc2617ab7746": ">50",
+      "dsid_1159814f66a340d79536516db194f623": ">50",
+      "dsid_c6efd46ecc6449ac8be1e53ed3803e92": ">50",
+      "dsid_8c707328a7fc444f84a8e00f90021866": 28,
+      "dsid_98d534e949ce4fdd8ed5d651ec5ebe4b": 1,
+      "dsid_65b12644ea52428b9c032d2cd9b75d8a": 11
+    },
+    "dense_ranks": {
+      "dsid_a8af533a3f89402ca739bfdc5322b42e": ">50",
+      "dsid_3a5484e7e7164e389e76d188bce9f86e": ">50",
+      "dsid_1a160e1c00934f108e17183f44e3ca77": ">50",
+      "dsid_6f37b2b4341947028019bd41748eaff9": ">50",
+      "dsid_1f13ed74ef87494b81a2fc2617ab7746": ">50",
+      "dsid_1159814f66a340d79536516db194f623": ">50",
+      "dsid_c6efd46ecc6449ac8be1e53ed3803e92": ">50",
+      "dsid_8c707328a7fc444f84a8e00f90021866": ">50",
+      "dsid_98d534e949ce4fdd8ed5d651ec5ebe4b": 1,
+      "dsid_65b12644ea52428b9c032d2cd9b75d8a": ">50"
+    },
+    "hybrid_ranks": {
+      "dsid_a8af533a3f89402ca739bfdc5322b42e": ">50",
+      "dsid_3a5484e7e7164e389e76d188bce9f86e": ">50",
+      "dsid_1a160e1c00934f108e17183f44e3ca77": ">50",
+      "dsid_6f37b2b4341947028019bd41748eaff9": ">50",
+      "dsid_1f13ed74ef87494b81a2fc2617ab7746": ">50",
+      "dsid_1159814f66a340d79536516db194f623": ">50",
+      "dsid_c6efd46ecc6449ac8be1e53ed3803e92": ">50",
+      "dsid_8c707328a7fc444f84a8e00f90021866": 47,
+      "dsid_98d534e949ce4fdd8ed5d651ec5ebe4b": 1,
+      "dsid_65b12644ea52428b9c032d2cd9b75d8a": 18
+    },
+    "recalls": {
+      "bm25_r@5": 0.1,
+      "dense_r@5": 0.1,
+      "hybrid_r@5": 0.1,
+      "bm25_r@10": 0.1,
+      "dense_r@10": 0.1,
+      "hybrid_r@10": 0.1,
+      "bm25_r@20": 0.2,
+      "dense_r@20": 0.1,
+      "hybrid_r@20": 0.2,
+      "bm25_r@40": 0.3,
+      "dense_r@40": 0.1,
+      "hybrid_r@40": 0.2,
+      "bm25_r@50": 0.3,
+      "dense_r@50": 0.1,
+      "hybrid_r@50": 0.3
+    }
+  },
+  {
+    "qid": "qst_0437",
+    "category": "completeness",
+    "question": "Across all incident postmortems, which Redwood team was assigned the most follow-up action items?",
+    "total_gold": 9,
+    "gold_docs": [
+      "dsid_15a9d93cc59c4241a97a7e72f749a216",
+      "dsid_0e0ac7276c864c63a02586fa07ae85e1",
+      "dsid_c0c93abadf4c438189e23cb45256c6e9",
+      "dsid_ac94dcaf2e1e4674b2351a8b4177db9e",
+      "dsid_98943148c00b42db859ec2d84649fe04",
+      "dsid_ed145ed8c9234a6681359188e2f43345",
+      "dsid_bd7caad8adb2405eaa7ad78c4ffb59d7",
+      "dsid_d373a0708d4144d684e495c52c16448a",
+      "dsid_ec406aef8d0342c78ae27025670daedf"
+    ],
+    "bm25_ranks": {
+      "dsid_15a9d93cc59c4241a97a7e72f749a216": ">50",
+      "dsid_0e0ac7276c864c63a02586fa07ae85e1": ">50",
+      "dsid_c0c93abadf4c438189e23cb45256c6e9": 21,
+      "dsid_ac94dcaf2e1e4674b2351a8b4177db9e": ">50",
+      "dsid_98943148c00b42db859ec2d84649fe04": ">50",
+      "dsid_ed145ed8c9234a6681359188e2f43345": ">50",
+      "dsid_bd7caad8adb2405eaa7ad78c4ffb59d7": ">50",
+      "dsid_d373a0708d4144d684e495c52c16448a": ">50",
+      "dsid_ec406aef8d0342c78ae27025670daedf": ">50"
+    },
+    "dense_ranks": {
+      "dsid_15a9d93cc59c4241a97a7e72f749a216": ">50",
+      "dsid_0e0ac7276c864c63a02586fa07ae85e1": ">50",
+      "dsid_c0c93abadf4c438189e23cb45256c6e9": ">50",
+      "dsid_ac94dcaf2e1e4674b2351a8b4177db9e": ">50",
+      "dsid_98943148c00b42db859ec2d84649fe04": ">50",
+      "dsid_ed145ed8c9234a6681359188e2f43345": ">50",
+      "dsid_bd7caad8adb2405eaa7ad78c4ffb59d7": ">50",
+      "dsid_d373a0708d4144d684e495c52c16448a": ">50",
+      "dsid_ec406aef8d0342c78ae27025670daedf": ">50"
+    },
+    "hybrid_ranks": {
+      "dsid_15a9d93cc59c4241a97a7e72f749a216": ">50",
+      "dsid_0e0ac7276c864c63a02586fa07ae85e1": ">50",
+      "dsid_c0c93abadf4c438189e23cb45256c6e9": 39,
+      "dsid_ac94dcaf2e1e4674b2351a8b4177db9e": ">50",
+      "dsid_98943148c00b42db859ec2d84649fe04": ">50",
+      "dsid_ed145ed8c9234a6681359188e2f43345": ">50",
+      "dsid_bd7caad8adb2405eaa7ad78c4ffb59d7": ">50",
+      "dsid_d373a0708d4144d684e495c52c16448a": ">50",
+      "dsid_ec406aef8d0342c78ae27025670daedf": ">50"
+    },
+    "recalls": {
+      "bm25_r@5": 0.0,
+      "dense_r@5": 0.0,
+      "hybrid_r@5": 0.0,
+      "bm25_r@10": 0.0,
+      "dense_r@10": 0.0,
+      "hybrid_r@10": 0.0,
+      "bm25_r@20": 0.0,
+      "dense_r@20": 0.0,
+      "hybrid_r@20": 0.0,
+      "bm25_r@40": 0.1111111111111111,
+      "dense_r@40": 0.0,
+      "hybrid_r@40": 0.1111111111111111,
+      "bm25_r@50": 0.1111111111111111,
+      "dense_r@50": 0.0,
+      "hybrid_r@50": 0.1111111111111111
+    }
+  },
+  {
+    "qid": "qst_0448",
+    "category": "completeness",
+    "question": "Which customers have been granted an exception to Redwood\u2019s default inference request log retention policy, and what retention period was approved for each?",
+    "total_gold": 7,
+    "gold_docs": [
+      "dsid_e91e68b31a6f4935b87d6f74dd07e1f6",
+      "dsid_b793b06789ae4147884e94681c6beae1",
+      "dsid_6933f9241ef140da9d3bf98be52be867",
+      "dsid_b72bd7e0c91a4f8c9d9a13daf6ff3d28",
+      "dsid_84ec014ad9f14f1481b45484da41181a",
+      "dsid_67a8c3300752435296938175e9a1daf5",
+      "dsid_5f0ab47fe8de47a89bb6668f8722becf"
+    ],
+    "bm25_ranks": {
+      "dsid_e91e68b31a6f4935b87d6f74dd07e1f6": 6,
+      "dsid_b793b06789ae4147884e94681c6beae1": 2,
+      "dsid_6933f9241ef140da9d3bf98be52be867": 1,
+      "dsid_b72bd7e0c91a4f8c9d9a13daf6ff3d28": ">50",
+      "dsid_84ec014ad9f14f1481b45484da41181a": ">50",
+      "dsid_67a8c3300752435296938175e9a1daf5": 46,
+      "dsid_5f0ab47fe8de47a89bb6668f8722becf": ">50"
+    },
+    "dense_ranks": {
+      "dsid_e91e68b31a6f4935b87d6f74dd07e1f6": ">50",
+      "dsid_b793b06789ae4147884e94681c6beae1": ">50",
+      "dsid_6933f9241ef140da9d3bf98be52be867": ">50",
+      "dsid_b72bd7e0c91a4f8c9d9a13daf6ff3d28": ">50",
+      "dsid_84ec014ad9f14f1481b45484da41181a": ">50",
+      "dsid_67a8c3300752435296938175e9a1daf5": 26,
+      "dsid_5f0ab47fe8de47a89bb6668f8722becf": ">50"
+    },
+    "hybrid_ranks": {
+      "dsid_e91e68b31a6f4935b87d6f74dd07e1f6": 13,
+      "dsid_b793b06789ae4147884e94681c6beae1": 4,
+      "dsid_6933f9241ef140da9d3bf98be52be867": 2,
+      "dsid_b72bd7e0c91a4f8c9d9a13daf6ff3d28": ">50",
+      "dsid_84ec014ad9f14f1481b45484da41181a": ">50",
+      "dsid_67a8c3300752435296938175e9a1daf5": 33,
+      "dsid_5f0ab47fe8de47a89bb6668f8722becf": ">50"
+    },
+    "recalls": {
+      "bm25_r@5": 0.2857142857142857,
+      "dense_r@5": 0.0,
+      "hybrid_r@5": 0.2857142857142857,
+      "bm25_r@10": 0.42857142857142855,
+      "dense_r@10": 0.0,
+      "hybrid_r@10": 0.2857142857142857,
+      "bm25_r@20": 0.42857142857142855,
+      "dense_r@20": 0.0,
+      "hybrid_r@20": 0.42857142857142855,
+      "bm25_r@40": 0.42857142857142855,
+      "dense_r@40": 0.14285714285714285,
+      "hybrid_r@40": 0.5714285714285714,
+      "bm25_r@50": 0.5714285714285714,
+      "dense_r@50": 0.14285714285714285,
+      "hybrid_r@50": 0.5714285714285714
+    }
+  }
+]

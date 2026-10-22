@@ -1,0 +1,281 @@
+{
+  "benchmark": "EnterpriseRAG-Bench",
+  "mode": "bm25",
+  "judge_type": "deterministic",
+  "num_evaluated": 5,
+  "execution_time_seconds": 70.68,
+  "overall": {
+    "overall_score": 80.0,
+    "answer_correctness_pct": 80.0,
+    "answer_completeness_pct": 85.45,
+    "recall_at_5": 95.83,
+    "recall_at_20": 95.83,
+    "citation_validity_pct": 100.0,
+    "sentence_citation_rate_pct": 38.0,
+    "claim_support_rate_pct": 34.0,
+    "total_estimated_cost_usd": 0.018677,
+    "avg_latency_ms": 11971.83
+  },
+  "by_category": {
+    "basic": {
+      "num_questions": 2,
+      "overall_score": 100.0,
+      "answer_correct_pct": 100.0,
+      "completeness_pct": 100.0,
+      "recall_at_5": 100.0,
+      "abstention_count": 0,
+      "contradiction_count": 0
+    },
+    "completeness": {
+      "num_questions": 1,
+      "overall_score": 0.0,
+      "answer_correct_pct": 0.0,
+      "completeness_pct": 27.27,
+      "recall_at_5": 83.33333333333334,
+      "abstention_count": 0,
+      "contradiction_count": 0
+    },
+    "conflicting_info": {
+      "num_questions": 1,
+      "overall_score": 100.0,
+      "answer_correct_pct": 100.0,
+      "completeness_pct": 100.0,
+      "recall_at_5": 100.0,
+      "abstention_count": 0,
+      "contradiction_count": 1
+    },
+    "info_not_found": {
+      "num_questions": 1,
+      "overall_score": 100.0,
+      "answer_correct_pct": 100.0,
+      "completeness_pct": 100.0,
+      "recall_at_5": null,
+      "abstention_count": 1,
+      "contradiction_count": 0
+    }
+  },
+  "per_question": [
+    {
+      "question_id": "qst_0001",
+      "question_type": "basic",
+      "question": "What are the default size limits for file uploads and total request size for the new multipart upload support on the OpenAI-compatible API endpoints?",
+      "gold_answer": "The default limits are 10 MiB per file (max_file_size) and 50 MiB total per request (max_total_request_size) for multipart uploads on the OpenAI-compatible endpoints.",
+      "answer_facts": [
+        "The default per file upload size limit (max_file_size) for multipart uploads on OpenAI-compatible endpoints is 10 MiB.",
+        "The default total request size limit (max_total_request_size) for multipart uploads on OpenAI-compatible endpoints is 50 MiB."
+      ],
+      "expected_doc_ids": [
+        "dsid_ae068ee4aa9640159427cd941bef0238"
+      ],
+      "generated_answer": "The default limits are\u202f10\u202fMiB per uploaded file (per\u2011part) and\u202f50\u202fMiB for the entire multipart request\u202f[dsid_c0e4ca5e29da45858056f1da8eb45009]\u202f[dsid_ae068ee4aa9640159427cd941bef0238].",
+      "retrieved_doc_ids": [
+        "dsid_c0e4ca5e29da45858056f1da8eb45009",
+        "dsid_ae068ee4aa9640159427cd941bef0238",
+        "dsid_ea298d9a235949febd7c03cb500817c4",
+        "dsid_fc5e896d8eb4455fa9b186d04e0845f4"
+      ],
+      "cited_doc_ids": [
+        "dsid_c0e4ca5e29da45858056f1da8eb45009",
+        "dsid_ae068ee4aa9640159427cd941bef0238"
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_20": 1.0,
+      "answer_correct": true,
+      "completeness_pct": 100.0,
+      "overall_score": 100.0,
+      "citation_validity_rate": 1.0,
+      "has_hallucinated_citations": false,
+      "is_abstention": false,
+      "has_contradiction": false,
+      "latency_ms": 1543.6,
+      "cost_usd": 0.003465,
+      "judge_explanation": "Deterministic evaluation: 2/2 positive facts addressed.",
+      "sentence_citation_rate": 1.0,
+      "claim_support_rate": 1.0,
+      "has_unsourced_claims": false,
+      "max_chunk_concentration": 0.4
+    },
+    {
+      "question_id": "qst_0016",
+      "question_type": "basic",
+      "question": "What is the company policy for how long contractor access should last by default before it expires, according to the access and permissions playbook?",
+      "gold_answer": "Contractor access is enforced to expire by default after 30 days unless it is renewed.",
+      "answer_facts": [
+        "Contractor access is set to expire by default after 30 days unless it is renewed."
+      ],
+      "expected_doc_ids": [
+        "dsid_ba7d1565b0694e359983bccaa4bf5977"
+      ],
+      "generated_answer": "Contractor access is set to expire automatically after\u202f30\u202fdays by default unless renewed.\u202f[dsid_ba7d1565b0694e359983bccaa4bf5977]",
+      "retrieved_doc_ids": [
+        "dsid_000aabb424694648b5651aa9a2438c81",
+        "dsid_5fdfdc86509e45f4a64f936d6260e293",
+        "dsid_ba7d1565b0694e359983bccaa4bf5977",
+        "dsid_bc83adc1e9cb4b739128a6b574a6fabe",
+        "dsid_b04d99601ddd4b528ab88ff5be1360f5"
+      ],
+      "cited_doc_ids": [
+        "dsid_ba7d1565b0694e359983bccaa4bf5977"
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_20": 1.0,
+      "answer_correct": true,
+      "completeness_pct": 100.0,
+      "overall_score": 100.0,
+      "citation_validity_rate": 1.0,
+      "has_hallucinated_citations": false,
+      "is_abstention": false,
+      "has_contradiction": false,
+      "latency_ms": 1505.76,
+      "cost_usd": 0.00347,
+      "judge_explanation": "Deterministic evaluation: 1/1 positive facts addressed.",
+      "sentence_citation_rate": 0.5,
+      "claim_support_rate": 0.5,
+      "has_unsourced_claims": true,
+      "max_chunk_concentration": 0.2
+    },
+    {
+      "question_id": "qst_0427",
+      "question_type": "conflicting_info",
+      "question": "ClearEdge 2027 pilot: final po_fingerprint format and weekly invoice delivery time?",
+      "gold_answer": "Final requirements: po_fingerprint must be the lowercase SHA-256 hex digest of the exact string `PO_NUMBER|PO_LINE_UUID` (no whitespace) and included on each invoice line; weekly consolidated invoice files are delivered Tuesdays by 07:00 PT. Earlier June 2027 emails mentioned sending raw `PO#|LINEUUID` without hashing and Monday-morning delivery, but that is superseded.",
+      "answer_facts": [
+        "The answer must state that the final po_fingerprint is a SHA-256 hash (hex digest) of `PO_NUMBER|PO_LINE_UUID`.",
+        "The answer must specify that the input to the hash uses a pipe delimiter and should not include whitespace (i.e., the exact `PO_NUMBER|PO_LINE_UUID` string).",
+        "The answer must indicate that raw/unhashed `PO_NUMBER|PO_LINE_UUID` is not acceptable in the final requirements.",
+        "The answer must state the final weekly invoice delivery SLA is Tuesdays by 07:00 PT.",
+        "If the answer mentions the older guidance, it must describe it as superseded and reflect that it referenced an unhashed `PO#|LINEUUID` and Monday morning delivery (Mondays 08:00 PT).",
+        "The answer must not claim the final po_fingerprint uses SHA-1.",
+        "The answer must not claim the final delivery time is Monday 08:00 PT."
+      ],
+      "expected_doc_ids": [
+        "dsid_86f033ed92b84f3a8b381d09b0b95357",
+        "dsid_d93aed75845e4a0b8126a80d8a7a5a41"
+      ],
+      "generated_answer": "**Final\u202fpo_fingerprint format**  \n- Compute a SHA\u2011256 hash (lower\u2011case hex) of the exact string `PO_NUMBER|PO_LINE_UUID` (no whitespace).  \n- The resulting 64\u2011character hex digest is placed in the `poFingerprint` field of each invoice line.  \n- Do **not** send the raw `PO_NUMBER|PO_LINE_UUID` string and do **not** use SHA\u20111.  \n\n*Superseded guidance*: An earlier email draft instructed using the plain `PO#|LINEUUID` string with no hashing. That draft is overridden by the finalized specification.\u202f[dsid_86f033ed92b84f3a8b381d09b0b95357] \u2192 superseded by\u202f[dsid_d93aed75845e4a0b8126a80d8a7a5a41].\n\n**Weekly invoice delivery time**  \n- Invoices must be delivered via ClearEdge SFTP **by Tuesday\u202f07:00\u202fPT** for the week ending Sunday.  \n\n*Superseded guidance*: The prior version set delivery for Monday\u202f08:00\u202fPT. The final policy updates the SLA to Tuesday\u202f07:00\u202fPT.\u202f[dsid_86f033ed92b84f3a8b381d09b0b95357] \u2192 superseded by\u202f[dsid_d93aed75845e4a0b8126a80d8a7a5a41].",
+      "retrieved_doc_ids": [
+        "dsid_d93aed75845e4a0b8126a80d8a7a5a41",
+        "dsid_86f033ed92b84f3a8b381d09b0b95357"
+      ],
+      "cited_doc_ids": [
+        "dsid_86f033ed92b84f3a8b381d09b0b95357",
+        "dsid_d93aed75845e4a0b8126a80d8a7a5a41"
+      ],
+      "recall_at_5": 1.0,
+      "recall_at_20": 1.0,
+      "answer_correct": true,
+      "completeness_pct": 100.0,
+      "overall_score": 100.0,
+      "citation_validity_rate": 1.0,
+      "has_hallucinated_citations": false,
+      "is_abstention": false,
+      "has_contradiction": true,
+      "latency_ms": 5042.71,
+      "cost_usd": 0.003759,
+      "judge_explanation": "Correctly noted contradiction between divergent sources.",
+      "sentence_citation_rate": 0.2,
+      "claim_support_rate": 0.0,
+      "has_unsourced_claims": true,
+      "max_chunk_concentration": 0.75
+    },
+    {
+      "question_id": "qst_0447",
+      "question_type": "completeness",
+      "question": "What is Redwood Inference's complete end-to-end process for shipping an emergency serving-runtime hotfix to production (Hosted + Dedicated), including required approvals, checklists, rollout/rollback steps, and mandatory customer communications?",
+      "gold_answer": "To ship an emergency **serving-runtime hotfix** to production (Hosted + Dedicated), Redwood Inference follows this end-to-end process:\n\n1) **Open the emergency change + record the minimum checklist** (in a Linear/Jira ticket and the incident timeline/thread): state the fix hypothesis, what's changing (code/config/infra), blast radius (Hosted regions, Dedicated clusters/customers, model families), risk assessment (security/data/perf), a **rollback plan with explicit triggers**, and who owns post-change monitoring; ensure an incident channel/thread exists with an identified IC.\n\n2) **Get required approvals (no exceptions):** two-person approval from **(a) IC (or SRE on-call)** and **(b) the serving-runtime Service Owner (or delegate)**, recorded in PR review/incident thread/change record. Add scenario-based approvals as applicable: **Security on-call** (security/exploit), **Product on-call/PM** (customer-visible behavior changes), and **Customer Success Escalation Manager (CSEM)** when Dedicated/customer maintenance coordination is required.\n\n3) **Prepare the hotfix PR (Serving Runtime Hotfix Runbook):** cut `hotfix/runtime-<YYYYMMDD>-<short-issue>`, cherry-pick only the minimal fix, update the Runtime Hotfixes changelog, open a PR (prefer release branch), and obtain emergency reviews from **runtime on-call + SRE on-call (or IC)**; include incident link, risk, rollback, and rollout owners.\n\n4) **Build + supply-chain sign artifacts (mandatory):** run the approved hotfix build pipeline to produce the new runtime image in the production registry plus **SBOM** and **provenance attestation**, and **verify cosign signatures/attestations before rollout**; image signing cannot be skipped (SBOM delay is only allowed with Security on-call approval and must be attached within 4 hours).\n\n5) **Validate before rollout (minimum required even in Sev-1):** run unit tests for the affected module, one perf canary for a representative model, and a stress test matching the incident pattern; record results in the PR confirming error-rate improvement, **no >10% p95 regression** (same workload), and no increase in OOM/GPU reset counters.\n\n6) **Post rollout notes to the incident channel:** new runtime image tag, expected rollout impact (restarts/brief resets), the **canary target**, and **rollback criteria** (metrics + customer symptom). A canary is required unless explicitly waived by IC (with rationale recorded).\n\n7) **Roll out to Hosted (Platform/SRE; Hosted Rollout + Rollback Procedure):** announce rollout start + tag; set `runtime_image_tag=<new-tag>` and sync via ArgoCD (`hosted-runtime`). Roll out in order **us-west-2a canary (10%) \u2192 us-west-2 (50%) \u2192 us-east-1 (50%) \u2192 eu-central-1 (50%) \u2192 global**, monitoring each step for at least 15 minutes (success rate, p95 for top routes, GPU OOM, router fallback, error-budget burn). **Rollback immediately** by reverting to the last-known-good tag and ArgoCD syncing if 5xx/stream aborts persist >5 min, OOM spikes >2\u00d7 baseline, p95 regresses >20% for >10 min, crash loops appear, or customer reports correlate with rollout start; announce rollback and next steps in the incident channel.\n\n8) **Roll out to Dedicated (Infra + CSEM; Dedicated Cluster Hotfix Rollout Notes):** collect required inputs (customer/cluster ID, current/target tags, expected restart impact, rollback tag, scope), obtain approvals (**IC/SRE + Dedicated service owner + CSEM sign-off on messaging**), and **communicate to customers** (unless IC explicitly waives due to active outage): state brief interruption risk, provide a rollout window, and describe rollback criteria in plain language. Canary one Dedicated cluster first (prefer internal dogfood/lowest-traffic with CSEM approval) and validate ~30 minutes (success rate, p95, OOM, restart frequency, customer health checks); then schedule remaining clusters, rolling **no more than 3 in parallel unless IC approves**. Per cluster: confirm comms sent, update Helm `runtime_image_tag`, ArgoCD sync `dedicated-<cluster-id>-runtime`, watch for CrashLoopBackOff, run customer smoke checks (chat/embeddings/streaming). If rollback triggers hit, revert the tag, restart if needed, and **notify the customer immediately** (CSEM).\n\n9) **Mandatory Sev-1 customer communications (Status Page + Customer Notifications):** IC owns accuracy/cadence; CSEM owns direct enterprise/Dedicated outreach; initial acknowledgment **within 10 minutes**, updates **every 30 minutes** while impact continues, and a resolution message **within 15 minutes** of confirmed mitigation. Each update must include customer symptoms, affected surfaces (regions/clusters/models), mitigation steps, ETA with confidence level, and any workarounds; provide a post-incident summary within **1 business day** (required for enterprise).\n\n10) **Post-change closeout:** update the incident timeline with start/change/outcome, record cluster/region outcomes, and within **2 business days** complete incident follow-up (what changed and why it worked), document any release-process deviations/corrective actions, remove temporary flags/throttles (with owner + deadline), and create a task to promote the hotfix into the next regular release.",
+      "answer_facts": [
+        "An emergency serving-runtime hotfix requires opening an emergency change ticket and recording a minimum checklist: fix hypothesis, what is changing (code/config/infra), blast radius (Hosted regions and Dedicated clusters/customers), risk assessment (security/data/perf), an explicit rollback plan with triggers, and a named owner for post-change monitoring, with an incident channel/thread and identified incident commander (IC).",
+        "Required approvals for an emergency serving-runtime hotfix are two-person approval from (a) the IC or SRE on-call and (b) the serving-runtime Service Owner (or delegate), recorded in the PR review or incident thread/change record.",
+        "Additional scenario-based approvals apply: Security on-call for security or exploit risk, Product on-call or PM for customer-visible behavior changes, and a Customer Success Escalation Manager (CSEM) when Dedicated or customer maintenance coordination is required.",
+        "The hotfix PR process includes cutting a hotfix branch, cherry-picking only the minimal fix, updating the runtime hotfixes changelog, and opening a PR (prefer the release branch) that includes incident link, risk, rollback plan, and rollout owners, with emergency reviews from runtime on-call and SRE on-call (or IC).",
+        "Before rollout, the hotfix build must produce a new runtime image in the production registry along with SBOM and provenance attestation, and cosign signatures/attestations must be verified; image signing cannot be skipped, and any SBOM delay requires Security on-call approval and must be attached within 4 hours.",
+        "Minimum pre-rollout validation is required even in Sev-1: unit tests for the affected module, a performance canary for a representative model, and a stress test matching the incident pattern, with results recorded (including error-rate improvement, no more than 10 percent p95 regression on the same workload, and no increase in OOM/GPU reset counters).",
+        "Before executing rollout steps, the incident channel must be updated with the new runtime image tag, expected rollout impact (restarts/brief resets), the canary target, and rollback criteria; a canary is required unless explicitly waived by the IC with rationale recorded.",
+        "Hosted rollout is executed by Platform/SRE by setting runtime_image_tag to the new tag and syncing via ArgoCD for hosted-runtime, with rollout in order: us-west-2a canary (10 percent), then us-west-2 (50 percent), us-east-1 (50 percent), eu-central-1 (50 percent), then global.",
+        "Hosted rollout requires monitoring each step for at least 15 minutes using metrics including success rate, p95 for top routes, GPU OOM, router fallback, and error-budget burn.",
+        "Hosted rollback is performed by reverting to the last-known-good tag and ArgoCD syncing if any rollback trigger occurs, and the rollback plus next steps must be announced in the incident channel.",
+        "Hosted rollback triggers include: 5xx or stream aborts persisting more than 5 minutes, OOM spikes more than 2x baseline, p95 latency regressing more than 20 percent for more than 10 minutes, crash loops, or customer reports correlating with rollout start.",
+        "Dedicated rollout is executed by Infra with CSEM involvement, after collecting required inputs (customer/cluster ID, current/target tags, expected restart impact, rollback tag, and scope) and obtaining approvals from IC/SRE, the Dedicated service owner, and CSEM sign-off on customer messaging.",
+        "For Dedicated, customers must be communicated to (unless the IC explicitly waives due to active outage), including brief interruption risk, a rollout window, and rollback criteria in plain language.",
+        "Dedicated rollout must canary one cluster first (prefer internal dogfood or lowest-traffic with CSEM approval) and validate for about 30 minutes using metrics including success rate, p95, OOM, restart frequency, and customer health checks.",
+        "After Dedicated canary validation, remaining clusters are scheduled with no more than 3 clusters in parallel unless the IC approves more.",
+        "Per Dedicated cluster, execution includes confirming customer communications were sent, updating Helm runtime_image_tag, ArgoCD syncing dedicated-<cluster-id>-runtime, monitoring for CrashLoopBackOff, and running customer smoke checks (chat/embeddings/streaming).",
+        "If Dedicated rollback triggers are hit, the tag is reverted (and restarted if needed) and the customer must be notified immediately by CSEM.",
+        "Mandatory Sev-1 customer communications include use of a Status Page and customer notifications, with the IC owning accuracy and cadence and the CSEM owning direct enterprise/Dedicated outreach.",
+        "Sev-1 communications timing requirements are: initial acknowledgment within 10 minutes, updates every 30 minutes while impact continues, and a resolution message within 15 minutes of confirmed mitigation.",
+        "Each Sev-1 customer update must include customer symptoms, affected surfaces (regions/clusters/models), mitigation steps, ETA with confidence level, and any workarounds.",
+        "A post-incident summary is required within 1 business day for enterprise customers.",
+        "Post-change closeout includes updating the incident timeline with start/change/outcome and recording region/cluster outcomes, completing incident follow-up within 2 business days (what changed and why it worked), documenting release-process deviations and corrective actions, removing temporary flags/throttles with an owner and deadline, and creating a task to promote the hotfix into the next regular release."
+      ],
+      "expected_doc_ids": [
+        "dsid_452dc45d76754cbca8a3674170599633",
+        "dsid_e5fe3fd0cf444668a64970ec00818f46",
+        "dsid_ac2fdba09cc24cd98ba60f5da114780c",
+        "dsid_8c3d5e26a1c841199d3bcd7aea5d495e",
+        "dsid_6807c651b55546559733c7c6f8dc133d",
+        "dsid_5d509e588f994166a2ccc6e39cbf6cb5"
+      ],
+      "generated_answer": "**Redwood Inference \u2013 End\u2011to\u2011End Emergency Serving\u2011Runtime Hotfix Process (Hosted\u202f+\u202fDedicated)**  \n\nThe procedure below combines the emergency\u2011change policy, the hotfix runbook, the Hosted rollout procedure, and the Dedicated\u2011cluster rollout notes. All steps are required for a production hotfix; each statement is grounded in the supplied documents.\n\n---\n\n### 1. Preconditions & Incident Setup  \n1. **Open an incident ticket** (Linear or Jira) and create a dedicated Slack thread or incident channel. Identify the Incident Commander (IC).  \n2. Verify that an **emergency\u2011change approval record** exists per the Emergency Change Policy v3\u202f[dsid_452dc45d76754cbca8a3674170599633].  \n3. Ensure a **rollback plan** is defined (previous runtime image tag\u202f+\u202frestart procedure)\u202f[dsid_ac2fdba09cc24cd98ba60f5da114780c].  \n\n### 2. Required Approvals  \n| Role | When required | Where recorded |\n|------|---------------|----------------|\n| Runtime on\u2011call | All hotfixes | PR review\u202f[dsid_ac2fdba09cc24cd98ba60f5da114780c] |\n| SRE on\u2011call (or IC) | All hotfixes | PR review\u202f[dsid_ac2fdba09cc24cd98ba60f5da114780c] |\n| Service Owner (or delegate) | Component\u2011specific change | Emergency Change Policy\u202f[dsid_452dc45d76754cbca8a3674170599633] |\n| Security on\u2011call | Security\u2011related or suspected exploit | Emergency Change Policy\u202f[dsid_452dc45d76754cbca8a3674170599633] |\n| Product on\u2011call / PM | Customer\u2011visible behavior change | Emergency Change Policy\u202f[dsid_452dc45d76754cbca8a3674170599633] |\n| Customer Success Escalation Manager (CSEM) | Any Dedicated\u2011cluster hotfix (customer coordination) | Dedicated Hotfix Rollout Notes\u202f[dsid_5d509e588f994166a2ccc6e39cbf6cb5] |\n\nAll approvals must be **recorded in the PR, incident thread, or change\u2011record comment**\u202f[dsid_452dc45d76754cbca8a3674170599633].\n\n### 3. Hotfix Development  \n1. **Create a hotfix branch** named `hotfix/runtime-<YYYYMMDD>-<short\u2011issue>`\u202f[dsid_ac2fdba09cc24cd98",
+      "retrieved_doc_ids": [
+        "dsid_ac2fdba09cc24cd98ba60f5da114780c",
+        "dsid_452dc45d76754cbca8a3674170599633",
+        "dsid_5d509e588f994166a2ccc6e39cbf6cb5",
+        "dsid_e5fe3fd0cf444668a64970ec00818f46",
+        "dsid_6807c651b55546559733c7c6f8dc133d"
+      ],
+      "cited_doc_ids": [
+        "dsid_452dc45d76754cbca8a3674170599633",
+        "dsid_ac2fdba09cc24cd98ba60f5da114780c",
+        "dsid_5d509e588f994166a2ccc6e39cbf6cb5"
+      ],
+      "recall_at_5": 0.8333333333333334,
+      "recall_at_20": 0.8333333333333334,
+      "answer_correct": false,
+      "completeness_pct": 27.27,
+      "overall_score": 0.0,
+      "citation_validity_rate": 1.0,
+      "has_hallucinated_citations": false,
+      "is_abstention": false,
+      "has_contradiction": false,
+      "latency_ms": 24048.85,
+      "cost_usd": 0.004785,
+      "judge_explanation": "Deterministic evaluation: 6/22 positive facts addressed.",
+      "sentence_citation_rate": 0.2,
+      "claim_support_rate": 0.2,
+      "has_unsourced_claims": true,
+      "max_chunk_concentration": 0.2
+    },
+    {
+      "question_id": "qst_0499",
+      "question_type": "info_not_found",
+      "question": "For the `profiling.signals` Kafka topic used by trace-orch and fidelity-proxy, what are the current production settings (partition count and message retention time), and where can I find the approval/change record for the most recent update?",
+      "gold_answer": "The answer must state at some point that the query is not fully answerable from available documents or caveat the provided information with why it does not fully address the query. The answer may present relevant and related information to be helpful to the user however it must clearly also mention that at least some aspects are not found or answered. The answer may also simply state that the query is not answerable from the documents, this is perfectly acceptable.",
+      "answer_facts": [
+        "The answer must state at some point that the query is not fully answerable from available documents or caveat the provided information with why it does not fully address the query. The answer may present relevant and related information to be helpful to the user however it must clearly also mention that at least some aspects are not found or answered. The answer may also simply state that the query is not answerable from the documents, this is perfectly acceptable."
+      ],
+      "expected_doc_ids": [],
+      "generated_answer": "The supplied evidence does not contain any information about the `profiling.signals` Kafka topic\u2014its production partition count, message\u2011retention time, or the location of the approval/change record for the most recent update. Consequently, the question cannot be answered from the available documents.",
+      "retrieved_doc_ids": [
+        "dsid_8c8a4f0507184aeaa0f6ebc08fb57ae4",
+        "dsid_7a38e9ceb04e44a2841de2719801d198"
+      ],
+      "cited_doc_ids": [],
+      "recall_at_5": null,
+      "recall_at_20": null,
+      "answer_correct": true,
+      "completeness_pct": 100.0,
+      "overall_score": 100.0,
+      "citation_validity_rate": 1.0,
+      "has_hallucinated_citations": false,
+      "is_abstention": true,
+      "has_contradiction": false,
+      "latency_ms": 27718.25,
+      "cost_usd": 0.003198,
+      "judge_explanation": "Correctly abstained on query where information was not available.",
+      "sentence_citation_rate": 0.0,
+      "claim_support_rate": 0.0,
+      "has_unsourced_claims": false,
+      "max_chunk_concentration": 0.5
+    }
+  ]
+}

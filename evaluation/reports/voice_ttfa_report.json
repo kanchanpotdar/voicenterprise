@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-10-22T10:52:26Z",
+  "metrics": {
+    "stt_latency_ms": 381.46,
+    "retrieval_latency_ms": 1555.15,
+    "context_builder_latency_ms": 10.34,
+    "llm_ttft_ms": 1518.38,
+    "llm_generation_ms": 1701.4,
+    "tts_first_chunk_latency_ms": 1516.39,
+    "total_ttfa_ms": 5065.04,
+    "total_e2e_ms": 5236.15,
+    "transcribed_query": "What is the final PO fingerprint format for the ClearEdge 2027 pilot?",
+    "first_spoken_sentence": "The final PO fingerprint for the ClearEdge 2027 pilot is:"
+  },
+  "answer_text": "The final PO fingerprint for the ClearEdge 2027 pilot is:\n\n* **Input string** \u2013 `PO_NUMBER|PO_LINE_UUID` (exactly this concatenation, no whitespace).  \n* **Output** \u2013 the **SHA\u2011256** hash of that input string, expressed as a lowercase hexadecimal digest.  \n\nThis format is the definitive requirement in the final ClearEdge billing page. It supersedes the earlier draft that specified sending the raw `PO#|LINEUUID` string without hashing.  \n\n- Final specification: dsid_d93aed75845e4a0b8126a80d8a7a5a41.  \n- Superseded draft: dsid_86f033ed92b84f3a8b381d09b0b95357.",
+  "audio_output_path": "/var/folders/xb/r7gm6t_n74b0_vsl2c__gtyc0000gp/T/tmpzmwh2eau.wav"
+}

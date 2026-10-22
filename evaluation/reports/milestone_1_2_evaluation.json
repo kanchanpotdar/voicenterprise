@@ -1,0 +1,471 @@
+{
+  "timestamp": "2026-10-22T13:16:08Z",
+  "summary": {
+    "num_evaluated": 11,
+    "total_time_seconds": 250.49,
+    "overall": {
+      "overall_score": 58.68,
+      "answer_correctness_pct": 63.64,
+      "answer_completeness_pct": 76.86,
+      "citation_id_validity_pct": 100.0,
+      "sentence_citation_rate_pct": 42.8,
+      "claim_support_heuristic_pct": 37.22,
+      "avg_latency_ms": 22259.7
+    },
+    "subsets": {
+      "answerable": {
+        "count": 10,
+        "overall_score": 54.55,
+        "correctness": 60.0,
+        "completeness": 74.55
+      },
+      "unanswerable": {
+        "count": 1,
+        "abstention_accuracy": 100.0,
+        "correctness": 100.0
+      },
+      "conflict_resolution": {
+        "count": 1,
+        "contradiction_detection_rate": 100.0,
+        "overall_score": 100.0
+      },
+      "multi_doc_completeness": {
+        "count": 4,
+        "overall_score": 86.36,
+        "completeness": 86.36
+      }
+    }
+  },
+  "per_question": [
+    {
+      "question_id": "qst_0427",
+      "question_type": "conflicting_info",
+      "question": "ClearEdge 2027 pilot: final po_fingerprint format and weekly invoice delivery time?",
+      "num_expected_docs": 2,
+      "expected_doc_ids": [
+        "dsid_86f033ed92b84f3a8b381d09b0b95357",
+        "dsid_d93aed75845e4a0b8126a80d8a7a5a41"
+      ],
+      "retrieved_doc_ids": [
+        "dsid_d93aed75845e4a0b8126a80d8a7a5a41",
+        "dsid_86f033ed92b84f3a8b381d09b0b95357"
+      ],
+      "cited_doc_ids": [
+        "dsid_d93aed75845e4a0b8126a80d8a7a5a41",
+        "dsid_86f033ed92b84f3a8b381d09b0b95357"
+      ],
+      "answer_correct": true,
+      "completeness_pct": 100.0,
+      "overall_score": 100.0,
+      "citation_id_validity": 1.0,
+      "sentence_citation_rate": 0.5,
+      "lexical_claim_support_heuristic": 0.5,
+      "has_unsourced_claims": true,
+      "is_abstention": false,
+      "has_contradiction": true,
+      "context_tokens": 2342,
+      "passages_count": 4,
+      "latency_ms": 3706.8,
+      "explanation": "Correctly noted contradiction between divergent sources.",
+      "extra_checks": {
+        "confluence_falsely_cited_for_monday": true,
+        "gmail_correctly_cited_for_superseded": false
+      },
+      "answer_text": "**Final policy (ClearEdge 2027 pilot)**  \n\n- **po_fingerprint format** \u2013 The fingerprint must be the **SHA\u2011256 hex digest** (lower\u2011case) of the exact string `PO_NUMBER|PO_LINE_UUID` with no whitespace. The raw `PO_NUMBER|PO_LINE_UUID` string must **not** be sent; only the hashed value is allowed.\u202f[dsid_d93aed75845e4a0b8126a80d8a7a5a41]  \n\n- **Weekly invoice delivery time** \u2013 Invoices are to be delivered **every Tuesday by 07:00\u202fPT**.\u202f[dsid_d93aed75845e4a0b8126a80d8a7a5a41]  \n\n**Superseded guidance**  \n\n- An earlier draft (June\u202f2027 email thread) specified the fingerprint as the plain `PO#|LINEUUID` string (no hashing) and scheduled invoice delivery on Mondays.\u202fThis guidance has been superseded by the final document above.\u202f[dsid_86f033ed92b84f3a8b381d09b0b95357]"
+    },
+    {
+      "question_id": "qst_0447",
+      "question_type": "completeness",
+      "question": "What is Redwood Inference's complete end-to-end process for shipping an emergency serving-runtime hotfix to production (Hosted + Dedicated), including required approvals, checklists, rollout/rollback steps, and mandatory customer communications?",
+      "num_expected_docs": 6,
+      "expected_doc_ids": [
+        "dsid_452dc45d76754cbca8a3674170599633",
+        "dsid_e5fe3fd0cf444668a64970ec00818f46",
+        "dsid_ac2fdba09cc24cd98ba60f5da114780c",
+        "dsid_8c3d5e26a1c841199d3bcd7aea5d495e",
+        "dsid_6807c651b55546559733c7c6f8dc133d",
+        "dsid_5d509e588f994166a2ccc6e39cbf6cb5"
+      ],
+      "retrieved_doc_ids": [
+        "dsid_ac2fdba09cc24cd98ba60f5da114780c",
+        "dsid_452dc45d76754cbca8a3674170599633",
+        "dsid_5d509e588f994166a2ccc6e39cbf6cb5",
+        "dsid_e5fe3fd0cf444668a64970ec00818f46",
+        "dsid_6807c651b55546559733c7c6f8dc133d",
+        "dsid_8c3d5e26a1c841199d3bcd7aea5d495e"
+      ],
+      "cited_doc_ids": [
+        "dsid_ac2fdba09cc24cd98ba60f5da114780c",
+        "dsid_452dc45d76754cbca8a3674170599633",
+        "dsid_5d509e588f994166a2ccc6e39cbf6cb5",
+        "dsid_8c3d5e26a1c841199d3bcd7aea5d495e",
+        "dsid_6807c651b55546559733c7c6f8dc133d"
+      ],
+      "answer_correct": true,
+      "completeness_pct": 45.45,
+      "overall_score": 45.45,
+      "citation_id_validity": 1.0,
+      "sentence_citation_rate": 0.375,
+      "lexical_claim_support_heuristic": 0.34375,
+      "has_unsourced_claims": true,
+      "is_abstention": false,
+      "has_contradiction": false,
+      "context_tokens": 2154,
+      "passages_count": 6,
+      "latency_ms": 6795.2,
+      "explanation": "Deterministic evaluation: 10/22 positive facts addressed.",
+      "extra_checks": {
+        "truncation_detected": true,
+        "markdown_table_used": false,
+        "gold_docs_assembled": [
+          "dsid_452dc45d76754cbca8a3674170599633",
+          "dsid_e5fe3fd0cf444668a64970ec00818f46",
+          "dsid_ac2fdba09cc24cd98ba60f5da114780c",
+          "dsid_8c3d5e26a1c841199d3bcd7aea5d495e",
+          "dsid_6807c651b55546559733c7c6f8dc133d",
+          "dsid_5d509e588f994166a2ccc6e39cbf6cb5"
+        ]
+      },
+      "answer_text": "**Redwood Inference \u2013 Emergency Serving\u2011Runtime Hotfix \u2013 End\u2011to\u2011End SOP (Hosted\u202f+\u202fDedicated)**  \n\n1. **Determine that an emergency hotfix is needed**  \n   * Use this runbook only for a serving\u2011runtime change that must be shipped quickly to mitigate an active Sev\u20111 incident\u202f\u2014\u202ftypically a runtime bug or exploit\u202f[dsid_ac2fdba09cc24cd98ba60f5da114780c].\n\n2. **Pre\u2011flight checklist & approvals**  \n   * **Approvals** \u2013 Record emergency change approvals per the Emergency Change Policy v3\u202f[dsid_ac2fdba09cc24cd98ba60f5da114780c]; required approvers include:  \n     - Runtime on\u2011call (or Incident Commander)\u202f[dsid_ac2fdba09cc24cd98ba60f5da114780c]  \n     - SRE on\u2011call (or IC)\u202f[dsid_ac2fdba09cc24cd98ba60f5da114780c]  \n     - Service\u2011owner or delegate for the component\u202f[dsid_452dc45d76754cbca8a3674170599633]  \n     - Security on\u2011call if the change is security\u2011related\u202f[dsid_452dc45d76754cbca8a3674170599633]  \n     - Product on\u2011call or responsible PM for customer\u2011visible behavior changes\u202f[dsid_452dc45d76754cbca8a3674170599633]  \n     - Customer Success escalation manager for Dedicated/Private maintenance coordination\u202f[dsid_452dc45d76754cbca8a3674170599633]  \n   * **Documentation** \u2013 Create a ticket (Linear preferred; Jira acceptable) and link it to a GitHub PR (even if fast\u2011tracked)\u202f[dsid_452dc45d76754cbca8a3674170599633].  \n   * **Checklist items to record in the ticket/PR/incident timeline**\u202f[dsid_452dc45d76754cbca8a3674170599633]:  \n     - Hypothesis for the fix  \n     - Blast radius (Hosted regions; Dedicated clusters/customers; model families)  \n     - Rollback plan with explicit trigger (metric or customer symptom)  \n     - Risk assessment (data integrity, security, performance)  \n     - What is changing (code vs\u202fconfig vs\u202finfra)  \n     - Owner for post\u2011change monitoring  \n   * **Incident channel** \u2013 Ensure an incident Slack channel (or dedicated thread) exists with the IC identified\u202f[dsid_ac2fdba09cc24cd98ba60f5da114780c].  \n   * **Rollback artefacts** \u2013 Identify the previous runtime image tag and the restart procedure\u202f[dsid_ac2fdba09cc24cd98ba60f5da114780c].  \n   * **Hosted\u2011specific precondition** \u2013 Hotfix must be built and signed (cosign, SBOM, provenance)\u202f[dsid_5d509e588f994166a2ccc6e39cbf6cb5].  \n   * **Dedicated\u2011specific precondition** \u2013 Gather required inputs: customer name, cluster ID, current & target runtime image tags, impact statement, rollback image tag, and whether the issue is customer\u2011specific or global\u202f[dsid_5d509e588f994166a2ccc6e39cbf6cb5].\n\n3. **Create the hotfix branch**\u202f[dsid_ac2fdba09cc24cd98ba60f5da114780c]  \n   * Name: `hotfix/runtime-<YYYYMMDD>-<short\u2011issue>`  \n   * Cherry\u2011pick only the minimum fix commit(s).  \n   * Add a CHANGELOG entry under \u201cRuntime Hotfixes\u201d.\n\n4. **Open a PR and obtain emergency reviews**\u202f[dsid_ac2fdba09cc24cd98ba60f5da114780c]  \n   * Target the release branch (preferred) or `main` if no release branch exists.  \n   * Required reviewers: runtime on\u2011call + SRE on\u2011call (or IC).  \n   * PR description must include: incident link, hypothesis, risk, rollback plan, and rollout owners.\n\n5. **Build and sign the hotfix artifact**\u202f[dsid_8c3d5e26a1c841199d3bcd7aea5d495e]  \n   * Verify PR approval per the emergency policy.  \n   * Add label `hotfix-ready`.  \n   * Trigger the \u201cRelease Runtime Hotfix\u201d GitHub Actions workflow (or internal Buildkite if GitHub Actions is degraded).  \n   * Provide inputs: base image tag (previous production runtime) and new tag suffix (e.g., `hotfix-2026-02-02a`).  \n   * The workflow produces a signed container image, SBOM, and SLSA\u2011L3 provenance stored in the production registry.\n\n6. **Pre\u2011rollout validation (canary)**\u202f[dsid_452dc45d76754cbca8a3674170599633]  \n   * Deploy to a canary (one Hosted region or a single Dedicated cluster) before broader rollout.  \n   * If a canary is not possible, document the reason and obtain IC sign\u2011off.  \n   * Do **not** bundle unrelated changes in the same emergency change record.\n\n7. **Rollout**  \n\n   **Hosted fleet**\u202f[dsid_6807c651b55546559733c7c6f8dc133d]  \n   * **Canary** \u2013 `us-west-2a` (10\u202f% traffic).  \n   * **Expand** \u2013 `us-west-2` (50\u202f% traffic).  \n   * **Expand** \u2013 `us-east-1` (50\u202f% traffic).  \n   * **Expand** \u2013 `eu-central-1` (50\u202f% traffic).  \n\n   **Dedicated clusters**\u202f[dsid_5d509e588f994166a2ccc6e39cbf6cb5]  \n   * Obtain Dedicated service\u2011owner approval and Customer Success escalation manager sign\u2011off\n\n[TRUNCATION DETECTED: The generated response reached the maximum output token limit. Subsequent sections or phases may have been truncated due to length constraints.]"
+    },
+    {
+      "question_id": "qst_0436",
+      "question_type": "completeness",
+      "question": "Across Redwood's Go, Python, and TypeScript SDKs, which SDK has the highest number of customer-reported auth-related bug reports, and what are the corresponding support ticket IDs?",
+      "num_expected_docs": 10,
+      "expected_doc_ids": [
+        "dsid_a8af533a3f89402ca739bfdc5322b42e",
+        "dsid_3a5484e7e7164e389e76d188bce9f86e",
+        "dsid_1a160e1c00934f108e17183f44e3ca77",
+        "dsid_6f37b2b4341947028019bd41748eaff9",
+        "dsid_1f13ed74ef87494b81a2fc2617ab7746",
+        "dsid_1159814f66a340d79536516db194f623",
+        "dsid_c6efd46ecc6449ac8be1e53ed3803e92",
+        "dsid_8c707328a7fc444f84a8e00f90021866",
+        "dsid_98d534e949ce4fdd8ed5d651ec5ebe4b",
+        "dsid_65b12644ea52428b9c032d2cd9b75d8a"
+      ],
+      "retrieved_doc_ids": [
+        "dsid_98d534e949ce4fdd8ed5d651ec5ebe4b",
+        "dsid_5a7018773eba47af91683f6f87255995",
+        "dsid_60039cf83536468796b8f5f5089110aa",
+        "dsid_e4d3ebe8ced345c7ac04cf475c9a2f4d",
+        "dsid_0030befdc10c4ba0bb256918f6373ece",
+        "dsid_c1f7f945d5c940f5ba28e8030ecfa720"
+      ],
+      "cited_doc_ids": [
+        "dsid_98d534e949ce4fdd8ed5d651ec5ebe4b"
+      ],
+      "answer_correct": true,
+      "completeness_pct": 100.0,
+      "overall_score": 100.0,
+      "citation_id_validity": 1.0,
+      "sentence_citation_rate": 0.5,
+      "lexical_claim_support_heuristic": 0.5,
+      "has_unsourced_claims": true,
+      "is_abstention": false,
+      "has_contradiction": false,
+      "context_tokens": 2171,
+      "passages_count": 6,
+      "latency_ms": 28791.5,
+      "explanation": "Deterministic evaluation: 3/3 positive facts addressed.",
+      "extra_checks": {},
+      "answer_text": "The Python SDK has the greatest number of customer\u2011reported authentication bugs.\n\n- Reported tickets for the Python SDK: **SUP\u20114821** and **SUP\u20114933**\u202f[dsid_98d534e949ce4fdd8ed5d651ec5ebe4b]  \n- The TypeScript SDK has one reported ticket (**SUP\u20114884**)\u202f[dsid_98d534e949ce4fdd8ed5d651ec5ebe4b]  \n- The Go SDK has one reported ticket (**SUP\u20114902**)\u202f[dsid_98d534e949ce4fdd8ed5d651ec5ebe4b]  \n\nTherefore, the Python SDK leads with two auth\u2011related bug reports (SUP\u20114821, SUP\u20114933)."
+    },
+    {
+      "question_id": "qst_0437",
+      "question_type": "completeness",
+      "question": "Across all incident postmortems, which Redwood team was assigned the most follow-up action items?",
+      "num_expected_docs": 9,
+      "expected_doc_ids": [
+        "dsid_15a9d93cc59c4241a97a7e72f749a216",
+        "dsid_0e0ac7276c864c63a02586fa07ae85e1",
+        "dsid_c0c93abadf4c438189e23cb45256c6e9",
+        "dsid_ac94dcaf2e1e4674b2351a8b4177db9e",
+        "dsid_98943148c00b42db859ec2d84649fe04",
+        "dsid_ed145ed8c9234a6681359188e2f43345",
+        "dsid_bd7caad8adb2405eaa7ad78c4ffb59d7",
+        "dsid_d373a0708d4144d684e495c52c16448a",
+        "dsid_ec406aef8d0342c78ae27025670daedf"
+      ],
+      "retrieved_doc_ids": [
+        "dsid_dae91fc719ae436db857a0de6754668d",
+        "dsid_0db5736ad27f4230b8ecefc8c8cf3b88",
+        "dsid_ab887d0d46fd49278a47da32953f67ef",
+        "dsid_fa0742bc63954d3094bf72647e43c319",
+        "dsid_c799064abc794718b0fb2d125b4d9f33",
+        "dsid_6e87e7188e69435a844b5a2d9c9e8e2c",
+        "dsid_2f16c411b0fd427d86e4fb03d535cae1"
+      ],
+      "cited_doc_ids": [
+        "dsid_ab887d0d46fd49278a47da32953f67ef",
+        "dsid_6e87e7188e69435a844b5a2d9c9e8e2c"
+      ],
+      "answer_correct": true,
+      "completeness_pct": 100.0,
+      "overall_score": 100.0,
+      "citation_id_validity": 1.0,
+      "sentence_citation_rate": 0.5,
+      "lexical_claim_support_heuristic": 0.25,
+      "has_unsourced_claims": true,
+      "is_abstention": false,
+      "has_contradiction": false,
+      "context_tokens": 2497,
+      "passages_count": 7,
+      "latency_ms": 28337.3,
+      "explanation": "Deterministic evaluation: 2/2 positive facts addressed.",
+      "extra_checks": {},
+      "answer_text": "The post\u2011mortem follow\u2011up work most frequently fell to the **SRE team**.  \n\n* In the post\u2011mortem for the canary rollout (Passage\u202f3) the SRE\u2011lead (Tara) listed three follow\u2011up items \u2013 a pre\u2011deploy checklist for environment\u2011variable sync, a gating job that validates KMS key IAM permissions, and a canary\u2011health rule for KMS\u202f403 spikes\u202f[dsid_ab887d0d46fd49278a47da32953f67ef].  \n* In the later incident (Passage\u202f6) the SRE\u2011lead enumerated four additional action items \u2013 kernel/workload tuning, adding load\u2011balancer health\u2011check diversity, automated detection for accept\u2011queue saturation, and a capacity test on the host pool\u202f[dsid_6e87e7188e69435a844b5a2d9c9e8e2c].\n\nTogether these give the SRE team **seven** distinct follow\u2011up action items, more than any other Redwood team referenced in the evidence."
+    },
+    {
+      "question_id": "qst_0448",
+      "question_type": "completeness",
+      "question": "Which customers have been granted an exception to Redwood\u2019s default inference request log retention policy, and what retention period was approved for each?",
+      "num_expected_docs": 7,
+      "expected_doc_ids": [
+        "dsid_e91e68b31a6f4935b87d6f74dd07e1f6",
+        "dsid_b793b06789ae4147884e94681c6beae1",
+        "dsid_6933f9241ef140da9d3bf98be52be867",
+        "dsid_b72bd7e0c91a4f8c9d9a13daf6ff3d28",
+        "dsid_84ec014ad9f14f1481b45484da41181a",
+        "dsid_67a8c3300752435296938175e9a1daf5",
+        "dsid_5f0ab47fe8de47a89bb6668f8722becf"
+      ],
+      "retrieved_doc_ids": [
+        "dsid_6933f9241ef140da9d3bf98be52be867",
+        "dsid_b793b06789ae4147884e94681c6beae1",
+        "dsid_bc83adc1e9cb4b739128a6b574a6fabe",
+        "dsid_8e0b74e7e4204632906ca14829c11695",
+        "dsid_d1bff46c0c3a4acaba87d804d79b32c8",
+        "dsid_e91e68b31a6f4935b87d6f74dd07e1f6",
+        "dsid_b29c6ce045a9451692b55c1cc33afd2e"
+      ],
+      "cited_doc_ids": [
+        "dsid_6933f9241ef140da9d3bf98be52be867",
+        "dsid_b793b06789ae4147884e94681c6beae1",
+        "dsid_e91e68b31a6f4935b87d6f74dd07e1f6"
+      ],
+      "answer_correct": true,
+      "completeness_pct": 100.0,
+      "overall_score": 100.0,
+      "citation_id_validity": 1.0,
+      "sentence_citation_rate": 1.0,
+      "lexical_claim_support_heuristic": 1.0,
+      "has_unsourced_claims": false,
+      "is_abstention": false,
+      "has_contradiction": false,
+      "context_tokens": 2400,
+      "passages_count": 7,
+      "latency_ms": 29738.3,
+      "explanation": "Deterministic evaluation: 3/3 positive facts addressed.",
+      "extra_checks": {},
+      "answer_text": "- **QuantaGov** \u2013 Exception approved for a **private VPC deployment**:  \n  - Payload logs retained for **180\u202fdays**  \n  - Metadata logs retained for **365\u202fdays**  \n  [dsid_6933f9241ef140da9d3bf98be52be867]\n\n- **Helio Health** \u2013 Exception approved for an **Enterprise Hosted API (EU)**:  \n  - Payload (prompt/completion) logs retained for **7\u202fdays** (shorter than the default 30\u202fdays)  \n  - Metadata logs retain the default **90\u202fdays**  \n  [dsid_b793b06789ae4147884e94681c6beae1]\n\n- **Northstar Bank** \u2013 Exception approved for a **Dedicated cluster**:  \n  - Payload logs **not stored** (0\u202fdays retention)  \n  - Metadata logs retained for **30\u202fdays** (shorter than the default 90\u202fdays)  \n  [dsid_e91e68b31a6f4935b87d6f74dd07e1f6]"
+    },
+    {
+      "question_id": "qst_0499",
+      "question_type": "info_not_found",
+      "question": "For the `profiling.signals` Kafka topic used by trace-orch and fidelity-proxy, what are the current production settings (partition count and message retention time), and where can I find the approval/change record for the most recent update?",
+      "num_expected_docs": 0,
+      "expected_doc_ids": [],
+      "retrieved_doc_ids": [
+        "dsid_8c8a4f0507184aeaa0f6ebc08fb57ae4",
+        "dsid_7a38e9ceb04e44a2841de2719801d198",
+        "dsid_e484cd881a454da3a47d693d24722740",
+        "dsid_0b81de2aaafe4cc4b2fbc0775ea695ff"
+      ],
+      "cited_doc_ids": [
+        "dsid_8c8a4f0507184aeaa0f6ebc08fb57ae4",
+        "dsid_7a38e9ceb04e44a2841de2719801d198",
+        "dsid_e484cd881a454da3a47d693d24722740",
+        "dsid_0b81de2aaafe4cc4b2fbc0775ea695ff"
+      ],
+      "answer_correct": true,
+      "completeness_pct": 100.0,
+      "overall_score": 100.0,
+      "citation_id_validity": 1.0,
+      "sentence_citation_rate": 0.3333333333333333,
+      "lexical_claim_support_heuristic": 0.0,
+      "has_unsourced_claims": false,
+      "is_abstention": true,
+      "has_contradiction": false,
+      "context_tokens": 2489,
+      "passages_count": 4,
+      "latency_ms": 26745.0,
+      "explanation": "Correctly abstained on query where information was not available.",
+      "extra_checks": {},
+      "answer_text": "The supplied evidence does not contain the production configuration details (partition count or message\u2011retention time) for the `profiling.signals` Kafka topic, nor does it indicate where the approval or change record for the most recent update is stored.\u202fNo document among the provided passages (dsid_8c8a4f0507184aeaa0f6ebc08fb57ae4, dsid_7a38e9ceb04e44a2841de2719801d198, dsid_e484cd881a454da3a47d693d24722740, dsid_0b81de2aaafe4cc4b2fbc0775ea695ff) includes those settings or the location of the change\u2011record.\u202fTherefore the answer cannot be derived from the available documents."
+    },
+    {
+      "question_id": "qst_0043",
+      "question_type": "basic",
+      "question": "What caused the brief p99 latency jump on the hosted text generation endpoint in us-west-2, and what mitigation was applied to bring it back down?",
+      "num_expected_docs": 1,
+      "expected_doc_ids": [
+        "dsid_321eee6325824623833bbe754bf83a0b"
+      ],
+      "retrieved_doc_ids": [
+        "dsid_9448c00dd580497e8a60a6703476e1ec",
+        "dsid_1e0daf5b242d41a893ab27b960f6cfd7",
+        "dsid_52c4b848423b4a92bf56c42492b46c18",
+        "dsid_414c07af5ca44bd9872f3fde8172ee18",
+        "dsid_70eaec6ad9e445d5aa17d933a040e3ac",
+        "dsid_b93de37d5007414b86414ec64436f5fd"
+      ],
+      "cited_doc_ids": [
+        "dsid_70eaec6ad9e445d5aa17d933a040e3ac",
+        "dsid_9448c00dd580497e8a60a6703476e1ec"
+      ],
+      "answer_correct": false,
+      "completeness_pct": 0.0,
+      "overall_score": 0.0,
+      "citation_id_validity": 1.0,
+      "sentence_citation_rate": 1.0,
+      "lexical_claim_support_heuristic": 1.0,
+      "has_unsourced_claims": false,
+      "is_abstention": false,
+      "has_contradiction": false,
+      "context_tokens": 2337,
+      "passages_count": 6,
+      "latency_ms": 22386.1,
+      "explanation": "Deterministic evaluation: 0/5 positive facts addressed.",
+      "extra_checks": {},
+      "answer_text": "The brief p99 latency jump on the hosted **/v1/generate** text\u2011generation endpoint in **us\u2011west\u20112** was triggered by the rollout of the **calib\u2011v2 variant of the redwood\u2011mini\u2011int8 model** (the new variant caused the p99 to rise to 2.4\u202fs, above the 1.2\u202fs SLO)\u3010dsid_70eaec6ad9e445d5aa17d933a040e3ac\u3011.  \n\nThe immediate mitigation applied was a **routing fallback** to healthier nodes (three affected nodes were switched to the fallback route), which reduced the error rate from ~7\u202f% to ~1.2\u202f% and began bringing tail latency back toward normal levels\u3010dsid_9448c00dd580497e8a60a6703476e1ec\u3011."
+    },
+    {
+      "question_id": "qst_0139",
+      "question_type": "basic",
+      "question": "What false positive threshold did the prospect set for suggested code review comments in the evaluation criteria for their PR review assistant POC?",
+      "num_expected_docs": 1,
+      "expected_doc_ids": [
+        "dsid_9f92a42dc8d24c93a0a696a0727063b9"
+      ],
+      "retrieved_doc_ids": [
+        "dsid_8cd03e0136024151adca3b52d03dd5ce",
+        "dsid_44b4300802e044089c4b80fce5de66dd",
+        "dsid_bae9299781854fa7b695349664bd5a88",
+        "dsid_ad3c20811a464696843a550f7997e4b2",
+        "dsid_c7e4f75cc5614faf9e6df8e9646a4c1e",
+        "dsid_4a84326337884dbab63ae792631ddbb8",
+        "dsid_311ad0e4bc474cc586cdc92214909f15",
+        "dsid_c387b623554a459a99cc106696ae64a4"
+      ],
+      "cited_doc_ids": [],
+      "answer_correct": false,
+      "completeness_pct": 100.0,
+      "overall_score": 0.0,
+      "citation_id_validity": 1.0,
+      "sentence_citation_rate": 0.0,
+      "lexical_claim_support_heuristic": 0.0,
+      "has_unsourced_claims": false,
+      "is_abstention": true,
+      "has_contradiction": false,
+      "context_tokens": 2453,
+      "passages_count": 8,
+      "latency_ms": 27755.6,
+      "explanation": "Deterministic evaluation: 1/1 positive facts addressed.",
+      "extra_checks": {},
+      "answer_text": "The supplied evidence does not contain any statement about a false\u2011positive threshold set by the prospect for suggested code\u2011review comments in the evaluation criteria of their PR\u2011review assistant POC. No document provides that specific threshold value."
+    },
+    {
+      "question_id": "qst_0214",
+      "question_type": "semantic",
+      "question": "In the mid March 2026 incident where a regional dedicated serving cluster briefly ran out of spare capacity and the automatic scaler couldnt add nodes due to provider limit type errors, what exact build version did on call revert to in order to restore capacity?",
+      "num_expected_docs": 1,
+      "expected_doc_ids": [
+        "dsid_303196c831af4d1bb38a1e2546228a09"
+      ],
+      "retrieved_doc_ids": [
+        "dsid_dedcad6057db4cedab3865516b207b57",
+        "dsid_43512f32515e4c5c8242effc0f0767ab",
+        "dsid_133da4e9ed24402dbcf434364b51cb29",
+        "dsid_1272c02bc6824daca179e700b5874064",
+        "dsid_497ce14f5b8d4968ac4de08c3f96bac7",
+        "dsid_a83a9fd36ab244d58824f2de8950a6f9"
+      ],
+      "cited_doc_ids": [],
+      "answer_correct": false,
+      "completeness_pct": 0.0,
+      "overall_score": 0.0,
+      "citation_id_validity": 1.0,
+      "sentence_citation_rate": 0.0,
+      "lexical_claim_support_heuristic": 0.0,
+      "has_unsourced_claims": false,
+      "is_abstention": true,
+      "has_contradiction": false,
+      "context_tokens": 2192,
+      "passages_count": 6,
+      "latency_ms": 18269.4,
+      "explanation": "Deterministic evaluation: 0/2 positive facts addressed.",
+      "extra_checks": {},
+      "answer_text": "The supplied evidence does not contain the exact build version that on\u2011call reverted to during the mid\u2011March 2026 incident described. No document provides a specific build identifier or version number associated with that rollback. Consequently, the answer cannot be determined from the available passages."
+    },
+    {
+      "question_id": "qst_0001",
+      "question_type": "basic",
+      "question": "What are the default size limits for file uploads and total request size for the new multipart upload support on the OpenAI-compatible API endpoints?",
+      "num_expected_docs": 1,
+      "expected_doc_ids": [
+        "dsid_ae068ee4aa9640159427cd941bef0238"
+      ],
+      "retrieved_doc_ids": [
+        "dsid_c0e4ca5e29da45858056f1da8eb45009",
+        "dsid_ae068ee4aa9640159427cd941bef0238",
+        "dsid_ea298d9a235949febd7c03cb500817c4",
+        "dsid_fc5e896d8eb4455fa9b186d04e0845f4"
+      ],
+      "cited_doc_ids": [
+        "dsid_c0e4ca5e29da45858056f1da8eb45009",
+        "dsid_ae068ee4aa9640159427cd941bef0238"
+      ],
+      "answer_correct": true,
+      "completeness_pct": 100.0,
+      "overall_score": 100.0,
+      "citation_id_validity": 1.0,
+      "sentence_citation_rate": 0.5,
+      "lexical_claim_support_heuristic": 0.5,
+      "has_unsourced_claims": true,
+      "is_abstention": false,
+      "has_contradiction": true,
+      "context_tokens": 2489,
+      "passages_count": 5,
+      "latency_ms": 25828.7,
+      "explanation": "Deterministic evaluation: 2/2 positive facts addressed.",
+      "extra_checks": {},
+      "answer_text": "The default limits for the new multipart upload support on the OpenAI\u2011compatible endpoints are:\n\n1. **Per\u2011file (per\u2011part) size limit:**\u202f10\u202fMiB (\u224810\u202fMB)\u202f[dsid_c0e4ca5e29da45858056f1da8eb45009]  \n2. **Total request payload size limit:**\u202f50\u202fMiB (\u224850\u202fMB)\u202f[dsid_c0e4ca5e29da45858056f1da8eb45009]  \n\nThese same defaults are also documented in the multipart handling implementation for the OpenAI\u2011compatibility path: per\u2011file default\u202f10\u202fMiB and total request default\u202f50\u202fMiB\u202f[dsid_ae068ee4aa9640159427cd941bef0238]. No conflicting or superseded guidance is present."
+    },
+    {
+      "question_id": "qst_0016",
+      "question_type": "basic",
+      "question": "What is the company policy for how long contractor access should last by default before it expires, according to the access and permissions playbook?",
+      "num_expected_docs": 1,
+      "expected_doc_ids": [
+        "dsid_ba7d1565b0694e359983bccaa4bf5977"
+      ],
+      "retrieved_doc_ids": [
+        "dsid_000aabb424694648b5651aa9a2438c81",
+        "dsid_5fdfdc86509e45f4a64f936d6260e293",
+        "dsid_ba7d1565b0694e359983bccaa4bf5977",
+        "dsid_bc83adc1e9cb4b739128a6b574a6fabe",
+        "dsid_b04d99601ddd4b528ab88ff5be1360f5",
+        "dsid_1bf09b9f09764907acb80f4dc5b69ae6",
+        "dsid_6e50c4a8e4224874ae5f18b6a74c9ce2"
+      ],
+      "cited_doc_ids": [],
+      "answer_correct": false,
+      "completeness_pct": 100.0,
+      "overall_score": 0.0,
+      "citation_id_validity": 1.0,
+      "sentence_citation_rate": 0.0,
+      "lexical_claim_support_heuristic": 0.0,
+      "has_unsourced_claims": false,
+      "is_abstention": true,
+      "has_contradiction": false,
+      "context_tokens": 2490,
+      "passages_count": 7,
+      "latency_ms": 26502.5,
+      "explanation": "Deterministic evaluation: 1/1 positive facts addressed.",
+      "extra_checks": {},
+      "answer_text": "The supplied evidence does not contain a specific statement defining a default expiration period for contractor access in the access\u2011and\u2011permissions playbooks. None of the referenced documents (e.g., the Operational Onboarding and Authorization Playbook, the Unified Authorization & Procurement Playbook, or the Entitlements and Purchase Pathways Playbook) specify how long contractor access should remain active before it expires. Therefore, the policy on the default duration of contractor access cannot be answered from the available documents."
+    }
+  ]
+}
