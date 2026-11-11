@@ -1,0 +1,881 @@
+{
+  "timestamp": "2026-10-23T06:32:48Z",
+  "total_answerable_questions": 178,
+  "configurations": {
+    "BM25 (K=20)": {
+      "experiment_name": "BM25 (K=20)",
+      "total_questions": 178,
+      "num_questions_with_gold": 178,
+      "recall_at_5": 0.8264,
+      "recall_at_10": 0.9177,
+      "recall_at_20": 0.9403,
+      "recall_at_40": 0.9403,
+      "hit_at_5": 0.8652,
+      "hit_at_10": 0.9382,
+      "hit_at_20": 0.9494,
+      "mrr_at_10": 0.8353,
+      "complete_gold_coverage_at_20": 0.9326,
+      "complete_gold_coverage_at_40": 0.9326,
+      "hard_case_13_mean_recall": 0.183,
+      "per_category_recall_at_20": {
+        "basic": 0.9672131147540983,
+        "completeness": 0.7628571428571429,
+        "conflicting_info": 1.0,
+        "constrained": 1.0,
+        "intra_document_reasoning": 1.0,
+        "miscellaneous": 1.0,
+        "project_related": 0.9821428571428571,
+        "semantic": 0.8636363636363636
+      },
+      "diagnostic_per_question_recall_at_40": {
+        "qst_0043": 0.0,
+        "qst_0139": 0.0,
+        "qst_0178": 0.0,
+        "qst_0203": 0.0,
+        "qst_0214": 0.0,
+        "qst_0242": 0.0,
+        "qst_0282": 0.0,
+        "qst_0427": 1.0,
+        "qst_0436": 0.2,
+        "qst_0437": 0.0,
+        "qst_0447": 1.0,
+        "qst_0448": 0.42857142857142855
+      }
+    },
+    "BM25 (K=40)": {
+      "experiment_name": "BM25 (K=40)",
+      "total_questions": 178,
+      "num_questions_with_gold": 178,
+      "recall_at_5": 0.8264,
+      "recall_at_10": 0.9177,
+      "recall_at_20": 0.9403,
+      "recall_at_40": 0.9528,
+      "hit_at_5": 0.8652,
+      "hit_at_10": 0.9382,
+      "hit_at_20": 0.9494,
+      "mrr_at_10": 0.8353,
+      "complete_gold_coverage_at_20": 0.9326,
+      "complete_gold_coverage_at_40": 0.9438,
+      "hard_case_13_mean_recall": 0.3531,
+      "per_category_recall_at_20": {
+        "basic": 0.9672131147540983,
+        "completeness": 0.7628571428571429,
+        "conflicting_info": 1.0,
+        "constrained": 1.0,
+        "intra_document_reasoning": 1.0,
+        "miscellaneous": 1.0,
+        "project_related": 0.9821428571428571,
+        "semantic": 0.8636363636363636
+      },
+      "diagnostic_per_question_recall_at_40": {
+        "qst_0043": 1.0,
+        "qst_0139": 1.0,
+        "qst_0178": 0.0,
+        "qst_0203": 0.0,
+        "qst_0214": 0.0,
+        "qst_0242": 0.0,
+        "qst_0282": 0.0,
+        "qst_0427": 1.0,
+        "qst_0436": 0.3,
+        "qst_0437": 0.1111111111111111,
+        "qst_0447": 1.0,
+        "qst_0448": 0.42857142857142855
+      }
+    },
+    "Dense (K=20)": {
+      "experiment_name": "Dense (K=20)",
+      "total_questions": 178,
+      "num_questions_with_gold": 178,
+      "recall_at_5": 0.7019,
+      "recall_at_10": 0.753,
+      "recall_at_20": 0.7856,
+      "recall_at_40": 0.7856,
+      "hit_at_5": 0.7472,
+      "hit_at_10": 0.7921,
+      "hit_at_20": 0.8202,
+      "mrr_at_10": 0.6751,
+      "complete_gold_coverage_at_20": 0.7472,
+      "complete_gold_coverage_at_40": 0.7472,
+      "hard_case_13_mean_recall": 0.2577,
+      "per_category_recall_at_20": {
+        "basic": 0.8524590163934426,
+        "completeness": 0.385,
+        "conflicting_info": 0.85,
+        "constrained": 1.0,
+        "intra_document_reasoning": 0.9285714285714286,
+        "miscellaneous": 1.0,
+        "project_related": 0.8206349206349205,
+        "semantic": 0.5909090909090909
+      },
+      "diagnostic_per_question_recall_at_40": {
+        "qst_0043": 0.0,
+        "qst_0139": 0.0,
+        "qst_0178": 0.0,
+        "qst_0203": 1.0,
+        "qst_0214": 1.0,
+        "qst_0242": 0.0,
+        "qst_0282": 0.0,
+        "qst_0427": 1.0,
+        "qst_0436": 0.1,
+        "qst_0437": 0.0,
+        "qst_0447": 0.0,
+        "qst_0448": 0.0
+      }
+    },
+    "Dense (K=40)": {
+      "experiment_name": "Dense (K=40)",
+      "total_questions": 178,
+      "num_questions_with_gold": 178,
+      "recall_at_5": 0.7019,
+      "recall_at_10": 0.753,
+      "recall_at_20": 0.7856,
+      "recall_at_40": 0.8316,
+      "hit_at_5": 0.7472,
+      "hit_at_10": 0.7921,
+      "hit_at_20": 0.8202,
+      "mrr_at_10": 0.6751,
+      "complete_gold_coverage_at_20": 0.7472,
+      "complete_gold_coverage_at_40": 0.8034,
+      "hard_case_13_mean_recall": 0.2879,
+      "per_category_recall_at_20": {
+        "basic": 0.8524590163934426,
+        "completeness": 0.385,
+        "conflicting_info": 0.85,
+        "constrained": 1.0,
+        "intra_document_reasoning": 0.9285714285714286,
+        "miscellaneous": 1.0,
+        "project_related": 0.8206349206349205,
+        "semantic": 0.5909090909090909
+      },
+      "diagnostic_per_question_recall_at_40": {
+        "qst_0043": 0.0,
+        "qst_0139": 0.0,
+        "qst_0178": 0.0,
+        "qst_0203": 1.0,
+        "qst_0214": 1.0,
+        "qst_0242": 0.0,
+        "qst_0282": 0.0,
+        "qst_0427": 1.0,
+        "qst_0436": 0.1,
+        "qst_0437": 0.0,
+        "qst_0447": 0.3333333333333333,
+        "qst_0448": 0.14285714285714285
+      }
+    },
+    "Hybrid (K=20)": {
+      "experiment_name": "Hybrid (K=20)",
+      "total_questions": 178,
+      "num_questions_with_gold": 178,
+      "recall_at_5": 0.8518,
+      "recall_at_10": 0.8904,
+      "recall_at_20": 0.9298,
+      "recall_at_40": 0.9298,
+      "hit_at_5": 0.8933,
+      "hit_at_10": 0.9157,
+      "hit_at_20": 0.9438,
+      "mrr_at_10": 0.8194,
+      "complete_gold_coverage_at_20": 0.9101,
+      "complete_gold_coverage_at_40": 0.9101,
+      "hard_case_13_mean_recall": 0.2407,
+      "per_category_recall_at_20": {
+        "basic": 0.9672131147540983,
+        "completeness": 0.7211904761904762,
+        "conflicting_info": 1.0,
+        "constrained": 1.0,
+        "intra_document_reasoning": 1.0,
+        "miscellaneous": 1.0,
+        "project_related": 0.9500000000000001,
+        "semantic": 0.8409090909090909
+      },
+      "diagnostic_per_question_recall_at_40": {
+        "qst_0043": 0.0,
+        "qst_0139": 0.0,
+        "qst_0178": 0.0,
+        "qst_0203": 0.0,
+        "qst_0214": 1.0,
+        "qst_0242": 0.0,
+        "qst_0282": 0.0,
+        "qst_0427": 1.0,
+        "qst_0436": 0.2,
+        "qst_0437": 0.0,
+        "qst_0447": 1.0,
+        "qst_0448": 0.42857142857142855
+      }
+    },
+    "Hybrid (K=40)": {
+      "experiment_name": "Hybrid (K=40)",
+      "total_questions": 178,
+      "num_questions_with_gold": 178,
+      "recall_at_5": 0.8518,
+      "recall_at_10": 0.8904,
+      "recall_at_20": 0.9298,
+      "recall_at_40": 0.953,
+      "hit_at_5": 0.8933,
+      "hit_at_10": 0.9157,
+      "hit_at_20": 0.9438,
+      "mrr_at_10": 0.8194,
+      "complete_gold_coverage_at_20": 0.9101,
+      "complete_gold_coverage_at_40": 0.9438,
+      "hard_case_13_mean_recall": 0.3563,
+      "per_category_recall_at_20": {
+        "basic": 0.9672131147540983,
+        "completeness": 0.7211904761904762,
+        "conflicting_info": 1.0,
+        "constrained": 1.0,
+        "intra_document_reasoning": 1.0,
+        "miscellaneous": 1.0,
+        "project_related": 0.9500000000000001,
+        "semantic": 0.8409090909090909
+      },
+      "diagnostic_per_question_recall_at_40": {
+        "qst_0043": 0.0,
+        "qst_0139": 0.0,
+        "qst_0178": 0.0,
+        "qst_0203": 1.0,
+        "qst_0214": 1.0,
+        "qst_0242": 0.0,
+        "qst_0282": 0.0,
+        "qst_0427": 1.0,
+        "qst_0436": 0.2,
+        "qst_0437": 0.1111111111111111,
+        "qst_0447": 1.0,
+        "qst_0448": 0.5714285714285714
+      }
+    },
+    "BM25 (K=40 + Div)": {
+      "experiment_name": "BM25 (K=40 + Div)",
+      "total_questions": 178,
+      "num_questions_with_gold": 178,
+      "recall_at_5": 0.8264,
+      "recall_at_10": 0.9177,
+      "recall_at_20": 0.9403,
+      "recall_at_40": 0.9528,
+      "hit_at_5": 0.8652,
+      "hit_at_10": 0.9382,
+      "hit_at_20": 0.9494,
+      "mrr_at_10": 0.8353,
+      "complete_gold_coverage_at_20": 0.9326,
+      "complete_gold_coverage_at_40": 0.9438,
+      "hard_case_13_mean_recall": 0.3531,
+      "per_category_recall_at_20": {
+        "basic": 0.9672131147540983,
+        "completeness": 0.7628571428571429,
+        "conflicting_info": 1.0,
+        "constrained": 1.0,
+        "intra_document_reasoning": 1.0,
+        "miscellaneous": 1.0,
+        "project_related": 0.9821428571428571,
+        "semantic": 0.8636363636363636
+      },
+      "diagnostic_per_question_recall_at_40": {
+        "qst_0043": 1.0,
+        "qst_0139": 1.0,
+        "qst_0178": 0.0,
+        "qst_0203": 0.0,
+        "qst_0214": 0.0,
+        "qst_0242": 0.0,
+        "qst_0282": 0.0,
+        "qst_0427": 1.0,
+        "qst_0436": 0.3,
+        "qst_0437": 0.1111111111111111,
+        "qst_0447": 1.0,
+        "qst_0448": 0.42857142857142855
+      }
+    },
+    "Hybrid (K=40 + Div)": {
+      "experiment_name": "Hybrid (K=40 + Div)",
+      "total_questions": 178,
+      "num_questions_with_gold": 178,
+      "recall_at_5": 0.8518,
+      "recall_at_10": 0.8904,
+      "recall_at_20": 0.9298,
+      "recall_at_40": 0.953,
+      "hit_at_5": 0.8933,
+      "hit_at_10": 0.9157,
+      "hit_at_20": 0.9438,
+      "mrr_at_10": 0.8194,
+      "complete_gold_coverage_at_20": 0.9101,
+      "complete_gold_coverage_at_40": 0.9438,
+      "hard_case_13_mean_recall": 0.3563,
+      "per_category_recall_at_20": {
+        "basic": 0.9672131147540983,
+        "completeness": 0.7211904761904762,
+        "conflicting_info": 1.0,
+        "constrained": 1.0,
+        "intra_document_reasoning": 1.0,
+        "miscellaneous": 1.0,
+        "project_related": 0.9500000000000001,
+        "semantic": 0.8409090909090909
+      },
+      "diagnostic_per_question_recall_at_40": {
+        "qst_0043": 0.0,
+        "qst_0139": 0.0,
+        "qst_0178": 0.0,
+        "qst_0203": 1.0,
+        "qst_0214": 1.0,
+        "qst_0242": 0.0,
+        "qst_0282": 0.0,
+        "qst_0427": 1.0,
+        "qst_0436": 0.2,
+        "qst_0437": 0.1111111111111111,
+        "qst_0447": 1.0,
+        "qst_0448": 0.5714285714285714
+      }
+    }
+  },
+  "diagnostic_questions_ranks": {
+    "qst_0178": {
+      "question_type": "semantic",
+      "num_gold_docs": 1,
+      "ranks_by_config": {
+        "BM25_K20": {
+          "dsid_22a7e9af2760474dbdf611c2c21cd231": ">20"
+        },
+        "BM25_K40": {
+          "dsid_22a7e9af2760474dbdf611c2c21cd231": ">40"
+        },
+        "Dense_K20": {
+          "dsid_22a7e9af2760474dbdf611c2c21cd231": ">20"
+        },
+        "Dense_K40": {
+          "dsid_22a7e9af2760474dbdf611c2c21cd231": ">40"
+        },
+        "Hybrid_K20": {
+          "dsid_22a7e9af2760474dbdf611c2c21cd231": ">20"
+        },
+        "Hybrid_K40": {
+          "dsid_22a7e9af2760474dbdf611c2c21cd231": ">40"
+        },
+        "Hybrid_K40_Div": {
+          "dsid_22a7e9af2760474dbdf611c2c21cd231": ">40"
+        }
+      }
+    },
+    "qst_0242": {
+      "question_type": "semantic",
+      "num_gold_docs": 1,
+      "ranks_by_config": {
+        "BM25_K20": {
+          "dsid_3fc14ed9048e4e1f861e0632b06fc39b": ">20"
+        },
+        "BM25_K40": {
+          "dsid_3fc14ed9048e4e1f861e0632b06fc39b": ">40"
+        },
+        "Dense_K20": {
+          "dsid_3fc14ed9048e4e1f861e0632b06fc39b": ">20"
+        },
+        "Dense_K40": {
+          "dsid_3fc14ed9048e4e1f861e0632b06fc39b": ">40"
+        },
+        "Hybrid_K20": {
+          "dsid_3fc14ed9048e4e1f861e0632b06fc39b": ">20"
+        },
+        "Hybrid_K40": {
+          "dsid_3fc14ed9048e4e1f861e0632b06fc39b": ">40"
+        },
+        "Hybrid_K40_Div": {
+          "dsid_3fc14ed9048e4e1f861e0632b06fc39b": ">40"
+        }
+      }
+    },
+    "qst_0282": {
+      "question_type": "semantic",
+      "num_gold_docs": 1,
+      "ranks_by_config": {
+        "BM25_K20": {
+          "dsid_9adc7c1c81f54e0a88d0e0bee59a6588": ">20"
+        },
+        "BM25_K40": {
+          "dsid_9adc7c1c81f54e0a88d0e0bee59a6588": ">40"
+        },
+        "Dense_K20": {
+          "dsid_9adc7c1c81f54e0a88d0e0bee59a6588": ">20"
+        },
+        "Dense_K40": {
+          "dsid_9adc7c1c81f54e0a88d0e0bee59a6588": ">40"
+        },
+        "Hybrid_K20": {
+          "dsid_9adc7c1c81f54e0a88d0e0bee59a6588": ">20"
+        },
+        "Hybrid_K40": {
+          "dsid_9adc7c1c81f54e0a88d0e0bee59a6588": ">40"
+        },
+        "Hybrid_K40_Div": {
+          "dsid_9adc7c1c81f54e0a88d0e0bee59a6588": ">40"
+        }
+      }
+    },
+    "qst_0214": {
+      "question_type": "semantic",
+      "num_gold_docs": 1,
+      "ranks_by_config": {
+        "BM25_K20": {
+          "dsid_303196c831af4d1bb38a1e2546228a09": ">20"
+        },
+        "BM25_K40": {
+          "dsid_303196c831af4d1bb38a1e2546228a09": ">40"
+        },
+        "Dense_K20": {
+          "dsid_303196c831af4d1bb38a1e2546228a09": 7
+        },
+        "Dense_K40": {
+          "dsid_303196c831af4d1bb38a1e2546228a09": 7
+        },
+        "Hybrid_K20": {
+          "dsid_303196c831af4d1bb38a1e2546228a09": 14
+        },
+        "Hybrid_K40": {
+          "dsid_303196c831af4d1bb38a1e2546228a09": 14
+        },
+        "Hybrid_K40_Div": {
+          "dsid_303196c831af4d1bb38a1e2546228a09": 14
+        }
+      }
+    },
+    "qst_0203": {
+      "question_type": "semantic",
+      "num_gold_docs": 1,
+      "ranks_by_config": {
+        "BM25_K20": {
+          "dsid_3d745c88c7e4426c9548350824f0d9b8": ">20"
+        },
+        "BM25_K40": {
+          "dsid_3d745c88c7e4426c9548350824f0d9b8": ">40"
+        },
+        "Dense_K20": {
+          "dsid_3d745c88c7e4426c9548350824f0d9b8": 15
+        },
+        "Dense_K40": {
+          "dsid_3d745c88c7e4426c9548350824f0d9b8": 15
+        },
+        "Hybrid_K20": {
+          "dsid_3d745c88c7e4426c9548350824f0d9b8": ">20"
+        },
+        "Hybrid_K40": {
+          "dsid_3d745c88c7e4426c9548350824f0d9b8": 28
+        },
+        "Hybrid_K40_Div": {
+          "dsid_3d745c88c7e4426c9548350824f0d9b8": 28
+        }
+      }
+    },
+    "qst_0043": {
+      "question_type": "basic",
+      "num_gold_docs": 1,
+      "ranks_by_config": {
+        "BM25_K20": {
+          "dsid_321eee6325824623833bbe754bf83a0b": ">20"
+        },
+        "BM25_K40": {
+          "dsid_321eee6325824623833bbe754bf83a0b": 39
+        },
+        "Dense_K20": {
+          "dsid_321eee6325824623833bbe754bf83a0b": ">20"
+        },
+        "Dense_K40": {
+          "dsid_321eee6325824623833bbe754bf83a0b": ">40"
+        },
+        "Hybrid_K20": {
+          "dsid_321eee6325824623833bbe754bf83a0b": ">20"
+        },
+        "Hybrid_K40": {
+          "dsid_321eee6325824623833bbe754bf83a0b": ">40"
+        },
+        "Hybrid_K40_Div": {
+          "dsid_321eee6325824623833bbe754bf83a0b": ">40"
+        }
+      }
+    },
+    "qst_0139": {
+      "question_type": "basic",
+      "num_gold_docs": 1,
+      "ranks_by_config": {
+        "BM25_K20": {
+          "dsid_9f92a42dc8d24c93a0a696a0727063b9": ">20"
+        },
+        "BM25_K40": {
+          "dsid_9f92a42dc8d24c93a0a696a0727063b9": 36
+        },
+        "Dense_K20": {
+          "dsid_9f92a42dc8d24c93a0a696a0727063b9": ">20"
+        },
+        "Dense_K40": {
+          "dsid_9f92a42dc8d24c93a0a696a0727063b9": ">40"
+        },
+        "Hybrid_K20": {
+          "dsid_9f92a42dc8d24c93a0a696a0727063b9": ">20"
+        },
+        "Hybrid_K40": {
+          "dsid_9f92a42dc8d24c93a0a696a0727063b9": ">40"
+        },
+        "Hybrid_K40_Div": {
+          "dsid_9f92a42dc8d24c93a0a696a0727063b9": ">40"
+        }
+      }
+    },
+    "qst_0436": {
+      "question_type": "completeness",
+      "num_gold_docs": 10,
+      "ranks_by_config": {
+        "BM25_K20": {
+          "dsid_a8af533a3f89402ca739bfdc5322b42e": ">20",
+          "dsid_3a5484e7e7164e389e76d188bce9f86e": ">20",
+          "dsid_1a160e1c00934f108e17183f44e3ca77": ">20",
+          "dsid_6f37b2b4341947028019bd41748eaff9": ">20",
+          "dsid_1f13ed74ef87494b81a2fc2617ab7746": ">20",
+          "dsid_1159814f66a340d79536516db194f623": ">20",
+          "dsid_c6efd46ecc6449ac8be1e53ed3803e92": ">20",
+          "dsid_8c707328a7fc444f84a8e00f90021866": ">20",
+          "dsid_98d534e949ce4fdd8ed5d651ec5ebe4b": 1,
+          "dsid_65b12644ea52428b9c032d2cd9b75d8a": 11
+        },
+        "BM25_K40": {
+          "dsid_a8af533a3f89402ca739bfdc5322b42e": ">40",
+          "dsid_3a5484e7e7164e389e76d188bce9f86e": ">40",
+          "dsid_1a160e1c00934f108e17183f44e3ca77": ">40",
+          "dsid_6f37b2b4341947028019bd41748eaff9": ">40",
+          "dsid_1f13ed74ef87494b81a2fc2617ab7746": ">40",
+          "dsid_1159814f66a340d79536516db194f623": ">40",
+          "dsid_c6efd46ecc6449ac8be1e53ed3803e92": ">40",
+          "dsid_8c707328a7fc444f84a8e00f90021866": 28,
+          "dsid_98d534e949ce4fdd8ed5d651ec5ebe4b": 1,
+          "dsid_65b12644ea52428b9c032d2cd9b75d8a": 11
+        },
+        "Dense_K20": {
+          "dsid_a8af533a3f89402ca739bfdc5322b42e": ">20",
+          "dsid_3a5484e7e7164e389e76d188bce9f86e": ">20",
+          "dsid_1a160e1c00934f108e17183f44e3ca77": ">20",
+          "dsid_6f37b2b4341947028019bd41748eaff9": ">20",
+          "dsid_1f13ed74ef87494b81a2fc2617ab7746": ">20",
+          "dsid_1159814f66a340d79536516db194f623": ">20",
+          "dsid_c6efd46ecc6449ac8be1e53ed3803e92": ">20",
+          "dsid_8c707328a7fc444f84a8e00f90021866": ">20",
+          "dsid_98d534e949ce4fdd8ed5d651ec5ebe4b": 1,
+          "dsid_65b12644ea52428b9c032d2cd9b75d8a": ">20"
+        },
+        "Dense_K40": {
+          "dsid_a8af533a3f89402ca739bfdc5322b42e": ">40",
+          "dsid_3a5484e7e7164e389e76d188bce9f86e": ">40",
+          "dsid_1a160e1c00934f108e17183f44e3ca77": ">40",
+          "dsid_6f37b2b4341947028019bd41748eaff9": ">40",
+          "dsid_1f13ed74ef87494b81a2fc2617ab7746": ">40",
+          "dsid_1159814f66a340d79536516db194f623": ">40",
+          "dsid_c6efd46ecc6449ac8be1e53ed3803e92": ">40",
+          "dsid_8c707328a7fc444f84a8e00f90021866": ">40",
+          "dsid_98d534e949ce4fdd8ed5d651ec5ebe4b": 1,
+          "dsid_65b12644ea52428b9c032d2cd9b75d8a": ">40"
+        },
+        "Hybrid_K20": {
+          "dsid_a8af533a3f89402ca739bfdc5322b42e": ">20",
+          "dsid_3a5484e7e7164e389e76d188bce9f86e": ">20",
+          "dsid_1a160e1c00934f108e17183f44e3ca77": ">20",
+          "dsid_6f37b2b4341947028019bd41748eaff9": ">20",
+          "dsid_1f13ed74ef87494b81a2fc2617ab7746": ">20",
+          "dsid_1159814f66a340d79536516db194f623": ">20",
+          "dsid_c6efd46ecc6449ac8be1e53ed3803e92": ">20",
+          "dsid_8c707328a7fc444f84a8e00f90021866": ">20",
+          "dsid_98d534e949ce4fdd8ed5d651ec5ebe4b": 1,
+          "dsid_65b12644ea52428b9c032d2cd9b75d8a": 18
+        },
+        "Hybrid_K40": {
+          "dsid_a8af533a3f89402ca739bfdc5322b42e": ">40",
+          "dsid_3a5484e7e7164e389e76d188bce9f86e": ">40",
+          "dsid_1a160e1c00934f108e17183f44e3ca77": ">40",
+          "dsid_6f37b2b4341947028019bd41748eaff9": ">40",
+          "dsid_1f13ed74ef87494b81a2fc2617ab7746": ">40",
+          "dsid_1159814f66a340d79536516db194f623": ">40",
+          "dsid_c6efd46ecc6449ac8be1e53ed3803e92": ">40",
+          "dsid_8c707328a7fc444f84a8e00f90021866": ">40",
+          "dsid_98d534e949ce4fdd8ed5d651ec5ebe4b": 1,
+          "dsid_65b12644ea52428b9c032d2cd9b75d8a": 18
+        },
+        "Hybrid_K40_Div": {
+          "dsid_a8af533a3f89402ca739bfdc5322b42e": ">40",
+          "dsid_3a5484e7e7164e389e76d188bce9f86e": ">40",
+          "dsid_1a160e1c00934f108e17183f44e3ca77": ">40",
+          "dsid_6f37b2b4341947028019bd41748eaff9": ">40",
+          "dsid_1f13ed74ef87494b81a2fc2617ab7746": ">40",
+          "dsid_1159814f66a340d79536516db194f623": ">40",
+          "dsid_c6efd46ecc6449ac8be1e53ed3803e92": ">40",
+          "dsid_8c707328a7fc444f84a8e00f90021866": ">40",
+          "dsid_98d534e949ce4fdd8ed5d651ec5ebe4b": 1,
+          "dsid_65b12644ea52428b9c032d2cd9b75d8a": 18
+        }
+      }
+    },
+    "qst_0437": {
+      "question_type": "completeness",
+      "num_gold_docs": 9,
+      "ranks_by_config": {
+        "BM25_K20": {
+          "dsid_15a9d93cc59c4241a97a7e72f749a216": ">20",
+          "dsid_0e0ac7276c864c63a02586fa07ae85e1": ">20",
+          "dsid_c0c93abadf4c438189e23cb45256c6e9": ">20",
+          "dsid_ac94dcaf2e1e4674b2351a8b4177db9e": ">20",
+          "dsid_98943148c00b42db859ec2d84649fe04": ">20",
+          "dsid_ed145ed8c9234a6681359188e2f43345": ">20",
+          "dsid_bd7caad8adb2405eaa7ad78c4ffb59d7": ">20",
+          "dsid_d373a0708d4144d684e495c52c16448a": ">20",
+          "dsid_ec406aef8d0342c78ae27025670daedf": ">20"
+        },
+        "BM25_K40": {
+          "dsid_15a9d93cc59c4241a97a7e72f749a216": ">40",
+          "dsid_0e0ac7276c864c63a02586fa07ae85e1": ">40",
+          "dsid_c0c93abadf4c438189e23cb45256c6e9": 21,
+          "dsid_ac94dcaf2e1e4674b2351a8b4177db9e": ">40",
+          "dsid_98943148c00b42db859ec2d84649fe04": ">40",
+          "dsid_ed145ed8c9234a6681359188e2f43345": ">40",
+          "dsid_bd7caad8adb2405eaa7ad78c4ffb59d7": ">40",
+          "dsid_d373a0708d4144d684e495c52c16448a": ">40",
+          "dsid_ec406aef8d0342c78ae27025670daedf": ">40"
+        },
+        "Dense_K20": {
+          "dsid_15a9d93cc59c4241a97a7e72f749a216": ">20",
+          "dsid_0e0ac7276c864c63a02586fa07ae85e1": ">20",
+          "dsid_c0c93abadf4c438189e23cb45256c6e9": ">20",
+          "dsid_ac94dcaf2e1e4674b2351a8b4177db9e": ">20",
+          "dsid_98943148c00b42db859ec2d84649fe04": ">20",
+          "dsid_ed145ed8c9234a6681359188e2f43345": ">20",
+          "dsid_bd7caad8adb2405eaa7ad78c4ffb59d7": ">20",
+          "dsid_d373a0708d4144d684e495c52c16448a": ">20",
+          "dsid_ec406aef8d0342c78ae27025670daedf": ">20"
+        },
+        "Dense_K40": {
+          "dsid_15a9d93cc59c4241a97a7e72f749a216": ">40",
+          "dsid_0e0ac7276c864c63a02586fa07ae85e1": ">40",
+          "dsid_c0c93abadf4c438189e23cb45256c6e9": ">40",
+          "dsid_ac94dcaf2e1e4674b2351a8b4177db9e": ">40",
+          "dsid_98943148c00b42db859ec2d84649fe04": ">40",
+          "dsid_ed145ed8c9234a6681359188e2f43345": ">40",
+          "dsid_bd7caad8adb2405eaa7ad78c4ffb59d7": ">40",
+          "dsid_d373a0708d4144d684e495c52c16448a": ">40",
+          "dsid_ec406aef8d0342c78ae27025670daedf": ">40"
+        },
+        "Hybrid_K20": {
+          "dsid_15a9d93cc59c4241a97a7e72f749a216": ">20",
+          "dsid_0e0ac7276c864c63a02586fa07ae85e1": ">20",
+          "dsid_c0c93abadf4c438189e23cb45256c6e9": ">20",
+          "dsid_ac94dcaf2e1e4674b2351a8b4177db9e": ">20",
+          "dsid_98943148c00b42db859ec2d84649fe04": ">20",
+          "dsid_ed145ed8c9234a6681359188e2f43345": ">20",
+          "dsid_bd7caad8adb2405eaa7ad78c4ffb59d7": ">20",
+          "dsid_d373a0708d4144d684e495c52c16448a": ">20",
+          "dsid_ec406aef8d0342c78ae27025670daedf": ">20"
+        },
+        "Hybrid_K40": {
+          "dsid_15a9d93cc59c4241a97a7e72f749a216": ">40",
+          "dsid_0e0ac7276c864c63a02586fa07ae85e1": ">40",
+          "dsid_c0c93abadf4c438189e23cb45256c6e9": 39,
+          "dsid_ac94dcaf2e1e4674b2351a8b4177db9e": ">40",
+          "dsid_98943148c00b42db859ec2d84649fe04": ">40",
+          "dsid_ed145ed8c9234a6681359188e2f43345": ">40",
+          "dsid_bd7caad8adb2405eaa7ad78c4ffb59d7": ">40",
+          "dsid_d373a0708d4144d684e495c52c16448a": ">40",
+          "dsid_ec406aef8d0342c78ae27025670daedf": ">40"
+        },
+        "Hybrid_K40_Div": {
+          "dsid_15a9d93cc59c4241a97a7e72f749a216": ">40",
+          "dsid_0e0ac7276c864c63a02586fa07ae85e1": ">40",
+          "dsid_c0c93abadf4c438189e23cb45256c6e9": 39,
+          "dsid_ac94dcaf2e1e4674b2351a8b4177db9e": ">40",
+          "dsid_98943148c00b42db859ec2d84649fe04": ">40",
+          "dsid_ed145ed8c9234a6681359188e2f43345": ">40",
+          "dsid_bd7caad8adb2405eaa7ad78c4ffb59d7": ">40",
+          "dsid_d373a0708d4144d684e495c52c16448a": ">40",
+          "dsid_ec406aef8d0342c78ae27025670daedf": ">40"
+        }
+      }
+    },
+    "qst_0447": {
+      "question_type": "completeness",
+      "num_gold_docs": 6,
+      "ranks_by_config": {
+        "BM25_K20": {
+          "dsid_452dc45d76754cbca8a3674170599633": 2,
+          "dsid_e5fe3fd0cf444668a64970ec00818f46": 4,
+          "dsid_ac2fdba09cc24cd98ba60f5da114780c": 1,
+          "dsid_8c3d5e26a1c841199d3bcd7aea5d495e": 6,
+          "dsid_6807c651b55546559733c7c6f8dc133d": 5,
+          "dsid_5d509e588f994166a2ccc6e39cbf6cb5": 3
+        },
+        "BM25_K40": {
+          "dsid_452dc45d76754cbca8a3674170599633": 2,
+          "dsid_e5fe3fd0cf444668a64970ec00818f46": 4,
+          "dsid_ac2fdba09cc24cd98ba60f5da114780c": 1,
+          "dsid_8c3d5e26a1c841199d3bcd7aea5d495e": 6,
+          "dsid_6807c651b55546559733c7c6f8dc133d": 5,
+          "dsid_5d509e588f994166a2ccc6e39cbf6cb5": 3
+        },
+        "Dense_K20": {
+          "dsid_452dc45d76754cbca8a3674170599633": ">20",
+          "dsid_e5fe3fd0cf444668a64970ec00818f46": ">20",
+          "dsid_ac2fdba09cc24cd98ba60f5da114780c": ">20",
+          "dsid_8c3d5e26a1c841199d3bcd7aea5d495e": ">20",
+          "dsid_6807c651b55546559733c7c6f8dc133d": ">20",
+          "dsid_5d509e588f994166a2ccc6e39cbf6cb5": ">20"
+        },
+        "Dense_K40": {
+          "dsid_452dc45d76754cbca8a3674170599633": ">40",
+          "dsid_e5fe3fd0cf444668a64970ec00818f46": 31,
+          "dsid_ac2fdba09cc24cd98ba60f5da114780c": ">40",
+          "dsid_8c3d5e26a1c841199d3bcd7aea5d495e": 22,
+          "dsid_6807c651b55546559733c7c6f8dc133d": ">40",
+          "dsid_5d509e588f994166a2ccc6e39cbf6cb5": ">40"
+        },
+        "Hybrid_K20": {
+          "dsid_452dc45d76754cbca8a3674170599633": 4,
+          "dsid_e5fe3fd0cf444668a64970ec00818f46": 8,
+          "dsid_ac2fdba09cc24cd98ba60f5da114780c": 2,
+          "dsid_8c3d5e26a1c841199d3bcd7aea5d495e": 10,
+          "dsid_6807c651b55546559733c7c6f8dc133d": 12,
+          "dsid_5d509e588f994166a2ccc6e39cbf6cb5": 5
+        },
+        "Hybrid_K40": {
+          "dsid_452dc45d76754cbca8a3674170599633": 4,
+          "dsid_e5fe3fd0cf444668a64970ec00818f46": 8,
+          "dsid_ac2fdba09cc24cd98ba60f5da114780c": 2,
+          "dsid_8c3d5e26a1c841199d3bcd7aea5d495e": 10,
+          "dsid_6807c651b55546559733c7c6f8dc133d": 12,
+          "dsid_5d509e588f994166a2ccc6e39cbf6cb5": 5
+        },
+        "Hybrid_K40_Div": {
+          "dsid_452dc45d76754cbca8a3674170599633": 4,
+          "dsid_e5fe3fd0cf444668a64970ec00818f46": 8,
+          "dsid_ac2fdba09cc24cd98ba60f5da114780c": 2,
+          "dsid_8c3d5e26a1c841199d3bcd7aea5d495e": 10,
+          "dsid_6807c651b55546559733c7c6f8dc133d": 12,
+          "dsid_5d509e588f994166a2ccc6e39cbf6cb5": 5
+        }
+      }
+    },
+    "qst_0448": {
+      "question_type": "completeness",
+      "num_gold_docs": 7,
+      "ranks_by_config": {
+        "BM25_K20": {
+          "dsid_e91e68b31a6f4935b87d6f74dd07e1f6": 6,
+          "dsid_b793b06789ae4147884e94681c6beae1": 2,
+          "dsid_6933f9241ef140da9d3bf98be52be867": 1,
+          "dsid_b72bd7e0c91a4f8c9d9a13daf6ff3d28": ">20",
+          "dsid_84ec014ad9f14f1481b45484da41181a": ">20",
+          "dsid_67a8c3300752435296938175e9a1daf5": ">20",
+          "dsid_5f0ab47fe8de47a89bb6668f8722becf": ">20"
+        },
+        "BM25_K40": {
+          "dsid_e91e68b31a6f4935b87d6f74dd07e1f6": 6,
+          "dsid_b793b06789ae4147884e94681c6beae1": 2,
+          "dsid_6933f9241ef140da9d3bf98be52be867": 1,
+          "dsid_b72bd7e0c91a4f8c9d9a13daf6ff3d28": ">40",
+          "dsid_84ec014ad9f14f1481b45484da41181a": ">40",
+          "dsid_67a8c3300752435296938175e9a1daf5": ">40",
+          "dsid_5f0ab47fe8de47a89bb6668f8722becf": ">40"
+        },
+        "Dense_K20": {
+          "dsid_e91e68b31a6f4935b87d6f74dd07e1f6": ">20",
+          "dsid_b793b06789ae4147884e94681c6beae1": ">20",
+          "dsid_6933f9241ef140da9d3bf98be52be867": ">20",
+          "dsid_b72bd7e0c91a4f8c9d9a13daf6ff3d28": ">20",
+          "dsid_84ec014ad9f14f1481b45484da41181a": ">20",
+          "dsid_67a8c3300752435296938175e9a1daf5": ">20",
+          "dsid_5f0ab47fe8de47a89bb6668f8722becf": ">20"
+        },
+        "Dense_K40": {
+          "dsid_e91e68b31a6f4935b87d6f74dd07e1f6": ">40",
+          "dsid_b793b06789ae4147884e94681c6beae1": ">40",
+          "dsid_6933f9241ef140da9d3bf98be52be867": ">40",
+          "dsid_b72bd7e0c91a4f8c9d9a13daf6ff3d28": ">40",
+          "dsid_84ec014ad9f14f1481b45484da41181a": ">40",
+          "dsid_67a8c3300752435296938175e9a1daf5": 26,
+          "dsid_5f0ab47fe8de47a89bb6668f8722becf": ">40"
+        },
+        "Hybrid_K20": {
+          "dsid_e91e68b31a6f4935b87d6f74dd07e1f6": 13,
+          "dsid_b793b06789ae4147884e94681c6beae1": 4,
+          "dsid_6933f9241ef140da9d3bf98be52be867": 2,
+          "dsid_b72bd7e0c91a4f8c9d9a13daf6ff3d28": ">20",
+          "dsid_84ec014ad9f14f1481b45484da41181a": ">20",
+          "dsid_67a8c3300752435296938175e9a1daf5": ">20",
+          "dsid_5f0ab47fe8de47a89bb6668f8722becf": ">20"
+        },
+        "Hybrid_K40": {
+          "dsid_e91e68b31a6f4935b87d6f74dd07e1f6": 13,
+          "dsid_b793b06789ae4147884e94681c6beae1": 4,
+          "dsid_6933f9241ef140da9d3bf98be52be867": 2,
+          "dsid_b72bd7e0c91a4f8c9d9a13daf6ff3d28": ">40",
+          "dsid_84ec014ad9f14f1481b45484da41181a": ">40",
+          "dsid_67a8c3300752435296938175e9a1daf5": 33,
+          "dsid_5f0ab47fe8de47a89bb6668f8722becf": ">40"
+        },
+        "Hybrid_K40_Div": {
+          "dsid_e91e68b31a6f4935b87d6f74dd07e1f6": 13,
+          "dsid_b793b06789ae4147884e94681c6beae1": 4,
+          "dsid_6933f9241ef140da9d3bf98be52be867": 2,
+          "dsid_b72bd7e0c91a4f8c9d9a13daf6ff3d28": ">40",
+          "dsid_84ec014ad9f14f1481b45484da41181a": ">40",
+          "dsid_67a8c3300752435296938175e9a1daf5": 33,
+          "dsid_5f0ab47fe8de47a89bb6668f8722becf": ">40"
+        }
+      }
+    },
+    "qst_0427": {
+      "question_type": "conflicting_info",
+      "num_gold_docs": 2,
+      "ranks_by_config": {
+        "BM25_K20": {
+          "dsid_86f033ed92b84f3a8b381d09b0b95357": 2,
+          "dsid_d93aed75845e4a0b8126a80d8a7a5a41": 1
+        },
+        "BM25_K40": {
+          "dsid_86f033ed92b84f3a8b381d09b0b95357": 2,
+          "dsid_d93aed75845e4a0b8126a80d8a7a5a41": 1
+        },
+        "Dense_K20": {
+          "dsid_86f033ed92b84f3a8b381d09b0b95357": 2,
+          "dsid_d93aed75845e4a0b8126a80d8a7a5a41": 1
+        },
+        "Dense_K40": {
+          "dsid_86f033ed92b84f3a8b381d09b0b95357": 2,
+          "dsid_d93aed75845e4a0b8126a80d8a7a5a41": 1
+        },
+        "Hybrid_K20": {
+          "dsid_86f033ed92b84f3a8b381d09b0b95357": 2,
+          "dsid_d93aed75845e4a0b8126a80d8a7a5a41": 1
+        },
+        "Hybrid_K40": {
+          "dsid_86f033ed92b84f3a8b381d09b0b95357": 2,
+          "dsid_d93aed75845e4a0b8126a80d8a7a5a41": 1
+        },
+        "Hybrid_K40_Div": {
+          "dsid_86f033ed92b84f3a8b381d09b0b95357": 2,
+          "dsid_d93aed75845e4a0b8126a80d8a7a5a41": 1
+        }
+      }
+    },
+    "qst_0499": {
+      "question_type": "info_not_found",
+      "num_gold_docs": 0,
+      "ranks_by_config": {
+        "BM25_K20": {},
+        "BM25_K40": {},
+        "Dense_K20": {},
+        "Dense_K40": {},
+        "Hybrid_K20": {},
+        "Hybrid_K40": {},
+        "Hybrid_K40_Div": {}
+      }
+    },
+    "qst_0481": {
+      "question_type": "info_not_found",
+      "num_gold_docs": 0,
+      "ranks_by_config": {
+        "BM25_K20": {},
+        "BM25_K40": {},
+        "Dense_K20": {},
+        "Dense_K40": {},
+        "Hybrid_K20": {},
+        "Hybrid_K40": {},
+        "Hybrid_K40_Div": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,750 @@
+{
+  "timestamp": "2026-10-23T06:43:02Z",
+  "summary": {
+    "Baseline_ContextBuilder": {
+      "group_b_mean_gold_coverage": 0.21071428571428572,
+      "group_b_complete_gold_coverage": 0.16666666666666666,
+      "group_b_mean_distinct_docs_in_context": 5.785714285714286,
+      "group_b_mean_passages_in_context": 5.928571428571429,
+      "group_b_mean_tokens_used": 2268.0714285714284,
+      "multidoc_subset_mean_coverage": 0.5057142857142857,
+      "multidoc_subset_complete_coverage": 0.4
+    },
+    "CoverageAware_ContextBuilder": {
+      "group_b_mean_gold_coverage": 0.17936507936507937,
+      "group_b_complete_gold_coverage": 0.08333333333333333,
+      "group_b_mean_distinct_docs_in_context": 5.142857142857143,
+      "group_b_mean_passages_in_context": 5.785714285714286,
+      "group_b_mean_tokens_used": 2423.5714285714284,
+      "multidoc_subset_mean_coverage": 0.43047619047619046,
+      "multidoc_subset_complete_coverage": 0.2
+    }
+  },
+  "results_by_builder": {
+    "Baseline_ContextBuilder": {
+      "qst_0178": {
+        "question": "In the recent change that made low bit math safer for inference, what is the default pass rate used to decide when a machine is allowed to step down from the safest numeric mode?",
+        "question_type": "semantic",
+        "total_gold_docs": 1,
+        "gold_docs": [
+          "dsid_22a7e9af2760474dbdf611c2c21cd231"
+        ],
+        "gold_in_context": [],
+        "missing_gold_from_context": [
+          "dsid_22a7e9af2760474dbdf611c2c21cd231"
+        ],
+        "gold_coverage_ratio": 0.0,
+        "is_complete_coverage": false,
+        "num_passages_in_context": 6,
+        "num_distinct_docs_in_context": 6,
+        "total_tokens_used": 2296,
+        "budget_limit": 2500,
+        "budget_exceeded": false,
+        "audits_count": 0,
+        "authoritative_signal_present": false,
+        "superseded_labeled": false
+      },
+      "qst_0242": {
+        "question": "In the partner integration call about getting a third party AI service into another companys cloud catalog, what date did the security lead target for completing the pre publication image security smoke test?",
+        "question_type": "semantic",
+        "total_gold_docs": 1,
+        "gold_docs": [
+          "dsid_3fc14ed9048e4e1f861e0632b06fc39b"
+        ],
+        "gold_in_context": [],
+        "missing_gold_from_context": [
+          "dsid_3fc14ed9048e4e1f861e0632b06fc39b"
+        ],
+        "gold_coverage_ratio": 0.0,
+        "is_complete_coverage": false,
+        "num_passages_in_context": 6,
+        "num_distinct_docs_in_context": 6,
+        "total_tokens_used": 2292,
+        "budget_limit": 2500,
+        "budget_exceeded": false,
+        "audits_count": 0,
+        "authoritative_signal_present": false,
+        "superseded_labeled": false
+      },
+      "qst_0282": {
+        "question": "During a traffic surge in the US East production cluster for a healthcare customer with dedicated capacity, why did conversations that were supposed to stay locked to a specific model version sometimes get served by an experimental fallback instead?",
+        "question_type": "semantic",
+        "total_gold_docs": 1,
+        "gold_docs": [
+          "dsid_9adc7c1c81f54e0a88d0e0bee59a6588"
+        ],
+        "gold_in_context": [],
+        "missing_gold_from_context": [
+          "dsid_9adc7c1c81f54e0a88d0e0bee59a6588"
+        ],
+        "gold_coverage_ratio": 0.0,
+        "is_complete_coverage": false,
+        "num_passages_in_context": 6,
+        "num_distinct_docs_in_context": 6,
+        "total_tokens_used": 2202,
+        "budget_limit": 2500,
+        "budget_exceeded": false,
+        "audits_count": 0,
+        "authoritative_signal_present": false,
+        "superseded_labeled": false
+      },
+      "qst_0214": {
+        "question": "In the mid March 2026 incident where a regional dedicated serving cluster briefly ran out of spare capacity and the automatic scaler couldnt add nodes due to provider limit type errors, what exact build version did on call revert to in order to restore capacity?",
+        "question_type": "semantic",
+        "total_gold_docs": 1,
+        "gold_docs": [
+          "dsid_303196c831af4d1bb38a1e2546228a09"
+        ],
+        "gold_in_context": [],
+        "missing_gold_from_context": [
+          "dsid_303196c831af4d1bb38a1e2546228a09"
+        ],
+        "gold_coverage_ratio": 0.0,
+        "is_complete_coverage": false,
+        "num_passages_in_context": 6,
+        "num_distinct_docs_in_context": 6,
+        "total_tokens_used": 2192,
+        "budget_limit": 2500,
+        "budget_exceeded": false,
+        "audits_count": 0,
+        "authoritative_signal_present": false,
+        "superseded_labeled": false
+      },
+      "qst_0203": {
+        "question": "How should we automate the creation and teardown of short-lived experiment workspaces so that a request ticket spins up the needed tracking/docs/chat area, requires an approver before access is enabled, expires on a default one month timer with a simple extension, and writes an encrypted audit bundle to object storage when it shuts down?",
+        "question_type": "semantic",
+        "total_gold_docs": 1,
+        "gold_docs": [
+          "dsid_3d745c88c7e4426c9548350824f0d9b8"
+        ],
+        "gold_in_context": [],
+        "missing_gold_from_context": [
+          "dsid_3d745c88c7e4426c9548350824f0d9b8"
+        ],
+        "gold_coverage_ratio": 0.0,
+        "is_complete_coverage": false,
+        "num_passages_in_context": 5,
+        "num_distinct_docs_in_context": 5,
+        "total_tokens_used": 1750,
+        "budget_limit": 2500,
+        "budget_exceeded": false,
+        "audits_count": 0,
+        "authoritative_signal_present": false,
+        "superseded_labeled": false
+      },
+      "qst_0043": {
+        "question": "What caused the brief p99 latency jump on the hosted text generation endpoint in us-west-2, and what mitigation was applied to bring it back down?",
+        "question_type": "basic",
+        "total_gold_docs": 1,
+        "gold_docs": [
+          "dsid_321eee6325824623833bbe754bf83a0b"
+        ],
+        "gold_in_context": [],
+        "missing_gold_from_context": [
+          "dsid_321eee6325824623833bbe754bf83a0b"
+        ],
+        "gold_coverage_ratio": 0.0,
+        "is_complete_coverage": false,
+        "num_passages_in_context": 6,
+        "num_distinct_docs_in_context": 6,
+        "total_tokens_used": 2337,
+        "budget_limit": 2500,
+        "budget_exceeded": false,
+        "audits_count": 0,
+        "authoritative_signal_present": false,
+        "superseded_labeled": false
+      },
+      "qst_0139": {
+        "question": "What false positive threshold did the prospect set for suggested code review comments in the evaluation criteria for their PR review assistant POC?",
+        "question_type": "basic",
+        "total_gold_docs": 1,
+        "gold_docs": [
+          "dsid_9f92a42dc8d24c93a0a696a0727063b9"
+        ],
+        "gold_in_context": [],
+        "missing_gold_from_context": [
+          "dsid_9f92a42dc8d24c93a0a696a0727063b9"
+        ],
+        "gold_coverage_ratio": 0.0,
+        "is_complete_coverage": false,
+        "num_passages_in_context": 8,
+        "num_distinct_docs_in_context": 8,
+        "total_tokens_used": 2453,
+        "budget_limit": 2500,
+        "budget_exceeded": false,
+        "audits_count": 0,
+        "authoritative_signal_present": false,
+        "superseded_labeled": false
+      },
+      "qst_0436": {
+        "question": "Across Redwood's Go, Python, and TypeScript SDKs, which SDK has the highest number of customer-reported auth-related bug reports, and what are the corresponding support ticket IDs?",
+        "question_type": "completeness",
+        "total_gold_docs": 10,
+        "gold_docs": [
+          "dsid_a8af533a3f89402ca739bfdc5322b42e",
+          "dsid_3a5484e7e7164e389e76d188bce9f86e",
+          "dsid_1a160e1c00934f108e17183f44e3ca77",
+          "dsid_6f37b2b4341947028019bd41748eaff9",
+          "dsid_1f13ed74ef87494b81a2fc2617ab7746",
+          "dsid_1159814f66a340d79536516db194f623",
+          "dsid_c6efd46ecc6449ac8be1e53ed3803e92",
+          "dsid_8c707328a7fc444f84a8e00f90021866",
+          "dsid_98d534e949ce4fdd8ed5d651ec5ebe4b",
+          "dsid_65b12644ea52428b9c032d2cd9b75d8a"
+        ],
+        "gold_in_context": [
+          "dsid_98d534e949ce4fdd8ed5d651ec5ebe4b"
+        ],
+        "missing_gold_from_context": [
+          "dsid_a8af533a3f89402ca739bfdc5322b42e",
+          "dsid_3a5484e7e7164e389e76d188bce9f86e",
+          "dsid_1a160e1c00934f108e17183f44e3ca77",
+          "dsid_6f37b2b4341947028019bd41748eaff9",
+          "dsid_1f13ed74ef87494b81a2fc2617ab7746",
+          "dsid_1159814f66a340d79536516db194f623",
+          "dsid_c6efd46ecc6449ac8be1e53ed3803e92",
+          "dsid_8c707328a7fc444f84a8e00f90021866",
+          "dsid_65b12644ea52428b9c032d2cd9b75d8a"
+        ],
+        "gold_coverage_ratio": 0.1,
+        "is_complete_coverage": false,
+        "num_passages_in_context": 6,
+        "num_distinct_docs_in_context": 6,
+        "total_tokens_used": 2171,
+        "budget_limit": 2500,
+        "budget_exceeded": false,
+        "audits_count": 0,
+        "authoritative_signal_present": false,
+        "superseded_labeled": false
+      },
+      "qst_0437": {
+        "question": "Across all incident postmortems, which Redwood team was assigned the most follow-up action items?",
+        "question_type": "completeness",
+        "total_gold_docs": 9,
+        "gold_docs": [
+          "dsid_15a9d93cc59c4241a97a7e72f749a216",
+          "dsid_0e0ac7276c864c63a02586fa07ae85e1",
+          "dsid_c0c93abadf4c438189e23cb45256c6e9",
+          "dsid_ac94dcaf2e1e4674b2351a8b4177db9e",
+          "dsid_98943148c00b42db859ec2d84649fe04",
+          "dsid_ed145ed8c9234a6681359188e2f43345",
+          "dsid_bd7caad8adb2405eaa7ad78c4ffb59d7",
+          "dsid_d373a0708d4144d684e495c52c16448a",
+          "dsid_ec406aef8d0342c78ae27025670daedf"
+        ],
+        "gold_in_context": [],
+        "missing_gold_from_context": [
+          "dsid_15a9d93cc59c4241a97a7e72f749a216",
+          "dsid_0e0ac7276c864c63a02586fa07ae85e1",
+          "dsid_c0c93abadf4c438189e23cb45256c6e9",
+          "dsid_ac94dcaf2e1e4674b2351a8b4177db9e",
+          "dsid_98943148c00b42db859ec2d84649fe04",
+          "dsid_ed145ed8c9234a6681359188e2f43345",
+          "dsid_bd7caad8adb2405eaa7ad78c4ffb59d7",
+          "dsid_d373a0708d4144d684e495c52c16448a",
+          "dsid_ec406aef8d0342c78ae27025670daedf"
+        ],
+        "gold_coverage_ratio": 0.0,
+        "is_complete_coverage": false,
+        "num_passages_in_context": 7,
+        "num_distinct_docs_in_context": 7,
+        "total_tokens_used": 2497,
+        "budget_limit": 2500,
+        "budget_exceeded": false,
+        "audits_count": 0,
+        "authoritative_signal_present": false,
+        "superseded_labeled": false
+      },
+      "qst_0447": {
+        "question": "What is Redwood Inference's complete end-to-end process for shipping an emergency serving-runtime hotfix to production (Hosted + Dedicated), including required approvals, checklists, rollout/rollback steps, and mandatory customer communications?",
+        "question_type": "completeness",
+        "total_gold_docs": 6,
+        "gold_docs": [
+          "dsid_452dc45d76754cbca8a3674170599633",
+          "dsid_e5fe3fd0cf444668a64970ec00818f46",
+          "dsid_ac2fdba09cc24cd98ba60f5da114780c",
+          "dsid_8c3d5e26a1c841199d3bcd7aea5d495e",
+          "dsid_6807c651b55546559733c7c6f8dc133d",
+          "dsid_5d509e588f994166a2ccc6e39cbf6cb5"
+        ],
+        "gold_in_context": [
+          "dsid_452dc45d76754cbca8a3674170599633",
+          "dsid_e5fe3fd0cf444668a64970ec00818f46",
+          "dsid_ac2fdba09cc24cd98ba60f5da114780c",
+          "dsid_8c3d5e26a1c841199d3bcd7aea5d495e",
+          "dsid_6807c651b55546559733c7c6f8dc133d",
+          "dsid_5d509e588f994166a2ccc6e39cbf6cb5"
+        ],
+        "missing_gold_from_context": [],
+        "gold_coverage_ratio": 1.0,
+        "is_complete_coverage": true,
+        "num_passages_in_context": 6,
+        "num_distinct_docs_in_context": 6,
+        "total_tokens_used": 2154,
+        "budget_limit": 2500,
+        "budget_exceeded": false,
+        "audits_count": 0,
+        "authoritative_signal_present": false,
+        "superseded_labeled": false
+      },
+      "qst_0448": {
+        "question": "Which customers have been granted an exception to Redwood\u2019s default inference request log retention policy, and what retention period was approved for each?",
+        "question_type": "completeness",
+        "total_gold_docs": 7,
+        "gold_docs": [
+          "dsid_e91e68b31a6f4935b87d6f74dd07e1f6",
+          "dsid_b793b06789ae4147884e94681c6beae1",
+          "dsid_6933f9241ef140da9d3bf98be52be867",
+          "dsid_b72bd7e0c91a4f8c9d9a13daf6ff3d28",
+          "dsid_84ec014ad9f14f1481b45484da41181a",
+          "dsid_67a8c3300752435296938175e9a1daf5",
+          "dsid_5f0ab47fe8de47a89bb6668f8722becf"
+        ],
+        "gold_in_context": [
+          "dsid_e91e68b31a6f4935b87d6f74dd07e1f6",
+          "dsid_b793b06789ae4147884e94681c6beae1",
+          "dsid_6933f9241ef140da9d3bf98be52be867"
+        ],
+        "missing_gold_from_context": [
+          "dsid_b72bd7e0c91a4f8c9d9a13daf6ff3d28",
+          "dsid_84ec014ad9f14f1481b45484da41181a",
+          "dsid_67a8c3300752435296938175e9a1daf5",
+          "dsid_5f0ab47fe8de47a89bb6668f8722becf"
+        ],
+        "gold_coverage_ratio": 0.42857142857142855,
+        "is_complete_coverage": false,
+        "num_passages_in_context": 7,
+        "num_distinct_docs_in_context": 7,
+        "total_tokens_used": 2400,
+        "budget_limit": 2500,
+        "budget_exceeded": false,
+        "audits_count": 0,
+        "authoritative_signal_present": false,
+        "superseded_labeled": false
+      },
+      "qst_0427": {
+        "question": "ClearEdge 2027 pilot: final po_fingerprint format and weekly invoice delivery time?",
+        "question_type": "conflicting_info",
+        "total_gold_docs": 2,
+        "gold_docs": [
+          "dsid_86f033ed92b84f3a8b381d09b0b95357",
+          "dsid_d93aed75845e4a0b8126a80d8a7a5a41"
+        ],
+        "gold_in_context": [
+          "dsid_86f033ed92b84f3a8b381d09b0b95357",
+          "dsid_d93aed75845e4a0b8126a80d8a7a5a41"
+        ],
+        "missing_gold_from_context": [],
+        "gold_coverage_ratio": 1.0,
+        "is_complete_coverage": true,
+        "num_passages_in_context": 4,
+        "num_distinct_docs_in_context": 2,
+        "total_tokens_used": 2342,
+        "budget_limit": 2500,
+        "budget_exceeded": false,
+        "audits_count": 0,
+        "authoritative_signal_present": true,
+        "superseded_labeled": false
+      },
+      "qst_0499": {
+        "question": "For the `profiling.signals` Kafka topic used by trace-orch and fidelity-proxy, what are the current production settings (partition count and message retention time), and where can I find the approval/change record for the most recent update?",
+        "question_type": "info_not_found",
+        "total_gold_docs": 0,
+        "gold_docs": [],
+        "gold_in_context": [],
+        "missing_gold_from_context": [],
+        "gold_coverage_ratio": 0.0,
+        "is_complete_coverage": true,
+        "num_passages_in_context": 4,
+        "num_distinct_docs_in_context": 4,
+        "total_tokens_used": 2489,
+        "budget_limit": 2500,
+        "budget_exceeded": false,
+        "audits_count": 0,
+        "authoritative_signal_present": false,
+        "superseded_labeled": false
+      },
+      "qst_0481": {
+        "question": "For the hot-route capacity protection rollout in us-east, which specific enterprise accounts were on the initial allowlist, and what were the exact per-route-group budget values (RPS, estimated TPS, and concurrency) configured for each of those accounts?",
+        "question_type": "info_not_found",
+        "total_gold_docs": 0,
+        "gold_docs": [],
+        "gold_in_context": [],
+        "missing_gold_from_context": [],
+        "gold_coverage_ratio": 0.0,
+        "is_complete_coverage": true,
+        "num_passages_in_context": 6,
+        "num_distinct_docs_in_context": 6,
+        "total_tokens_used": 2178,
+        "budget_limit": 2500,
+        "budget_exceeded": false,
+        "audits_count": 0,
+        "authoritative_signal_present": false,
+        "superseded_labeled": false
+      }
+    },
+    "CoverageAware_ContextBuilder": {
+      "qst_0178": {
+        "question": "In the recent change that made low bit math safer for inference, what is the default pass rate used to decide when a machine is allowed to step down from the safest numeric mode?",
+        "question_type": "semantic",
+        "total_gold_docs": 1,
+        "gold_docs": [
+          "dsid_22a7e9af2760474dbdf611c2c21cd231"
+        ],
+        "gold_in_context": [],
+        "missing_gold_from_context": [
+          "dsid_22a7e9af2760474dbdf611c2c21cd231"
+        ],
+        "gold_coverage_ratio": 0.0,
+        "is_complete_coverage": false,
+        "num_passages_in_context": 6,
+        "num_distinct_docs_in_context": 6,
+        "total_tokens_used": 2488,
+        "budget_limit": 2500,
+        "budget_exceeded": false,
+        "audits_count": 40,
+        "authoritative_signal_present": false,
+        "superseded_labeled": false
+      },
+      "qst_0242": {
+        "question": "In the partner integration call about getting a third party AI service into another companys cloud catalog, what date did the security lead target for completing the pre publication image security smoke test?",
+        "question_type": "semantic",
+        "total_gold_docs": 1,
+        "gold_docs": [
+          "dsid_3fc14ed9048e4e1f861e0632b06fc39b"
+        ],
+        "gold_in_context": [],
+        "missing_gold_from_context": [
+          "dsid_3fc14ed9048e4e1f861e0632b06fc39b"
+        ],
+        "gold_coverage_ratio": 0.0,
+        "is_complete_coverage": false,
+        "num_passages_in_context": 5,
+        "num_distinct_docs_in_context": 4,
+        "total_tokens_used": 2442,
+        "budget_limit": 2500,
+        "budget_exceeded": false,
+        "audits_count": 40,
+        "authoritative_signal_present": false,
+        "superseded_labeled": false
+      },
+      "qst_0282": {
+        "question": "During a traffic surge in the US East production cluster for a healthcare customer with dedicated capacity, why did conversations that were supposed to stay locked to a specific model version sometimes get served by an experimental fallback instead?",
+        "question_type": "semantic",
+        "total_gold_docs": 1,
+        "gold_docs": [
+          "dsid_9adc7c1c81f54e0a88d0e0bee59a6588"
+        ],
+        "gold_in_context": [],
+        "missing_gold_from_context": [
+          "dsid_9adc7c1c81f54e0a88d0e0bee59a6588"
+        ],
+        "gold_coverage_ratio": 0.0,
+        "is_complete_coverage": false,
+        "num_passages_in_context": 6,
+        "num_distinct_docs_in_context": 6,
+        "total_tokens_used": 2412,
+        "budget_limit": 2500,
+        "budget_exceeded": false,
+        "audits_count": 40,
+        "authoritative_signal_present": false,
+        "superseded_labeled": false
+      },
+      "qst_0214": {
+        "question": "In the mid March 2026 incident where a regional dedicated serving cluster briefly ran out of spare capacity and the automatic scaler couldnt add nodes due to provider limit type errors, what exact build version did on call revert to in order to restore capacity?",
+        "question_type": "semantic",
+        "total_gold_docs": 1,
+        "gold_docs": [
+          "dsid_303196c831af4d1bb38a1e2546228a09"
+        ],
+        "gold_in_context": [],
+        "missing_gold_from_context": [
+          "dsid_303196c831af4d1bb38a1e2546228a09"
+        ],
+        "gold_coverage_ratio": 0.0,
+        "is_complete_coverage": false,
+        "num_passages_in_context": 6,
+        "num_distinct_docs_in_context": 6,
+        "total_tokens_used": 2368,
+        "budget_limit": 2500,
+        "budget_exceeded": false,
+        "audits_count": 40,
+        "authoritative_signal_present": false,
+        "superseded_labeled": false
+      },
+      "qst_0203": {
+        "question": "How should we automate the creation and teardown of short-lived experiment workspaces so that a request ticket spins up the needed tracking/docs/chat area, requires an approver before access is enabled, expires on a default one month timer with a simple extension, and writes an encrypted audit bundle to object storage when it shuts down?",
+        "question_type": "semantic",
+        "total_gold_docs": 1,
+        "gold_docs": [
+          "dsid_3d745c88c7e4426c9548350824f0d9b8"
+        ],
+        "gold_in_context": [],
+        "missing_gold_from_context": [
+          "dsid_3d745c88c7e4426c9548350824f0d9b8"
+        ],
+        "gold_coverage_ratio": 0.0,
+        "is_complete_coverage": false,
+        "num_passages_in_context": 6,
+        "num_distinct_docs_in_context": 5,
+        "total_tokens_used": 2431,
+        "budget_limit": 2500,
+        "budget_exceeded": false,
+        "audits_count": 40,
+        "authoritative_signal_present": false,
+        "superseded_labeled": false
+      },
+      "qst_0043": {
+        "question": "What caused the brief p99 latency jump on the hosted text generation endpoint in us-west-2, and what mitigation was applied to bring it back down?",
+        "question_type": "basic",
+        "total_gold_docs": 1,
+        "gold_docs": [
+          "dsid_321eee6325824623833bbe754bf83a0b"
+        ],
+        "gold_in_context": [],
+        "missing_gold_from_context": [
+          "dsid_321eee6325824623833bbe754bf83a0b"
+        ],
+        "gold_coverage_ratio": 0.0,
+        "is_complete_coverage": false,
+        "num_passages_in_context": 4,
+        "num_distinct_docs_in_context": 4,
+        "total_tokens_used": 2208,
+        "budget_limit": 2500,
+        "budget_exceeded": false,
+        "audits_count": 40,
+        "authoritative_signal_present": false,
+        "superseded_labeled": false
+      },
+      "qst_0139": {
+        "question": "What false positive threshold did the prospect set for suggested code review comments in the evaluation criteria for their PR review assistant POC?",
+        "question_type": "basic",
+        "total_gold_docs": 1,
+        "gold_docs": [
+          "dsid_9f92a42dc8d24c93a0a696a0727063b9"
+        ],
+        "gold_in_context": [],
+        "missing_gold_from_context": [
+          "dsid_9f92a42dc8d24c93a0a696a0727063b9"
+        ],
+        "gold_coverage_ratio": 0.0,
+        "is_complete_coverage": false,
+        "num_passages_in_context": 6,
+        "num_distinct_docs_in_context": 6,
+        "total_tokens_used": 2451,
+        "budget_limit": 2500,
+        "budget_exceeded": false,
+        "audits_count": 40,
+        "authoritative_signal_present": false,
+        "superseded_labeled": false
+      },
+      "qst_0436": {
+        "question": "Across Redwood's Go, Python, and TypeScript SDKs, which SDK has the highest number of customer-reported auth-related bug reports, and what are the corresponding support ticket IDs?",
+        "question_type": "completeness",
+        "total_gold_docs": 10,
+        "gold_docs": [
+          "dsid_a8af533a3f89402ca739bfdc5322b42e",
+          "dsid_3a5484e7e7164e389e76d188bce9f86e",
+          "dsid_1a160e1c00934f108e17183f44e3ca77",
+          "dsid_6f37b2b4341947028019bd41748eaff9",
+          "dsid_1f13ed74ef87494b81a2fc2617ab7746",
+          "dsid_1159814f66a340d79536516db194f623",
+          "dsid_c6efd46ecc6449ac8be1e53ed3803e92",
+          "dsid_8c707328a7fc444f84a8e00f90021866",
+          "dsid_98d534e949ce4fdd8ed5d651ec5ebe4b",
+          "dsid_65b12644ea52428b9c032d2cd9b75d8a"
+        ],
+        "gold_in_context": [
+          "dsid_98d534e949ce4fdd8ed5d651ec5ebe4b",
+          "dsid_65b12644ea52428b9c032d2cd9b75d8a"
+        ],
+        "missing_gold_from_context": [
+          "dsid_a8af533a3f89402ca739bfdc5322b42e",
+          "dsid_3a5484e7e7164e389e76d188bce9f86e",
+          "dsid_1a160e1c00934f108e17183f44e3ca77",
+          "dsid_6f37b2b4341947028019bd41748eaff9",
+          "dsid_1f13ed74ef87494b81a2fc2617ab7746",
+          "dsid_1159814f66a340d79536516db194f623",
+          "dsid_c6efd46ecc6449ac8be1e53ed3803e92",
+          "dsid_8c707328a7fc444f84a8e00f90021866"
+        ],
+        "gold_coverage_ratio": 0.2,
+        "is_complete_coverage": false,
+        "num_passages_in_context": 7,
+        "num_distinct_docs_in_context": 7,
+        "total_tokens_used": 2479,
+        "budget_limit": 2500,
+        "budget_exceeded": false,
+        "audits_count": 40,
+        "authoritative_signal_present": false,
+        "superseded_labeled": false
+      },
+      "qst_0437": {
+        "question": "Across all incident postmortems, which Redwood team was assigned the most follow-up action items?",
+        "question_type": "completeness",
+        "total_gold_docs": 9,
+        "gold_docs": [
+          "dsid_15a9d93cc59c4241a97a7e72f749a216",
+          "dsid_0e0ac7276c864c63a02586fa07ae85e1",
+          "dsid_c0c93abadf4c438189e23cb45256c6e9",
+          "dsid_ac94dcaf2e1e4674b2351a8b4177db9e",
+          "dsid_98943148c00b42db859ec2d84649fe04",
+          "dsid_ed145ed8c9234a6681359188e2f43345",
+          "dsid_bd7caad8adb2405eaa7ad78c4ffb59d7",
+          "dsid_d373a0708d4144d684e495c52c16448a",
+          "dsid_ec406aef8d0342c78ae27025670daedf"
+        ],
+        "gold_in_context": [],
+        "missing_gold_from_context": [
+          "dsid_15a9d93cc59c4241a97a7e72f749a216",
+          "dsid_0e0ac7276c864c63a02586fa07ae85e1",
+          "dsid_c0c93abadf4c438189e23cb45256c6e9",
+          "dsid_ac94dcaf2e1e4674b2351a8b4177db9e",
+          "dsid_98943148c00b42db859ec2d84649fe04",
+          "dsid_ed145ed8c9234a6681359188e2f43345",
+          "dsid_bd7caad8adb2405eaa7ad78c4ffb59d7",
+          "dsid_d373a0708d4144d684e495c52c16448a",
+          "dsid_ec406aef8d0342c78ae27025670daedf"
+        ],
+        "gold_coverage_ratio": 0.0,
+        "is_complete_coverage": false,
+        "num_passages_in_context": 6,
+        "num_distinct_docs_in_context": 6,
+        "total_tokens_used": 2403,
+        "budget_limit": 2500,
+        "budget_exceeded": false,
+        "audits_count": 40,
+        "authoritative_signal_present": false,
+        "superseded_labeled": false
+      },
+      "qst_0447": {
+        "question": "What is Redwood Inference's complete end-to-end process for shipping an emergency serving-runtime hotfix to production (Hosted + Dedicated), including required approvals, checklists, rollout/rollback steps, and mandatory customer communications?",
+        "question_type": "completeness",
+        "total_gold_docs": 6,
+        "gold_docs": [
+          "dsid_452dc45d76754cbca8a3674170599633",
+          "dsid_e5fe3fd0cf444668a64970ec00818f46",
+          "dsid_ac2fdba09cc24cd98ba60f5da114780c",
+          "dsid_8c3d5e26a1c841199d3bcd7aea5d495e",
+          "dsid_6807c651b55546559733c7c6f8dc133d",
+          "dsid_5d509e588f994166a2ccc6e39cbf6cb5"
+        ],
+        "gold_in_context": [
+          "dsid_452dc45d76754cbca8a3674170599633",
+          "dsid_ac2fdba09cc24cd98ba60f5da114780c",
+          "dsid_8c3d5e26a1c841199d3bcd7aea5d495e",
+          "dsid_5d509e588f994166a2ccc6e39cbf6cb5"
+        ],
+        "missing_gold_from_context": [
+          "dsid_e5fe3fd0cf444668a64970ec00818f46",
+          "dsid_6807c651b55546559733c7c6f8dc133d"
+        ],
+        "gold_coverage_ratio": 0.6666666666666666,
+        "is_complete_coverage": false,
+        "num_passages_in_context": 7,
+        "num_distinct_docs_in_context": 5,
+        "total_tokens_used": 2479,
+        "budget_limit": 2500,
+        "budget_exceeded": false,
+        "audits_count": 40,
+        "authoritative_signal_present": false,
+        "superseded_labeled": false
+      },
+      "qst_0448": {
+        "question": "Which customers have been granted an exception to Redwood\u2019s default inference request log retention policy, and what retention period was approved for each?",
+        "question_type": "completeness",
+        "total_gold_docs": 7,
+        "gold_docs": [
+          "dsid_e91e68b31a6f4935b87d6f74dd07e1f6",
+          "dsid_b793b06789ae4147884e94681c6beae1",
+          "dsid_6933f9241ef140da9d3bf98be52be867",
+          "dsid_b72bd7e0c91a4f8c9d9a13daf6ff3d28",
+          "dsid_84ec014ad9f14f1481b45484da41181a",
+          "dsid_67a8c3300752435296938175e9a1daf5",
+          "dsid_5f0ab47fe8de47a89bb6668f8722becf"
+        ],
+        "gold_in_context": [
+          "dsid_b793b06789ae4147884e94681c6beae1",
+          "dsid_6933f9241ef140da9d3bf98be52be867"
+        ],
+        "missing_gold_from_context": [
+          "dsid_e91e68b31a6f4935b87d6f74dd07e1f6",
+          "dsid_b72bd7e0c91a4f8c9d9a13daf6ff3d28",
+          "dsid_84ec014ad9f14f1481b45484da41181a",
+          "dsid_67a8c3300752435296938175e9a1daf5",
+          "dsid_5f0ab47fe8de47a89bb6668f8722becf"
+        ],
+        "gold_coverage_ratio": 0.2857142857142857,
+        "is_complete_coverage": false,
+        "num_passages_in_context": 5,
+        "num_distinct_docs_in_context": 5,
+        "total_tokens_used": 2456,
+        "budget_limit": 2500,
+        "budget_exceeded": false,
+        "audits_count": 40,
+        "authoritative_signal_present": false,
+        "superseded_labeled": false
+      },
+      "qst_0427": {
+        "question": "ClearEdge 2027 pilot: final po_fingerprint format and weekly invoice delivery time?",
+        "question_type": "conflicting_info",
+        "total_gold_docs": 2,
+        "gold_docs": [
+          "dsid_86f033ed92b84f3a8b381d09b0b95357",
+          "dsid_d93aed75845e4a0b8126a80d8a7a5a41"
+        ],
+        "gold_in_context": [
+          "dsid_86f033ed92b84f3a8b381d09b0b95357",
+          "dsid_d93aed75845e4a0b8126a80d8a7a5a41"
+        ],
+        "missing_gold_from_context": [],
+        "gold_coverage_ratio": 1.0,
+        "is_complete_coverage": true,
+        "num_passages_in_context": 5,
+        "num_distinct_docs_in_context": 2,
+        "total_tokens_used": 2444,
+        "budget_limit": 2500,
+        "budget_exceeded": false,
+        "audits_count": 40,
+        "authoritative_signal_present": true,
+        "superseded_labeled": false
+      },
+      "qst_0499": {
+        "question": "For the `profiling.signals` Kafka topic used by trace-orch and fidelity-proxy, what are the current production settings (partition count and message retention time), and where can I find the approval/change record for the most recent update?",
+        "question_type": "info_not_found",
+        "total_gold_docs": 0,
+        "gold_docs": [],
+        "gold_in_context": [],
+        "missing_gold_from_context": [],
+        "gold_coverage_ratio": 0.0,
+        "is_complete_coverage": true,
+        "num_passages_in_context": 6,
+        "num_distinct_docs_in_context": 4,
+        "total_tokens_used": 2429,
+        "budget_limit": 2500,
+        "budget_exceeded": false,
+        "audits_count": 40,
+        "authoritative_signal_present": false,
+        "superseded_labeled": false
+      },
+      "qst_0481": {
+        "question": "For the hot-route capacity protection rollout in us-east, which specific enterprise accounts were on the initial allowlist, and what were the exact per-route-group budget values (RPS, estimated TPS, and concurrency) configured for each of those accounts?",
+        "question_type": "info_not_found",
+        "total_gold_docs": 0,
+        "gold_docs": [],
+        "gold_in_context": [],
+        "missing_gold_from_context": [],
+        "gold_coverage_ratio": 0.0,
+        "is_complete_coverage": true,
+        "num_passages_in_context": 6,
+        "num_distinct_docs_in_context": 6,
+        "total_tokens_used": 2440,
+        "budget_limit": 2500,
+        "budget_exceeded": false,
+        "audits_count": 40,
+        "authoritative_signal_present": false,
+        "superseded_labeled": false
+      }
+    }
+  }
+}

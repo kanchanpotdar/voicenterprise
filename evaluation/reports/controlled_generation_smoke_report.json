@@ -1,0 +1,1549 @@
+{
+  "benchmark": "VoiceEnterprise Controlled Generation Benchmark (A vs E)",
+  "mode": "smoke",
+  "generated_at_utc": "2026-10-25T05:28:32Z",
+  "elapsed_seconds": 26.02,
+  "generator_model": "openai/gpt-oss-120b",
+  "generation_parameters": {
+    "temperature": 0.0,
+    "max_tokens": 4096,
+    "max_context_tokens": 2500,
+    "max_chunks_per_doc": 3
+  },
+  "question_set_metadata": {
+    "stratified_40_count": 40,
+    "diagnostic_8_count": 8,
+    "overlap_count": 1,
+    "overlap_question_ids": [
+      "qst_0436"
+    ],
+    "total_deduplicated_questions": 47,
+    "stratified_40_question_ids": [
+      "qst_0001",
+      "qst_0431",
+      "qst_0411",
+      "qst_0384",
+      "qst_0471",
+      "qst_0481",
+      "qst_0303",
+      "qst_0451",
+      "qst_0343",
+      "qst_0178",
+      "qst_0003",
+      "qst_0433",
+      "qst_0412",
+      "qst_0386",
+      "qst_0472",
+      "qst_0482",
+      "qst_0308",
+      "qst_0455",
+      "qst_0351",
+      "qst_0179",
+      "qst_0004",
+      "qst_0435",
+      "qst_0413",
+      "qst_0387",
+      "qst_0473",
+      "qst_0485",
+      "qst_0312",
+      "qst_0457",
+      "qst_0352",
+      "qst_0183",
+      "qst_0014",
+      "qst_0436",
+      "qst_0414",
+      "qst_0388",
+      "qst_0475",
+      "qst_0486",
+      "qst_0317",
+      "qst_0459",
+      "qst_0356",
+      "qst_0184"
+    ],
+    "diagnostic_8_question_ids": [
+      "qst_0427",
+      "qst_0214",
+      "qst_0203",
+      "qst_0282",
+      "qst_0436",
+      "qst_0437",
+      "qst_0447",
+      "qst_0448"
+    ],
+    "deduplicated_question_ids": [
+      "qst_0001",
+      "qst_0431",
+      "qst_0411",
+      "qst_0384",
+      "qst_0471",
+      "qst_0481",
+      "qst_0303",
+      "qst_0451",
+      "qst_0343",
+      "qst_0178",
+      "qst_0003",
+      "qst_0433",
+      "qst_0412",
+      "qst_0386",
+      "qst_0472",
+      "qst_0482",
+      "qst_0308",
+      "qst_0455",
+      "qst_0351",
+      "qst_0179",
+      "qst_0004",
+      "qst_0435",
+      "qst_0413",
+      "qst_0387",
+      "qst_0473",
+      "qst_0485",
+      "qst_0312",
+      "qst_0457",
+      "qst_0352",
+      "qst_0183",
+      "qst_0014",
+      "qst_0436",
+      "qst_0414",
+      "qst_0388",
+      "qst_0475",
+      "qst_0486",
+      "qst_0317",
+      "qst_0459",
+      "qst_0356",
+      "qst_0184",
+      "qst_0427",
+      "qst_0214",
+      "qst_0203",
+      "qst_0282",
+      "qst_0437",
+      "qst_0447",
+      "qst_0448"
+    ],
+    "category_counts_in_deduplicated_47": {
+      "completeness": 7,
+      "semantic": 7,
+      "conflicting_info": 5,
+      "basic": 4,
+      "constrained": 4,
+      "high_level": 4,
+      "info_not_found": 4,
+      "intra_document_reasoning": 4,
+      "miscellaneous": 4,
+      "project_related": 4
+    }
+  },
+  "query_expansion_verification": {
+    "model": "openai/gpt-oss-120b",
+    "first_call_status": "success",
+    "first_call_cache_status": "write",
+    "first_call_failed": false,
+    "first_call_fell_back": false,
+    "first_call_expanded_queries": [
+      "Why would a customer's session be subject to session pinning sticky sessions affinity routing to an unhealthy compute node?"
+    ],
+    "second_call_status": "cache_hit",
+    "second_call_cache_status": "hit",
+    "disabled_call_status": "disabled",
+    "expander_stats": {
+      "requests": 3,
+      "success": 1,
+      "success_empty": 0,
+      "cache_hit": 1,
+      "disabled": 1,
+      "failed": 0,
+      "failure_rate": 0.0
+    },
+    "cache_stats": {
+      "entries": 1,
+      "hits": 1,
+      "misses": 1,
+      "writes": 1,
+      "rejected": 0
+    }
+  },
+  "head_to_head_summary": {
+    "total_questions_compared": 3,
+    "identical_assembled_prompt_count": 1,
+    "differing_assembled_prompt_count": 2,
+    "E_wins_strict_correctness": 0,
+    "A_wins_strict_correctness": 0,
+    "E_wins_fact_completeness": 1,
+    "A_wins_fact_completeness": 0
+  },
+  "summaries_by_config": {
+    "A_Baseline_BM25_k20": {
+      "all_deduplicated": {
+        "num_questions": 3,
+        "num_answerable": 2,
+        "num_answerable_with_gold_docs": 2,
+        "num_multi_doc_with_gold": 2,
+        "num_unanswerable_info_not_found": 1,
+        "retrieval_and_prompt_coverage": {
+          "pool_recall_at_k_pct": 100.0,
+          "pool_hit_at_k_pct": 100.0,
+          "prompt_gold_recall_pct": 100.0,
+          "prompt_complete_gold_pct": 100.0,
+          "multi_doc_prompt_gold_recall_pct": 100.0,
+          "multi_doc_prompt_complete_gold_pct": 100.0,
+          "questions_losing_pool_gold_in_packing": 0,
+          "mean_evidence_fact_coverage_pct": 54.55,
+          "mean_distinct_docs_in_prompt": 5.33,
+          "mean_prompt_context_tokens": 2384.0
+        },
+        "answer_quality_heuristic": {
+          "note": "Automated lexical and numeric/identifier anchor heuristic scores (not human-verified semantic entailment).",
+          "answer_correct_strict_pct": 33.33,
+          "answerable_correct_strict_pct": 0.0,
+          "fact_completeness_pct": 71.52,
+          "answerable_fact_completeness_pct": 57.27,
+          "overall_score_strict": 33.33,
+          "judge_answer_correct_pct": 100.0,
+          "judge_completeness_pct": 81.21,
+          "overall_score_judge": 81.21,
+          "prohibited_violation_count": 0,
+          "prohibited_violation_rate_pct": 0.0,
+          "empty_response_count": 0,
+          "truncated_response_count": 0,
+          "appropriate_abstention_count_on_info_not_found": 1,
+          "appropriate_abstention_rate_on_info_not_found_pct": 100.0,
+          "false_abstention_count_on_answerable": 0,
+          "failure_category_counts": {
+            "missing_fact_synthesis": 2,
+            "none": 1
+          }
+        },
+        "citation_and_grounding_heuristic": {
+          "citation_precision_pct": 100.0,
+          "citation_id_validity_pct": 100.0,
+          "hallucinated_citation_question_count": 0,
+          "sentence_citation_rate_pct": 38.24,
+          "claim_support_rate_all_sentences_pct": 21.9,
+          "unsupported_substantive_claim_rate_pct": 71.67,
+          "unsourced_claim_question_count": 2
+        },
+        "api_usage_and_caching": {
+          "cache_status_counts": {
+            "hit": 2,
+            "miss_write": 1
+          },
+          "api_error_count": 0,
+          "total_prompt_tokens": 8821,
+          "total_completion_tokens": 4081,
+          "total_tokens": 12902,
+          "total_estimated_cost_usd": 0.004384,
+          "mean_generation_latency_ms": 14402.0
+        }
+      },
+      "stratified_40_only": {
+        "num_questions": 1,
+        "num_answerable": 0,
+        "num_answerable_with_gold_docs": 0,
+        "num_multi_doc_with_gold": 0,
+        "num_unanswerable_info_not_found": 1,
+        "retrieval_and_prompt_coverage": {
+          "pool_recall_at_k_pct": null,
+          "pool_hit_at_k_pct": null,
+          "prompt_gold_recall_pct": null,
+          "prompt_complete_gold_pct": null,
+          "multi_doc_prompt_gold_recall_pct": null,
+          "multi_doc_prompt_complete_gold_pct": null,
+          "questions_losing_pool_gold_in_packing": 0,
+          "mean_evidence_fact_coverage_pct": 0.0,
+          "mean_distinct_docs_in_prompt": 7.0,
+          "mean_prompt_context_tokens": 2460.0
+        },
+        "answer_quality_heuristic": {
+          "note": "Automated lexical and numeric/identifier anchor heuristic scores (not human-verified semantic entailment).",
+          "answer_correct_strict_pct": 100.0,
+          "answerable_correct_strict_pct": null,
+          "fact_completeness_pct": 100.0,
+          "answerable_fact_completeness_pct": null,
+          "overall_score_strict": 100.0,
+          "judge_answer_correct_pct": 100.0,
+          "judge_completeness_pct": 100.0,
+          "overall_score_judge": 100.0,
+          "prohibited_violation_count": 0,
+          "prohibited_violation_rate_pct": 0.0,
+          "empty_response_count": 0,
+          "truncated_response_count": 0,
+          "appropriate_abstention_count_on_info_not_found": 1,
+          "appropriate_abstention_rate_on_info_not_found_pct": 100.0,
+          "false_abstention_count_on_answerable": 0,
+          "failure_category_counts": {
+            "none": 1
+          }
+        },
+        "citation_and_grounding_heuristic": {
+          "citation_precision_pct": 100.0,
+          "citation_id_validity_pct": 100.0,
+          "hallucinated_citation_question_count": 0,
+          "sentence_citation_rate_pct": 0.0,
+          "claim_support_rate_all_sentences_pct": 0.0,
+          "unsupported_substantive_claim_rate_pct": 0.0,
+          "unsourced_claim_question_count": 0
+        },
+        "api_usage_and_caching": {
+          "cache_status_counts": {
+            "hit": 1
+          },
+          "api_error_count": 0,
+          "total_prompt_tokens": 3064,
+          "total_completion_tokens": 468,
+          "total_tokens": 3532,
+          "total_estimated_cost_usd": 0.000811,
+          "mean_generation_latency_ms": 34623.6
+        }
+      },
+      "diagnostic_8_only": {
+        "num_questions": 2,
+        "num_answerable": 2,
+        "num_answerable_with_gold_docs": 2,
+        "num_multi_doc_with_gold": 2,
+        "num_unanswerable_info_not_found": 0,
+        "retrieval_and_prompt_coverage": {
+          "pool_recall_at_k_pct": 100.0,
+          "pool_hit_at_k_pct": 100.0,
+          "prompt_gold_recall_pct": 100.0,
+          "prompt_complete_gold_pct": 100.0,
+          "multi_doc_prompt_gold_recall_pct": 100.0,
+          "multi_doc_prompt_complete_gold_pct": 100.0,
+          "questions_losing_pool_gold_in_packing": 0,
+          "mean_evidence_fact_coverage_pct": 81.82,
+          "mean_distinct_docs_in_prompt": 4.5,
+          "mean_prompt_context_tokens": 2346.0
+        },
+        "answer_quality_heuristic": {
+          "note": "Automated lexical and numeric/identifier anchor heuristic scores (not human-verified semantic entailment).",
+          "answer_correct_strict_pct": 0.0,
+          "answerable_correct_strict_pct": 0.0,
+          "fact_completeness_pct": 57.27,
+          "answerable_fact_completeness_pct": 57.27,
+          "overall_score_strict": 0.0,
+          "judge_answer_correct_pct": 100.0,
+          "judge_completeness_pct": 71.82,
+          "overall_score_judge": 71.82,
+          "prohibited_violation_count": 0,
+          "prohibited_violation_rate_pct": 0.0,
+          "empty_response_count": 0,
+          "truncated_response_count": 0,
+          "appropriate_abstention_count_on_info_not_found": 0,
+          "appropriate_abstention_rate_on_info_not_found_pct": null,
+          "false_abstention_count_on_answerable": 0,
+          "failure_category_counts": {
+            "missing_fact_synthesis": 2
+          }
+        },
+        "citation_and_grounding_heuristic": {
+          "citation_precision_pct": 100.0,
+          "citation_id_validity_pct": 100.0,
+          "hallucinated_citation_question_count": 0,
+          "sentence_citation_rate_pct": 57.36,
+          "claim_support_rate_all_sentences_pct": 32.84,
+          "unsupported_substantive_claim_rate_pct": 71.67,
+          "unsourced_claim_question_count": 2
+        },
+        "api_usage_and_caching": {
+          "cache_status_counts": {
+            "hit": 1,
+            "miss_write": 1
+          },
+          "api_error_count": 0,
+          "total_prompt_tokens": 5757,
+          "total_completion_tokens": 3613,
+          "total_tokens": 9370,
+          "total_estimated_cost_usd": 0.003573,
+          "mean_generation_latency_ms": 4291.2
+        }
+      },
+      "by_category": {
+        "completeness": {
+          "num_questions": 1,
+          "num_answerable": 1,
+          "num_answerable_with_gold_docs": 1,
+          "num_multi_doc_with_gold": 1,
+          "num_unanswerable_info_not_found": 0,
+          "retrieval_and_prompt_coverage": {
+            "pool_recall_at_k_pct": 100.0,
+            "pool_hit_at_k_pct": 100.0,
+            "prompt_gold_recall_pct": 100.0,
+            "prompt_complete_gold_pct": 100.0,
+            "multi_doc_prompt_gold_recall_pct": 100.0,
+            "multi_doc_prompt_complete_gold_pct": 100.0,
+            "questions_losing_pool_gold_in_packing": 0,
+            "mean_evidence_fact_coverage_pct": 63.64,
+            "mean_distinct_docs_in_prompt": 7.0,
+            "mean_prompt_context_tokens": 2350.0
+          },
+          "answer_quality_heuristic": {
+            "note": "Automated lexical and numeric/identifier anchor heuristic scores (not human-verified semantic entailment).",
+            "answer_correct_strict_pct": 0.0,
+            "answerable_correct_strict_pct": 0.0,
+            "fact_completeness_pct": 54.55,
+            "answerable_fact_completeness_pct": 54.55,
+            "overall_score_strict": 0.0,
+            "judge_answer_correct_pct": 100.0,
+            "judge_completeness_pct": 63.64,
+            "overall_score_judge": 63.64,
+            "prohibited_violation_count": 0,
+            "prohibited_violation_rate_pct": 0.0,
+            "empty_response_count": 0,
+            "truncated_response_count": 0,
+            "appropriate_abstention_count_on_info_not_found": 0,
+            "appropriate_abstention_rate_on_info_not_found_pct": null,
+            "false_abstention_count_on_answerable": 0,
+            "failure_category_counts": {
+              "missing_fact_synthesis": 1
+            }
+          },
+          "citation_and_grounding_heuristic": {
+            "citation_precision_pct": 100.0,
+            "citation_id_validity_pct": 100.0,
+            "hallucinated_citation_question_count": 0,
+            "sentence_citation_rate_pct": 64.71,
+            "claim_support_rate_all_sentences_pct": 15.69,
+            "unsupported_substantive_claim_rate_pct": 83.33,
+            "unsourced_claim_question_count": 1
+          },
+          "api_usage_and_caching": {
+            "cache_status_counts": {
+              "miss_write": 1
+            },
+            "api_error_count": 0,
+            "total_prompt_tokens": 2923,
+            "total_completion_tokens": 3126,
+            "total_tokens": 6049,
+            "total_estimated_cost_usd": 0.002783,
+            "mean_generation_latency_ms": 7075.3
+          }
+        },
+        "conflicting_info": {
+          "num_questions": 1,
+          "num_answerable": 1,
+          "num_answerable_with_gold_docs": 1,
+          "num_multi_doc_with_gold": 1,
+          "num_unanswerable_info_not_found": 0,
+          "retrieval_and_prompt_coverage": {
+            "pool_recall_at_k_pct": 100.0,
+            "pool_hit_at_k_pct": 100.0,
+            "prompt_gold_recall_pct": 100.0,
+            "prompt_complete_gold_pct": 100.0,
+            "multi_doc_prompt_gold_recall_pct": 100.0,
+            "multi_doc_prompt_complete_gold_pct": 100.0,
+            "questions_losing_pool_gold_in_packing": 0,
+            "mean_evidence_fact_coverage_pct": 100.0,
+            "mean_distinct_docs_in_prompt": 2.0,
+            "mean_prompt_context_tokens": 2342.0
+          },
+          "answer_quality_heuristic": {
+            "note": "Automated lexical and numeric/identifier anchor heuristic scores (not human-verified semantic entailment).",
+            "answer_correct_strict_pct": 0.0,
+            "answerable_correct_strict_pct": 0.0,
+            "fact_completeness_pct": 60.0,
+            "answerable_fact_completeness_pct": 60.0,
+            "overall_score_strict": 0.0,
+            "judge_answer_correct_pct": 100.0,
+            "judge_completeness_pct": 80.0,
+            "overall_score_judge": 80.0,
+            "prohibited_violation_count": 0,
+            "prohibited_violation_rate_pct": 0.0,
+            "empty_response_count": 0,
+            "truncated_response_count": 0,
+            "appropriate_abstention_count_on_info_not_found": 0,
+            "appropriate_abstention_rate_on_info_not_found_pct": null,
+            "false_abstention_count_on_answerable": 0,
+            "failure_category_counts": {
+              "missing_fact_synthesis": 1
+            }
+          },
+          "citation_and_grounding_heuristic": {
+            "citation_precision_pct": 100.0,
+            "citation_id_validity_pct": 100.0,
+            "hallucinated_citation_question_count": 0,
+            "sentence_citation_rate_pct": 50.0,
+            "claim_support_rate_all_sentences_pct": 50.0,
+            "unsupported_substantive_claim_rate_pct": 60.0,
+            "unsourced_claim_question_count": 1
+          },
+          "api_usage_and_caching": {
+            "cache_status_counts": {
+              "hit": 1
+            },
+            "api_error_count": 0,
+            "total_prompt_tokens": 2834,
+            "total_completion_tokens": 487,
+            "total_tokens": 3321,
+            "total_estimated_cost_usd": 0.00079,
+            "mean_generation_latency_ms": 1507.0
+          }
+        },
+        "info_not_found": {
+          "num_questions": 1,
+          "num_answerable": 0,
+          "num_answerable_with_gold_docs": 0,
+          "num_multi_doc_with_gold": 0,
+          "num_unanswerable_info_not_found": 1,
+          "retrieval_and_prompt_coverage": {
+            "pool_recall_at_k_pct": null,
+            "pool_hit_at_k_pct": null,
+            "prompt_gold_recall_pct": null,
+            "prompt_complete_gold_pct": null,
+            "multi_doc_prompt_gold_recall_pct": null,
+            "multi_doc_prompt_complete_gold_pct": null,
+            "questions_losing_pool_gold_in_packing": 0,
+            "mean_evidence_fact_coverage_pct": 0.0,
+            "mean_distinct_docs_in_prompt": 7.0,
+            "mean_prompt_context_tokens": 2460.0
+          },
+          "answer_quality_heuristic": {
+            "note": "Automated lexical and numeric/identifier anchor heuristic scores (not human-verified semantic entailment).",
+            "answer_correct_strict_pct": 100.0,
+            "answerable_correct_strict_pct": null,
+            "fact_completeness_pct": 100.0,
+            "answerable_fact_completeness_pct": null,
+            "overall_score_strict": 100.0,
+            "judge_answer_correct_pct": 100.0,
+            "judge_completeness_pct": 100.0,
+            "overall_score_judge": 100.0,
+            "prohibited_violation_count": 0,
+            "prohibited_violation_rate_pct": 0.0,
+            "empty_response_count": 0,
+            "truncated_response_count": 0,
+            "appropriate_abstention_count_on_info_not_found": 1,
+            "appropriate_abstention_rate_on_info_not_found_pct": 100.0,
+            "false_abstention_count_on_answerable": 0,
+            "failure_category_counts": {
+              "none": 1
+            }
+          },
+          "citation_and_grounding_heuristic": {
+            "citation_precision_pct": 100.0,
+            "citation_id_validity_pct": 100.0,
+            "hallucinated_citation_question_count": 0,
+            "sentence_citation_rate_pct": 0.0,
+            "claim_support_rate_all_sentences_pct": 0.0,
+            "unsupported_substantive_claim_rate_pct": 0.0,
+            "unsourced_claim_question_count": 0
+          },
+          "api_usage_and_caching": {
+            "cache_status_counts": {
+              "hit": 1
+            },
+            "api_error_count": 0,
+            "total_prompt_tokens": 3064,
+            "total_completion_tokens": 468,
+            "total_tokens": 3532,
+            "total_estimated_cost_usd": 0.000811,
+            "mean_generation_latency_ms": 34623.6
+          }
+        }
+      }
+    },
+    "E_CorroboratedHybrid_k40_UpdatedCB": {
+      "all_deduplicated": {
+        "num_questions": 3,
+        "num_answerable": 2,
+        "num_answerable_with_gold_docs": 2,
+        "num_multi_doc_with_gold": 2,
+        "num_unanswerable_info_not_found": 1,
+        "retrieval_and_prompt_coverage": {
+          "pool_recall_at_k_pct": 100.0,
+          "pool_hit_at_k_pct": 100.0,
+          "prompt_gold_recall_pct": 100.0,
+          "prompt_complete_gold_pct": 100.0,
+          "multi_doc_prompt_gold_recall_pct": 100.0,
+          "multi_doc_prompt_complete_gold_pct": 100.0,
+          "questions_losing_pool_gold_in_packing": 0,
+          "mean_evidence_fact_coverage_pct": 62.12,
+          "mean_distinct_docs_in_prompt": 4.67,
+          "mean_prompt_context_tokens": 2349.7
+        },
+        "answer_quality_heuristic": {
+          "note": "Automated lexical and numeric/identifier anchor heuristic scores (not human-verified semantic entailment).",
+          "answer_correct_strict_pct": 33.33,
+          "answerable_correct_strict_pct": 0.0,
+          "fact_completeness_pct": 80.61,
+          "answerable_fact_completeness_pct": 70.91,
+          "overall_score_strict": 33.33,
+          "judge_answer_correct_pct": 100.0,
+          "judge_completeness_pct": 87.27,
+          "overall_score_judge": 87.27,
+          "prohibited_violation_count": 0,
+          "prohibited_violation_rate_pct": 0.0,
+          "empty_response_count": 0,
+          "truncated_response_count": 0,
+          "appropriate_abstention_count_on_info_not_found": 1,
+          "appropriate_abstention_rate_on_info_not_found_pct": 100.0,
+          "false_abstention_count_on_answerable": 0,
+          "failure_category_counts": {
+            "missing_fact_synthesis": 2,
+            "none": 1
+          }
+        },
+        "citation_and_grounding_heuristic": {
+          "citation_precision_pct": 100.0,
+          "citation_id_validity_pct": 100.0,
+          "hallucinated_citation_question_count": 0,
+          "sentence_citation_rate_pct": 35.1,
+          "claim_support_rate_all_sentences_pct": 35.1,
+          "unsupported_substantive_claim_rate_pct": 41.64,
+          "unsourced_claim_question_count": 2
+        },
+        "api_usage_and_caching": {
+          "cache_status_counts": {
+            "hit": 2,
+            "miss_write": 1
+          },
+          "api_error_count": 0,
+          "total_prompt_tokens": 8731,
+          "total_completion_tokens": 3483,
+          "total_tokens": 12214,
+          "total_estimated_cost_usd": 0.003922,
+          "mean_generation_latency_ms": 13611.6
+        }
+      },
+      "stratified_40_only": {
+        "num_questions": 1,
+        "num_answerable": 0,
+        "num_answerable_with_gold_docs": 0,
+        "num_multi_doc_with_gold": 0,
+        "num_unanswerable_info_not_found": 1,
+        "retrieval_and_prompt_coverage": {
+          "pool_recall_at_k_pct": null,
+          "pool_hit_at_k_pct": null,
+          "prompt_gold_recall_pct": null,
+          "prompt_complete_gold_pct": null,
+          "multi_doc_prompt_gold_recall_pct": null,
+          "multi_doc_prompt_complete_gold_pct": null,
+          "questions_losing_pool_gold_in_packing": 0,
+          "mean_evidence_fact_coverage_pct": 0.0,
+          "mean_distinct_docs_in_prompt": 6.0,
+          "mean_prompt_context_tokens": 2307.0
+        },
+        "answer_quality_heuristic": {
+          "note": "Automated lexical and numeric/identifier anchor heuristic scores (not human-verified semantic entailment).",
+          "answer_correct_strict_pct": 100.0,
+          "answerable_correct_strict_pct": null,
+          "fact_completeness_pct": 100.0,
+          "answerable_fact_completeness_pct": null,
+          "overall_score_strict": 100.0,
+          "judge_answer_correct_pct": 100.0,
+          "judge_completeness_pct": 100.0,
+          "overall_score_judge": 100.0,
+          "prohibited_violation_count": 0,
+          "prohibited_violation_rate_pct": 0.0,
+          "empty_response_count": 0,
+          "truncated_response_count": 0,
+          "appropriate_abstention_count_on_info_not_found": 1,
+          "appropriate_abstention_rate_on_info_not_found_pct": 100.0,
+          "false_abstention_count_on_answerable": 0,
+          "failure_category_counts": {
+            "none": 1
+          }
+        },
+        "citation_and_grounding_heuristic": {
+          "citation_precision_pct": 100.0,
+          "citation_id_validity_pct": 100.0,
+          "hallucinated_citation_question_count": 0,
+          "sentence_citation_rate_pct": 33.33,
+          "claim_support_rate_all_sentences_pct": 33.33,
+          "unsupported_substantive_claim_rate_pct": 0.0,
+          "unsourced_claim_question_count": 0
+        },
+        "api_usage_and_caching": {
+          "cache_status_counts": {
+            "hit": 1
+          },
+          "api_error_count": 0,
+          "total_prompt_tokens": 2924,
+          "total_completion_tokens": 632,
+          "total_tokens": 3556,
+          "total_estimated_cost_usd": 0.000913,
+          "mean_generation_latency_ms": 25624.8
+        }
+      },
+      "diagnostic_8_only": {
+        "num_questions": 2,
+        "num_answerable": 2,
+        "num_answerable_with_gold_docs": 2,
+        "num_multi_doc_with_gold": 2,
+        "num_unanswerable_info_not_found": 0,
+        "retrieval_and_prompt_coverage": {
+          "pool_recall_at_k_pct": 100.0,
+          "pool_hit_at_k_pct": 100.0,
+          "prompt_gold_recall_pct": 100.0,
+          "prompt_complete_gold_pct": 100.0,
+          "multi_doc_prompt_gold_recall_pct": 100.0,
+          "multi_doc_prompt_complete_gold_pct": 100.0,
+          "questions_losing_pool_gold_in_packing": 0,
+          "mean_evidence_fact_coverage_pct": 93.18,
+          "mean_distinct_docs_in_prompt": 4.0,
+          "mean_prompt_context_tokens": 2371.0
+        },
+        "answer_quality_heuristic": {
+          "note": "Automated lexical and numeric/identifier anchor heuristic scores (not human-verified semantic entailment).",
+          "answer_correct_strict_pct": 0.0,
+          "answerable_correct_strict_pct": 0.0,
+          "fact_completeness_pct": 70.91,
+          "answerable_fact_completeness_pct": 70.91,
+          "overall_score_strict": 0.0,
+          "judge_answer_correct_pct": 100.0,
+          "judge_completeness_pct": 80.91,
+          "overall_score_judge": 80.91,
+          "prohibited_violation_count": 0,
+          "prohibited_violation_rate_pct": 0.0,
+          "empty_response_count": 0,
+          "truncated_response_count": 0,
+          "appropriate_abstention_count_on_info_not_found": 0,
+          "appropriate_abstention_rate_on_info_not_found_pct": null,
+          "false_abstention_count_on_answerable": 0,
+          "failure_category_counts": {
+            "missing_fact_synthesis": 2
+          }
+        },
+        "citation_and_grounding_heuristic": {
+          "citation_precision_pct": 100.0,
+          "citation_id_validity_pct": 100.0,
+          "hallucinated_citation_question_count": 0,
+          "sentence_citation_rate_pct": 35.99,
+          "claim_support_rate_all_sentences_pct": 35.99,
+          "unsupported_substantive_claim_rate_pct": 62.45,
+          "unsourced_claim_question_count": 2
+        },
+        "api_usage_and_caching": {
+          "cache_status_counts": {
+            "hit": 1,
+            "miss_write": 1
+          },
+          "api_error_count": 0,
+          "total_prompt_tokens": 5807,
+          "total_completion_tokens": 2851,
+          "total_tokens": 8658,
+          "total_estimated_cost_usd": 0.003009,
+          "mean_generation_latency_ms": 7605.0
+        }
+      },
+      "by_category": {
+        "completeness": {
+          "num_questions": 1,
+          "num_answerable": 1,
+          "num_answerable_with_gold_docs": 1,
+          "num_multi_doc_with_gold": 1,
+          "num_unanswerable_info_not_found": 0,
+          "retrieval_and_prompt_coverage": {
+            "pool_recall_at_k_pct": 100.0,
+            "pool_hit_at_k_pct": 100.0,
+            "prompt_gold_recall_pct": 100.0,
+            "prompt_complete_gold_pct": 100.0,
+            "multi_doc_prompt_gold_recall_pct": 100.0,
+            "multi_doc_prompt_complete_gold_pct": 100.0,
+            "questions_losing_pool_gold_in_packing": 0,
+            "mean_evidence_fact_coverage_pct": 86.36,
+            "mean_distinct_docs_in_prompt": 6.0,
+            "mean_prompt_context_tokens": 2400.0
+          },
+          "answer_quality_heuristic": {
+            "note": "Automated lexical and numeric/identifier anchor heuristic scores (not human-verified semantic entailment).",
+            "answer_correct_strict_pct": 0.0,
+            "answerable_correct_strict_pct": 0.0,
+            "fact_completeness_pct": 81.82,
+            "answerable_fact_completeness_pct": 81.82,
+            "overall_score_strict": 0.0,
+            "judge_answer_correct_pct": 100.0,
+            "judge_completeness_pct": 81.82,
+            "overall_score_judge": 81.82,
+            "prohibited_violation_count": 0,
+            "prohibited_violation_rate_pct": 0.0,
+            "empty_response_count": 0,
+            "truncated_response_count": 0,
+            "appropriate_abstention_count_on_info_not_found": 0,
+            "appropriate_abstention_rate_on_info_not_found_pct": null,
+            "false_abstention_count_on_answerable": 0,
+            "failure_category_counts": {
+              "missing_fact_synthesis": 1
+            }
+          },
+          "citation_and_grounding_heuristic": {
+            "citation_precision_pct": 100.0,
+            "citation_id_validity_pct": 100.0,
+            "hallucinated_citation_question_count": 0,
+            "sentence_citation_rate_pct": 21.98,
+            "claim_support_rate_all_sentences_pct": 21.98,
+            "unsupported_substantive_claim_rate_pct": 64.91,
+            "unsourced_claim_question_count": 1
+          },
+          "api_usage_and_caching": {
+            "cache_status_counts": {
+              "miss_write": 1
+            },
+            "api_error_count": 0,
+            "total_prompt_tokens": 2973,
+            "total_completion_tokens": 2364,
+            "total_tokens": 5337,
+            "total_estimated_cost_usd": 0.002219,
+            "mean_generation_latency_ms": 13703.1
+          }
+        },
+        "conflicting_info": {
+          "num_questions": 1,
+          "num_answerable": 1,
+          "num_answerable_with_gold_docs": 1,
+          "num_multi_doc_with_gold": 1,
+          "num_unanswerable_info_not_found": 0,
+          "retrieval_and_prompt_coverage": {
+            "pool_recall_at_k_pct": 100.0,
+            "pool_hit_at_k_pct": 100.0,
+            "prompt_gold_recall_pct": 100.0,
+            "prompt_complete_gold_pct": 100.0,
+            "multi_doc_prompt_gold_recall_pct": 100.0,
+            "multi_doc_prompt_complete_gold_pct": 100.0,
+            "questions_losing_pool_gold_in_packing": 0,
+            "mean_evidence_fact_coverage_pct": 100.0,
+            "mean_distinct_docs_in_prompt": 2.0,
+            "mean_prompt_context_tokens": 2342.0
+          },
+          "answer_quality_heuristic": {
+            "note": "Automated lexical and numeric/identifier anchor heuristic scores (not human-verified semantic entailment).",
+            "answer_correct_strict_pct": 0.0,
+            "answerable_correct_strict_pct": 0.0,
+            "fact_completeness_pct": 60.0,
+            "answerable_fact_completeness_pct": 60.0,
+            "overall_score_strict": 0.0,
+            "judge_answer_correct_pct": 100.0,
+            "judge_completeness_pct": 80.0,
+            "overall_score_judge": 80.0,
+            "prohibited_violation_count": 0,
+            "prohibited_violation_rate_pct": 0.0,
+            "empty_response_count": 0,
+            "truncated_response_count": 0,
+            "appropriate_abstention_count_on_info_not_found": 0,
+            "appropriate_abstention_rate_on_info_not_found_pct": null,
+            "false_abstention_count_on_answerable": 0,
+            "failure_category_counts": {
+              "missing_fact_synthesis": 1
+            }
+          },
+          "citation_and_grounding_heuristic": {
+            "citation_precision_pct": 100.0,
+            "citation_id_validity_pct": 100.0,
+            "hallucinated_citation_question_count": 0,
+            "sentence_citation_rate_pct": 50.0,
+            "claim_support_rate_all_sentences_pct": 50.0,
+            "unsupported_substantive_claim_rate_pct": 60.0,
+            "unsourced_claim_question_count": 1
+          },
+          "api_usage_and_caching": {
+            "cache_status_counts": {
+              "hit": 1
+            },
+            "api_error_count": 0,
+            "total_prompt_tokens": 2834,
+            "total_completion_tokens": 487,
+            "total_tokens": 3321,
+            "total_estimated_cost_usd": 0.00079,
+            "mean_generation_latency_ms": 1507.0
+          }
+        },
+        "info_not_found": {
+          "num_questions": 1,
+          "num_answerable": 0,
+          "num_answerable_with_gold_docs": 0,
+          "num_multi_doc_with_gold": 0,
+          "num_unanswerable_info_not_found": 1,
+          "retrieval_and_prompt_coverage": {
+            "pool_recall_at_k_pct": null,
+            "pool_hit_at_k_pct": null,
+            "prompt_gold_recall_pct": null,
+            "prompt_complete_gold_pct": null,
+            "multi_doc_prompt_gold_recall_pct": null,
+            "multi_doc_prompt_complete_gold_pct": null,
+            "questions_losing_pool_gold_in_packing": 0,
+            "mean_evidence_fact_coverage_pct": 0.0,
+            "mean_distinct_docs_in_prompt": 6.0,
+            "mean_prompt_context_tokens": 2307.0
+          },
+          "answer_quality_heuristic": {
+            "note": "Automated lexical and numeric/identifier anchor heuristic scores (not human-verified semantic entailment).",
+            "answer_correct_strict_pct": 100.0,
+            "answerable_correct_strict_pct": null,
+            "fact_completeness_pct": 100.0,
+            "answerable_fact_completeness_pct": null,
+            "overall_score_strict": 100.0,
+            "judge_answer_correct_pct": 100.0,
+            "judge_completeness_pct": 100.0,
+            "overall_score_judge": 100.0,
+            "prohibited_violation_count": 0,
+            "prohibited_violation_rate_pct": 0.0,
+            "empty_response_count": 0,
+            "truncated_response_count": 0,
+            "appropriate_abstention_count_on_info_not_found": 1,
+            "appropriate_abstention_rate_on_info_not_found_pct": 100.0,
+            "false_abstention_count_on_answerable": 0,
+            "failure_category_counts": {
+              "none": 1
+            }
+          },
+          "citation_and_grounding_heuristic": {
+            "citation_precision_pct": 100.0,
+            "citation_id_validity_pct": 100.0,
+            "hallucinated_citation_question_count": 0,
+            "sentence_citation_rate_pct": 33.33,
+            "claim_support_rate_all_sentences_pct": 33.33,
+            "unsupported_substantive_claim_rate_pct": 0.0,
+            "unsourced_claim_question_count": 0
+          },
+          "api_usage_and_caching": {
+            "cache_status_counts": {
+              "hit": 1
+            },
+            "api_error_count": 0,
+            "total_prompt_tokens": 2924,
+            "total_completion_tokens": 632,
+            "total_tokens": 3556,
+            "total_estimated_cost_usd": 0.000913,
+            "mean_generation_latency_ms": 25624.8
+          }
+        }
+      }
+    }
+  },
+  "per_question_comparison": [
+    {
+      "question_id": "qst_0427",
+      "question_type": "conflicting_info",
+      "in_diagnostic_8": true,
+      "same_assembled_prompt": true,
+      "A_prompt_gold_recall": 1.0,
+      "E_prompt_gold_recall": 1.0,
+      "A_evidence_fact_coverage": 1.0,
+      "E_evidence_fact_coverage": 1.0,
+      "A_strict_correct": false,
+      "E_strict_correct": false,
+      "A_fact_completeness_pct": 60.0,
+      "E_fact_completeness_pct": 60.0,
+      "delta_fact_completeness_pct": 0.0,
+      "A_judge_correct": true,
+      "E_judge_correct": true,
+      "A_failure_category": "missing_fact_synthesis",
+      "E_failure_category": "missing_fact_synthesis"
+    },
+    {
+      "question_id": "qst_0447",
+      "question_type": "completeness",
+      "in_diagnostic_8": true,
+      "same_assembled_prompt": false,
+      "A_prompt_gold_recall": 1.0,
+      "E_prompt_gold_recall": 1.0,
+      "A_evidence_fact_coverage": 0.6364,
+      "E_evidence_fact_coverage": 0.8636,
+      "A_strict_correct": false,
+      "E_strict_correct": false,
+      "A_fact_completeness_pct": 54.55,
+      "E_fact_completeness_pct": 81.82,
+      "delta_fact_completeness_pct": 27.27,
+      "A_judge_correct": true,
+      "E_judge_correct": true,
+      "A_failure_category": "missing_fact_synthesis",
+      "E_failure_category": "missing_fact_synthesis"
+    },
+    {
+      "question_id": "qst_0481",
+      "question_type": "info_not_found",
+      "in_diagnostic_8": false,
+      "same_assembled_prompt": false,
+      "A_prompt_gold_recall": null,
+      "E_prompt_gold_recall": null,
+      "A_evidence_fact_coverage": 0.0,
+      "E_evidence_fact_coverage": 0.0,
+      "A_strict_correct": true,
+      "E_strict_correct": true,
+      "A_fact_completeness_pct": 100.0,
+      "E_fact_completeness_pct": 100.0,
+      "delta_fact_completeness_pct": 0.0,
+      "A_judge_correct": true,
+      "E_judge_correct": true,
+      "A_failure_category": "none",
+      "E_failure_category": "none"
+    }
+  ],
+  "results_by_config": {
+    "A_Baseline_BM25_k20": [
+      {
+        "question_id": "qst_0427",
+        "question_type": "conflicting_info",
+        "question": "ClearEdge 2027 pilot: final po_fingerprint format and weekly invoice delivery time?",
+        "in_stratified_40": false,
+        "in_diagnostic_8": true,
+        "config_name": "A_Baseline_BM25_k20",
+        "retrieval_and_context": {
+          "top_k_docs": 20,
+          "gold_docs_count": 2,
+          "gold_docs": [
+            "dsid_86f033ed92b84f3a8b381d09b0b95357",
+            "dsid_d93aed75845e4a0b8126a80d8a7a5a41"
+          ],
+          "pool_gold_count": 2,
+          "prompt_gold_count": 2,
+          "pool_recall_at_k": 1.0,
+          "pool_hit_at_k": 1.0,
+          "prompt_gold_recall": 1.0,
+          "prompt_complete_gold": true,
+          "pool_gold_lost_in_packing": [],
+          "evidence_fact_coverage": 1.0,
+          "distinct_docs_in_prompt": 2,
+          "passages_in_prompt": 4,
+          "prompt_context_tokens": 2342,
+          "prompt_doc_ids": [
+            "dsid_d93aed75845e4a0b8126a80d8a7a5a41",
+            "dsid_86f033ed92b84f3a8b381d09b0b95357"
+          ],
+          "context_assembly_ms": 23.47
+        },
+        "generation_and_usage": {
+          "model": "openai/gpt-oss-120b",
+          "temperature": 0.0,
+          "max_tokens": 4096,
+          "system_prompt_sha256": "f5247f65ca3f1c2f",
+          "user_prompt_sha256": "97cd1b5dee576268",
+          "cache_key": "9c40c661c8f1c82e",
+          "cache_status": "hit",
+          "prompt_tokens": 2834,
+          "completion_tokens": 487,
+          "total_tokens": 3321,
+          "finish_reason": "stop",
+          "latency_ms": 1507.04,
+          "cost_estimate_usd": 0.00079,
+          "api_error": null
+        },
+        "answer_quality_heuristic": {
+          "scoring_label": "automated_lexical_anchor_heuristic_not_human_verified",
+          "answer_correct_strict": false,
+          "fact_completeness_pct": 60.0,
+          "overall_score_strict": 0.0,
+          "judge_answer_correct": true,
+          "judge_completeness_pct": 80.0,
+          "overall_score_judge": 80.0,
+          "judge_explanation": "Deterministic evaluation: 4/5 positive facts addressed.",
+          "positive_facts_total": 5,
+          "positive_facts_covered": 3,
+          "missing_facts": [
+            "The answer must indicate that raw/unhashed `PO_NUMBER|PO_LINE_UUID` is not acceptable in the final requirements.",
+            "If the answer mentions the older guidance, it must describe it as superseded and reflect that it referenced an unhashed `PO#|LINEUUID` and Monday morning delivery (Mondays 08:00 PT)."
+          ],
+          "prohibited_constraints_total": 2,
+          "suspected_constraint_violations": [],
+          "has_prohibited_violation": false,
+          "empty_response": false,
+          "truncated_response": false,
+          "abstains": false,
+          "has_contradiction_cue": true,
+          "failure_category": "missing_fact_synthesis"
+        },
+        "citation_and_grounding_heuristic": {
+          "total_citations_found": 2,
+          "cited_doc_ids": [
+            "dsid_d93aed75845e4a0b8126a80d8a7a5a41",
+            "dsid_86f033ed92b84f3a8b381d09b0b95357"
+          ],
+          "hallucinated_doc_ids": [],
+          "has_hallucinated_citations": false,
+          "citation_precision": 1.0,
+          "citation_id_validity": 1.0,
+          "sentence_citation_rate": 0.5,
+          "claim_support_rate_all_sentences": 0.5,
+          "unsupported_substantive_sentence_rate": 0.6,
+          "num_substantive_sentences": 5,
+          "has_unsourced_claims": true
+        },
+        "answer_text": "**Final po_fingerprint format**  \n- Compute a SHA\u2011256 hash (lower\u2011case hex) of the exact string `PO_NUMBER|PO_LINE_UUID` (no whitespace). The hash value is placed in the `poFingerprint` field of each invoice line.  \n  *[dsid_d93aed75845e4a0b8126a80d8a7a5a41]*  \n\n**Weekly invoice delivery time**  \n- Invoices must be delivered via ClearEdge SFTP **each Tuesday by\u202f07:00\u202fPT**.  \n  *[dsid_d93aed75845e4a0b8126a80d8a7a5a41]*  \n\n**Superseded earlier guidance**  \n- An earlier email draft (June\u202f2027) instructed the po_fingerprint to be the raw string `PO#|LINEUUID` (no hashing) and scheduled weekly invoice delivery on Mondays. This guidance was superseded by the finalized policy above.  \n  *[dsid_86f033ed92b84f3a8b381d09b0b95357]*"
+      },
+      {
+        "question_id": "qst_0447",
+        "question_type": "completeness",
+        "question": "What is Redwood Inference's complete end-to-end process for shipping an emergency serving-runtime hotfix to production (Hosted + Dedicated), including required approvals, checklists, rollout/rollback steps, and mandatory customer communications?",
+        "in_stratified_40": false,
+        "in_diagnostic_8": true,
+        "config_name": "A_Baseline_BM25_k20",
+        "retrieval_and_context": {
+          "top_k_docs": 20,
+          "gold_docs_count": 6,
+          "gold_docs": [
+            "dsid_452dc45d76754cbca8a3674170599633",
+            "dsid_e5fe3fd0cf444668a64970ec00818f46",
+            "dsid_ac2fdba09cc24cd98ba60f5da114780c",
+            "dsid_8c3d5e26a1c841199d3bcd7aea5d495e",
+            "dsid_6807c651b55546559733c7c6f8dc133d",
+            "dsid_5d509e588f994166a2ccc6e39cbf6cb5"
+          ],
+          "pool_gold_count": 6,
+          "prompt_gold_count": 6,
+          "pool_recall_at_k": 1.0,
+          "pool_hit_at_k": 1.0,
+          "prompt_gold_recall": 1.0,
+          "prompt_complete_gold": true,
+          "pool_gold_lost_in_packing": [],
+          "evidence_fact_coverage": 0.6364,
+          "distinct_docs_in_prompt": 7,
+          "passages_in_prompt": 7,
+          "prompt_context_tokens": 2350,
+          "prompt_doc_ids": [
+            "dsid_ac2fdba09cc24cd98ba60f5da114780c",
+            "dsid_452dc45d76754cbca8a3674170599633",
+            "dsid_5d509e588f994166a2ccc6e39cbf6cb5",
+            "dsid_e5fe3fd0cf444668a64970ec00818f46",
+            "dsid_6807c651b55546559733c7c6f8dc133d",
+            "dsid_8c3d5e26a1c841199d3bcd7aea5d495e",
+            "dsid_3d4b007bc9ab4f488914e8ff00cb4ecc"
+          ],
+          "context_assembly_ms": 16.08
+        },
+        "generation_and_usage": {
+          "model": "openai/gpt-oss-120b",
+          "temperature": 0.0,
+          "max_tokens": 4096,
+          "system_prompt_sha256": "f5247f65ca3f1c2f",
+          "user_prompt_sha256": "2da441b7f1eb1c67",
+          "cache_key": "c8ef80cf66718093",
+          "cache_status": "miss_write",
+          "prompt_tokens": 2923,
+          "completion_tokens": 3126,
+          "total_tokens": 6049,
+          "finish_reason": "stop",
+          "latency_ms": 7075.29,
+          "cost_estimate_usd": 0.002783,
+          "api_error": null
+        },
+        "answer_quality_heuristic": {
+          "scoring_label": "automated_lexical_anchor_heuristic_not_human_verified",
+          "answer_correct_strict": false,
+          "fact_completeness_pct": 54.55,
+          "overall_score_strict": 0.0,
+          "judge_answer_correct": true,
+          "judge_completeness_pct": 63.64,
+          "overall_score_judge": 63.64,
+          "judge_explanation": "Deterministic evaluation: 14/22 positive facts addressed.",
+          "positive_facts_total": 22,
+          "positive_facts_covered": 12,
+          "missing_facts": [
+            "Minimum pre-rollout validation is required even in Sev-1: unit tests for the affected module, a performance canary for a representative model, and a stress test matching the incident pattern, with results recorded (including error-rate improvement, no more than 10 percent p95 regression on the same workload, and no increase in OOM/GPU reset counters).",
+            "Hosted rollout is executed by Platform/SRE by setting runtime_image_tag to the new tag and syncing via ArgoCD for hosted-runtime, with rollout in order: us-west-2a canary (10 percent), then us-west-2 (50 percent), us-east-1 (50 percent), eu-central-1 (50 percent), then global.",
+            "Hosted rollout requires monitoring each step for at least 15 minutes using metrics including success rate, p95 for top routes, GPU OOM, router fallback, and error-budget burn.",
+            "Hosted rollback is performed by reverting to the last-known-good tag and ArgoCD syncing if any rollback trigger occurs, and the rollback plus next steps must be announced in the incident channel.",
+            "Hosted rollback triggers include: 5xx or stream aborts persisting more than 5 minutes, OOM spikes more than 2x baseline, p95 latency regressing more than 20 percent for more than 10 minutes, crash loops, or customer reports correlating with rollout start.",
+            "Dedicated rollout must canary one cluster first (prefer internal dogfood or lowest-traffic with CSEM approval) and validate for about 30 minutes using metrics including success rate, p95, OOM, restart frequency, and customer health checks.",
+            "Per Dedicated cluster, execution includes confirming customer communications were sent, updating Helm runtime_image_tag, ArgoCD syncing dedicated-<cluster-id>-runtime, monitoring for CrashLoopBackOff, and running customer smoke checks (chat/embeddings/streaming).",
+            "Mandatory Sev-1 customer communications include use of a Status Page and customer notifications, with the IC owning accuracy and cadence and the CSEM owning direct enterprise/Dedicated outreach.",
+            "Sev-1 communications timing requirements are: initial acknowledgment within 10 minutes, updates every 30 minutes while impact continues, and a resolution message within 15 minutes of confirmed mitigation.",
+            "A post-incident summary is required within 1 business day for enterprise customers."
+          ],
+          "prohibited_constraints_total": 0,
+          "suspected_constraint_violations": [],
+          "has_prohibited_violation": false,
+          "empty_response": false,
+          "truncated_response": false,
+          "abstains": false,
+          "has_contradiction_cue": true,
+          "failure_category": "missing_fact_synthesis"
+        },
+        "citation_and_grounding_heuristic": {
+          "total_citations_found": 7,
+          "cited_doc_ids": [
+            "dsid_ac2fdba09cc24cd98ba60f5da114780c",
+            "dsid_5d509e588f994166a2ccc6e39cbf6cb5",
+            "dsid_452dc45d76754cbca8a3674170599633",
+            "dsid_8c3d5e26a1c841199d3bcd7aea5d495e",
+            "dsid_6807c651b55546559733c7c6f8dc133d",
+            "dsid_3d4b007bc9ab4f488914e8ff00cb4ecc",
+            "dsid_e5fe3fd0cf444668a64970ec00818f46"
+          ],
+          "hallucinated_doc_ids": [],
+          "has_hallucinated_citations": false,
+          "citation_precision": 1.0,
+          "citation_id_validity": 1.0,
+          "sentence_citation_rate": 0.6471,
+          "claim_support_rate_all_sentences": 0.1569,
+          "unsupported_substantive_sentence_rate": 0.8333,
+          "num_substantive_sentences": 36,
+          "has_unsourced_claims": true
+        },
+        "answer_text": "**Redwood Inference \u2013 Emergency Serving\u2011Runtime Hotfix SOP (Hosted\u202f+\u202fDedicated)**  \n\n**1. Trigger & Preconditions**  \n1.1\u202fIdentify a Sev\u20111 incident and open an incident channel (Slack thread) with an Incident Commander (IC).  \n1.2\u202fConfirm the three pre\u2011conditions for an emergency change:  \n   - Emergency\u2011change approvals recorded per the Emergency Change Policy\u202fv3.\u202f[dsid_ac2fdba09cc24cd98ba60f5da114780c]  \n   - Incident channel (or dedicated Slack thread) exists with the IC identified.\u202f[dsid_ac2fdba09cc24cd98ba60f5da114780c]  \n   - A rollback plan is defined (previous runtime image tag\u202f+\u202frestart procedure).\u202f[dsid_ac2fdba09cc24cd98ba60f5da114780c]  \n\n**2. Gather Required Inputs**  \n- For Dedicated customers collect: customer name, cluster ID, current runtime image tag, target runtime image tag, impact statement, rollback image tag, and whether the issue is customer\u2011specific or global.\u202f[dsid_5d509e588f994166a2ccc6e39cbf6cb5]  \n\n**3. Approvals & Checklist**  \n3.1\u202fObtain emergency\u2011change approvals (recorded in ticket/PR/incident timeline).\u202f[dsid_ac2fdba09cc24cd98ba60f5da114780c]  \n3.2\u202fAdditional approvals per scenario (Security on\u2011call for security\u2011related fixes; Product on\u2011call or PM for customer\u2011visible behavior changes; Customer Success Escalation Manager (CSEM) for Dedicated maintenance coordination).\u202f[dsid_452dc45d76754cbca8a3674170599633]  \n3.3\u202fDedicated\u2011specific approvals:  \n   - IC or SRE on\u2011call (emergency)  \n   - Dedicated service\u2011owner  \n   - CSEM sign\u2011off on customer messaging.\u202f[dsid_5d509e588f994166a2ccc6e39cbf6cb5]  \n3.4\u202fComplete the **Minimum Checklist** (record in ticket/PR/incident timeline):  \n   - Hypothesis for the fix  \n   - Blast radius (Hosted regions; Dedicated clusters/customers; model families)  \n   - Rollback plan with explicit trigger (metric or customer symptom)  \n   - Risk assessment (data integrity, security, performance)  \n   - What is changing (code vs\u202fconfig vs\u202finfra)  \n   - Owner for post\u2011change monitoring.\u202f[dsid_452dc45d76754cbca8a3674170599633]  \n\n**4. Documentation & Audit**  \n- Create/link a ticket (Linear preferred; Jira acceptable).\u202f[dsid_452dc45d76754cbca8a3674170599633]  \n- Open a GitHub PR (even if fast\u2011tracked) or link to an existing PR/commit SHA.\u202f[dsid_452dc45d76754cbca8a3674170599633]  \n- Record all approvals in the PR review, incident thread, or change\u2011record comment.\u202f[dsid_452dc45d76754cbca8a3674170599633]  \n- Update the incident timeline with start time, change time, and outcome.\u202f[dsid_452dc45d76754cbca8a3674170599633]  \n\n**5. Code Change \u2013 Hotfix Branch & PR**  \n5.1\u202fCreate a hotfix branch named `hotfix/runtime-<YYYYMMDD>-<short\u2011issue>`.\u202f[dsid_ac2fdba09cc24cd98ba60f5da114780c]  \n5.2\u202fCherry\u2011pick only the minimum fix commit(s).\u202f[dsid_ac2fdba09cc24cd98ba60f5da114780c]  \n5.3\u202fAdd a CHANGELOG entry under \u201cRuntime Hotfixes\u201d.\u202f[dsid_ac2fdba09cc24cd98ba60f5da114780c]  \n5.4\u202fOpen a PR targeting the release branch (or\u202f`main` if no release branch).\u202f[dsid_ac2fdba09cc24cd98ba60f5da114780c]  \n5.5\u202fRequired reviewers: runtime on\u2011call\u202f+\u202fSRE on\u2011call (or the IC).\u202f[dsid_ac2fdba09cc24cd98ba60f5da114780c]  \n5.6\u202fPR description must include: incident link, hypothesis, risk, rollback plan, and rollout owners.\u202f[dsid_ac2fdba09cc24cd98ba60f5da114780c]  \n\n**6. Build & Signing of the Hotfix Artifact**  \n6.1\u202fAfter PR approval, add the label `hotfix-ready`.\u202f[dsid_8c3d5e26a1c841199d3bcd7aea5d495e]  \n6.2\u202fTrigger the GitHub Actions workflow **Release Runtime Hotfix** (or internal Buildkite if GitHub Actions degraded).\u202f[dsid_8c3d5e26a1c841199d3bcd7aea5d495e]  \n6.3\u202fProvide inputs:  \n   - Base image tag (previous production runtime)  \n   - New tag suffix (e.g., `hotfix-2026-02-02a`).\u202f[dsid_8c3d5e26a1c841199d3bcd7aea5d495e]  \n6.4\u202fThe workflow produces a container image that must be:  \n   - Signed with\u202fcosign  \n   - Accompanied by an SBOM  \n   - Attested with provenance (SLSA\u202fL3)  \n   - Stored in the production registry (no personal namespaces).\u202f[dsid_8c3d5e26a1c841199d3bcd7aea5d495e]  \n\n**7. Hosted Fleet Rollout**  \n7.1\u202fPre\u2011rollout checks: hotfix built & signed, emergency approvals recorded, rollout owner identified (Platform on\u2011call or delegated engineer).\u202f[dsid_6807c651b55546559733c7c6f8dc133d]  \n7.2\u202fRollout order (default):  \n   1. **Canary** \u2013\u202fus\u2011west\u20112a\u202f(10\u202f% traffic)  \n   2. **Expand** \u2013\u202fus\u2011west\u20112\u202f(50\u202f% traffic)  \n   3. **Expand** \u2013\u202fus\u2011east\u20111\u202f(50\u202f% traffic)  \n   4. **Expand** \u2013\u202feu\u2011central\u20111\u202f(50\u202f% traffic).\u202f[dsid_6807c651b55546559733c7c6f8dc133d]  \n7.3\u202fMonitor the Canary for ~48\u202fh (per internal shipping tempo note) and verify no regressions before expanding.\u202f[slack: dsid_3d4b007bc9ab4f488914e8ff00cb4ecc]  \n7.4\u202f**Rollback (Hosted)** \u2013 If a regression is detected, revert traffic to the previous runtime image tag and restart the affected services as defined in the rollback plan.\u202f[dsid_ac2fdba09cc24cd98ba60f5da114780c]  \n\n**8. Dedicated Cluster Rollout**  \n8.1\u202fConfirm required inputs (customer name, cluster ID, current/target tags, impact statement, rollback tag, issue scope).\u202f[dsid_5d509e588f994166a2ccc6e39cbf6cb5]  \n8.2\u202fObtain the three Dedicated approvals (IC/SRE, Dedicated service owner, CSEM).\u202f[dsid_5d509e588f994166a2ccc6e39cbf6cb5]  \n8.3\u202fSchedule the rollout in coordination with the customer (respect any contractual maintenance window).  \n8.4\u202fExecute the hotfix on the isolated cluster using the same image built in step\u202f6.  \n8.5\u202fIf issues arise, **rollback** to the previously\u2011running image tag and perform the restart procedure defined in the pre\u2011existing rollback plan.\u202f[dsid_ac2fdba09cc24cd98ba60f5da114780c]  \n\n**9. Communication**  \n9.1\u202f**Status\u2011page updates (all incidents)** \u2013 Use the provided templates:  \n   - *Initial* \u2013 \u201cWe are investigating reports of elevated errors and latency \u2026\u201d  \n   - *Update* \u2013 \u201cWe have identified the issue and are applying mitigation steps \u2026\u201d  \n   - *Resolution* \u2013 \u201cThe issue has been mitigated and service is returning to normal \u2026\u201d.\u202f[dsid_e5fe3fd0cf444668a64970ec00818f46]  \n9.2\u202fAvoid overly specific internal details or blaming language.\u202f[dsid_e5fe3fd0cf444668a64970ec00818f46]  \n9.3\u202f**Dedicated\u2011specific customer communication** \u2013 CSEM must send a direct email (and optional call) to impacted customers that includes:  \n   - Whether a maintenance action (runtime restart) is required  \n   - Expected duration and any traffic fail\u2011over behavior  \n   - The planned rollout window and clear rollback criteria in customer\u2011friendly terms.\u202f[dsid_e5fe3fd0cf444668a64970ec00818f46]  \n\n**10. Post\u2011Change Closeout**  \n- Record final outcome in the incident timeline, note any post\u2011change monitoring responsibilities, and close the ticket.\u202f[dsid_452dc45d76754cbca8a3674170599633]  \n\n*End of SOP.*"
+      },
+      {
+        "question_id": "qst_0481",
+        "question_type": "info_not_found",
+        "question": "For the hot-route capacity protection rollout in us-east, which specific enterprise accounts were on the initial allowlist, and what were the exact per-route-group budget values (RPS, estimated TPS, and concurrency) configured for each of those accounts?",
+        "in_stratified_40": true,
+        "in_diagnostic_8": false,
+        "config_name": "A_Baseline_BM25_k20",
+        "retrieval_and_context": {
+          "top_k_docs": 20,
+          "gold_docs_count": 0,
+          "gold_docs": [],
+          "pool_gold_count": 0,
+          "prompt_gold_count": 0,
+          "pool_recall_at_k": null,
+          "pool_hit_at_k": null,
+          "prompt_gold_recall": null,
+          "prompt_complete_gold": null,
+          "pool_gold_lost_in_packing": [],
+          "evidence_fact_coverage": 0.0,
+          "distinct_docs_in_prompt": 7,
+          "passages_in_prompt": 7,
+          "prompt_context_tokens": 2460,
+          "prompt_doc_ids": [
+            "dsid_e10fd6f37ef64dcd8d64bd005630b69e",
+            "dsid_ad595e18c41843f1863681c343af0e5c",
+            "dsid_5e65379c999744729ca84f1d0513e5a4",
+            "dsid_eba5d122d7244ffbb6c20a2487aa1017",
+            "dsid_77d70426ff9545c191fa5e64f4a398b2",
+            "dsid_9213aa28528f4a44990b52399b7bcb30",
+            "dsid_4148dbc886e749ebb326f6c7331b6de7"
+          ],
+          "context_assembly_ms": 33.06
+        },
+        "generation_and_usage": {
+          "model": "openai/gpt-oss-120b",
+          "temperature": 0.0,
+          "max_tokens": 4096,
+          "system_prompt_sha256": "f5247f65ca3f1c2f",
+          "user_prompt_sha256": "b4450a06a35e4b50",
+          "cache_key": "5ab5298b8f0a22da",
+          "cache_status": "hit",
+          "prompt_tokens": 3064,
+          "completion_tokens": 468,
+          "total_tokens": 3532,
+          "finish_reason": "stop",
+          "latency_ms": 34623.63,
+          "cost_estimate_usd": 0.000811,
+          "api_error": null
+        },
+        "answer_quality_heuristic": {
+          "scoring_label": "automated_lexical_anchor_heuristic_not_human_verified",
+          "answer_correct_strict": true,
+          "fact_completeness_pct": 100.0,
+          "overall_score_strict": 100.0,
+          "judge_answer_correct": true,
+          "judge_completeness_pct": 100.0,
+          "overall_score_judge": 100.0,
+          "judge_explanation": "Correctly abstained on query where information was not available.",
+          "positive_facts_total": 1,
+          "positive_facts_covered": 0,
+          "missing_facts": [],
+          "prohibited_constraints_total": 0,
+          "suspected_constraint_violations": [],
+          "has_prohibited_violation": false,
+          "empty_response": false,
+          "truncated_response": false,
+          "abstains": true,
+          "has_contradiction_cue": false,
+          "failure_category": "none"
+        },
+        "citation_and_grounding_heuristic": {
+          "total_citations_found": 0,
+          "cited_doc_ids": [],
+          "hallucinated_doc_ids": [],
+          "has_hallucinated_citations": false,
+          "citation_precision": 1.0,
+          "citation_id_validity": 1.0,
+          "sentence_citation_rate": 0.0,
+          "claim_support_rate_all_sentences": 0.0,
+          "unsupported_substantive_sentence_rate": null,
+          "num_substantive_sentences": 0,
+          "has_unsourced_claims": false
+        },
+        "answer_text": "The supplied evidence does not contain any information about the enterprise accounts that were placed on the initial allowlist for the hot\u2011route capacity protection rollout in\u202fus\u2011east, nor does it provide the per\u2011route\u2011group budget values (RPS, estimated TPS, and concurrency) configured for those accounts. Consequently, the question cannot be answered from the available documents."
+      }
+    ],
+    "E_CorroboratedHybrid_k40_UpdatedCB": [
+      {
+        "question_id": "qst_0427",
+        "question_type": "conflicting_info",
+        "question": "ClearEdge 2027 pilot: final po_fingerprint format and weekly invoice delivery time?",
+        "in_stratified_40": false,
+        "in_diagnostic_8": true,
+        "config_name": "E_CorroboratedHybrid_k40_UpdatedCB",
+        "retrieval_and_context": {
+          "top_k_docs": 40,
+          "gold_docs_count": 2,
+          "gold_docs": [
+            "dsid_86f033ed92b84f3a8b381d09b0b95357",
+            "dsid_d93aed75845e4a0b8126a80d8a7a5a41"
+          ],
+          "pool_gold_count": 2,
+          "prompt_gold_count": 2,
+          "pool_recall_at_k": 1.0,
+          "pool_hit_at_k": 1.0,
+          "prompt_gold_recall": 1.0,
+          "prompt_complete_gold": true,
+          "pool_gold_lost_in_packing": [],
+          "evidence_fact_coverage": 1.0,
+          "distinct_docs_in_prompt": 2,
+          "passages_in_prompt": 4,
+          "prompt_context_tokens": 2342,
+          "prompt_doc_ids": [
+            "dsid_d93aed75845e4a0b8126a80d8a7a5a41",
+            "dsid_86f033ed92b84f3a8b381d09b0b95357"
+          ],
+          "context_assembly_ms": 80.05
+        },
+        "generation_and_usage": {
+          "model": "openai/gpt-oss-120b",
+          "temperature": 0.0,
+          "max_tokens": 4096,
+          "system_prompt_sha256": "f5247f65ca3f1c2f",
+          "user_prompt_sha256": "97cd1b5dee576268",
+          "cache_key": "9c40c661c8f1c82e",
+          "cache_status": "hit",
+          "prompt_tokens": 2834,
+          "completion_tokens": 487,
+          "total_tokens": 3321,
+          "finish_reason": "stop",
+          "latency_ms": 1507.04,
+          "cost_estimate_usd": 0.00079,
+          "api_error": null
+        },
+        "answer_quality_heuristic": {
+          "scoring_label": "automated_lexical_anchor_heuristic_not_human_verified",
+          "answer_correct_strict": false,
+          "fact_completeness_pct": 60.0,
+          "overall_score_strict": 0.0,
+          "judge_answer_correct": true,
+          "judge_completeness_pct": 80.0,
+          "overall_score_judge": 80.0,
+          "judge_explanation": "Deterministic evaluation: 4/5 positive facts addressed.",
+          "positive_facts_total": 5,
+          "positive_facts_covered": 3,
+          "missing_facts": [
+            "The answer must indicate that raw/unhashed `PO_NUMBER|PO_LINE_UUID` is not acceptable in the final requirements.",
+            "If the answer mentions the older guidance, it must describe it as superseded and reflect that it referenced an unhashed `PO#|LINEUUID` and Monday morning delivery (Mondays 08:00 PT)."
+          ],
+          "prohibited_constraints_total": 2,
+          "suspected_constraint_violations": [],
+          "has_prohibited_violation": false,
+          "empty_response": false,
+          "truncated_response": false,
+          "abstains": false,
+          "has_contradiction_cue": true,
+          "failure_category": "missing_fact_synthesis"
+        },
+        "citation_and_grounding_heuristic": {
+          "total_citations_found": 2,
+          "cited_doc_ids": [
+            "dsid_d93aed75845e4a0b8126a80d8a7a5a41",
+            "dsid_86f033ed92b84f3a8b381d09b0b95357"
+          ],
+          "hallucinated_doc_ids": [],
+          "has_hallucinated_citations": false,
+          "citation_precision": 1.0,
+          "citation_id_validity": 1.0,
+          "sentence_citation_rate": 0.5,
+          "claim_support_rate_all_sentences": 0.5,
+          "unsupported_substantive_sentence_rate": 0.6,
+          "num_substantive_sentences": 5,
+          "has_unsourced_claims": true
+        },
+        "answer_text": "**Final po_fingerprint format**  \n- Compute a SHA\u2011256 hash (lower\u2011case hex) of the exact string `PO_NUMBER|PO_LINE_UUID` (no whitespace). The hash value is placed in the `poFingerprint` field of each invoice line.  \n  *[dsid_d93aed75845e4a0b8126a80d8a7a5a41]*  \n\n**Weekly invoice delivery time**  \n- Invoices must be delivered via ClearEdge SFTP **each Tuesday by\u202f07:00\u202fPT**.  \n  *[dsid_d93aed75845e4a0b8126a80d8a7a5a41]*  \n\n**Superseded earlier guidance**  \n- An earlier email draft (June\u202f2027) instructed the po_fingerprint to be the raw string `PO#|LINEUUID` (no hashing) and scheduled weekly invoice delivery on Mondays. This guidance was superseded by the finalized policy above.  \n  *[dsid_86f033ed92b84f3a8b381d09b0b95357]*"
+      },
+      {
+        "question_id": "qst_0447",
+        "question_type": "completeness",
+        "question": "What is Redwood Inference's complete end-to-end process for shipping an emergency serving-runtime hotfix to production (Hosted + Dedicated), including required approvals, checklists, rollout/rollback steps, and mandatory customer communications?",
+        "in_stratified_40": false,
+        "in_diagnostic_8": true,
+        "config_name": "E_CorroboratedHybrid_k40_UpdatedCB",
+        "retrieval_and_context": {
+          "top_k_docs": 40,
+          "gold_docs_count": 6,
+          "gold_docs": [
+            "dsid_452dc45d76754cbca8a3674170599633",
+            "dsid_e5fe3fd0cf444668a64970ec00818f46",
+            "dsid_ac2fdba09cc24cd98ba60f5da114780c",
+            "dsid_8c3d5e26a1c841199d3bcd7aea5d495e",
+            "dsid_6807c651b55546559733c7c6f8dc133d",
+            "dsid_5d509e588f994166a2ccc6e39cbf6cb5"
+          ],
+          "pool_gold_count": 6,
+          "prompt_gold_count": 6,
+          "pool_recall_at_k": 1.0,
+          "pool_hit_at_k": 1.0,
+          "prompt_gold_recall": 1.0,
+          "prompt_complete_gold": true,
+          "pool_gold_lost_in_packing": [],
+          "evidence_fact_coverage": 0.8636,
+          "distinct_docs_in_prompt": 6,
+          "passages_in_prompt": 6,
+          "prompt_context_tokens": 2400,
+          "prompt_doc_ids": [
+            "dsid_ac2fdba09cc24cd98ba60f5da114780c",
+            "dsid_452dc45d76754cbca8a3674170599633",
+            "dsid_5d509e588f994166a2ccc6e39cbf6cb5",
+            "dsid_e5fe3fd0cf444668a64970ec00818f46",
+            "dsid_8c3d5e26a1c841199d3bcd7aea5d495e",
+            "dsid_6807c651b55546559733c7c6f8dc133d"
+          ],
+          "context_assembly_ms": 1080.43
+        },
+        "generation_and_usage": {
+          "model": "openai/gpt-oss-120b",
+          "temperature": 0.0,
+          "max_tokens": 4096,
+          "system_prompt_sha256": "f5247f65ca3f1c2f",
+          "user_prompt_sha256": "7ae2e4f748a11559",
+          "cache_key": "fd6e3340efb7ea66",
+          "cache_status": "miss_write",
+          "prompt_tokens": 2973,
+          "completion_tokens": 2364,
+          "total_tokens": 5337,
+          "finish_reason": "stop",
+          "latency_ms": 13703.06,
+          "cost_estimate_usd": 0.002219,
+          "api_error": null
+        },
+        "answer_quality_heuristic": {
+          "scoring_label": "automated_lexical_anchor_heuristic_not_human_verified",
+          "answer_correct_strict": false,
+          "fact_completeness_pct": 81.82,
+          "overall_score_strict": 0.0,
+          "judge_answer_correct": true,
+          "judge_completeness_pct": 81.82,
+          "overall_score_judge": 81.82,
+          "judge_explanation": "Deterministic evaluation: 18/22 positive facts addressed.",
+          "positive_facts_total": 22,
+          "positive_facts_covered": 18,
+          "missing_facts": [
+            "Hosted rollout is executed by Platform/SRE by setting runtime_image_tag to the new tag and syncing via ArgoCD for hosted-runtime, with rollout in order: us-west-2a canary (10 percent), then us-west-2 (50 percent), us-east-1 (50 percent), eu-central-1 (50 percent), then global.",
+            "Hosted rollback is performed by reverting to the last-known-good tag and ArgoCD syncing if any rollback trigger occurs, and the rollback plus next steps must be announced in the incident channel.",
+            "Hosted rollback triggers include: 5xx or stream aborts persisting more than 5 minutes, OOM spikes more than 2x baseline, p95 latency regressing more than 20 percent for more than 10 minutes, crash loops, or customer reports correlating with rollout start.",
+            "Per Dedicated cluster, execution includes confirming customer communications were sent, updating Helm runtime_image_tag, ArgoCD syncing dedicated-<cluster-id>-runtime, monitoring for CrashLoopBackOff, and running customer smoke checks (chat/embeddings/streaming)."
+          ],
+          "prohibited_constraints_total": 0,
+          "suspected_constraint_violations": [],
+          "has_prohibited_violation": false,
+          "empty_response": false,
+          "truncated_response": false,
+          "abstains": false,
+          "has_contradiction_cue": false,
+          "failure_category": "missing_fact_synthesis"
+        },
+        "citation_and_grounding_heuristic": {
+          "total_citations_found": 6,
+          "cited_doc_ids": [
+            "dsid_ac2fdba09cc24cd98ba60f5da114780c",
+            "dsid_452dc45d76754cbca8a3674170599633",
+            "dsid_5d509e588f994166a2ccc6e39cbf6cb5",
+            "dsid_8c3d5e26a1c841199d3bcd7aea5d495e",
+            "dsid_6807c651b55546559733c7c6f8dc133d",
+            "dsid_e5fe3fd0cf444668a64970ec00818f46"
+          ],
+          "hallucinated_doc_ids": [],
+          "has_hallucinated_citations": false,
+          "citation_precision": 1.0,
+          "citation_id_validity": 1.0,
+          "sentence_citation_rate": 0.2198,
+          "claim_support_rate_all_sentences": 0.2198,
+          "unsupported_substantive_sentence_rate": 0.6491,
+          "num_substantive_sentences": 57,
+          "has_unsourced_claims": true
+        },
+        "answer_text": "**Redwood Inference \u2013 Emergency Serving\u2011Runtime Hotfix SOP (Hosted\u202f+\u202fDedicated)**  \n\n**1. Incident trigger & pre\u2011conditions**  \n- An active Sev\u20111 incident (or other emergency) is identified and an incident channel (Slack thread) is created with an Incident Commander (IC)\u202f[dsid_ac2fdba09cc24cd98ba60f5da114780c].  \n- Emergency\u2011change approvals must be recorded per the Emergency Change Policy v3\u202f[dsid_ac2fdba09cc24cd98ba60f5da114780c].  \n- A rollback plan must exist (previous runtime image tag\u202f+\u202frestart procedure)\u202f[dsid_ac2fdba09cc24cd98ba60f5da114780c].  \n\n**2. Required approvals**  \n- Primary: Runtime on\u2011call\u202f+\u202fSRE on\u2011call (or IC)\u202f[dsid_ac2fdba09cc24cd98ba60f5da114780c].  \n- Additional, per policy\u202f[dsid_452dc45d76754cbca8a3674170599633]:  \n  * Security\u2011on\u2011call if the change is security\u2011related.  \n  * Product on\u2011call or responsible PM for customer\u2011visible behavior changes.  \n  * Customer Success escalation manager (CSEM) for Dedicated/Private changes that require customer coordination.  \n- Dedicated\u2011specific: Dedicated service\u2011owner approval and CSEM sign\u2011off\u202f[dsid_5d509e588f994166a2ccc6e39cbf6cb5].  \n\n**3. Create a hotfix branch**  \n- Name: `hotfix/runtime-<YYYYMMDD>-<short\u2011issue>`\u202f[dsid_ac2fdba09cc24cd98ba60f5da114780c].  \n- Cherry\u2011pick only the minimal fix commits.  \n- Add a CHANGELOG entry under \u201cRuntime Hotfixes\u201d.  \n\n**4. Open a PR and obtain emergency reviews**  \n- Target the release branch (or `main` if no release branch)\u202f[dsid_ac2fdba09cc24cd98ba60f5da114780c].  \n- Required reviewers: runtime on\u2011call and SRE on\u2011call (or IC)\u202f[dsid_ac2fdba09cc24cd98ba60f5da114780c].  \n- PR description must include: incident link, hypothesis, risk, rollback plan, and rollout owners\u202f[dsid_ac2fdba09cc24cd98ba60f5da114780c].  \n- Record approvals in the PR review, incident thread, or change\u2011record comment\u202f[dsid_452dc45d76754cbca8a3674170599633].  \n\n**5. Build and sign artifacts**  \n- Follow the Hotfix Build\u202f+\u202fSigning Procedure\u202f[dsid_5d509e588f994166a2ccc6e39cbf6cb5] (or the detailed steps in the \u201cHotfix Build + Signing Procedure\u201d page)\u202f[dsid_8c3d5e26a1c841199d3bcd7aea5d495e].  \n  * Ensure the PR is approved, add label `hotfix-ready`, trigger the **Release Runtime Hotfix** GitHub Actions workflow.  \n  * Provide inputs: previous image tag and new hotfix tag suffix.  \n- Produced artifacts must be: signed container image (cosign), SBOM (CycloneDX), provenance attestation (SLSA\u202fL3) and stored in the production registry\u202f[dsid_8c3d5e26a1c841199d3bcd7aea5d495e].  \n\n**6. Validate the fix** *(minimum validation required even during an incident)*\u202f[dsid_ac2fdba09cc24cd98ba60f5da114780c]:  \n- Run unit tests for the affected module.  \n- Execute one performance\u2011canary run on a representative model (e.g., Llama\u202f3.1\u202f70B).  \n- Run one stress test reproducing the incident\u2011triggering pattern (sequence length\u202f+\u202fconcurrency).  \n- Record results in the PR checklist:  \n  * Error rate improves or eliminates the triggering error.  \n  * p95 latency does not regress >\u202f10\u202f% vs. previous image for the same workload.  \n  * No increase in OOM or GPU\u2011reset counters.  \n\n**7. Prepare rollout notes**\u202f[dsid_ac2fdba09cc24cd98ba60f5da114780c]:  \n- In the incident channel post:  \n  * New runtime image tag.  \n  * Expected impact (restarts, brief connection resets).  \n  * Canary target (Hosted region or Dedicated cluster).  \n  * Rollback criteria (specific metric or customer symptom).  \n\n**8. Hosted rollout & rollback**\u202f[dsid_6807c651b55546559733c7c6f8dc133d]:  \n- *Pre\u2011condition*: hotfix built & signed and emergency approvals recorded.  \n- *Rollout order* (default):  \n  1. Canary in `us-west-2a` (10\u202f% traffic).  \n  2. Expand to `us-west-2` (50\u202f%).  \n  3. Expand to `us-east-1` (50\u202f%).  \n  4. Expand to `eu-central-1` (50\u202f%).  \n- Monitor the metrics defined in the rollback criteria after each step.  \n- **Rollback**: if any criterion is breached, revert to the previous runtime image tag immediately across all regions; record the rollback action in the incident timeline.  \n\n**9. Dedicated cluster rollout & rollback**\u202f[dsid_5d509e588f994166a2ccc6e39cbf6cb5]:  \n- **Inputs required**: customer name, cluster ID, current & target image tags, impact statement, rollback image tag, and whether the issue is global or customer\u2011specific.  \n- **Approvals**: IC/SRE on\u2011call, Dedicated service\u2011owner, and CSEM sign\u2011off.  \n- **Canary**: use a single Dedicated cluster as a canary; if not possible, document why and obtain IC sign\u2011off (per policy).  \n- **Execution**: Deploy the hotfix to the selected Dedicated cluster, monitor the same metrics as for Hosted.  \n- **Rollback**: If rollback criteria are met, restart pods with the rollback image tag; expected brief interruptions are communicated to the customer.  \n\n**10. Customer communications (Sev\u20111)**\u202f[dsid_e5fe3fd0cf444668a64970ec00818f46] &\u202f[dsid_5d509e588f994166a2ccc6e39cbf6cb5]:  \n- **Initial status\u2011page message** (template): \u201cWe are investigating reports of elevated errors and latency \u2026\u201d\u202f[dsid_e5fe3fd0cf444668a64970ec00818f46].  \n- **Updates** every 30\u202fminutes using the provided template.  \n- **Resolution** message per template.  \n- **Dedicated\u2011specific**: CSEM must email (and optionally call) impacted customers, including:  \n  * Whether a maintenance action (runtime restart) is required.  \n  * Expected duration.  \n  * Plain\u2011language rollback criteria (e.g., \u201cif errors increase after deployment, we will revert within 15\u202fminutes\u201d).\u202f[dsid_5d509e588f994166a2ccc6e39cbf6cb5]  \n- Avoid internal details or blaming language\u202f[dsid_e5fe3fd0cf444668a64970ec00818f46].  \n\n**11. Post\u2011change documentation & closeout**\u202f[dsid_452dc45d76754cbca8a3674170599633]:  \n- Create/link a ticket (Linear preferred; Jira acceptable).  \n- Ensure the PR (or commit SHA) is linked in the ticket.  \n- Record all approvals, start time, change time, outcome, and post\u2011change monitoring owner in the incident timeline.  \n- Update the status page to \u201cresolved\u201d and close the ticket.  \n\n**Summary checklist** (combine all phases):  \n\n1. Incident identified \u2192 channel created.  \n2. Preconditions satisfied (approvals, rollback plan).  \n3. Hotfix branch created; CHANGELOG updated.  \n4. PR opened, emergency reviewers added, approvals recorded.  \n5. Trigger hotfix build\u202f+\u202fsign workflow; obtain signed image, SBOM, provenance.  \n6. Run unit, canary\u2011perf, and stress validation; record results.  \n7. Post rollout notes in incident thread.  \n8. **Hosted**: Canary \u2192 regional expansions; monitor; rollback if needed.  \n9. **Dedicated**: Gather inputs, obtain dedicated approvals, deploy to canary cluster, monitor, rollback if needed.  \n10. Communicate via status page and, for Dedicated, direct customer email/call with rollout window and rollback criteria.  \n11. Document ticket, PR link, approvals, timeline, and close incident.  \n\nAll steps are drawn directly from the cited Redwood Inference documentation."
+      },
+      {
+        "question_id": "qst_0481",
+        "question_type": "info_not_found",
+        "question": "For the hot-route capacity protection rollout in us-east, which specific enterprise accounts were on the initial allowlist, and what were the exact per-route-group budget values (RPS, estimated TPS, and concurrency) configured for each of those accounts?",
+        "in_stratified_40": true,
+        "in_diagnostic_8": false,
+        "config_name": "E_CorroboratedHybrid_k40_UpdatedCB",
+        "retrieval_and_context": {
+          "top_k_docs": 40,
+          "gold_docs_count": 0,
+          "gold_docs": [],
+          "pool_gold_count": 0,
+          "prompt_gold_count": 0,
+          "pool_recall_at_k": null,
+          "pool_hit_at_k": null,
+          "prompt_gold_recall": null,
+          "prompt_complete_gold": null,
+          "pool_gold_lost_in_packing": [],
+          "evidence_fact_coverage": 0.0,
+          "distinct_docs_in_prompt": 6,
+          "passages_in_prompt": 6,
+          "prompt_context_tokens": 2307,
+          "prompt_doc_ids": [
+            "dsid_e10fd6f37ef64dcd8d64bd005630b69e",
+            "dsid_ad595e18c41843f1863681c343af0e5c",
+            "dsid_5e65379c999744729ca84f1d0513e5a4",
+            "dsid_eba5d122d7244ffbb6c20a2487aa1017",
+            "dsid_77d70426ff9545c191fa5e64f4a398b2",
+            "dsid_9213aa28528f4a44990b52399b7bcb30"
+          ],
+          "context_assembly_ms": 233.45
+        },
+        "generation_and_usage": {
+          "model": "openai/gpt-oss-120b",
+          "temperature": 0.0,
+          "max_tokens": 4096,
+          "system_prompt_sha256": "f5247f65ca3f1c2f",
+          "user_prompt_sha256": "0e56c1390ad0f21e",
+          "cache_key": "51f8b8f834058078",
+          "cache_status": "hit",
+          "prompt_tokens": 2924,
+          "completion_tokens": 632,
+          "total_tokens": 3556,
+          "finish_reason": "stop",
+          "latency_ms": 25624.79,
+          "cost_estimate_usd": 0.000913,
+          "api_error": null
+        },
+        "answer_quality_heuristic": {
+          "scoring_label": "automated_lexical_anchor_heuristic_not_human_verified",
+          "answer_correct_strict": true,
+          "fact_completeness_pct": 100.0,
+          "overall_score_strict": 100.0,
+          "judge_answer_correct": true,
+          "judge_completeness_pct": 100.0,
+          "overall_score_judge": 100.0,
+          "judge_explanation": "Correctly abstained on query where information was not available.",
+          "positive_facts_total": 1,
+          "positive_facts_covered": 0,
+          "missing_facts": [],
+          "prohibited_constraints_total": 0,
+          "suspected_constraint_violations": [],
+          "has_prohibited_violation": false,
+          "empty_response": false,
+          "truncated_response": false,
+          "abstains": true,
+          "has_contradiction_cue": false,
+          "failure_category": "none"
+        },
+        "citation_and_grounding_heuristic": {
+          "total_citations_found": 6,
+          "cited_doc_ids": [
+            "dsid_e10fd6f37ef64dcd8d64bd005630b69e",
+            "dsid_ad595e18c41843f1863681c343af0e5c",
+            "dsid_5e65379c999744729ca84f1d0513e5a4",
+            "dsid_eba5d122d7244ffbb6c20a2487aa1017",
+            "dsid_77d70426ff9545c191fa5e64f4a398b2",
+            "dsid_9213aa28528f4a44990b52399b7bcb30"
+          ],
+          "hallucinated_doc_ids": [],
+          "has_hallucinated_citations": false,
+          "citation_precision": 1.0,
+          "citation_id_validity": 1.0,
+          "sentence_citation_rate": 0.3333,
+          "claim_support_rate_all_sentences": 0.3333,
+          "unsupported_substantive_sentence_rate": 0.0,
+          "num_substantive_sentences": 1,
+          "has_unsourced_claims": false
+        },
+        "answer_text": "The supplied evidence does not contain any information about:\n\n* Which specific enterprise accounts were placed on the initial allowlist for the hot\u2011route capacity\u2011protection rollout in the\u202fus\u2011east region, **or**\n* The exact per\u2011route\u2011group budget values (RPS, estimated TPS, and concurrency) that were configured for those accounts.\n\nNone of the provided documents (dsid_e10fd6f37ef64dcd8d64bd005630b69e, dsid_ad595e18c41843f1863681c343af0e5c, dsid_5e65379c999744729ca84f1d0513e5a4, dsid_eba5d122d7244ffbb6c20a2487aa1017, dsid_77d70426ff9545c191fa5e64f4a398b2, dsid_9213aa28528f4a44990b52399b7bcb30) include these details. Therefore the question cannot be answered from the available evidence."
+      }
+    ]
+  },
+  "generation_cache_stats": {
+    "cache_path": "/Users/kanchanpotdar/Downloads/voice ai /evaluation/reports/cache/controlled_generation_cache.json",
+    "total_cached_entries": 5,
+    "session_hits": 4,
+    "session_misses": 2,
+    "session_writes": 2
+  }
+}

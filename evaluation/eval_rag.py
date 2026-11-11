@@ -119,10 +119,33 @@ class DeterministicJudge:
         is_abstention: bool,
         has_contradiction: bool,
     ) -> Tuple[bool, float, str]:
-        """Evaluate correctness and completeness deterministically."""
+        """Evaluate correctness and completeness deterministically.
+
+        Known limitations (documented in Benchmark_Integrity_Audit.md):
+        - Lexical heuristic: evaluates numeric/identifier anchors and content-word
+          recall rather than semantic entailment.
+        - Explicitly rejects empty/truncated outputs and abstentions on answerable
+          questions (completeness = 0.0, correct = False).
+        """
+        from evaluation.audit_scoring import (
+            abstains,
+            caveats_missing_detail,
+            constraint_violation_suspected,
+            is_empty_or_truncated,
+            normalise,
+        )
+
+        flags = is_empty_or_truncated(generated_answer)
+        if flags["empty"] or flags["truncated"]:
+            return (
+                False,
+                0.0,
+                "Empty or truncated generation with incomplete or missing answer text.",
+            )
+
         # Special case 1: info_not_found
         if question_type == "info_not_found":
-            if is_abstention:
+            if is_abstention or abstains(generated_answer) or caveats_missing_detail(generated_answer):
                 return (
                     True,
                     100.0,
@@ -135,47 +158,58 @@ class DeterministicJudge:
                     "Failed to abstain on an unanswerable query (hallucination risk).",
                 )
 
-        # Special case 2: conflicting_info
-        if question_type == "conflicting_info":
-            if has_contradiction:
-                return (
-                    True,
-                    100.0,
-                    "Correctly noted contradiction between divergent sources.",
-                )
+        # Explicit abstention on an answerable query must never be rewarded
+        if is_abstention or abstains(generated_answer):
+            return (
+                False,
+                0.0,
+                "Abstained on an answerable query.",
+            )
 
         # Separate positive facts from negative constraints
-        raw_facts = answer_facts if answer_facts else [gold_answer]
+        raw_facts = answer_facts if answer_facts else ([gold_answer] if gold_answer else [])
         positive_facts, prohibited_constraints = split_facts_and_constraints(raw_facts)
         if not positive_facts and gold_answer:
             positive_facts = [gold_answer]
 
-        covered = 0
-        gen_lower = generated_answer.lower()
+        if not positive_facts and not prohibited_constraints:
+            return (False, 0.0, "No gold facts provided for answerable query.")
 
-        # 1. Evaluate positive fact coverage
+        covered = 0
+        gen_norm = normalise(generated_answer)
+
+        # 1. Evaluate positive fact coverage (anchors + content words)
         for fact in positive_facts:
+            fact_norm = normalise(fact)
+            # Numeric tokens in fact must appear in answer
+            num_tokens = re.findall(r"\b\d+(?:\.\d+)?\b", fact_norm)
+            if num_tokens and not all(n in gen_norm for n in num_tokens):
+                continue
             words = [
                 w
-                for w in re.findall(r"\b[a-zA-Z0-9_\-\.]{4,}\b", fact.lower())
-                if w not in {"that", "this", "from", "with", "must", "should", "answer"}
+                for w in re.findall(r"\b[a-zA-Z0-9_\-\.]{4,}\b", fact_norm)
+                if w not in {"that", "this", "from", "with", "must", "should", "answer", "state", "indicate", "specify"}
             ]
             if not words:
-                covered += 1
+                if num_tokens:
+                    covered += 1
                 continue
-            matched = sum(1 for w in words if w in gen_lower)
+            matched = sum(1 for w in words if w in gen_norm)
             if matched / len(words) >= 0.40:
                 covered += 1
 
         completeness = (covered / len(positive_facts)) * 100.0 if positive_facts else 100.0
 
-        # 2. Check for prohibited distractor claims
+        # 2. Check for prohibited distractor claims (sentence-level with negation/supersession awareness)
         violated_constraints: List[str] = []
         for constraint in prohibited_constraints:
+            if constraint_violation_suspected(constraint, generated_answer):
+                violated_constraints.append(constraint[:60] + "...")
+                continue
             body = NEGATIVE_CONSTRAINT_RE.sub("", constraint).strip()
             c_words = [
                 w
-                for w in re.findall(r"\b[a-zA-Z0-9_\-\.]{4,}\b", body.lower())
+                for w in re.findall(r"\b[a-zA-Z0-9_\-\.]{4,}\b", normalise(body))
                 if w not in {
                     "that", "this", "from", "with", "must", "should", "answer",
                     "claim", "state", "mention", "discuss", "attribute", "explain"
@@ -183,13 +217,21 @@ class DeterministicJudge:
             ]
             if not c_words:
                 continue
-            matched_c = sum(1 for w in c_words if w in gen_lower)
-            # High lexical containment indicates model asserted the prohibited claim
-            if len(c_words) >= 3 and (matched_c / len(c_words) >= 0.60):
-                violated_constraints.append(constraint[:60] + "...")
+            # Check per sentence so negated/superseded mentions are not false violations
+            for sent in re.split(r"(?<=[.!?])\s+|\n+", generated_answer):
+                sent_norm = normalise(sent)
+                if re.search(r"\b(not|no|never|do not|must not|cannot|can't|superseded|supersedes|earlier|previous|older|prior|draft|instead of)\b", sent_norm):
+                    continue
+                matched_c = sum(1 for w in c_words if w in sent_norm)
+                if len(c_words) >= 3 and (matched_c / len(c_words) >= 0.60):
+                    violated_constraints.append(constraint[:60] + "...")
+                    break
 
         has_violations = len(violated_constraints) > 0
-        correct = (completeness >= 30.0) and (not has_violations) and not (is_abstention and positive_facts)
+        if question_type == "conflicting_info" and not has_contradiction and len(positive_facts) > 1:
+            correct = (completeness >= 60.0) and (not has_violations)
+        else:
+            correct = (completeness >= 50.0) and (not has_violations)
 
         if has_violations:
             expl = f"Failed negative constraint: asserted prohibited claim ({violated_constraints[0]})"

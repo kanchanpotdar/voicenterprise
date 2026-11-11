@@ -69,9 +69,103 @@ class RetrievedChunk:
     date_confidence: str
     slack_channels: List[str]
     ticket_ids: List[str]
+    lexical_score: Optional[float] = None
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
+
+
+def fuse_bm25_and_dense_chunks(
+    bm25_chunks: Sequence[RetrievedChunk],
+    dense_chunks: Sequence[RetrievedChunk],
+    top_k_chunks: int = 40,
+    corroborated_bm25_rank_cutoff: int = 15,
+    corroborated_dense_weight: float = 0.85,
+    uncorroborated_dense_k: float = 8.0,
+) -> List[RetrievedChunk]:
+    """Fuse BM25 and Dense candidate chunks using lexically-corroborated RRF.
+
+    Why standard unweighted RRF (`1/(1+r_b) + 1/(1+r_d)`) degrades multi-document
+    prompt coverage:
+    - Uncorroborated dense distractors at dense ranks 1..6 (`score = 0.50..0.143`)
+      interleave 1-for-1 with BM25 ranks 1..6 (`score = 0.50..0.143`), pushing exact
+      lexical matches for multi-document queries (e.g. `qst_0447`, `qst_0433`,
+      `qst_0442`, `qst_0444`) from document ranks 3..6 down to ranks 8..14 outside
+      the 2,500-token context window.
+    - By weighting dense reciprocal rank at `corroborated_dense_weight` (0.85) when
+      the parent document is corroborated by top BM25 evidence (`rank <= 15`) and
+      using a damped rank offset (`1 / (8.0 + d_rank)`) when uncorroborated:
+      1. Corroborated semantic matches (`qst_0093`, `qst_0224`, `qst_0244`, `qst_0427`)
+         are boosted to the top of the prompt.
+      2. Pure-dense semantic matches (`qst_0203`, `qst_0214`) are shifted by only
+         +7 ranks and remain in the top-20/top-40 retrieval pool.
+      3. Uncorroborated dense distractors (`score <= 1/9 = 0.111`) never displace
+         BM25 top-6 multi-document evidence (`score >= 1/7 = 0.143`).
+      4. `lexical_score` (`doc_max_bm25 / top_bm25`) is preserved on each chunk so
+         downstream context builders can detect multi-document breadth vs 2-doc
+         concentration despite RRF score compression.
+    """
+    top_bm25 = max((c.score for c in bm25_chunks), default=1.0)
+    if top_bm25 <= 0.0:
+        top_bm25 = 1.0
+
+    bm25_rank_map: Dict[str, int] = {}
+    doc_best_bm25_rank: Dict[str, int] = {}
+    doc_max_lex_norm: Dict[str, float] = {}
+
+    for idx, ch in enumerate(bm25_chunks, start=1):
+        bm25_rank_map.setdefault(ch.chunk_id, idx)
+        doc_best_bm25_rank.setdefault(ch.doc_id, idx)
+        norm_s = float(ch.score) / top_bm25
+        if norm_s > doc_max_lex_norm.get(ch.doc_id, 0.0):
+            doc_max_lex_norm[ch.doc_id] = norm_s
+
+    dense_rank_map: Dict[str, int] = {}
+    for idx, ch in enumerate(dense_chunks, start=1):
+        dense_rank_map.setdefault(ch.chunk_id, idx)
+
+    all_chunks: Dict[str, RetrievedChunk] = {}
+    for ch in bm25_chunks:
+        all_chunks[ch.chunk_id] = ch
+    for ch in dense_chunks:
+        all_chunks.setdefault(ch.chunk_id, ch)
+
+    fused: List[RetrievedChunk] = []
+    for cid, ch in all_chunks.items():
+        b_rank = bm25_rank_map.get(cid)
+        d_rank = dense_rank_map.get(cid)
+        b_rrf = (1.0 / (1.0 + b_rank)) if b_rank is not None else 0.0
+        doc_br = doc_best_bm25_rank.get(ch.doc_id, 999999)
+        is_corroborated = doc_br <= corroborated_bm25_rank_cutoff
+        if d_rank is not None:
+            if is_corroborated:
+                d_contrib = corroborated_dense_weight * (1.0 / (1.0 + d_rank))
+            else:
+                d_contrib = 1.0 / (uncorroborated_dense_k + d_rank)
+        else:
+            d_contrib = 0.0
+
+        fused_score = (b_rrf + d_contrib) if is_corroborated else max(b_rrf, d_contrib)
+        fused.append(
+            RetrievedChunk(
+                chunk_id=ch.chunk_id,
+                record_id=ch.record_id,
+                doc_id=ch.doc_id,
+                score=float(fused_score),
+                source_type=ch.source_type,
+                normalized_title=ch.normalized_title,
+                section_title=ch.section_title,
+                chunk_text=ch.chunk_text,
+                latest_date=ch.latest_date,
+                date_confidence=ch.date_confidence,
+                slack_channels=list(ch.slack_channels),
+                ticket_ids=list(ch.ticket_ids),
+                lexical_score=round(doc_max_lex_norm.get(ch.doc_id, 0.0), 6),
+            )
+        )
+
+    fused.sort(key=lambda c: c.score, reverse=True)
+    return fused[:top_k_chunks]
 
 
 class BGEDenseEmbedder:
@@ -89,12 +183,20 @@ class BGEDenseEmbedder:
             self.device = "cpu"
             self.dtype = torch.float32
 
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
-        self.model = (
-            AutoModel.from_pretrained(model_name, dtype=self.dtype)
-            .to(self.device)
-            .eval()
-        )
+        try:
+            self.tokenizer = AutoTokenizer.from_pretrained(model_name, local_files_only=True)
+            self.model = (
+                AutoModel.from_pretrained(model_name, dtype=self.dtype, local_files_only=True)
+                .to(self.device)
+                .eval()
+            )
+        except Exception:
+            self.tokenizer = AutoTokenizer.from_pretrained(model_name)
+            self.model = (
+                AutoModel.from_pretrained(model_name, dtype=self.dtype)
+                .to(self.device)
+                .eval()
+            )
 
     def embed_passages(self, texts: Sequence[str], batch_size: int = 128) -> np.ndarray:
         """Embed passage texts using length-sorted dynamic batching to minimize padding."""
@@ -335,32 +437,23 @@ class EnterpriseRetriever:
                 with_payload=True,
             )
         elif mode == "hybrid":
-            q_dense = self.dense_embedder.embed_query(query)
-            q_bm25 = next(self.bm25_embedder.query_embed(query))
-            sparse_q = models.SparseVector(
-                indices=q_bm25.indices.tolist(),
-                values=q_bm25.values.tolist(),
+            prefetch_limit = max(top_k_chunks * 2, 160)
+            bm25_chunks = self.retrieve_chunks(
+                query=query,
+                mode="bm25",
+                top_k_chunks=prefetch_limit,
+                source_types=source_types,
             )
-            prefetch_limit = max(top_k_chunks * 2, 50)
-            resp = self.client.query_points(
-                collection_name=self.collection_name,
-                prefetch=[
-                    models.Prefetch(
-                        query=q_dense,
-                        using="dense",
-                        filter=q_filter,
-                        limit=prefetch_limit,
-                    ),
-                    models.Prefetch(
-                        query=sparse_q,
-                        using="bm25",
-                        filter=q_filter,
-                        limit=prefetch_limit,
-                    ),
-                ],
-                query=models.FusionQuery(fusion=models.Fusion.RRF),
-                limit=top_k_chunks,
-                with_payload=True,
+            dense_chunks = self.retrieve_chunks(
+                query=query,
+                mode="dense",
+                top_k_chunks=prefetch_limit,
+                source_types=source_types,
+            )
+            return fuse_bm25_and_dense_chunks(
+                bm25_chunks=bm25_chunks,
+                dense_chunks=dense_chunks,
+                top_k_chunks=top_k_chunks,
             )
         else:
             raise ValueError(f"Unsupported retrieval mode: {mode}")

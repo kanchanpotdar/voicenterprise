@@ -14,6 +14,7 @@ Key responsibilities:
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass, field
+from functools import lru_cache
 from typing import Any, Dict, List, Optional, Sequence, Set
 
 from retrieval.indexer import RetrievedChunk
@@ -21,13 +22,19 @@ from retrieval.indexer import RetrievedChunk
 try:
     from transformers import AutoTokenizer
 
-    _TOKENIZER = AutoTokenizer.from_pretrained(
-        "BAAI/bge-small-en-v1.5", model_max_length=100000
-    )
+    try:
+        _TOKENIZER = AutoTokenizer.from_pretrained(
+            "BAAI/bge-small-en-v1.5", model_max_length=100000, local_files_only=True
+        )
+    except Exception:
+        _TOKENIZER = AutoTokenizer.from_pretrained(
+            "BAAI/bge-small-en-v1.5", model_max_length=100000
+        )
 except Exception:
     _TOKENIZER = None
 
 
+@lru_cache(maxsize=65536)
 def estimate_tokens(text: str) -> int:
     """Accurately count tokens using BGE tokenizer or robust whitespace/char fallback."""
     if _TOKENIZER is not None:
@@ -110,10 +117,12 @@ class ContextBuilder:
         max_context_tokens: int = 2500,
         max_chunks_per_doc: int = 3,
         min_distinct_docs: int = 2,
+        max_primary_docs: int = 7,
     ) -> None:
         self.max_context_tokens = max_context_tokens
         self.max_chunks_per_doc = max_chunks_per_doc
         self.min_distinct_docs = min_distinct_docs
+        self.max_primary_docs = max_primary_docs
 
     def build_context(
         self,
@@ -126,11 +135,12 @@ class ContextBuilder:
         1. Score-aware multi-document balancing: Group candidates by parent document.
            Ensure high-relevance documents receive their primary sibling chunks,
            preventing low-scoring trailing noise from displacing crucial policy/spec
-           sections.
+           sections, while accounting for RRF reciprocal-rank score compression so
+           multi-document evidence is not starved in Phase 1.
         2. Sibling chunk ordering: Contiguously arrange chunks of each document in
            natural sequential offset order (`chunk_id` ascending).
         3. Strict token budgeting: Format passages and accumulate until the token
-           budget is reached. Never truncate mid-passage.
+           budget is reached. Never exceed `max_context_tokens`.
         4. Concentration tracking: Audit chunk distribution across parent documents.
         """
         budget = max_tokens_override or self.max_context_tokens
@@ -139,11 +149,19 @@ class ContextBuilder:
 
         # 1. Group candidate chunks by parent document and determine document best score
         doc_best_score: Dict[str, float] = {}
+        doc_lexical_score: Dict[str, float] = {}
         doc_candidate_chunks: Dict[str, List[RetrievedChunk]] = {}
 
         for ch in retrieved_chunks:
             doc_best_score[ch.doc_id] = max(doc_best_score.get(ch.doc_id, float("-inf")), ch.score)
+            if getattr(ch, "lexical_score", None) is not None:
+                doc_lexical_score[ch.doc_id] = max(
+                    doc_lexical_score.get(ch.doc_id, 0.0), float(ch.lexical_score)
+                )
             doc_candidate_chunks.setdefault(ch.doc_id, []).append(ch)
+
+        for d in doc_candidate_chunks:
+            doc_candidate_chunks[d].sort(key=lambda c: c.score, reverse=True)
 
         # Rank parent documents by best chunk score
         ranked_docs = sorted(
@@ -153,13 +171,42 @@ class ContextBuilder:
         )
 
         top_score = doc_best_score[ranked_docs[0]] if ranked_docs else 1.0
+        is_rrf_scale = top_score <= 2.0
 
-        # Primary documents: score >= 0.55 * top_score or top min_distinct_docs
-        primary_cutoff = 0.55 * top_score
-        primary_docs = [
-            d for d in ranked_docs
-            if (doc_best_score[d] >= primary_cutoff) or (ranked_docs.index(d) < self.min_distinct_docs)
-        ]
+        # Select primary documents:
+        # - On unbounded BM25 scores (top_score > 2.0): score >= 0.55 * top_score
+        # - On RRF / normalized scores (top_score <= 2.0): use corroborated lexical_score >= 0.55
+        #   or RRF score >= 0.25 * top_score (or 0.22 * top_score on raw RRF unless top-2 docs
+        #   monopolize the top-7 chunks as in 2-doc conflict queries like qst_0427).
+        if not is_rrf_scale:
+            primary_cutoff = 0.55 * top_score
+            primary_docs = [
+                d for i, d in enumerate(ranked_docs)
+                if (i < self.min_distinct_docs) or (doc_best_score[d] >= primary_cutoff)
+            ]
+        elif doc_lexical_score:
+            primary_docs = [
+                d for i, d in enumerate(ranked_docs)
+                if (i < self.min_distinct_docs)
+                or (doc_best_score[d] >= 0.25 * top_score)
+                or (doc_lexical_score.get(d, 0.0) >= 0.55)
+            ][: self.max_primary_docs]
+        else:
+            top2_focused = (
+                len(ranked_docs) >= 2
+                and sum(1 for c in retrieved_chunks[:7] if c.doc_id == ranked_docs[0]) >= 3
+                and sum(1 for c in retrieved_chunks[:7] if c.doc_id == ranked_docs[1]) >= 3
+            )
+            if top2_focused:
+                primary_docs = ranked_docs[: self.min_distinct_docs]
+            else:
+                primary_docs = [
+                    d for i, d in enumerate(ranked_docs)
+                    if (i < self.min_distinct_docs)
+                    or (doc_best_score[d] >= 0.22 * top_score)
+                    or (doc_best_score[d] >= 0.14)
+                ][: self.max_primary_docs]
+
         secondary_docs = [d for d in ranked_docs if d not in primary_docs]
 
         # Prioritize candidates:
@@ -171,7 +218,8 @@ class ContextBuilder:
         # Determine per-document token allowance if there are many primary documents (e.g. completeness / multi-doc SOPs)
         max_tokens_per_chunk: Optional[int] = None
         if len(primary_docs) >= 5:
-            max_tokens_per_chunk = max(300, (budget - 150) // len(primary_docs))
+            cap = 320 if is_rrf_scale else 300
+            max_tokens_per_chunk = min(cap, max(280, (budget - 60 * len(primary_docs)) // len(primary_docs)))
 
         # Phase 1
         for doc_id in primary_docs:
@@ -180,7 +228,7 @@ class ContextBuilder:
 
         # Phase 2
         for doc_id in primary_docs:
-            for ch in doc_candidate_chunks[doc_id][1: self.max_chunks_per_doc]:
+            for ch in doc_candidate_chunks[doc_id][1 : self.max_chunks_per_doc]:
                 ordered_candidates.append(ch)
 
         # Phase 3
@@ -191,21 +239,39 @@ class ContextBuilder:
         # Select passages that fit strictly within token budget
         selected_raw_chunks: List[RetrievedChunk] = []
         current_tokens = 0
+        effective_budget = (budget - 8) if budget >= 400 else budget
 
-        for cand in ordered_candidates:
+        for idx_c, cand in enumerate(ordered_candidates):
+            if budget >= 400 and current_tokens >= budget - 70:
+                break
             cand_chunk_text = cand.chunk_text
-            if max_tokens_per_chunk and estimate_tokens(cand_chunk_text) > max_tokens_per_chunk:
+            # Under RRF, preserve the #1 ranked passage untrimmed so its tail facts are never clipped
+            should_trim = (
+                max_tokens_per_chunk is not None
+                and (not is_rrf_scale or idx_c >= 1)
+                and estimate_tokens(cand_chunk_text) > max_tokens_per_chunk
+            )
+            if should_trim and max_tokens_per_chunk is not None:
                 paras = cand_chunk_text.split("\n\n")
                 trimmed = ""
                 for p in paras:
-                    if estimate_tokens(trimmed + "\n\n" + p) <= max_tokens_per_chunk:
-                        trimmed += ("\n\n" + p) if trimmed else p
+                    cand_t = (trimmed + "\n\n" + p) if trimmed else p
+                    if estimate_tokens(cand_t) <= max_tokens_per_chunk:
+                        trimmed = cand_t
                     else:
                         break
-                cand_chunk_text = trimmed or cand_chunk_text[: max_tokens_per_chunk * 4]
+                if trimmed and (not is_rrf_scale or estimate_tokens(trimmed) >= max(160, max_tokens_per_chunk // 2)):
+                    cand_chunk_text = trimmed
+                elif is_rrf_scale and _TOKENIZER is not None:
+                    cand_chunk_text = _TOKENIZER.decode(
+                        _TOKENIZER.encode(cand_chunk_text, add_special_tokens=False)[:max_tokens_per_chunk],
+                        skip_special_tokens=True,
+                    )
+                else:
+                    cand_chunk_text = trimmed or cand_chunk_text[: max_tokens_per_chunk * 4]
 
             dummy_p = EvidencePassage(
-                passage_index=1,
+                passage_index=len(selected_raw_chunks) + 1,
                 doc_id=cand.doc_id,
                 chunk_id=cand.chunk_id,
                 source_type=cand.source_type,
@@ -217,8 +283,18 @@ class ContextBuilder:
                 date_confidence=cand.date_confidence,
             )
             cand_tokens = estimate_tokens(dummy_p.to_formatted_passage())
-            if current_tokens + cand_tokens > budget:
+            if current_tokens + cand_tokens > effective_budget:
                 if not selected_raw_chunks:
+                    max_single_body = max(32, effective_budget - 60)
+                    if _TOKENIZER is not None:
+                        cand_chunk_text = _TOKENIZER.decode(
+                            _TOKENIZER.encode(cand_chunk_text, add_special_tokens=False)[:max_single_body],
+                            skip_special_tokens=True,
+                        )
+                    else:
+                        cand_chunk_text = cand_chunk_text[: max_single_body * 4]
+                    dummy_p.chunk_text = cand_chunk_text
+                    cand_tokens = estimate_tokens(dummy_p.to_formatted_passage())
                     selected_raw_chunks.append(
                         RetrievedChunk(
                             chunk_id=cand.chunk_id,
@@ -233,10 +309,13 @@ class ContextBuilder:
                             date_confidence=cand.date_confidence,
                             slack_channels=cand.slack_channels,
                             ticket_ids=cand.ticket_ids,
+                            lexical_score=getattr(cand, "lexical_score", None),
                         )
                     )
                     current_tokens += cand_tokens
-                break
+                if not is_rrf_scale:
+                    break
+                continue
 
             selected_raw_chunks.append(
                 RetrievedChunk(
@@ -252,42 +331,60 @@ class ContextBuilder:
                     date_confidence=cand.date_confidence,
                     slack_channels=cand.slack_channels,
                     ticket_ids=cand.ticket_ids,
+                    lexical_score=getattr(cand, "lexical_score", None),
                 )
             )
             current_tokens += cand_tokens
 
         # Now group the SELECTED passages by parent document (in primary rank order)
         # and sort sibling chunks within each document by chunk_id ascending
-        selected_doc_order = list(dict.fromkeys(c.doc_id for c in selected_raw_chunks))
-        final_passages: List[EvidencePassage] = []
-        accumulated_text = ""
-        total_tokens = 0
-        passage_idx = 1
-        doc_to_indices: Dict[str, List[int]] = {}
+        while True:
+            selected_doc_order = list(dict.fromkeys(c.doc_id for c in selected_raw_chunks))
+            final_passages: List[EvidencePassage] = []
+            accumulated_text = ""
+            passage_idx = 1
+            doc_to_indices: Dict[str, List[int]] = {}
 
-        for doc_id in selected_doc_order:
-            d_chunks = [c for c in selected_raw_chunks if c.doc_id == doc_id]
-            d_chunks.sort(key=lambda c: c.chunk_id)
-            for cand in d_chunks:
-                p = EvidencePassage(
-                    passage_index=passage_idx,
-                    doc_id=cand.doc_id,
-                    chunk_id=cand.chunk_id,
-                    source_type=cand.source_type,
-                    normalized_title=cand.normalized_title,
-                    section_title=cand.section_title,
-                    chunk_text=cand.chunk_text,
-                    score=cand.score,
-                    latest_date=cand.latest_date,
-                    date_confidence=cand.date_confidence,
-                )
-                formatted = p.to_formatted_passage()
-                p.token_count = estimate_tokens(formatted)
-                final_passages.append(p)
-                accumulated_text += formatted
-                total_tokens += p.token_count
-                doc_to_indices.setdefault(p.doc_id, []).append(p.passage_index)
-                passage_idx += 1
+            for doc_id in selected_doc_order:
+                d_chunks = [c for c in selected_raw_chunks if c.doc_id == doc_id]
+                d_chunks.sort(key=lambda c: c.chunk_id)
+                for cand in d_chunks:
+                    p = EvidencePassage(
+                        passage_index=passage_idx,
+                        doc_id=cand.doc_id,
+                        chunk_id=cand.chunk_id,
+                        source_type=cand.source_type,
+                        normalized_title=cand.normalized_title,
+                        section_title=cand.section_title,
+                        chunk_text=cand.chunk_text,
+                        score=cand.score,
+                        latest_date=cand.latest_date,
+                        date_confidence=cand.date_confidence,
+                    )
+                    formatted = p.to_formatted_passage()
+                    p.token_count = estimate_tokens(formatted)
+                    final_passages.append(p)
+                    accumulated_text += formatted
+                    doc_to_indices.setdefault(p.doc_id, []).append(p.passage_index)
+                    passage_idx += 1
+
+            formatted_context = accumulated_text.strip()
+            total_tokens = estimate_tokens(formatted_context) if formatted_context else 0
+            if total_tokens <= budget:
+                break
+            if len(selected_raw_chunks) > 1:
+                selected_raw_chunks.pop()
+            elif selected_raw_chunks:
+                excess = total_tokens - budget + 16
+                c0 = selected_raw_chunks[0]
+                if _TOKENIZER is not None:
+                    toks = _TOKENIZER.encode(c0.chunk_text, add_special_tokens=False)
+                    if len(toks) > excess and len(toks) > 32:
+                        c0.chunk_text = _TOKENIZER.decode(toks[: max(32, len(toks) - excess)], skip_special_tokens=True)
+                        continue
+                break
+            else:
+                break
 
         unique_doc_ids = list(dict.fromkeys(p.doc_id for p in final_passages))
         unique_chunk_ids = [p.chunk_id for p in final_passages]
@@ -301,7 +398,7 @@ class ContextBuilder:
         max_conc = (max(doc_dist.values()) / total_p) if total_p > 0 else 0.0
 
         return AssembledContext(
-            formatted_context=accumulated_text.strip(),
+            formatted_context=formatted_context,
             passages=final_passages,
             total_tokens=total_tokens,
             unique_doc_ids=unique_doc_ids,

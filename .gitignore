@@ -35,6 +35,12 @@ htmlcov/
 .mypy_cache/
 .ruff_cache/
 
+# Evaluation caches and bulky checkpoints (DO NOT PUSH)
+evaluation/reports/cache/
+*.json.gz
+*checkpoint.json
+
+
 # OS and IDE files
 .DS_Store
 .AppleDouble

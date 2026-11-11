@@ -19,7 +19,7 @@ from typing import Any, Callable, Dict, List, Optional
 from rag.citation_validator import CitationValidator
 from rag.context_builder import ContextBuilder
 from rag.generator import AnswerGenerator, RAGAnswer
-from rag.llm import BaseLLMClient, MockLLM, OpenAICompatibleLLM
+from rag.llm import BaseLLMClient, MockLLM, OpenAICompatibleLLM, is_valid_key
 from retrieval.indexer import EnterpriseRetriever, RetrievalMode
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -59,22 +59,15 @@ class RAGPipeline:
             qdrant_path=q_path,
         )
 
-        # Initialize LLM client: use provided, or OpenAI/Groq if API key exists, otherwise MockLLM
+        # Initialize LLM client: use provided, or OpenAI/Groq if a valid API key exists, otherwise MockLLM
         if llm_client is None:
             has_api_key = bool(
-                os.getenv("OPENAI_API_KEY")
-                or os.getenv("GROQ_API_KEY")
-                or os.getenv("OPENAI_BASE_URL")
+                is_valid_key(os.getenv("OPENAI_API_KEY"))
+                or is_valid_key(os.getenv("GROQ_API_KEY"))
+                or is_valid_key(os.getenv("OPENAI_BASE_URL"))
             )
             if has_api_key:
-                effective_model = model_name
-                if (
-                    os.getenv("GROQ_API_KEY")
-                    and not os.getenv("OPENAI_API_KEY")
-                    and model_name == "gpt-4o-mini"
-                ):
-                    effective_model = "llama-3.1-8b-instant"
-                llm_client = OpenAICompatibleLLM(model=effective_model)
+                llm_client = OpenAICompatibleLLM(model=model_name)
             else:
                 llm_client = MockLLM()
 

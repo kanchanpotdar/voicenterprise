@@ -49,6 +49,8 @@ load_env_file()
 PRICING_PER_1K: Dict[str, Dict[str, float]] = {
     "gpt-4o-mini": {"prompt": 0.00015, "completion": 0.0006},
     "gpt-4o": {"prompt": 0.0025, "completion": 0.0100},
+    "openai/gpt-oss-120b": {"prompt": 0.00015, "completion": 0.00075},
+    "openai/gpt-oss-20b": {"prompt": 0.00010, "completion": 0.00050},
     "llama-3.1-8b-instant": {"prompt": 0.00005, "completion": 0.00008},
     "mock": {"prompt": 0.0, "completion": 0.0},
 }
@@ -173,6 +175,10 @@ class OpenAICompatibleLLM(BaseLLMClient):
                                 sleep_time = float(retry_after) if retry_after else (backoff * (attempt + 1))
                             except (ValueError, TypeError):
                                 sleep_time = backoff * (attempt + 1)
+                            if sleep_time > 60:
+                                raise RuntimeError(
+                                    f"Rate limit exceeded with large retry-after ({sleep_time}s): {resp.text}"
+                                )
                             time.sleep(max(1.0, sleep_time))
                             continue
 
@@ -217,6 +223,10 @@ class OpenAICompatibleLLM(BaseLLMClient):
                                     sleep_time = float(retry_after) if retry_after else (backoff * (attempt + 1))
                                 except (ValueError, TypeError):
                                     sleep_time = backoff * (attempt + 1)
+                                if sleep_time > 60:
+                                    raise RuntimeError(
+                                        f"Rate limit exceeded with large retry-after ({sleep_time}s): {resp.text}"
+                                    )
                                 time.sleep(max(1.0, sleep_time))
                                 continue
 

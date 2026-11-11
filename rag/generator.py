@@ -37,10 +37,11 @@ CRITICAL INSTRUCTIONS:
 
 ABSTENTION_PATTERNS = [
     r"\bcannot (?:be )?answer(?:ed)?\b",
-    r"\bnot (?:available|found|provided|mentioned|addressed|stated)\b",
+    r"\bnot (?:available|found|provided|mentioned|addressed|stated|spelled out|specified|documented|detailed)\b",
     r"\binsufficient (?:information|evidence|details|context|documentation)\b",
-    r"\bno (?:mention|record|evidence|information|documentation)\b",
-    r"\bdoes not (?:contain|state|mention|provide|specify)\b",
+    r"\bno (?:mention|record|evidence|information|documentation|details?)\b",
+    r"\bdoes not (?:contain|state|mention|provide|specify|detail)\b",
+    r"\bomitted from (?:the )?(?:available )?(?:documents|evidence)\b",
 ]
 
 CONTRADICTION_PATTERNS = [
@@ -80,6 +81,9 @@ class RAGAnswer:
     latency_ms: float
     model: str
     cost_estimate_usd: float = 0.0
+    prompt_tokens: int = 0
+    completion_tokens: int = 0
+    finish_reason: str = "stop"
     retrieval_ms: float = 0.0
     context_builder_ms: float = 0.0
     ttft_ms: float = 0.0
@@ -106,6 +110,9 @@ class RAGAnswer:
             "latency_ms": self.latency_ms,
             "model": self.model,
             "cost_estimate_usd": self.cost_estimate_usd,
+            "prompt_tokens": self.prompt_tokens,
+            "completion_tokens": self.completion_tokens,
+            "finish_reason": self.finish_reason,
             "retrieval_ms": self.retrieval_ms,
             "context_builder_ms": self.context_builder_ms,
             "ttft_ms": self.ttft_ms,
@@ -154,7 +161,7 @@ class AnswerGenerator:
         question: str,
         assembled_context: AssembledContext,
         temperature: float = 0.0,
-        max_tokens: int = 2048,
+        max_tokens: int = 4096,
         stream: bool = False,
         on_token: Optional[Callable[[str], None]] = None,
     ) -> RAGAnswer:
@@ -241,6 +248,9 @@ class AnswerGenerator:
             latency_ms=llm_resp.latency_ms,
             model=llm_resp.model,
             cost_estimate_usd=llm_resp.cost_estimate_usd,
+            prompt_tokens=llm_resp.prompt_tokens,
+            completion_tokens=llm_resp.completion_tokens,
+            finish_reason=llm_resp.finish_reason,
             ttft_ms=llm_resp.ttft_ms,
             generation_ms=round(generation_ms, 2),
             validation_ms=round(validation_ms, 2),

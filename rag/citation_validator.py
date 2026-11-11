@@ -197,6 +197,7 @@ class CitationValidator:
                 cited_count += 1
                 ids_valid = bool(all(d in supplied_doc_ids for d in s_docs))
                 # Audit claim-level support against cited documents
+                combined_cited = " ".join(doc_texts.get(d, "") for d in s_docs)
                 s_words = [
                     w.lower()
                     for w in re.findall(r"\b[a-zA-Z0-9_\-\.]{3,}\b", s)
@@ -205,7 +206,6 @@ class CitationValidator:
                 if not s_words:
                     overlap = 1.0
                 else:
-                    combined_cited = " ".join(doc_texts.get(d, "") for d in s_docs)
                     overlap = sum(1 for w in s_words if w in combined_cited) / len(s_words)
 
                 # Numerical consistency check: if the claim asserts specific quantities, verify they exist in cited text

@@ -1,0 +1,1771 @@
+{
+  "timestamp": "2026-10-23T06:40:32Z",
+  "summary": {
+    "C0_baseline": {
+      "all_targets_mean_recall_20": 0.29190476190476194,
+      "all_targets_mean_recall_40": 0.43931216931216927,
+      "diagnostic_14_mean_recall_20": 0.21904761904761905,
+      "diagnostic_14_mean_recall_40": 0.4033068783068783,
+      "diagnostic_14_complete_cov_20": 0.14285714285714285,
+      "diagnostic_14_complete_cov_40": 0.2857142857142857,
+      "audit_13_misses_mean_recall_20": 0.18296703296703296,
+      "audit_13_misses_mean_recall_40": 0.353052503052503,
+      "audit_13_misses_complete_cov_20": 0.07692307692307693,
+      "audit_13_misses_complete_cov_40": 0.23076923076923078
+    },
+    "C1_alternatives": {
+      "all_targets_mean_recall_20": 0.29931216931216936,
+      "all_targets_mean_recall_40": 0.5155026455026455,
+      "diagnostic_14_mean_recall_20": 0.22830687830687832,
+      "diagnostic_14_mean_recall_40": 0.49854497354497357,
+      "diagnostic_14_complete_cov_20": 0.14285714285714285,
+      "diagnostic_14_complete_cov_40": 0.35714285714285715,
+      "audit_13_misses_mean_recall_20": 0.19151404151404147,
+      "audit_13_misses_mean_recall_40": 0.4409645909645909,
+      "audit_13_misses_complete_cov_20": 0.07692307692307693,
+      "audit_13_misses_complete_cov_40": 0.3076923076923077
+    },
+    "C2_terminology": {
+      "all_targets_mean_recall_20": 0.29190476190476194,
+      "all_targets_mean_recall_40": 0.43931216931216927,
+      "diagnostic_14_mean_recall_20": 0.21904761904761905,
+      "diagnostic_14_mean_recall_40": 0.4033068783068783,
+      "diagnostic_14_complete_cov_20": 0.14285714285714285,
+      "diagnostic_14_complete_cov_40": 0.2857142857142857,
+      "audit_13_misses_mean_recall_20": 0.18296703296703296,
+      "audit_13_misses_mean_recall_40": 0.353052503052503,
+      "audit_13_misses_complete_cov_20": 0.07692307692307693,
+      "audit_13_misses_complete_cov_40": 0.23076923076923078
+    },
+    "D1_decomposition": {
+      "all_targets_mean_recall_20": 0.29190476190476194,
+      "all_targets_mean_recall_40": 0.43931216931216927,
+      "diagnostic_14_mean_recall_20": 0.21904761904761905,
+      "diagnostic_14_mean_recall_40": 0.4033068783068783,
+      "diagnostic_14_complete_cov_20": 0.14285714285714285,
+      "diagnostic_14_complete_cov_40": 0.2857142857142857,
+      "audit_13_misses_mean_recall_20": 0.18296703296703296,
+      "audit_13_misses_mean_recall_40": 0.353052503052503,
+      "audit_13_misses_complete_cov_20": 0.07692307692307693,
+      "audit_13_misses_complete_cov_40": 0.23076923076923078
+    }
+  },
+  "results_by_mode": {
+    "C0_baseline": {
+      "qst_0043": {
+        "question": "What caused the brief p99 latency jump on the hosted text generation endpoint in us-west-2, and what mitigation was applied to bring it back down?",
+        "question_type": "basic",
+        "num_gold_docs": 1,
+        "gold_docs": [
+          "dsid_321eee6325824623833bbe754bf83a0b"
+        ],
+        "gold_ranks": {
+          "dsid_321eee6325824623833bbe754bf83a0b": 39
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 1.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": true,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 1829.2751250119181
+      },
+      "qst_0139": {
+        "question": "What false positive threshold did the prospect set for suggested code review comments in the evaluation criteria for their PR review assistant POC?",
+        "question_type": "basic",
+        "num_gold_docs": 1,
+        "gold_docs": [
+          "dsid_9f92a42dc8d24c93a0a696a0727063b9"
+        ],
+        "gold_ranks": {
+          "dsid_9f92a42dc8d24c93a0a696a0727063b9": 36
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 1.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": true,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 1643.802708000294
+      },
+      "qst_0178": {
+        "question": "In the recent change that made low bit math safer for inference, what is the default pass rate used to decide when a machine is allowed to step down from the safest numeric mode?",
+        "question_type": "semantic",
+        "num_gold_docs": 1,
+        "gold_docs": [
+          "dsid_22a7e9af2760474dbdf611c2c21cd231"
+        ],
+        "gold_ranks": {
+          "dsid_22a7e9af2760474dbdf611c2c21cd231": ">40"
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 0.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 1421.0879580059554
+      },
+      "qst_0203": {
+        "question": "How should we automate the creation and teardown of short-lived experiment workspaces so that a request ticket spins up the needed tracking/docs/chat area, requires an approver before access is enabled, expires on a default one month timer with a simple extension, and writes an encrypted audit bundle to object storage when it shuts down?",
+        "question_type": "semantic",
+        "num_gold_docs": 1,
+        "gold_docs": [
+          "dsid_3d745c88c7e4426c9548350824f0d9b8"
+        ],
+        "gold_ranks": {
+          "dsid_3d745c88c7e4426c9548350824f0d9b8": ">40"
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 0.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 1561.9362500001444
+      },
+      "qst_0214": {
+        "question": "In the mid March 2026 incident where a regional dedicated serving cluster briefly ran out of spare capacity and the automatic scaler couldnt add nodes due to provider limit type errors, what exact build version did on call revert to in order to restore capacity?",
+        "question_type": "semantic",
+        "num_gold_docs": 1,
+        "gold_docs": [
+          "dsid_303196c831af4d1bb38a1e2546228a09"
+        ],
+        "gold_ranks": {
+          "dsid_303196c831af4d1bb38a1e2546228a09": ">40"
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 0.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 1494.4573749962728
+      },
+      "qst_0229": {
+        "question": "After a customer rotated credentials during a migration, their staging probes started alternating between auth failures complaining about a signature mismatch and throttling errors; what short lived workaround did support create so both legacy and new signing methods would be accepted during the rollout?",
+        "question_type": "semantic",
+        "num_gold_docs": 1,
+        "gold_docs": [
+          "dsid_38963978d7944613855e7413fa3a3838"
+        ],
+        "gold_ranks": {
+          "dsid_38963978d7944613855e7413fa3a3838": ">40"
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 0.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 1425.350207995507
+      },
+      "qst_0242": {
+        "question": "In the partner integration call about getting a third party AI service into another companys cloud catalog, what date did the security lead target for completing the pre publication image security smoke test?",
+        "question_type": "semantic",
+        "num_gold_docs": 1,
+        "gold_docs": [
+          "dsid_3fc14ed9048e4e1f861e0632b06fc39b"
+        ],
+        "gold_ranks": {
+          "dsid_3fc14ed9048e4e1f861e0632b06fc39b": ">40"
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 0.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 2035.7942919945344
+      },
+      "qst_0282": {
+        "question": "During a traffic surge in the US East production cluster for a healthcare customer with dedicated capacity, why did conversations that were supposed to stay locked to a specific model version sometimes get served by an experimental fallback instead?",
+        "question_type": "semantic",
+        "num_gold_docs": 1,
+        "gold_docs": [
+          "dsid_9adc7c1c81f54e0a88d0e0bee59a6588"
+        ],
+        "gold_ranks": {
+          "dsid_9adc7c1c81f54e0a88d0e0bee59a6588": ">40"
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 0.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 2345.088041998679
+      },
+      "qst_0356": {
+        "question": "For the Acme AI dedicated failover incident with intermittent 500s and fallback churn, what v1 incident type and primary owner should we set, and what time-to-mitigate and time-to-fix targets should CS use in customer updates?",
+        "question_type": "project_related",
+        "num_gold_docs": 4,
+        "gold_docs": [
+          "dsid_863d0cda2c984154baad1973513ed3da",
+          "dsid_5217b3a64c4a433c89ba2a3186dea82a",
+          "dsid_8e77536c5e0f4521b756d7b79b640e24",
+          "dsid_020bac2fb6ac4de28d5afb63e39a0c10"
+        ],
+        "gold_ranks": {
+          "dsid_863d0cda2c984154baad1973513ed3da": 15,
+          "dsid_5217b3a64c4a433c89ba2a3186dea82a": 3,
+          "dsid_8e77536c5e0f4521b756d7b79b640e24": 1,
+          "dsid_020bac2fb6ac4de28d5afb63e39a0c10": ">40"
+        },
+        "recall_at_5": 0.5,
+        "recall_at_10": 0.5,
+        "recall_at_20": 0.75,
+        "recall_at_40": 0.75,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 1742.473375008558
+      },
+      "qst_0413": {
+        "question": "Who approves terminating STALE-ORPHAN test instances after the 72h grace window-infra manager or cost-ops?",
+        "question_type": "conflicting_info",
+        "num_gold_docs": 2,
+        "gold_docs": [
+          "dsid_6df52fdb96ae4edcb76464738bca3340",
+          "dsid_6df52fdb96ae4edcb76464738bca3340"
+        ],
+        "gold_ranks": {
+          "dsid_6df52fdb96ae4edcb76464738bca3340": 1
+        },
+        "recall_at_5": 1.0,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_40": 1.0,
+        "complete_coverage_20": true,
+        "complete_coverage_40": true,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 1532.8511249972507
+      },
+      "qst_0427": {
+        "question": "ClearEdge 2027 pilot: final po_fingerprint format and weekly invoice delivery time?",
+        "question_type": "conflicting_info",
+        "num_gold_docs": 2,
+        "gold_docs": [
+          "dsid_86f033ed92b84f3a8b381d09b0b95357",
+          "dsid_d93aed75845e4a0b8126a80d8a7a5a41"
+        ],
+        "gold_ranks": {
+          "dsid_86f033ed92b84f3a8b381d09b0b95357": 2,
+          "dsid_d93aed75845e4a0b8126a80d8a7a5a41": 1
+        },
+        "recall_at_5": 1.0,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_40": 1.0,
+        "complete_coverage_20": true,
+        "complete_coverage_40": true,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 1901.037666000775
+      },
+      "qst_0436": {
+        "question": "Across Redwood's Go, Python, and TypeScript SDKs, which SDK has the highest number of customer-reported auth-related bug reports, and what are the corresponding support ticket IDs?",
+        "question_type": "completeness",
+        "num_gold_docs": 10,
+        "gold_docs": [
+          "dsid_a8af533a3f89402ca739bfdc5322b42e",
+          "dsid_3a5484e7e7164e389e76d188bce9f86e",
+          "dsid_1a160e1c00934f108e17183f44e3ca77",
+          "dsid_6f37b2b4341947028019bd41748eaff9",
+          "dsid_1f13ed74ef87494b81a2fc2617ab7746",
+          "dsid_1159814f66a340d79536516db194f623",
+          "dsid_c6efd46ecc6449ac8be1e53ed3803e92",
+          "dsid_8c707328a7fc444f84a8e00f90021866",
+          "dsid_98d534e949ce4fdd8ed5d651ec5ebe4b",
+          "dsid_65b12644ea52428b9c032d2cd9b75d8a"
+        ],
+        "gold_ranks": {
+          "dsid_a8af533a3f89402ca739bfdc5322b42e": ">40",
+          "dsid_3a5484e7e7164e389e76d188bce9f86e": ">40",
+          "dsid_1a160e1c00934f108e17183f44e3ca77": ">40",
+          "dsid_6f37b2b4341947028019bd41748eaff9": ">40",
+          "dsid_1f13ed74ef87494b81a2fc2617ab7746": ">40",
+          "dsid_1159814f66a340d79536516db194f623": ">40",
+          "dsid_c6efd46ecc6449ac8be1e53ed3803e92": ">40",
+          "dsid_8c707328a7fc444f84a8e00f90021866": 28,
+          "dsid_98d534e949ce4fdd8ed5d651ec5ebe4b": 1,
+          "dsid_65b12644ea52428b9c032d2cd9b75d8a": 11
+        },
+        "recall_at_5": 0.1,
+        "recall_at_10": 0.1,
+        "recall_at_20": 0.2,
+        "recall_at_40": 0.3,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 1993.3843339968007
+      },
+      "qst_0437": {
+        "question": "Across all incident postmortems, which Redwood team was assigned the most follow-up action items?",
+        "question_type": "completeness",
+        "num_gold_docs": 9,
+        "gold_docs": [
+          "dsid_15a9d93cc59c4241a97a7e72f749a216",
+          "dsid_0e0ac7276c864c63a02586fa07ae85e1",
+          "dsid_c0c93abadf4c438189e23cb45256c6e9",
+          "dsid_ac94dcaf2e1e4674b2351a8b4177db9e",
+          "dsid_98943148c00b42db859ec2d84649fe04",
+          "dsid_ed145ed8c9234a6681359188e2f43345",
+          "dsid_bd7caad8adb2405eaa7ad78c4ffb59d7",
+          "dsid_d373a0708d4144d684e495c52c16448a",
+          "dsid_ec406aef8d0342c78ae27025670daedf"
+        ],
+        "gold_ranks": {
+          "dsid_15a9d93cc59c4241a97a7e72f749a216": ">40",
+          "dsid_0e0ac7276c864c63a02586fa07ae85e1": ">40",
+          "dsid_c0c93abadf4c438189e23cb45256c6e9": 21,
+          "dsid_ac94dcaf2e1e4674b2351a8b4177db9e": ">40",
+          "dsid_98943148c00b42db859ec2d84649fe04": ">40",
+          "dsid_ed145ed8c9234a6681359188e2f43345": ">40",
+          "dsid_bd7caad8adb2405eaa7ad78c4ffb59d7": ">40",
+          "dsid_d373a0708d4144d684e495c52c16448a": ">40",
+          "dsid_ec406aef8d0342c78ae27025670daedf": ">40"
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 0.1111111111111111,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 2162.4709999887273
+      },
+      "qst_0447": {
+        "question": "What is Redwood Inference's complete end-to-end process for shipping an emergency serving-runtime hotfix to production (Hosted + Dedicated), including required approvals, checklists, rollout/rollback steps, and mandatory customer communications?",
+        "question_type": "completeness",
+        "num_gold_docs": 6,
+        "gold_docs": [
+          "dsid_452dc45d76754cbca8a3674170599633",
+          "dsid_e5fe3fd0cf444668a64970ec00818f46",
+          "dsid_ac2fdba09cc24cd98ba60f5da114780c",
+          "dsid_8c3d5e26a1c841199d3bcd7aea5d495e",
+          "dsid_6807c651b55546559733c7c6f8dc133d",
+          "dsid_5d509e588f994166a2ccc6e39cbf6cb5"
+        ],
+        "gold_ranks": {
+          "dsid_452dc45d76754cbca8a3674170599633": 2,
+          "dsid_e5fe3fd0cf444668a64970ec00818f46": 4,
+          "dsid_ac2fdba09cc24cd98ba60f5da114780c": 1,
+          "dsid_8c3d5e26a1c841199d3bcd7aea5d495e": 6,
+          "dsid_6807c651b55546559733c7c6f8dc133d": 5,
+          "dsid_5d509e588f994166a2ccc6e39cbf6cb5": 3
+        },
+        "recall_at_5": 0.8333333333333334,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_40": 1.0,
+        "complete_coverage_20": true,
+        "complete_coverage_40": true,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 2203.2782080059405
+      },
+      "qst_0448": {
+        "question": "Which customers have been granted an exception to Redwood\u2019s default inference request log retention policy, and what retention period was approved for each?",
+        "question_type": "completeness",
+        "num_gold_docs": 7,
+        "gold_docs": [
+          "dsid_e91e68b31a6f4935b87d6f74dd07e1f6",
+          "dsid_b793b06789ae4147884e94681c6beae1",
+          "dsid_6933f9241ef140da9d3bf98be52be867",
+          "dsid_b72bd7e0c91a4f8c9d9a13daf6ff3d28",
+          "dsid_84ec014ad9f14f1481b45484da41181a",
+          "dsid_67a8c3300752435296938175e9a1daf5",
+          "dsid_5f0ab47fe8de47a89bb6668f8722becf"
+        ],
+        "gold_ranks": {
+          "dsid_e91e68b31a6f4935b87d6f74dd07e1f6": 6,
+          "dsid_b793b06789ae4147884e94681c6beae1": 2,
+          "dsid_6933f9241ef140da9d3bf98be52be867": 1,
+          "dsid_b72bd7e0c91a4f8c9d9a13daf6ff3d28": ">40",
+          "dsid_84ec014ad9f14f1481b45484da41181a": ">40",
+          "dsid_67a8c3300752435296938175e9a1daf5": ">40",
+          "dsid_5f0ab47fe8de47a89bb6668f8722becf": ">40"
+        },
+        "recall_at_5": 0.2857142857142857,
+        "recall_at_10": 0.42857142857142855,
+        "recall_at_20": 0.42857142857142855,
+        "recall_at_40": 0.42857142857142855,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 1834.342000001925
+      },
+      "qst_0481": {
+        "question": "For the hot-route capacity protection rollout in us-east, which specific enterprise accounts were on the initial allowlist, and what were the exact per-route-group budget values (RPS, estimated TPS, and concurrency) configured for each of those accounts?",
+        "question_type": "info_not_found",
+        "num_gold_docs": 0,
+        "gold_docs": [],
+        "gold_ranks": {},
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 0.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 2237.808916994254
+      },
+      "qst_0499": {
+        "question": "For the `profiling.signals` Kafka topic used by trace-orch and fidelity-proxy, what are the current production settings (partition count and message retention time), and where can I find the approval/change record for the most recent update?",
+        "question_type": "info_not_found",
+        "num_gold_docs": 0,
+        "gold_docs": [],
+        "gold_ranks": {},
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 0.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 1980.040333000943
+      }
+    },
+    "C1_alternatives": {
+      "qst_0043": {
+        "question": "What caused the brief p99 latency jump on the hosted text generation endpoint in us-west-2, and what mitigation was applied to bring it back down?",
+        "question_type": "basic",
+        "num_gold_docs": 1,
+        "gold_docs": [
+          "dsid_321eee6325824623833bbe754bf83a0b"
+        ],
+        "gold_ranks": {
+          "dsid_321eee6325824623833bbe754bf83a0b": ">40"
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 0.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 3,
+        "expanded_queries": [
+          "us-west-2 hosted text generation endpoint p99 latency spike cause mitigation",
+          "text generation endpoint p99 latency jump us-west-2 incident root cause",
+          "us-west-2 text generation endpoint latency spike mitigation steps"
+        ],
+        "subquestions": [],
+        "retrieval_latency_ms": 8816.672250002739
+      },
+      "qst_0139": {
+        "question": "What false positive threshold did the prospect set for suggested code review comments in the evaluation criteria for their PR review assistant POC?",
+        "question_type": "basic",
+        "num_gold_docs": 1,
+        "gold_docs": [
+          "dsid_9f92a42dc8d24c93a0a696a0727063b9"
+        ],
+        "gold_ranks": {
+          "dsid_9f92a42dc8d24c93a0a696a0727063b9": 25
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 1.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": true,
+        "num_expanded_queries": 3,
+        "expanded_queries": [
+          "prospect false positive threshold suggested code review comments evaluation criteria PR review assistant POC",
+          "evaluation criteria for PR review assistant POC false positive threshold on suggested code review comments set by prospect",
+          "prospect set false positive threshold for suggested code review comments in PR review assistant POC evaluation"
+        ],
+        "subquestions": [],
+        "retrieval_latency_ms": 8145.851291992585
+      },
+      "qst_0178": {
+        "question": "In the recent change that made low bit math safer for inference, what is the default pass rate used to decide when a machine is allowed to step down from the safest numeric mode?",
+        "question_type": "semantic",
+        "num_gold_docs": 1,
+        "gold_docs": [
+          "dsid_22a7e9af2760474dbdf611c2c21cd231"
+        ],
+        "gold_ranks": {
+          "dsid_22a7e9af2760474dbdf611c2c21cd231": ">40"
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 0.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 2951.440457996796
+      },
+      "qst_0203": {
+        "question": "How should we automate the creation and teardown of short-lived experiment workspaces so that a request ticket spins up the needed tracking/docs/chat area, requires an approver before access is enabled, expires on a default one month timer with a simple extension, and writes an encrypted audit bundle to object storage when it shuts down?",
+        "question_type": "semantic",
+        "num_gold_docs": 1,
+        "gold_docs": [
+          "dsid_3d745c88c7e4426c9548350824f0d9b8"
+        ],
+        "gold_ranks": {
+          "dsid_3d745c88c7e4426c9548350824f0d9b8": 23
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 1.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": true,
+        "num_expanded_queries": 3,
+        "expanded_queries": [
+          "automate creation and teardown of short\u2011lived experiment workspaces with approval workflow and one\u2011month expiration",
+          "request ticket spin up tracking/docs/chat area, require approver before access, default one\u2011month timer, simple extension, encrypted audit bundle to object storage",
+          "implement lifecycle management for experiment workspaces: approval, auto\u2011expiration, audit bundle encryption, object storage cleanup"
+        ],
+        "subquestions": [],
+        "retrieval_latency_ms": 8879.03554100194
+      },
+      "qst_0214": {
+        "question": "In the mid March 2026 incident where a regional dedicated serving cluster briefly ran out of spare capacity and the automatic scaler couldnt add nodes due to provider limit type errors, what exact build version did on call revert to in order to restore capacity?",
+        "question_type": "semantic",
+        "num_gold_docs": 1,
+        "gold_docs": [
+          "dsid_303196c831af4d1bb38a1e2546228a09"
+        ],
+        "gold_ranks": {
+          "dsid_303196c831af4d1bb38a1e2546228a09": ">40"
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 0.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 3,
+        "expanded_queries": [
+          "mid March 2026 incident regional dedicated serving cluster spare capacity automatic scaler provider limit type errors on call revert build version",
+          "2026-03 incident dedicated serving cluster capacity outage automatic scaler provider limit errors revert build version",
+          "mid March 2026 cluster capacity outage provider limit type errors on call revert build version"
+        ],
+        "subquestions": [],
+        "retrieval_latency_ms": 7726.6728339891415
+      },
+      "qst_0229": {
+        "question": "After a customer rotated credentials during a migration, their staging probes started alternating between auth failures complaining about a signature mismatch and throttling errors; what short lived workaround did support create so both legacy and new signing methods would be accepted during the rollout?",
+        "question_type": "semantic",
+        "num_gold_docs": 1,
+        "gold_docs": [
+          "dsid_38963978d7944613855e7413fa3a3838"
+        ],
+        "gold_ranks": {
+          "dsid_38963978d7944613855e7413fa3a3838": ">40"
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 0.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 3114.4184579898138
+      },
+      "qst_0242": {
+        "question": "In the partner integration call about getting a third party AI service into another companys cloud catalog, what date did the security lead target for completing the pre publication image security smoke test?",
+        "question_type": "semantic",
+        "num_gold_docs": 1,
+        "gold_docs": [
+          "dsid_3fc14ed9048e4e1f861e0632b06fc39b"
+        ],
+        "gold_ranks": {
+          "dsid_3fc14ed9048e4e1f861e0632b06fc39b": ">40"
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 0.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 3,
+        "expanded_queries": [
+          "partner integration call third party AI service cloud catalog pre publication image security smoke test date",
+          "security lead target date pre publication image security smoke test partner integration call",
+          "pre publication image security smoke test completion date partner integration call third party AI service"
+        ],
+        "subquestions": [],
+        "retrieval_latency_ms": 7029.699000006076
+      },
+      "qst_0282": {
+        "question": "During a traffic surge in the US East production cluster for a healthcare customer with dedicated capacity, why did conversations that were supposed to stay locked to a specific model version sometimes get served by an experimental fallback instead?",
+        "question_type": "semantic",
+        "num_gold_docs": 1,
+        "gold_docs": [
+          "dsid_9adc7c1c81f54e0a88d0e0bee59a6588"
+        ],
+        "gold_ranks": {
+          "dsid_9adc7c1c81f54e0a88d0e0bee59a6588": 28
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 1.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": true,
+        "num_expanded_queries": 3,
+        "expanded_queries": [
+          "US East production cluster traffic surge healthcare customer dedicated capacity model version lock experimental fallback cause",
+          "why conversations locked to specific model version served by experimental fallback during traffic surge in US East production cluster for healthcare customer with dedicated capacity",
+          "experimental fallback served instead of locked model version during US East production cluster surge for healthcare customer dedicated capacity"
+        ],
+        "subquestions": [],
+        "retrieval_latency_ms": 10102.920749995974
+      },
+      "qst_0356": {
+        "question": "For the Acme AI dedicated failover incident with intermittent 500s and fallback churn, what v1 incident type and primary owner should we set, and what time-to-mitigate and time-to-fix targets should CS use in customer updates?",
+        "question_type": "project_related",
+        "num_gold_docs": 4,
+        "gold_docs": [
+          "dsid_863d0cda2c984154baad1973513ed3da",
+          "dsid_5217b3a64c4a433c89ba2a3186dea82a",
+          "dsid_8e77536c5e0f4521b756d7b79b640e24",
+          "dsid_020bac2fb6ac4de28d5afb63e39a0c10"
+        ],
+        "gold_ranks": {
+          "dsid_863d0cda2c984154baad1973513ed3da": 15,
+          "dsid_5217b3a64c4a433c89ba2a3186dea82a": 5,
+          "dsid_8e77536c5e0f4521b756d7b79b640e24": 1,
+          "dsid_020bac2fb6ac4de28d5afb63e39a0c10": ">40"
+        },
+        "recall_at_5": 0.5,
+        "recall_at_10": 0.5,
+        "recall_at_20": 0.75,
+        "recall_at_40": 0.75,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 3,
+        "expanded_queries": [
+          "Acme AI dedicated failover incident v1 incident type primary owner time\u2011to\u2011mitigate time\u2011to\u2011fix CS updates",
+          "Acme AI dedicated failover incident intermittent 500s fallback churn incident type owner guidelines",
+          "Acme AI dedicated failover incident CS customer update time\u2011to\u2011mitigate time\u2011to\u2011fix targets"
+        ],
+        "subquestions": [],
+        "retrieval_latency_ms": 9111.033125009271
+      },
+      "qst_0413": {
+        "question": "Who approves terminating STALE-ORPHAN test instances after the 72h grace window-infra manager or cost-ops?",
+        "question_type": "conflicting_info",
+        "num_gold_docs": 2,
+        "gold_docs": [
+          "dsid_6df52fdb96ae4edcb76464738bca3340",
+          "dsid_6df52fdb96ae4edcb76464738bca3340"
+        ],
+        "gold_ranks": {
+          "dsid_6df52fdb96ae4edcb76464738bca3340": 1
+        },
+        "recall_at_5": 1.0,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_40": 1.0,
+        "complete_coverage_20": true,
+        "complete_coverage_40": true,
+        "num_expanded_queries": 3,
+        "expanded_queries": [
+          "Who approves termination of STALE-ORPHAN test instances after the 72h grace window in infra operations?",
+          "Which role (infra manager or cost-ops) is responsible for approving the deletion of STALE-ORPHAN test instances post 72h grace period?",
+          "Approval process for terminating STALE-ORPHAN test instances after 72 hours grace window \u2013 infra manager vs cost-ops?"
+        ],
+        "subquestions": [],
+        "retrieval_latency_ms": 8481.304417000501
+      },
+      "qst_0427": {
+        "question": "ClearEdge 2027 pilot: final po_fingerprint format and weekly invoice delivery time?",
+        "question_type": "conflicting_info",
+        "num_gold_docs": 2,
+        "gold_docs": [
+          "dsid_86f033ed92b84f3a8b381d09b0b95357",
+          "dsid_d93aed75845e4a0b8126a80d8a7a5a41"
+        ],
+        "gold_ranks": {
+          "dsid_86f033ed92b84f3a8b381d09b0b95357": 2,
+          "dsid_d93aed75845e4a0b8126a80d8a7a5a41": 1
+        },
+        "recall_at_5": 1.0,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_40": 1.0,
+        "complete_coverage_20": true,
+        "complete_coverage_40": true,
+        "num_expanded_queries": 3,
+        "expanded_queries": [
+          "ClearEdge 2027 pilot final po_fingerprint format",
+          "ClearEdge 2027 pilot weekly invoice delivery time",
+          "ClearEdge 2027 pilot po_fingerprint format and invoice delivery schedule"
+        ],
+        "subquestions": [],
+        "retrieval_latency_ms": 6970.068499998888
+      },
+      "qst_0436": {
+        "question": "Across Redwood's Go, Python, and TypeScript SDKs, which SDK has the highest number of customer-reported auth-related bug reports, and what are the corresponding support ticket IDs?",
+        "question_type": "completeness",
+        "num_gold_docs": 10,
+        "gold_docs": [
+          "dsid_a8af533a3f89402ca739bfdc5322b42e",
+          "dsid_3a5484e7e7164e389e76d188bce9f86e",
+          "dsid_1a160e1c00934f108e17183f44e3ca77",
+          "dsid_6f37b2b4341947028019bd41748eaff9",
+          "dsid_1f13ed74ef87494b81a2fc2617ab7746",
+          "dsid_1159814f66a340d79536516db194f623",
+          "dsid_c6efd46ecc6449ac8be1e53ed3803e92",
+          "dsid_8c707328a7fc444f84a8e00f90021866",
+          "dsid_98d534e949ce4fdd8ed5d651ec5ebe4b",
+          "dsid_65b12644ea52428b9c032d2cd9b75d8a"
+        ],
+        "gold_ranks": {
+          "dsid_a8af533a3f89402ca739bfdc5322b42e": ">40",
+          "dsid_3a5484e7e7164e389e76d188bce9f86e": ">40",
+          "dsid_1a160e1c00934f108e17183f44e3ca77": ">40",
+          "dsid_6f37b2b4341947028019bd41748eaff9": ">40",
+          "dsid_1f13ed74ef87494b81a2fc2617ab7746": ">40",
+          "dsid_1159814f66a340d79536516db194f623": ">40",
+          "dsid_c6efd46ecc6449ac8be1e53ed3803e92": ">40",
+          "dsid_8c707328a7fc444f84a8e00f90021866": 28,
+          "dsid_98d534e949ce4fdd8ed5d651ec5ebe4b": 1,
+          "dsid_65b12644ea52428b9c032d2cd9b75d8a": 11
+        },
+        "recall_at_5": 0.1,
+        "recall_at_10": 0.1,
+        "recall_at_20": 0.2,
+        "recall_at_40": 0.3,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 3081.945458005066
+      },
+      "qst_0437": {
+        "question": "Across all incident postmortems, which Redwood team was assigned the most follow-up action items?",
+        "question_type": "completeness",
+        "num_gold_docs": 9,
+        "gold_docs": [
+          "dsid_15a9d93cc59c4241a97a7e72f749a216",
+          "dsid_0e0ac7276c864c63a02586fa07ae85e1",
+          "dsid_c0c93abadf4c438189e23cb45256c6e9",
+          "dsid_ac94dcaf2e1e4674b2351a8b4177db9e",
+          "dsid_98943148c00b42db859ec2d84649fe04",
+          "dsid_ed145ed8c9234a6681359188e2f43345",
+          "dsid_bd7caad8adb2405eaa7ad78c4ffb59d7",
+          "dsid_d373a0708d4144d684e495c52c16448a",
+          "dsid_ec406aef8d0342c78ae27025670daedf"
+        ],
+        "gold_ranks": {
+          "dsid_15a9d93cc59c4241a97a7e72f749a216": ">40",
+          "dsid_0e0ac7276c864c63a02586fa07ae85e1": ">40",
+          "dsid_c0c93abadf4c438189e23cb45256c6e9": 20,
+          "dsid_ac94dcaf2e1e4674b2351a8b4177db9e": ">40",
+          "dsid_98943148c00b42db859ec2d84649fe04": ">40",
+          "dsid_ed145ed8c9234a6681359188e2f43345": ">40",
+          "dsid_bd7caad8adb2405eaa7ad78c4ffb59d7": ">40",
+          "dsid_d373a0708d4144d684e495c52c16448a": ">40",
+          "dsid_ec406aef8d0342c78ae27025670daedf": ">40"
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.1111111111111111,
+        "recall_at_40": 0.1111111111111111,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 3,
+        "expanded_queries": [
+          "Redwood incident postmortem follow\u2011up action items team assignment",
+          "Redwood postmortem action items by team across all incidents",
+          "Which Redwood team has the highest number of follow\u2011up items in incident postmortems"
+        ],
+        "subquestions": [],
+        "retrieval_latency_ms": 7067.378791994997
+      },
+      "qst_0447": {
+        "question": "What is Redwood Inference's complete end-to-end process for shipping an emergency serving-runtime hotfix to production (Hosted + Dedicated), including required approvals, checklists, rollout/rollback steps, and mandatory customer communications?",
+        "question_type": "completeness",
+        "num_gold_docs": 6,
+        "gold_docs": [
+          "dsid_452dc45d76754cbca8a3674170599633",
+          "dsid_e5fe3fd0cf444668a64970ec00818f46",
+          "dsid_ac2fdba09cc24cd98ba60f5da114780c",
+          "dsid_8c3d5e26a1c841199d3bcd7aea5d495e",
+          "dsid_6807c651b55546559733c7c6f8dc133d",
+          "dsid_5d509e588f994166a2ccc6e39cbf6cb5"
+        ],
+        "gold_ranks": {
+          "dsid_452dc45d76754cbca8a3674170599633": 2,
+          "dsid_e5fe3fd0cf444668a64970ec00818f46": 4,
+          "dsid_ac2fdba09cc24cd98ba60f5da114780c": 1,
+          "dsid_8c3d5e26a1c841199d3bcd7aea5d495e": 6,
+          "dsid_6807c651b55546559733c7c6f8dc133d": 5,
+          "dsid_5d509e588f994166a2ccc6e39cbf6cb5": 3
+        },
+        "recall_at_5": 0.8333333333333334,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_40": 1.0,
+        "complete_coverage_20": true,
+        "complete_coverage_40": true,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 3631.199417010066
+      },
+      "qst_0448": {
+        "question": "Which customers have been granted an exception to Redwood\u2019s default inference request log retention policy, and what retention period was approved for each?",
+        "question_type": "completeness",
+        "num_gold_docs": 7,
+        "gold_docs": [
+          "dsid_e91e68b31a6f4935b87d6f74dd07e1f6",
+          "dsid_b793b06789ae4147884e94681c6beae1",
+          "dsid_6933f9241ef140da9d3bf98be52be867",
+          "dsid_b72bd7e0c91a4f8c9d9a13daf6ff3d28",
+          "dsid_84ec014ad9f14f1481b45484da41181a",
+          "dsid_67a8c3300752435296938175e9a1daf5",
+          "dsid_5f0ab47fe8de47a89bb6668f8722becf"
+        ],
+        "gold_ranks": {
+          "dsid_e91e68b31a6f4935b87d6f74dd07e1f6": 6,
+          "dsid_b793b06789ae4147884e94681c6beae1": 2,
+          "dsid_6933f9241ef140da9d3bf98be52be867": 1,
+          "dsid_b72bd7e0c91a4f8c9d9a13daf6ff3d28": ">40",
+          "dsid_84ec014ad9f14f1481b45484da41181a": ">40",
+          "dsid_67a8c3300752435296938175e9a1daf5": 35,
+          "dsid_5f0ab47fe8de47a89bb6668f8722becf": ">40"
+        },
+        "recall_at_5": 0.2857142857142857,
+        "recall_at_10": 0.42857142857142855,
+        "recall_at_20": 0.42857142857142855,
+        "recall_at_40": 0.5714285714285714,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 3,
+        "expanded_queries": [
+          "Redwood default inference request log retention policy exception customers retention period",
+          "Redwood inference log retention policy exceptions approved retention periods per customer",
+          "Which customers have an exception to Redwood's default inference request log retention policy and what retention period was approved?"
+        ],
+        "subquestions": [],
+        "retrieval_latency_ms": 7005.390374994022
+      },
+      "qst_0481": {
+        "question": "For the hot-route capacity protection rollout in us-east, which specific enterprise accounts were on the initial allowlist, and what were the exact per-route-group budget values (RPS, estimated TPS, and concurrency) configured for each of those accounts?",
+        "question_type": "info_not_found",
+        "num_gold_docs": 0,
+        "gold_docs": [],
+        "gold_ranks": {},
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 0.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 3,
+        "expanded_queries": [
+          "hot-route capacity protection rollout us-east initial allowlist enterprise accounts per-route-group budget values RPS estimated TPS concurrency",
+          "us-east hot-route capacity protection rollout allowlist enterprise accounts RPS TPS concurrency per-route-group configuration",
+          "hot-route capacity protection rollout us-east allowlist enterprise accounts budget configuration RPS TPS concurrency per-route-group"
+        ],
+        "subquestions": [],
+        "retrieval_latency_ms": 7267.008499999065
+      },
+      "qst_0499": {
+        "question": "For the `profiling.signals` Kafka topic used by trace-orch and fidelity-proxy, what are the current production settings (partition count and message retention time), and where can I find the approval/change record for the most recent update?",
+        "question_type": "info_not_found",
+        "num_gold_docs": 0,
+        "gold_docs": [],
+        "gold_ranks": {},
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 0.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 3,
+        "expanded_queries": [
+          "profiling.signals Kafka topic partition count retention time production settings trace-orch fidelity-proxy approval change record",
+          "profiling.signals topic production configuration partition retention trace-orch fidelity-proxy change approval log",
+          "profiling.signals Kafka topic current settings partition count retention time trace-orch fidelity-proxy change approval record"
+        ],
+        "subquestions": [],
+        "retrieval_latency_ms": 8843.464875011705
+      }
+    },
+    "C2_terminology": {
+      "qst_0043": {
+        "question": "What caused the brief p99 latency jump on the hosted text generation endpoint in us-west-2, and what mitigation was applied to bring it back down?",
+        "question_type": "basic",
+        "num_gold_docs": 1,
+        "gold_docs": [
+          "dsid_321eee6325824623833bbe754bf83a0b"
+        ],
+        "gold_ranks": {
+          "dsid_321eee6325824623833bbe754bf83a0b": 39
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 1.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": true,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 2912.274999995134
+      },
+      "qst_0139": {
+        "question": "What false positive threshold did the prospect set for suggested code review comments in the evaluation criteria for their PR review assistant POC?",
+        "question_type": "basic",
+        "num_gold_docs": 1,
+        "gold_docs": [
+          "dsid_9f92a42dc8d24c93a0a696a0727063b9"
+        ],
+        "gold_ranks": {
+          "dsid_9f92a42dc8d24c93a0a696a0727063b9": 36
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 1.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": true,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 2872.977291990537
+      },
+      "qst_0178": {
+        "question": "In the recent change that made low bit math safer for inference, what is the default pass rate used to decide when a machine is allowed to step down from the safest numeric mode?",
+        "question_type": "semantic",
+        "num_gold_docs": 1,
+        "gold_docs": [
+          "dsid_22a7e9af2760474dbdf611c2c21cd231"
+        ],
+        "gold_ranks": {
+          "dsid_22a7e9af2760474dbdf611c2c21cd231": ">40"
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 0.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 2516.3622079999186
+      },
+      "qst_0203": {
+        "question": "How should we automate the creation and teardown of short-lived experiment workspaces so that a request ticket spins up the needed tracking/docs/chat area, requires an approver before access is enabled, expires on a default one month timer with a simple extension, and writes an encrypted audit bundle to object storage when it shuts down?",
+        "question_type": "semantic",
+        "num_gold_docs": 1,
+        "gold_docs": [
+          "dsid_3d745c88c7e4426c9548350824f0d9b8"
+        ],
+        "gold_ranks": {
+          "dsid_3d745c88c7e4426c9548350824f0d9b8": ">40"
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 0.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 3077.489165996667
+      },
+      "qst_0214": {
+        "question": "In the mid March 2026 incident where a regional dedicated serving cluster briefly ran out of spare capacity and the automatic scaler couldnt add nodes due to provider limit type errors, what exact build version did on call revert to in order to restore capacity?",
+        "question_type": "semantic",
+        "num_gold_docs": 1,
+        "gold_docs": [
+          "dsid_303196c831af4d1bb38a1e2546228a09"
+        ],
+        "gold_ranks": {
+          "dsid_303196c831af4d1bb38a1e2546228a09": ">40"
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 0.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 2988.8105409918353
+      },
+      "qst_0229": {
+        "question": "After a customer rotated credentials during a migration, their staging probes started alternating between auth failures complaining about a signature mismatch and throttling errors; what short lived workaround did support create so both legacy and new signing methods would be accepted during the rollout?",
+        "question_type": "semantic",
+        "num_gold_docs": 1,
+        "gold_docs": [
+          "dsid_38963978d7944613855e7413fa3a3838"
+        ],
+        "gold_ranks": {
+          "dsid_38963978d7944613855e7413fa3a3838": ">40"
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 0.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 2290.380374994129
+      },
+      "qst_0242": {
+        "question": "In the partner integration call about getting a third party AI service into another companys cloud catalog, what date did the security lead target for completing the pre publication image security smoke test?",
+        "question_type": "semantic",
+        "num_gold_docs": 1,
+        "gold_docs": [
+          "dsid_3fc14ed9048e4e1f861e0632b06fc39b"
+        ],
+        "gold_ranks": {
+          "dsid_3fc14ed9048e4e1f861e0632b06fc39b": ">40"
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 0.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 3066.4887919992907
+      },
+      "qst_0282": {
+        "question": "During a traffic surge in the US East production cluster for a healthcare customer with dedicated capacity, why did conversations that were supposed to stay locked to a specific model version sometimes get served by an experimental fallback instead?",
+        "question_type": "semantic",
+        "num_gold_docs": 1,
+        "gold_docs": [
+          "dsid_9adc7c1c81f54e0a88d0e0bee59a6588"
+        ],
+        "gold_ranks": {
+          "dsid_9adc7c1c81f54e0a88d0e0bee59a6588": ">40"
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 0.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 3276.2161669961642
+      },
+      "qst_0356": {
+        "question": "For the Acme AI dedicated failover incident with intermittent 500s and fallback churn, what v1 incident type and primary owner should we set, and what time-to-mitigate and time-to-fix targets should CS use in customer updates?",
+        "question_type": "project_related",
+        "num_gold_docs": 4,
+        "gold_docs": [
+          "dsid_863d0cda2c984154baad1973513ed3da",
+          "dsid_5217b3a64c4a433c89ba2a3186dea82a",
+          "dsid_8e77536c5e0f4521b756d7b79b640e24",
+          "dsid_020bac2fb6ac4de28d5afb63e39a0c10"
+        ],
+        "gold_ranks": {
+          "dsid_863d0cda2c984154baad1973513ed3da": 15,
+          "dsid_5217b3a64c4a433c89ba2a3186dea82a": 3,
+          "dsid_8e77536c5e0f4521b756d7b79b640e24": 1,
+          "dsid_020bac2fb6ac4de28d5afb63e39a0c10": ">40"
+        },
+        "recall_at_5": 0.5,
+        "recall_at_10": 0.5,
+        "recall_at_20": 0.75,
+        "recall_at_40": 0.75,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 3094.696083004237
+      },
+      "qst_0413": {
+        "question": "Who approves terminating STALE-ORPHAN test instances after the 72h grace window-infra manager or cost-ops?",
+        "question_type": "conflicting_info",
+        "num_gold_docs": 2,
+        "gold_docs": [
+          "dsid_6df52fdb96ae4edcb76464738bca3340",
+          "dsid_6df52fdb96ae4edcb76464738bca3340"
+        ],
+        "gold_ranks": {
+          "dsid_6df52fdb96ae4edcb76464738bca3340": 1
+        },
+        "recall_at_5": 1.0,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_40": 1.0,
+        "complete_coverage_20": true,
+        "complete_coverage_40": true,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 3050.2994999988005
+      },
+      "qst_0427": {
+        "question": "ClearEdge 2027 pilot: final po_fingerprint format and weekly invoice delivery time?",
+        "question_type": "conflicting_info",
+        "num_gold_docs": 2,
+        "gold_docs": [
+          "dsid_86f033ed92b84f3a8b381d09b0b95357",
+          "dsid_d93aed75845e4a0b8126a80d8a7a5a41"
+        ],
+        "gold_ranks": {
+          "dsid_86f033ed92b84f3a8b381d09b0b95357": 2,
+          "dsid_d93aed75845e4a0b8126a80d8a7a5a41": 1
+        },
+        "recall_at_5": 1.0,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_40": 1.0,
+        "complete_coverage_20": true,
+        "complete_coverage_40": true,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 2636.460999987321
+      },
+      "qst_0436": {
+        "question": "Across Redwood's Go, Python, and TypeScript SDKs, which SDK has the highest number of customer-reported auth-related bug reports, and what are the corresponding support ticket IDs?",
+        "question_type": "completeness",
+        "num_gold_docs": 10,
+        "gold_docs": [
+          "dsid_a8af533a3f89402ca739bfdc5322b42e",
+          "dsid_3a5484e7e7164e389e76d188bce9f86e",
+          "dsid_1a160e1c00934f108e17183f44e3ca77",
+          "dsid_6f37b2b4341947028019bd41748eaff9",
+          "dsid_1f13ed74ef87494b81a2fc2617ab7746",
+          "dsid_1159814f66a340d79536516db194f623",
+          "dsid_c6efd46ecc6449ac8be1e53ed3803e92",
+          "dsid_8c707328a7fc444f84a8e00f90021866",
+          "dsid_98d534e949ce4fdd8ed5d651ec5ebe4b",
+          "dsid_65b12644ea52428b9c032d2cd9b75d8a"
+        ],
+        "gold_ranks": {
+          "dsid_a8af533a3f89402ca739bfdc5322b42e": ">40",
+          "dsid_3a5484e7e7164e389e76d188bce9f86e": ">40",
+          "dsid_1a160e1c00934f108e17183f44e3ca77": ">40",
+          "dsid_6f37b2b4341947028019bd41748eaff9": ">40",
+          "dsid_1f13ed74ef87494b81a2fc2617ab7746": ">40",
+          "dsid_1159814f66a340d79536516db194f623": ">40",
+          "dsid_c6efd46ecc6449ac8be1e53ed3803e92": ">40",
+          "dsid_8c707328a7fc444f84a8e00f90021866": 28,
+          "dsid_98d534e949ce4fdd8ed5d651ec5ebe4b": 1,
+          "dsid_65b12644ea52428b9c032d2cd9b75d8a": 11
+        },
+        "recall_at_5": 0.1,
+        "recall_at_10": 0.1,
+        "recall_at_20": 0.2,
+        "recall_at_40": 0.3,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 3818.0239590001293
+      },
+      "qst_0437": {
+        "question": "Across all incident postmortems, which Redwood team was assigned the most follow-up action items?",
+        "question_type": "completeness",
+        "num_gold_docs": 9,
+        "gold_docs": [
+          "dsid_15a9d93cc59c4241a97a7e72f749a216",
+          "dsid_0e0ac7276c864c63a02586fa07ae85e1",
+          "dsid_c0c93abadf4c438189e23cb45256c6e9",
+          "dsid_ac94dcaf2e1e4674b2351a8b4177db9e",
+          "dsid_98943148c00b42db859ec2d84649fe04",
+          "dsid_ed145ed8c9234a6681359188e2f43345",
+          "dsid_bd7caad8adb2405eaa7ad78c4ffb59d7",
+          "dsid_d373a0708d4144d684e495c52c16448a",
+          "dsid_ec406aef8d0342c78ae27025670daedf"
+        ],
+        "gold_ranks": {
+          "dsid_15a9d93cc59c4241a97a7e72f749a216": ">40",
+          "dsid_0e0ac7276c864c63a02586fa07ae85e1": ">40",
+          "dsid_c0c93abadf4c438189e23cb45256c6e9": 21,
+          "dsid_ac94dcaf2e1e4674b2351a8b4177db9e": ">40",
+          "dsid_98943148c00b42db859ec2d84649fe04": ">40",
+          "dsid_ed145ed8c9234a6681359188e2f43345": ">40",
+          "dsid_bd7caad8adb2405eaa7ad78c4ffb59d7": ">40",
+          "dsid_d373a0708d4144d684e495c52c16448a": ">40",
+          "dsid_ec406aef8d0342c78ae27025670daedf": ">40"
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 0.1111111111111111,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 2903.9725420007017
+      },
+      "qst_0447": {
+        "question": "What is Redwood Inference's complete end-to-end process for shipping an emergency serving-runtime hotfix to production (Hosted + Dedicated), including required approvals, checklists, rollout/rollback steps, and mandatory customer communications?",
+        "question_type": "completeness",
+        "num_gold_docs": 6,
+        "gold_docs": [
+          "dsid_452dc45d76754cbca8a3674170599633",
+          "dsid_e5fe3fd0cf444668a64970ec00818f46",
+          "dsid_ac2fdba09cc24cd98ba60f5da114780c",
+          "dsid_8c3d5e26a1c841199d3bcd7aea5d495e",
+          "dsid_6807c651b55546559733c7c6f8dc133d",
+          "dsid_5d509e588f994166a2ccc6e39cbf6cb5"
+        ],
+        "gold_ranks": {
+          "dsid_452dc45d76754cbca8a3674170599633": 2,
+          "dsid_e5fe3fd0cf444668a64970ec00818f46": 4,
+          "dsid_ac2fdba09cc24cd98ba60f5da114780c": 1,
+          "dsid_8c3d5e26a1c841199d3bcd7aea5d495e": 6,
+          "dsid_6807c651b55546559733c7c6f8dc133d": 5,
+          "dsid_5d509e588f994166a2ccc6e39cbf6cb5": 3
+        },
+        "recall_at_5": 0.8333333333333334,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_40": 1.0,
+        "complete_coverage_20": true,
+        "complete_coverage_40": true,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 3541.41466699366
+      },
+      "qst_0448": {
+        "question": "Which customers have been granted an exception to Redwood\u2019s default inference request log retention policy, and what retention period was approved for each?",
+        "question_type": "completeness",
+        "num_gold_docs": 7,
+        "gold_docs": [
+          "dsid_e91e68b31a6f4935b87d6f74dd07e1f6",
+          "dsid_b793b06789ae4147884e94681c6beae1",
+          "dsid_6933f9241ef140da9d3bf98be52be867",
+          "dsid_b72bd7e0c91a4f8c9d9a13daf6ff3d28",
+          "dsid_84ec014ad9f14f1481b45484da41181a",
+          "dsid_67a8c3300752435296938175e9a1daf5",
+          "dsid_5f0ab47fe8de47a89bb6668f8722becf"
+        ],
+        "gold_ranks": {
+          "dsid_e91e68b31a6f4935b87d6f74dd07e1f6": 6,
+          "dsid_b793b06789ae4147884e94681c6beae1": 2,
+          "dsid_6933f9241ef140da9d3bf98be52be867": 1,
+          "dsid_b72bd7e0c91a4f8c9d9a13daf6ff3d28": ">40",
+          "dsid_84ec014ad9f14f1481b45484da41181a": ">40",
+          "dsid_67a8c3300752435296938175e9a1daf5": ">40",
+          "dsid_5f0ab47fe8de47a89bb6668f8722becf": ">40"
+        },
+        "recall_at_5": 0.2857142857142857,
+        "recall_at_10": 0.42857142857142855,
+        "recall_at_20": 0.42857142857142855,
+        "recall_at_40": 0.42857142857142855,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 4648.954375006724
+      },
+      "qst_0481": {
+        "question": "For the hot-route capacity protection rollout in us-east, which specific enterprise accounts were on the initial allowlist, and what were the exact per-route-group budget values (RPS, estimated TPS, and concurrency) configured for each of those accounts?",
+        "question_type": "info_not_found",
+        "num_gold_docs": 0,
+        "gold_docs": [],
+        "gold_ranks": {},
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 0.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 3685.266208005487
+      },
+      "qst_0499": {
+        "question": "For the `profiling.signals` Kafka topic used by trace-orch and fidelity-proxy, what are the current production settings (partition count and message retention time), and where can I find the approval/change record for the most recent update?",
+        "question_type": "info_not_found",
+        "num_gold_docs": 0,
+        "gold_docs": [],
+        "gold_ranks": {},
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 0.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 3130.1864170090994
+      }
+    },
+    "D1_decomposition": {
+      "qst_0043": {
+        "question": "What caused the brief p99 latency jump on the hosted text generation endpoint in us-west-2, and what mitigation was applied to bring it back down?",
+        "question_type": "basic",
+        "num_gold_docs": 1,
+        "gold_docs": [
+          "dsid_321eee6325824623833bbe754bf83a0b"
+        ],
+        "gold_ranks": {
+          "dsid_321eee6325824623833bbe754bf83a0b": 39
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 1.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": true,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 5254.410542009282
+      },
+      "qst_0139": {
+        "question": "What false positive threshold did the prospect set for suggested code review comments in the evaluation criteria for their PR review assistant POC?",
+        "question_type": "basic",
+        "num_gold_docs": 1,
+        "gold_docs": [
+          "dsid_9f92a42dc8d24c93a0a696a0727063b9"
+        ],
+        "gold_ranks": {
+          "dsid_9f92a42dc8d24c93a0a696a0727063b9": 36
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 1.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": true,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 6908.417582992115
+      },
+      "qst_0178": {
+        "question": "In the recent change that made low bit math safer for inference, what is the default pass rate used to decide when a machine is allowed to step down from the safest numeric mode?",
+        "question_type": "semantic",
+        "num_gold_docs": 1,
+        "gold_docs": [
+          "dsid_22a7e9af2760474dbdf611c2c21cd231"
+        ],
+        "gold_ranks": {
+          "dsid_22a7e9af2760474dbdf611c2c21cd231": ">40"
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 0.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 4930.940291000297
+      },
+      "qst_0203": {
+        "question": "How should we automate the creation and teardown of short-lived experiment workspaces so that a request ticket spins up the needed tracking/docs/chat area, requires an approver before access is enabled, expires on a default one month timer with a simple extension, and writes an encrypted audit bundle to object storage when it shuts down?",
+        "question_type": "semantic",
+        "num_gold_docs": 1,
+        "gold_docs": [
+          "dsid_3d745c88c7e4426c9548350824f0d9b8"
+        ],
+        "gold_ranks": {
+          "dsid_3d745c88c7e4426c9548350824f0d9b8": ">40"
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 0.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 6771.914041994023
+      },
+      "qst_0214": {
+        "question": "In the mid March 2026 incident where a regional dedicated serving cluster briefly ran out of spare capacity and the automatic scaler couldnt add nodes due to provider limit type errors, what exact build version did on call revert to in order to restore capacity?",
+        "question_type": "semantic",
+        "num_gold_docs": 1,
+        "gold_docs": [
+          "dsid_303196c831af4d1bb38a1e2546228a09"
+        ],
+        "gold_ranks": {
+          "dsid_303196c831af4d1bb38a1e2546228a09": ">40"
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 0.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 6859.096000000136
+      },
+      "qst_0229": {
+        "question": "After a customer rotated credentials during a migration, their staging probes started alternating between auth failures complaining about a signature mismatch and throttling errors; what short lived workaround did support create so both legacy and new signing methods would be accepted during the rollout?",
+        "question_type": "semantic",
+        "num_gold_docs": 1,
+        "gold_docs": [
+          "dsid_38963978d7944613855e7413fa3a3838"
+        ],
+        "gold_ranks": {
+          "dsid_38963978d7944613855e7413fa3a3838": ">40"
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 0.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 7148.383916995954
+      },
+      "qst_0242": {
+        "question": "In the partner integration call about getting a third party AI service into another companys cloud catalog, what date did the security lead target for completing the pre publication image security smoke test?",
+        "question_type": "semantic",
+        "num_gold_docs": 1,
+        "gold_docs": [
+          "dsid_3fc14ed9048e4e1f861e0632b06fc39b"
+        ],
+        "gold_ranks": {
+          "dsid_3fc14ed9048e4e1f861e0632b06fc39b": ">40"
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 0.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 6476.52358400228
+      },
+      "qst_0282": {
+        "question": "During a traffic surge in the US East production cluster for a healthcare customer with dedicated capacity, why did conversations that were supposed to stay locked to a specific model version sometimes get served by an experimental fallback instead?",
+        "question_type": "semantic",
+        "num_gold_docs": 1,
+        "gold_docs": [
+          "dsid_9adc7c1c81f54e0a88d0e0bee59a6588"
+        ],
+        "gold_ranks": {
+          "dsid_9adc7c1c81f54e0a88d0e0bee59a6588": ">40"
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 0.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 6284.920125006465
+      },
+      "qst_0356": {
+        "question": "For the Acme AI dedicated failover incident with intermittent 500s and fallback churn, what v1 incident type and primary owner should we set, and what time-to-mitigate and time-to-fix targets should CS use in customer updates?",
+        "question_type": "project_related",
+        "num_gold_docs": 4,
+        "gold_docs": [
+          "dsid_863d0cda2c984154baad1973513ed3da",
+          "dsid_5217b3a64c4a433c89ba2a3186dea82a",
+          "dsid_8e77536c5e0f4521b756d7b79b640e24",
+          "dsid_020bac2fb6ac4de28d5afb63e39a0c10"
+        ],
+        "gold_ranks": {
+          "dsid_863d0cda2c984154baad1973513ed3da": 15,
+          "dsid_5217b3a64c4a433c89ba2a3186dea82a": 3,
+          "dsid_8e77536c5e0f4521b756d7b79b640e24": 1,
+          "dsid_020bac2fb6ac4de28d5afb63e39a0c10": ">40"
+        },
+        "recall_at_5": 0.5,
+        "recall_at_10": 0.5,
+        "recall_at_20": 0.75,
+        "recall_at_40": 0.75,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 7707.043542002793
+      },
+      "qst_0413": {
+        "question": "Who approves terminating STALE-ORPHAN test instances after the 72h grace window-infra manager or cost-ops?",
+        "question_type": "conflicting_info",
+        "num_gold_docs": 2,
+        "gold_docs": [
+          "dsid_6df52fdb96ae4edcb76464738bca3340",
+          "dsid_6df52fdb96ae4edcb76464738bca3340"
+        ],
+        "gold_ranks": {
+          "dsid_6df52fdb96ae4edcb76464738bca3340": 1
+        },
+        "recall_at_5": 1.0,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_40": 1.0,
+        "complete_coverage_20": true,
+        "complete_coverage_40": true,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 6105.8479999919655
+      },
+      "qst_0427": {
+        "question": "ClearEdge 2027 pilot: final po_fingerprint format and weekly invoice delivery time?",
+        "question_type": "conflicting_info",
+        "num_gold_docs": 2,
+        "gold_docs": [
+          "dsid_86f033ed92b84f3a8b381d09b0b95357",
+          "dsid_d93aed75845e4a0b8126a80d8a7a5a41"
+        ],
+        "gold_ranks": {
+          "dsid_86f033ed92b84f3a8b381d09b0b95357": 2,
+          "dsid_d93aed75845e4a0b8126a80d8a7a5a41": 1
+        },
+        "recall_at_5": 1.0,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_40": 1.0,
+        "complete_coverage_20": true,
+        "complete_coverage_40": true,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 6143.649542005733
+      },
+      "qst_0436": {
+        "question": "Across Redwood's Go, Python, and TypeScript SDKs, which SDK has the highest number of customer-reported auth-related bug reports, and what are the corresponding support ticket IDs?",
+        "question_type": "completeness",
+        "num_gold_docs": 10,
+        "gold_docs": [
+          "dsid_a8af533a3f89402ca739bfdc5322b42e",
+          "dsid_3a5484e7e7164e389e76d188bce9f86e",
+          "dsid_1a160e1c00934f108e17183f44e3ca77",
+          "dsid_6f37b2b4341947028019bd41748eaff9",
+          "dsid_1f13ed74ef87494b81a2fc2617ab7746",
+          "dsid_1159814f66a340d79536516db194f623",
+          "dsid_c6efd46ecc6449ac8be1e53ed3803e92",
+          "dsid_8c707328a7fc444f84a8e00f90021866",
+          "dsid_98d534e949ce4fdd8ed5d651ec5ebe4b",
+          "dsid_65b12644ea52428b9c032d2cd9b75d8a"
+        ],
+        "gold_ranks": {
+          "dsid_a8af533a3f89402ca739bfdc5322b42e": ">40",
+          "dsid_3a5484e7e7164e389e76d188bce9f86e": ">40",
+          "dsid_1a160e1c00934f108e17183f44e3ca77": ">40",
+          "dsid_6f37b2b4341947028019bd41748eaff9": ">40",
+          "dsid_1f13ed74ef87494b81a2fc2617ab7746": ">40",
+          "dsid_1159814f66a340d79536516db194f623": ">40",
+          "dsid_c6efd46ecc6449ac8be1e53ed3803e92": ">40",
+          "dsid_8c707328a7fc444f84a8e00f90021866": 28,
+          "dsid_98d534e949ce4fdd8ed5d651ec5ebe4b": 1,
+          "dsid_65b12644ea52428b9c032d2cd9b75d8a": 11
+        },
+        "recall_at_5": 0.1,
+        "recall_at_10": 0.1,
+        "recall_at_20": 0.2,
+        "recall_at_40": 0.3,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 7389.271874999395
+      },
+      "qst_0437": {
+        "question": "Across all incident postmortems, which Redwood team was assigned the most follow-up action items?",
+        "question_type": "completeness",
+        "num_gold_docs": 9,
+        "gold_docs": [
+          "dsid_15a9d93cc59c4241a97a7e72f749a216",
+          "dsid_0e0ac7276c864c63a02586fa07ae85e1",
+          "dsid_c0c93abadf4c438189e23cb45256c6e9",
+          "dsid_ac94dcaf2e1e4674b2351a8b4177db9e",
+          "dsid_98943148c00b42db859ec2d84649fe04",
+          "dsid_ed145ed8c9234a6681359188e2f43345",
+          "dsid_bd7caad8adb2405eaa7ad78c4ffb59d7",
+          "dsid_d373a0708d4144d684e495c52c16448a",
+          "dsid_ec406aef8d0342c78ae27025670daedf"
+        ],
+        "gold_ranks": {
+          "dsid_15a9d93cc59c4241a97a7e72f749a216": ">40",
+          "dsid_0e0ac7276c864c63a02586fa07ae85e1": ">40",
+          "dsid_c0c93abadf4c438189e23cb45256c6e9": 21,
+          "dsid_ac94dcaf2e1e4674b2351a8b4177db9e": ">40",
+          "dsid_98943148c00b42db859ec2d84649fe04": ">40",
+          "dsid_ed145ed8c9234a6681359188e2f43345": ">40",
+          "dsid_bd7caad8adb2405eaa7ad78c4ffb59d7": ">40",
+          "dsid_d373a0708d4144d684e495c52c16448a": ">40",
+          "dsid_ec406aef8d0342c78ae27025670daedf": ">40"
+        },
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 0.1111111111111111,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 5749.8526249983115
+      },
+      "qst_0447": {
+        "question": "What is Redwood Inference's complete end-to-end process for shipping an emergency serving-runtime hotfix to production (Hosted + Dedicated), including required approvals, checklists, rollout/rollback steps, and mandatory customer communications?",
+        "question_type": "completeness",
+        "num_gold_docs": 6,
+        "gold_docs": [
+          "dsid_452dc45d76754cbca8a3674170599633",
+          "dsid_e5fe3fd0cf444668a64970ec00818f46",
+          "dsid_ac2fdba09cc24cd98ba60f5da114780c",
+          "dsid_8c3d5e26a1c841199d3bcd7aea5d495e",
+          "dsid_6807c651b55546559733c7c6f8dc133d",
+          "dsid_5d509e588f994166a2ccc6e39cbf6cb5"
+        ],
+        "gold_ranks": {
+          "dsid_452dc45d76754cbca8a3674170599633": 2,
+          "dsid_e5fe3fd0cf444668a64970ec00818f46": 4,
+          "dsid_ac2fdba09cc24cd98ba60f5da114780c": 1,
+          "dsid_8c3d5e26a1c841199d3bcd7aea5d495e": 6,
+          "dsid_6807c651b55546559733c7c6f8dc133d": 5,
+          "dsid_5d509e588f994166a2ccc6e39cbf6cb5": 3
+        },
+        "recall_at_5": 0.8333333333333334,
+        "recall_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "recall_at_40": 1.0,
+        "complete_coverage_20": true,
+        "complete_coverage_40": true,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 2750.1366670039715
+      },
+      "qst_0448": {
+        "question": "Which customers have been granted an exception to Redwood\u2019s default inference request log retention policy, and what retention period was approved for each?",
+        "question_type": "completeness",
+        "num_gold_docs": 7,
+        "gold_docs": [
+          "dsid_e91e68b31a6f4935b87d6f74dd07e1f6",
+          "dsid_b793b06789ae4147884e94681c6beae1",
+          "dsid_6933f9241ef140da9d3bf98be52be867",
+          "dsid_b72bd7e0c91a4f8c9d9a13daf6ff3d28",
+          "dsid_84ec014ad9f14f1481b45484da41181a",
+          "dsid_67a8c3300752435296938175e9a1daf5",
+          "dsid_5f0ab47fe8de47a89bb6668f8722becf"
+        ],
+        "gold_ranks": {
+          "dsid_e91e68b31a6f4935b87d6f74dd07e1f6": 6,
+          "dsid_b793b06789ae4147884e94681c6beae1": 2,
+          "dsid_6933f9241ef140da9d3bf98be52be867": 1,
+          "dsid_b72bd7e0c91a4f8c9d9a13daf6ff3d28": ">40",
+          "dsid_84ec014ad9f14f1481b45484da41181a": ">40",
+          "dsid_67a8c3300752435296938175e9a1daf5": ">40",
+          "dsid_5f0ab47fe8de47a89bb6668f8722becf": ">40"
+        },
+        "recall_at_5": 0.2857142857142857,
+        "recall_at_10": 0.42857142857142855,
+        "recall_at_20": 0.42857142857142855,
+        "recall_at_40": 0.42857142857142855,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 7195.801790992846
+      },
+      "qst_0481": {
+        "question": "For the hot-route capacity protection rollout in us-east, which specific enterprise accounts were on the initial allowlist, and what were the exact per-route-group budget values (RPS, estimated TPS, and concurrency) configured for each of those accounts?",
+        "question_type": "info_not_found",
+        "num_gold_docs": 0,
+        "gold_docs": [],
+        "gold_ranks": {},
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 0.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 7688.468375010416
+      },
+      "qst_0499": {
+        "question": "For the `profiling.signals` Kafka topic used by trace-orch and fidelity-proxy, what are the current production settings (partition count and message retention time), and where can I find the approval/change record for the most recent update?",
+        "question_type": "info_not_found",
+        "num_gold_docs": 0,
+        "gold_docs": [],
+        "gold_ranks": {},
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_40": 0.0,
+        "complete_coverage_20": false,
+        "complete_coverage_40": false,
+        "num_expanded_queries": 0,
+        "expanded_queries": [],
+        "subquestions": [],
+        "retrieval_latency_ms": 6204.639500007033
+      }
+    }
+  }
+}

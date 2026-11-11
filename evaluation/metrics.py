@@ -11,7 +11,7 @@ Implements:
 
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, field
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 
 
@@ -123,6 +123,7 @@ class CategoryMetrics:
     avg_invalid_extra_docs_all: float
     avg_invalid_extra_docs_at_k: Dict[int, float]
     low_sample_warning: bool
+    complete_gold_coverage_at_k: Dict[int, Optional[float]] = field(default_factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
@@ -173,6 +174,12 @@ def evaluate_retrieval_predictions(
             "recall_all": recall_at_k(retrieved, expected, k=None),
             "invalid_extra_docs_all": invalid_extra_docs_count(retrieved, expected, k=None),
             "recall_at_k": {k: recall_at_k(retrieved, expected, k=k) for k in ks},
+            "complete_gold_coverage_at_k": {
+                k: (1.0 if (recall_at_k(retrieved, expected, k=k) == 1.0) else 0.0)
+                if expected
+                else None
+                for k in ks
+            },
             "hit_at_k": {k: hit_at_k(retrieved, expected, k=k) for k in ks},
             "mrr_at_k": {k: reciprocal_rank_at_k(retrieved, expected, k=k) for k in ks},
             "invalid_extra_docs_at_k": {
@@ -192,6 +199,10 @@ def evaluate_retrieval_predictions(
             recall_all=_mean_ignore_none(r["recall_all"] for r in records),
             recall_at_k={
                 k: _mean_ignore_none(r["recall_at_k"][k] for r in records) for k in ks
+            },
+            complete_gold_coverage_at_k={
+                k: _mean_ignore_none(r["complete_gold_coverage_at_k"][k] for r in records)
+                for k in ks
             },
             hit_at_k={
                 k: _mean_ignore_none(r["hit_at_k"][k] for r in records) for k in ks

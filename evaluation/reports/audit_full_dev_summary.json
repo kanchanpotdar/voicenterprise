@@ -1,0 +1,313 @@
+{
+  "status": "COMPLETE",
+  "n": 178,
+  "configs": {
+    "A_bm25_k20": {
+      "pool_recall": 0.9403290529695023,
+      "pool_complete_gold": 0.9325842696629213,
+      "prompt_gold_recall": 0.8586811128945959,
+      "prompt_complete_gold": 0.8202247191011236,
+      "multi_doc_n": 39,
+      "multi_doc_prompt_recall": 0.8421855921855924,
+      "multi_doc_prompt_complete": 0.6666666666666666,
+      "n_questions_gold_lost_pool_to_prompt": 22,
+      "evidence_fact_coverage": 0.7064961110398419,
+      "mean_prompt_tokens": 2265.5898876404494,
+      "mean_distinct_docs": 5.241573033707865,
+      "expansion_fallback_count": 0
+    },
+    "B_bm25_k40": {
+      "pool_recall": 0.9527510255038345,
+      "pool_complete_gold": 0.9438202247191011,
+      "prompt_gold_recall": 0.8586811128945959,
+      "prompt_complete_gold": 0.8202247191011236,
+      "multi_doc_n": 39,
+      "multi_doc_prompt_recall": 0.8421855921855924,
+      "multi_doc_prompt_complete": 0.6666666666666666,
+      "n_questions_gold_lost_pool_to_prompt": 25,
+      "evidence_fact_coverage": 0.7064961110398419,
+      "mean_prompt_tokens": 2264.921348314607,
+      "mean_distinct_docs": 5.235955056179775,
+      "expansion_fallback_count": 0
+    },
+    "C_hybrid_k40": {
+      "pool_recall": 0.952991795969324,
+      "pool_complete_gold": 0.9438202247191011,
+      "prompt_gold_recall": 0.8176163723916532,
+      "prompt_complete_gold": 0.7640449438202247,
+      "multi_doc_n": 39,
+      "multi_doc_prompt_recall": 0.6547619047619049,
+      "multi_doc_prompt_complete": 0.41025641025641024,
+      "n_questions_gold_lost_pool_to_prompt": 36,
+      "evidence_fact_coverage": 0.8032251098108961,
+      "mean_prompt_tokens": 2188.483146067416,
+      "mean_distinct_docs": 2.7808988764044944,
+      "expansion_fallback_count": 0
+    },
+    "D_hybrid_k40_altq": {
+      "pool_recall": 0.952991795969324,
+      "pool_complete_gold": 0.9438202247191011,
+      "prompt_gold_recall": 0.8176163723916532,
+      "prompt_complete_gold": 0.7640449438202247,
+      "multi_doc_n": 39,
+      "multi_doc_prompt_recall": 0.6547619047619049,
+      "multi_doc_prompt_complete": 0.41025641025641024,
+      "n_questions_gold_lost_pool_to_prompt": 36,
+      "evidence_fact_coverage": 0.804161439398911,
+      "mean_prompt_tokens": 2184.016853932584,
+      "mean_distinct_docs": 2.808988764044944,
+      "expansion_fallback_count": 146
+    },
+    "E_D_plus_coverage_ctx": {
+      "pool_recall": 0.952991795969324,
+      "pool_complete_gold": 0.9438202247191011,
+      "prompt_gold_recall": 0.8269796682718031,
+      "prompt_complete_gold": 0.7584269662921348,
+      "multi_doc_n": 39,
+      "multi_doc_prompt_recall": 0.6974969474969475,
+      "multi_doc_prompt_complete": 0.38461538461538464,
+      "n_questions_gold_lost_pool_to_prompt": 36,
+      "evidence_fact_coverage": 0.8411569503195365,
+      "mean_prompt_tokens": 2462.0224719101125,
+      "mean_distinct_docs": 5.157303370786517,
+      "expansion_fallback_count": 146
+    }
+  },
+  "generation_subset": {
+    "qst_0203": {
+      "A_bm25_k20": {
+        "answer_correct_strict": false,
+        "fact_completeness_pct": 0.0,
+        "abstains": false,
+        "empty": true,
+        "truncated": true,
+        "unsupported_sentence_rate": null,
+        "claim_support_rate_all_sentences": 0.0,
+        "citation_id_validity": null,
+        "suspected_constraint_violations": [],
+        "gold_in_prompt": "0/1",
+        "evidence_fact_coverage": 0.2222222222222222,
+        "answer_chars": 168
+      },
+      "B_bm25_k40": {
+        "answer_correct_strict": false,
+        "fact_completeness_pct": 0.0,
+        "abstains": false,
+        "empty": false,
+        "truncated": true,
+        "unsupported_sentence_rate": 0.8,
+        "claim_support_rate_all_sentences": 0.14285714285714285,
+        "citation_id_validity": 1.0,
+        "suspected_constraint_violations": [],
+        "gold_in_prompt": "0/1",
+        "evidence_fact_coverage": 0.2222222222222222,
+        "answer_chars": 1031
+      },
+      "C_hybrid_k40": {
+        "answer_correct_strict": false,
+        "fact_completeness_pct": 0.0,
+        "abstains": false,
+        "empty": false,
+        "truncated": true,
+        "unsupported_sentence_rate": 1.0,
+        "claim_support_rate_all_sentences": 0.0,
+        "citation_id_validity": 1.0,
+        "suspected_constraint_violations": [],
+        "gold_in_prompt": "0/1",
+        "evidence_fact_coverage": 0.7777777777777778,
+        "answer_chars": 410
+      },
+      "D_hybrid_k40_altq": {
+        "answer_correct_strict": false,
+        "fact_completeness_pct": 0.0,
+        "abstains": false,
+        "empty": false,
+        "truncated": true,
+        "unsupported_sentence_rate": 1.0,
+        "claim_support_rate_all_sentences": 0.0,
+        "citation_id_validity": null,
+        "suspected_constraint_violations": [],
+        "gold_in_prompt": "0/1",
+        "evidence_fact_coverage": 0.7777777777777778,
+        "answer_chars": 413
+      },
+      "E_D_plus_coverage_ctx": {
+        "answer_correct_strict": false,
+        "fact_completeness_pct": 0.0,
+        "abstains": false,
+        "empty": true,
+        "truncated": true,
+        "unsupported_sentence_rate": null,
+        "claim_support_rate_all_sentences": 0.0,
+        "citation_id_validity": null,
+        "suspected_constraint_violations": [],
+        "gold_in_prompt": "0/1",
+        "evidence_fact_coverage": 0.6666666666666666,
+        "answer_chars": 168
+      }
+    },
+    "qst_0214": {
+      "A_bm25_k20": {
+        "answer_correct_strict": false,
+        "fact_completeness_pct": 0.0,
+        "abstains": false,
+        "empty": true,
+        "truncated": true,
+        "unsupported_sentence_rate": null,
+        "claim_support_rate_all_sentences": 0.0,
+        "citation_id_validity": null,
+        "suspected_constraint_violations": [],
+        "gold_in_prompt": "0/1",
+        "evidence_fact_coverage": 0.0,
+        "answer_chars": 168
+      },
+      "B_bm25_k40": {
+        "error": "LLM API request failed (429): {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ksg6dw4qen5trg22errvy898` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199952, Requested 3593. Please try again in 25m31.44s. Need more tokens? Upgrade"
+      },
+      "C_hybrid_k40": {
+        "error": "LLM API request failed (429): {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ksg6dw4qen5trg22errvy898` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199904, Requested 3822. Please try again in 26m49.632s. Need more tokens? Upgrad"
+      },
+      "D_hybrid_k40_altq": {
+        "error": "LLM API request failed (429): {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ksg6dw4qen5trg22errvy898` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199856, Requested 3822. Please try again in 26m28.896s. Need more tokens? Upgrad"
+      },
+      "E_D_plus_coverage_ctx": {
+        "error": "LLM API request failed (429): {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ksg6dw4qen5trg22errvy898` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199807, Requested 4396. Please try again in 30m15.696s. Need more tokens? Upgrad"
+      }
+    },
+    "qst_0282": {
+      "A_bm25_k20": {
+        "error": "LLM API request failed (429): {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ksg6dw4qen5trg22errvy898` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 197523, Requested 3102. Please try again in 4m30s. Need more tokens? Upgrade to "
+      },
+      "B_bm25_k40": {
+        "error": "LLM API request failed (429): {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ksg6dw4qen5trg22errvy898` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 197475, Requested 3100. Please try again in 4m8.4s. Need more tokens? Upgrade to"
+      },
+      "C_hybrid_k40": {
+        "error": "LLM API request failed (429): {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ksg6dw4qen5trg22errvy898` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 197426, Requested 2981. Please try again in 2m55.823999999s. Need more tokens? U"
+      },
+      "D_hybrid_k40_altq": {
+        "error": "LLM API request failed (429): {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ksg6dw4qen5trg22errvy898` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 197379, Requested 2981. Please try again in 2m35.519999999s. Need more tokens? U"
+      },
+      "E_D_plus_coverage_ctx": {
+        "error": "LLM API request failed (429): {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ksg6dw4qen5trg22errvy898` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 197330, Requested 3837. Please try again in 8m24.144s. Need more tokens? Upgrade"
+      }
+    },
+    "qst_0427": {
+      "A_bm25_k20": {
+        "answer_correct_strict": false,
+        "fact_completeness_pct": 60.0,
+        "abstains": false,
+        "empty": false,
+        "truncated": false,
+        "unsupported_sentence_rate": 0.6,
+        "claim_support_rate_all_sentences": 0.5,
+        "citation_id_validity": 1.0,
+        "suspected_constraint_violations": [],
+        "gold_in_prompt": "2/2",
+        "evidence_fact_coverage": 1.0,
+        "answer_chars": 696
+      },
+      "B_bm25_k40": {
+        "answer_correct_strict": false,
+        "fact_completeness_pct": 60.0,
+        "abstains": false,
+        "empty": false,
+        "truncated": false,
+        "unsupported_sentence_rate": 0.6,
+        "claim_support_rate_all_sentences": 0.5,
+        "citation_id_validity": 1.0,
+        "suspected_constraint_violations": [],
+        "gold_in_prompt": "2/2",
+        "evidence_fact_coverage": 1.0,
+        "answer_chars": 731
+      },
+      "C_hybrid_k40": {
+        "answer_correct_strict": false,
+        "fact_completeness_pct": 40.0,
+        "abstains": false,
+        "empty": false,
+        "truncated": false,
+        "unsupported_sentence_rate": 0.8,
+        "claim_support_rate_all_sentences": 0.125,
+        "citation_id_validity": 1.0,
+        "suspected_constraint_violations": [],
+        "gold_in_prompt": "2/2",
+        "evidence_fact_coverage": 1.0,
+        "answer_chars": 830
+      },
+      "D_hybrid_k40_altq": {
+        "error": "LLM API request failed (429): {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ksg6dw4qen5trg22errvy898` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199443, Requested 3179. Please try again in 18m52.704s. Need more tokens? Upgrad"
+      },
+      "E_D_plus_coverage_ctx": {
+        "error": "LLM API request failed (429): {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ksg6dw4qen5trg22errvy898` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199394, Requested 4027. Please try again in 24m37.871999999s. Need more tokens? "
+      }
+    },
+    "qst_0436": {
+      "A_bm25_k20": {
+        "error": "LLM API request failed (429): {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ksg6dw4qen5trg22errvy898` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198975, Requested 3090. Please try again in 14m52.08s. Need more tokens? Upgrade"
+      },
+      "B_bm25_k40": {
+        "error": "LLM API request failed (429): {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ksg6dw4qen5trg22errvy898` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198926, Requested 3090. Please try again in 14m30.912s. Need more tokens? Upgrad"
+      },
+      "C_hybrid_k40": {
+        "error": "LLM API request failed (429): {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ksg6dw4qen5trg22errvy898` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198879, Requested 3170. Please try again in 14m45.168s. Need more tokens? Upgrad"
+      },
+      "D_hybrid_k40_altq": {
+        "error": "LLM API request failed (429): {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ksg6dw4qen5trg22errvy898` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198831, Requested 3170. Please try again in 14m24.432s. Need more tokens? Upgrad"
+      },
+      "E_D_plus_coverage_ctx": {
+        "error": "LLM API request failed (429): {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ksg6dw4qen5trg22errvy898` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198782, Requested 3950. Please try again in 19m40.224s. Need more tokens? Upgrad"
+      }
+    },
+    "qst_0437": {
+      "A_bm25_k20": {
+        "error": "LLM API request failed (429): {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ksg6dw4qen5trg22errvy898` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198701, Requested 3342. Please try again in 14m42.576s. Need more tokens? Upgrad"
+      },
+      "B_bm25_k40": {
+        "error": "LLM API request failed (429): {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ksg6dw4qen5trg22errvy898` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198653, Requested 3371. Please try again in 14m34.368s. Need more tokens? Upgrad"
+      },
+      "C_hybrid_k40": {
+        "error": "LLM API request failed (429): {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ksg6dw4qen5trg22errvy898` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198605, Requested 2918. Please try again in 10m57.936s. Need more tokens? Upgrad"
+      },
+      "D_hybrid_k40_altq": {
+        "error": "LLM API request failed (429): {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ksg6dw4qen5trg22errvy898` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198557, Requested 2990. Please try again in 11m8.304s. Need more tokens? Upgrade"
+      },
+      "E_D_plus_coverage_ctx": {
+        "error": "LLM API request failed (429): {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ksg6dw4qen5trg22errvy898` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198509, Requested 4292. Please try again in 20m10.032s. Need more tokens? Upgrad"
+      }
+    },
+    "qst_0447": {
+      "A_bm25_k20": {
+        "error": "LLM API request failed (429): {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ksg6dw4qen5trg22errvy898` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198102, Requested 3111. Please try again in 8m44.015999999s. Need more tokens? U"
+      },
+      "B_bm25_k40": {
+        "error": "LLM API request failed (429): {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ksg6dw4qen5trg22errvy898` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198054, Requested 3106. Please try again in 8m21.119999999s. Need more tokens? U"
+      },
+      "C_hybrid_k40": {
+        "error": "LLM API request failed (429): {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ksg6dw4qen5trg22errvy898` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198006, Requested 3272. Please try again in 9m12.096s. Need more tokens? Upgrade"
+      },
+      "D_hybrid_k40_altq": {
+        "error": "LLM API request failed (429): {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ksg6dw4qen5trg22errvy898` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 197957, Requested 3273. Please try again in 8m51.36s. Need more tokens? Upgrade "
+      },
+      "E_D_plus_coverage_ctx": {
+        "error": "LLM API request failed (429): {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ksg6dw4qen5trg22errvy898` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 197909, Requested 3765. Please try again in 12m3.168s. Need more tokens? Upgrade"
+      }
+    },
+    "qst_0448": {
+      "A_bm25_k20": {
+        "error": "LLM API request failed (429): {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ksg6dw4qen5trg22errvy898` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 197781, Requested 3321. Please try again in 7m56.064s. Need more tokens? Upgrade"
+      },
+      "B_bm25_k40": {
+        "error": "LLM API request failed (429): {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ksg6dw4qen5trg22errvy898` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 197733, Requested 3321. Please try again in 7m35.328s. Need more tokens? Upgrade"
+      },
+      "C_hybrid_k40": {
+        "error": "LLM API request failed (429): {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ksg6dw4qen5trg22errvy898` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 197685, Requested 2845. Please try again in 3m48.96s. Need more tokens? Upgrade "
+      },
+      "D_hybrid_k40_altq": {
+        "error": "LLM API request failed (429): {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ksg6dw4qen5trg22errvy898` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 197637, Requested 2845. Please try again in 3m28.224s. Need more tokens? Upgrade"
+      },
+      "E_D_plus_coverage_ctx": {
+        "error": "LLM API request failed (429): {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ksg6dw4qen5trg22errvy898` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 197588, Requested 4013. Please try again in 11m31.632s. Need more tokens? Upgrad"
+      }
+    }
+  }
+}
