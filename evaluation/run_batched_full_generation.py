@@ -65,7 +65,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--questions", type=Path, default=Path("EnterpriseRAG-Bench/data/questions/test.parquet"))
     parser.add_argument("--output", type=Path, default=Path("evaluation/runs/full_generation.jsonl"))
-    parser.add_argument("--qdrant", type=Path, default=Path("data/qdrant_full"))
+    parser.add_argument("--qdrant", type=Path, default=Path("data/qdrant_full_bm25"))
     parser.add_argument("--model", default="openai/gpt-oss-120b")
     parser.add_argument("--batch-size", type=int, default=10)
     parser.add_argument("--max-tokens", type=int, default=1024)
