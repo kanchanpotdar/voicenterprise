@@ -44,6 +44,7 @@ class RAGPipeline:
     def from_defaults(
         cls,
         qdrant_path: Optional[Path] = None,
+        qdrant_url: Optional[str] = None,
         collection_name: str = "enterprise_rag_dev_10k",
         default_mode: RetrievalMode = "bm25",
         llm_client: Optional[BaseLLMClient] = None,
@@ -57,6 +58,7 @@ class RAGPipeline:
         retriever = EnterpriseRetriever(
             collection_name=collection_name,
             qdrant_path=q_path,
+            qdrant_url=qdrant_url,
         )
 
         # Initialize LLM client: use provided, or OpenAI/Groq if a valid API key exists, otherwise MockLLM

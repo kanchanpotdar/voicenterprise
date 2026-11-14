@@ -18,14 +18,14 @@ from rag.llm import OpenAICompatibleLLM, load_env_file
 from rag.pipeline import RAGPipeline
 
 
-def run(questions_path: Path, output_path: Path, qdrant_path: Path, model: str,
+def run(questions_path: Path, output_path: Path, qdrant_path: Path, model: str, qdrant_url: str | None = None,
         batch_size: int = 10, max_tokens: int = 1024) -> None:
     load_env_file()
     llm = OpenAICompatibleLLM(
         model=model, base_url="https://api.groq.com/openai/v1", timeout_seconds=90.0
     )
     pipeline = RAGPipeline.from_defaults(
-        qdrant_path=qdrant_path, collection_name="enterprise_rag_full",
+        qdrant_path=qdrant_path, qdrant_url=qdrant_url, collection_name="enterprise_rag_full",
         default_mode="bm25", llm_client=llm, model_name=model,
     )
     df = pd.read_parquet(questions_path)
@@ -66,8 +66,9 @@ if __name__ == "__main__":
     parser.add_argument("--questions", type=Path, default=Path("EnterpriseRAG-Bench/data/questions/test.parquet"))
     parser.add_argument("--output", type=Path, default=Path("evaluation/runs/full_generation.jsonl"))
     parser.add_argument("--qdrant", type=Path, default=Path("data/qdrant_full_bm25"))
+    parser.add_argument("--qdrant-url", default=None)
     parser.add_argument("--model", default="openai/gpt-oss-120b")
     parser.add_argument("--batch-size", type=int, default=10)
     parser.add_argument("--max-tokens", type=int, default=1024)
     args = parser.parse_args()
-    run(args.questions, args.output, args.qdrant, args.model, args.batch_size, args.max_tokens)
+    run(args.questions, args.output, args.qdrant, args.model, args.qdrant_url, args.batch_size, args.max_tokens)

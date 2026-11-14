@@ -203,6 +203,35 @@ Verified from `evaluation/reports/p1_retrieval_benchmark_dev.json`:
 
 ## 9. Phase 2: Baseline Grounded Text RAG System
 
+## Full-Corpus Docker Retrieval Run
+
+The complete Hugging Face corpus has now been ingested and chunked into 103 batches. A server-backed Qdrant collection, `enterprise_rag_full`, contains **1,622,245 BM25 points** and is served locally through Docker on `127.0.0.1:6333`.
+
+The full 500-question benchmark was evaluated against this collection. Among the 470 questions with at least one expected document, BM25 achieved:
+
+| Metric | Full-corpus BM25 |
+| :--- | ---: |
+| Recall@1 | 54.89% |
+| Recall@5 | 70.43% |
+| Recall@10 | 75.32% |
+| Recall@20 | 78.94% |
+| MRR@10 | 0.6159 |
+
+The strongest categories were `project_related` (95.0% Recall@5), `conflicting_info` (90.0%), and `constrained` (90.0%). `semantic` questions remain the main retrieval weakness at 39.2% Recall@5. These results are full-corpus retrieval results, not answer-quality or generation scores. The machine-readable report is `evaluation/reports/full_corpus_bm25_test_retrieval.json`.
+
+### Docker Qdrant setup
+
+Start Qdrant locally with persistent storage:
+
+```bash
+docker run -d --name voiceenterprise-qdrant \
+  -p 127.0.0.1:6333:6333 -p 127.0.0.1:6334:6334 \
+  -v "$PWD/data/qdrant_server_storage:/qdrant/storage" \
+  qdrant/qdrant:latest
+```
+
+The full-corpus BM25 indexer uses gRPC, 512-point uploads, retries with exponential backoff, asynchronous upserts, and checkpointed source batches. Dense indexing remains a separate follow-up experiment.
+
 Phase 2 implements the complete end-to-end question-answering architecture on top of the Phase 0 and Phase 1 foundations:
 
 ```mermaid

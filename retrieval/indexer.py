@@ -253,6 +253,7 @@ class EnterpriseRetriever:
         self,
         collection_name: str = "enterprise_rag_dev_10k",
         qdrant_path: Optional[Path] = None,
+        qdrant_url: Optional[str] = None,
         dense_model_name: str = DENSE_MODEL_NAME,
         bm25_model_name: str = BM25_MODEL_NAME,
     ) -> None:
@@ -261,7 +262,9 @@ class EnterpriseRetriever:
         self.dense_model_name = dense_model_name
         self.bm25_model_name = bm25_model_name
 
-        if qdrant_path is not None:
+        if qdrant_url is not None:
+            self.client = QdrantClient(url=qdrant_url, grpc_port=6334, prefer_grpc=True, timeout=300)
+        elif qdrant_path is not None:
             qdrant_path.mkdir(parents=True, exist_ok=True)
             self.client = QdrantClient(path=str(qdrant_path))
         else:
