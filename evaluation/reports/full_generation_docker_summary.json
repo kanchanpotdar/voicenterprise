@@ -1,0 +1,13 @@
+{
+  "questions_attempted": 500,
+  "successful_answers": 73,
+  "provider_failures": 427,
+  "failure_reason": "Groq 429 token-per-day limit for openai/gpt-oss-120b",
+  "mean_latency_ms_successful": 22733.3,
+  "mean_citation_precision_successful": 0.9589,
+  "citation_id_validity_successful": 1.0,
+  "detected_abstentions_successful": 24,
+  "detected_contradictions_successful": 5,
+  "evaluation_status": "incomplete_due_to_provider_quota",
+  "raw_jsonl_published": false
+}

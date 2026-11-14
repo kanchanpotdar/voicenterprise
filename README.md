@@ -232,6 +232,14 @@ docker run -d --name voiceenterprise-qdrant \
 
 The full-corpus BM25 indexer uses gRPC, 512-point uploads, retries with exponential backoff, asynchronous upserts, and checkpointed source batches. Dense indexing remains a separate follow-up experiment.
 
+### Full-corpus duplicate analysis
+
+The canonical-corpus branch preserves the raw dataset and records duplicate/version metadata separately. Analysis of all 511,962 HF document rows found **0 exact duplicate rows**, **4 conflicting document-ID groups** covering **8 rows**, and **2,854 near-duplicate candidate buckets** covering **5,761 rows**. Entity coverage was 192,566 rows with ticket IDs, 141,611 with email addresses, 181,099 with ISO dates, and 69,477 with channel references. The detailed manifest is `data/canonical/full_corpus_duplicate_analysis.json`.
+
+### Full-corpus generation run
+
+The Docker-backed 500-question generation run completed all 500 attempts, but the provider quota allowed only **73 successful answers**; **427 requests** returned Groq HTTP 429 token-per-day errors. Among successful answers, mean latency was 22.7 seconds, mean citation precision was 95.9%, and citation ID validity was 100%. These are diagnostic partial-run statistics, not a valid complete answer-quality benchmark. The aggregate report is `evaluation/reports/full_generation_docker_summary.json`; raw generated answers are retained locally and are not published.
+
 Phase 2 implements the complete end-to-end question-answering architecture on top of the Phase 0 and Phase 1 foundations:
 
 ```mermaid
