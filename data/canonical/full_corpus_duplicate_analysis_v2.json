@@ -1,0 +1,45 @@
+{
+  "input_file": "EnterpriseRAG-Bench/data/documents/test.parquet",
+  "raw_rows": 511962,
+  "unique_doc_ids": 511958,
+  "exact_duplicate_rows": 1591,
+  "exact_unique_records": 510371,
+  "conflicting_doc_id_groups": 4,
+  "conflicting_rows": 8,
+  "conflict_group_sizes": {
+    "dsid_8a0c5430bac64f8da21c2cee5a7f4df5": 2,
+    "dsid_feb1e9063ebb4947bb4f935393c01f0f": 2,
+    "dsid_f292876dbb47462d85997383af306490": 2,
+    "dsid_6df52fdb96ae4edcb76464738bca3340": 2
+  },
+  "source_type_counts": {
+    "slack": 285605,
+    "gmail": 121390,
+    "linear": 35308,
+    "google_drive": 25108,
+    "hubspot": 15017,
+    "fireflies": 10173,
+    "github": 8052,
+    "jira": 6120,
+    "confluence": 5189
+  },
+  "near_duplicate_candidate_buckets": 2842,
+  "rows_in_near_duplicate_candidate_buckets": 5737,
+  "entity_coverage_rows": {
+    "ticket_ids": 192566,
+    "emails": 141611,
+    "iso_dates": 181099,
+    "channels": 69477
+  },
+  "canonical_output": {
+    "exact_dedup_rows": 510371,
+    "rows_requiring_version_linking": 8,
+    "raw_corpus_preserved": true
+  },
+  "protocol": {
+    "version": 2,
+    "exact_key": "NFC and whitespace normalized title plus content; case preserved; excludes doc_id",
+    "candidate_method": "equal title and first 256 normalized content characters; unverified candidates only",
+    "canonical_corpus_written": false
+  }
+}
