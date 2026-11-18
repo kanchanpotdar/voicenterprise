@@ -1,5 +1,6 @@
 from retrieval.canonical import deduplicate_chunks, evidence_hash
 from retrieval.indexer import RetrievedChunk
+from retrieval.indexer import EnterpriseRetriever
 
 
 def chunk(doc, text, score=1):
@@ -24,3 +25,15 @@ def test_conflicts_case_indentation_and_empty_evidence_are_preserved():
 def test_hash_fields_are_unambiguous_and_unicode_normalized():
     assert evidence_hash("a|b", "c", "d") != evidence_hash("a", "b|c", "d")
     assert evidence_hash("é", "", "x\r\ny") == evidence_hash("e\u0301", "", "x\ny")
+
+
+def test_production_retrieval_switch_changes_candidates_and_preserves_aliases():
+    retriever = EnterpriseRetriever.__new__(EnterpriseRetriever)
+    source = [chunk("a", "same", 9), chunk("b", "same", 8), chunk("c", "distinct", 7)]
+    retriever.retrieve_chunks = lambda **kwargs: source
+    raw_ids, raw = retriever.retrieve_documents("query", top_k_docs=2)
+    filtered_ids, filtered = retriever.retrieve_documents("query", top_k_docs=2, canonical_filter=True)
+    assert raw_ids == ["a", "b"]
+    assert filtered_ids == ["a", "c"]
+    assert len(raw) == 3 and len(filtered) == 2
+    assert filtered[0].alias_doc_ids == ["a", "b"]

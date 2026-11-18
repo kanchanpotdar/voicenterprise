@@ -211,13 +211,14 @@ The full 500-question benchmark was evaluated against this collection. Among the
 
 | Metric | Full-corpus BM25 |
 | :--- | ---: |
-| Recall@1 | 54.89% |
-| Recall@5 | 70.43% |
-| Recall@10 | 75.32% |
-| Recall@20 | 78.94% |
+| Recall@1 | 46.03% |
+| Recall@5 | 63.60% |
+| Recall@10 | 70.16% |
+| Recall@20 | 76.24% |
+| Hit@5 | 70.43% |
 | MRR@10 | 0.6159 |
 
-The strongest categories were `project_related` (95.0% Recall@5), `conflicting_info` (90.0%), and `constrained` (90.0%). `semantic` questions remain the main retrieval weakness at 39.2% Recall@5. These results are full-corpus retrieval results, not answer-quality or generation scores. The machine-readable report is `evaluation/reports/full_corpus_bm25_test_retrieval.json`.
+These corrected metrics use 160 candidate chunks, deduplicated document rankings, and 470 gold-eligible questions. Earlier reported Recall values were Hit@K and must not be compared directly to document recall. The full 500 questions combine the development and held-out splits; this is not an untouched held-out-only result. See [corrected baseline report](evaluation/reports/full_corpus_bm25_corrected_retrieval.json). Semantic Recall@5 is 39.2%; project-related Recall@5 is 45.87%. The earlier 10k development benchmark uses a different question population and corpus, so it does not isolate the effect of corpus size.
 
 ### Docker Qdrant setup
 
@@ -234,7 +235,42 @@ The full-corpus BM25 indexer uses gRPC, 512-point uploads, retries with exponent
 
 ### Full-corpus duplicate analysis
 
-The canonical-corpus branch preserves the raw dataset and records duplicate/version metadata separately. Analysis of all 511,962 HF document rows found **0 exact duplicate rows**, **4 conflicting document-ID groups** covering **8 rows**, and **2,854 near-duplicate candidate buckets** covering **5,761 rows**. Entity coverage was 192,566 rows with ticket IDs, 141,611 with email addresses, 181,099 with ISO dates, and 69,477 with channel references. The detailed manifest is `data/canonical/full_corpus_duplicate_analysis.json`.
+The corrected cross-ID analysis found **1,591 duplicate rows**, **510,371 unique normalized title/content records**, and **4 conflicting document-ID groups** covering **8 rows**. It normalizes Unicode and whitespace while preserving case. Its **2,842 prefix candidate buckets** cover **5,737 rows**; these are unverified candidates, not confirmed near-duplicates or versions. Entity coverage was 192,566 rows with ticket patterns, 141,611 with email patterns, 181,099 with date patterns, and 69,477 with channel patterns. These are lexical coverage counts, not validated entity groups. See [version 2 manifest](data/canonical/full_corpus_duplicate_analysis_v2.json). The older manifest's zero-duplicate result was limited to matches within the same ID and is superseded.
+
+### Canonical retrieval branch: progress and evaluation
+
+Work on `codex/canonical-retrieval-corpus` has proceeded through these checkpoints:
+
+| Checkpoint | Work and evidence |
+| :--- | :--- |
+| `890bca1` | Initial canonical corpus builder scaffold; its priority and similarity fields are experimental and not used for retrieval decisions. |
+| `a6adb05`, `b621602` | Initial duplicate analysis and partial generation summary published. |
+| `a4589ee` | Corrected full-corpus Recall@K versus Hit@K and increased candidate depth to 160 chunks. |
+| `822cab8`, `29acbfe` | Tested cross-ID duplicate analysis and completed version 2 manifest. |
+| `6597227` | Optional exact-evidence deduplication with provenance aliases; initial evaluator duplicated filtering logic. |
+| Current checkpoint | Evaluator calls the production `EnterpriseRetriever.retrieve_documents` path with `canonical_filter=True`, with explicit filtering diagnostics. |
+
+The implemented filter hashes title, section, and chunk text using NFC Unicode and normalized line endings. It preserves case, punctuation, indentation, conflicting evidence, and empty records. The first ranked exact match is retained with observed document aliases attached. These hashes and aliases are calculated at query time; persistent Qdrant payload enrichment, document-level canonical mappings, verified supersession, and metadata-based prefilters remain pending. The existing vectors and collection are reused.
+
+The production-path evaluation on **193 development questions (178 gold-eligible)** removed **42 chunks**, retained **42 alias groups**, and changed **6 document rankings** across the candidate lists. Original document IDs are scored strictly; aliases receive no extra gold credit.
+
+| Metric | Raw | Optional canonical filter |
+| :--- | ---: | ---: |
+| Recall@5 | 61.28% | 61.28% |
+| Recall@20 | 74.67% | 74.67% |
+| Hit@5 | 67.98% | 67.98% |
+| MRR@10 | 0.5944 | 0.5944 |
+
+Filtering executed successfully but produced no measured metric improvement. It remains opt-in. See [production-path evaluation](evaluation/reports/canonical_dev_v2.json); the earlier [v1 report](evaluation/reports/canonical_dev_v1.json) is retained for traceability. Further selection should use development questions before a fixed held-out comparison.
+
+Reproduce from the repository root with the dataset, split files, environment, and Docker Qdrant available (both commands executed successfully):
+
+```bash
+.venv/bin/python -m pytest tests/test_canonical_retrieval.py tests/test_metrics.py tests/test_duplicate_analysis.py tests/test_rag_pipeline.py -q
+.venv/bin/python -m evaluation.evaluate_canonical_dev
+```
+
+The targeted suite passed **36 tests**, including a regression that proves the production filtering switch changes duplicate candidates and preserves aliases. Next work is verified corpus-level mappings, payload enrichment in the same collection, and development evaluation of metadata-aware retrieval. Local Hugging Face generation is proposed but has not been implemented or benchmarked.
 
 ### Full-corpus generation run
 
