@@ -2,12 +2,21 @@
 import argparse
 import json
 import time
+import subprocess
 from pathlib import Path
 from qdrant_client import QdrantClient, models
 from retrieval.canonical import canonical_metadata
 
 
-def run(url, collection, checkpoint, batch_size=64, pause_seconds=1.0, max_batches=None):
+def memory_percent(container):
+    """Read Docker's cgroup memory usage without a shell; fail closed on errors."""
+    result = subprocess.run(["docker", "stats", "--no-stream", "--format", "{{.MemPerc}}", container],
+                            capture_output=True, text=True, check=True, timeout=15)
+    return float(result.stdout.strip().rstrip("%"))
+
+
+def run(url, collection, checkpoint, batch_size=64, pause_seconds=1.0, max_batches=None,
+        docker_container=None, max_memory_percent=78.0):
     if batch_size < 1 or pause_seconds < 0 or (max_batches is not None and max_batches < 1):
         raise ValueError("Invalid batch size, pause, or batch limit")
     client = QdrantClient(url=url, prefer_grpc=True, timeout=300)
@@ -20,6 +29,10 @@ def run(url, collection, checkpoint, batch_size=64, pause_seconds=1.0, max_batch
     initial_count = client.count(collection, exact=True).count
     batches = 0
     while not state.get("complete"):
+        if docker_container and memory_percent(docker_container) >= max_memory_percent:
+            print("Paused safely: Docker memory threshold reached; checkpoint preserved", flush=True)
+            client.close()
+            return
         points, offset = client.scroll(collection, limit=batch_size, offset=state["offset"],
                                        with_payload=True, with_vectors=False)
         operations = [models.SetPayloadOperation(set_payload=models.SetPayload(
@@ -65,5 +78,8 @@ if __name__ == "__main__":
     p.add_argument("--batch-size", type=int, default=64)
     p.add_argument("--pause-seconds", type=float, default=1.0)
     p.add_argument("--max-batches", type=int, default=None)
+    p.add_argument("--docker-container", default=None)
+    p.add_argument("--max-memory-percent", type=float, default=78.0)
     a = p.parse_args()
-    run(a.url, a.collection, a.checkpoint, a.batch_size, a.pause_seconds, a.max_batches)
+    run(a.url, a.collection, a.checkpoint, a.batch_size, a.pause_seconds, a.max_batches,
+        a.docker_container, a.max_memory_percent)
