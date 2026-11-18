@@ -20,7 +20,7 @@ from __future__ import annotations
 import re
 import time
 import uuid
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Any, Dict, List, Literal, Optional, Sequence, Tuple
 
@@ -70,6 +70,8 @@ class RetrievedChunk:
     slack_channels: List[str]
     ticket_ids: List[str]
     lexical_score: Optional[float] = None
+    content_hash: Optional[str] = None
+    alias_doc_ids: List[str] = field(default_factory=list)
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
@@ -492,6 +494,7 @@ class EnterpriseRetriever:
         diversity_filter: bool = False,
         max_chunks_per_doc: int = 3,
         near_duplicate_threshold: float = 0.70,
+        canonical_filter: bool = False,
     ) -> Tuple[List[str], List[RetrievedChunk]]:
         """Retrieve unique parent doc_ids ordered by best chunk score, plus top chunks.
 
@@ -505,6 +508,10 @@ class EnterpriseRetriever:
             top_k_chunks=top_k_docs * chunk_oversample_factor,
             source_types=source_types,
         )
+
+        if canonical_filter:
+            from retrieval.canonical import deduplicate_chunks
+            chunks = deduplicate_chunks(chunks)
 
         if diversity_filter:
             filtered_chunks: List[RetrievedChunk] = []
