@@ -272,6 +272,10 @@ Reproduce from the repository root with the dataset, split files, environment, a
 
 The targeted suite passed **36 tests**, including a regression that proves the production filtering switch changes duplicate candidates and preserves aliases. Next work is verified corpus-level mappings, payload enrichment in the same collection, and development evaluation of metadata-aware retrieval. Local Hugging Face generation is proposed but has not been implemented or benchmarked.
 
+### Persistent canonical payload enrichment
+
+`python -m retrieval.enrich_canonical_payloads` adds a namespaced `canonical_v1` payload to existing points in `enterprise_rag_full` using gRPC. It stores exact evidence hashes, document group IDs, evidence group IDs, and an explicitly unverified version status. Each checkpoint follows acknowledged payload writes; retries are idempotent. Existing vectors are not recomputed. Retrieval consumes stored schema-v1 hashes with an on-demand fallback during migration. This migration has been launched; full completion requires the checkpoint's `verified_points` count to equal the collection count. No supersession-based exclusion or canonical eligibility prefilter has been enabled.
+
 ### Full-corpus generation run
 
 The Docker-backed 500-question generation run completed all 500 attempts, but the provider quota allowed only **73 successful answers**; **427 requests** returned Groq HTTP 429 token-per-day errors. Among successful answers, mean latency was 22.7 seconds, mean citation precision was 95.9%, and citation ID validity was 100%. These are diagnostic partial-run statistics, not a valid complete answer-quality benchmark. The aggregate report is `evaluation/reports/full_generation_docker_summary.json`; raw generated answers are retained locally and are not published.

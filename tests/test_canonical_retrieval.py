@@ -1,6 +1,8 @@
 from retrieval.canonical import deduplicate_chunks, evidence_hash
 from retrieval.indexer import RetrievedChunk
 from retrieval.indexer import EnterpriseRetriever
+from retrieval.canonical import canonical_metadata
+import pytest
 
 
 def chunk(doc, text, score=1):
@@ -37,3 +39,13 @@ def test_production_retrieval_switch_changes_candidates_and_preserves_aliases():
     assert filtered_ids == ["a", "c"]
     assert len(raw) == 3 and len(filtered) == 2
     assert filtered[0].alias_doc_ids == ["a", "b"]
+
+
+def test_payload_metadata_is_additive_and_does_not_invent_version_authority():
+    payload = {"doc_id": "a", "normalized_title": "Title", "section_title": "Section", "chunk_text": "same"}
+    result = canonical_metadata(payload)
+    assert result["content_hash"] == evidence_hash("Title", "Section", "same")
+    assert result["version_status"] == "unverified"
+    assert "canonical_v1" not in payload
+    with pytest.raises(ValueError):
+        canonical_metadata({"doc_id": "a"})

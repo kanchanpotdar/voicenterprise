@@ -6,6 +6,21 @@ import json
 import unicodedata
 from dataclasses import replace
 
+SCHEMA_VERSION = 1
+
+
+def canonical_metadata(payload):
+    """Namespaced additive payload; group IDs do not imply supersession."""
+    required = ("doc_id", "normalized_title", "section_title", "chunk_text")
+    if any(key not in payload or not isinstance(payload[key], str) for key in required):
+        raise ValueError("Canonical metadata requires string document/title/section/text fields")
+    digest = evidence_hash(payload["normalized_title"], payload["section_title"], payload["chunk_text"])
+    return {"schema_version": SCHEMA_VERSION, "content_hash": digest,
+            "record_group_id": "doc:" + payload["doc_id"],
+            "evidence_group_id": "sha256:" + digest,
+            "filterable_exact_evidence": bool(payload["chunk_text"].strip()),
+            "version_status": "unverified"}
+
 
 def evidence_hash(title: str, section: str, text: str) -> str:
     """Hash unambiguous fields; preserve case, punctuation and paragraph structure.
@@ -26,7 +41,7 @@ def deduplicate_chunks(chunks):
     """
     output, positions = [], {}
     for chunk in chunks:
-        digest = evidence_hash(chunk.normalized_title, chunk.section_title, chunk.chunk_text)
+        digest = chunk.content_hash or evidence_hash(chunk.normalized_title, chunk.section_title, chunk.chunk_text)
         aliases = sorted(set([chunk.doc_id] + list(chunk.alias_doc_ids)))
         if not chunk.chunk_text.strip() or digest not in positions:
             if chunk.chunk_text.strip():

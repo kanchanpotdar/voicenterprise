@@ -480,6 +480,8 @@ class EnterpriseRetriever:
                     date_confidence=str(pl.get("date_confidence", "none")),
                     slack_channels=list(pl.get("slack_channels") or []),
                     ticket_ids=list(pl.get("ticket_ids") or []),
+                    content_hash=(pl.get("canonical_v1", {}).get("content_hash")
+                                  if pl.get("canonical_v1", {}).get("schema_version") == 1 else None),
                 )
             )
         return out
