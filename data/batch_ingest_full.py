@@ -40,6 +40,19 @@ def run(input_path: Path, output_dir: Path, batch_rows: int = 5000) -> dict[str,
     }
     if manifest.get("input_sha256") != _sha256(input_path):
         raise RuntimeError("Input corpus changed since the existing manifest was created")
+    if manifest.get("completed_batches") and manifest.get("record_id_protocol") != 2:
+        raise RuntimeError("Legacy batch-local IDs require targeted repair or a new output directory")
+    if manifest.get("batch_rows") != batch_rows:
+        raise ValueError("Cannot resume with a different batch size")
+    manifest["record_id_protocol"] = 2
+    # Read only IDs first; globally normalize the few conflicting records.
+    ids = pd.read_parquet(input_path, columns=["doc_id"])["doc_id"]
+    duplicates = ids[ids.duplicated(keep=False)].unique().tolist()
+    global_versions = {}
+    if duplicates:
+        versions = normalize_documents_df(pd.read_parquet(input_path, filters=[("doc_id", "in", duplicates)]))
+        global_versions = {(r["doc_id"], r["source_type"], r["raw_title"], r["content_sha256"]): r
+                           for r in versions.to_dict("records")}
 
     parquet = pq.ParquetFile(input_path)
     total_rows = parquet.metadata.num_rows
@@ -50,7 +63,13 @@ def run(input_path: Path, output_dir: Path, batch_rows: int = 5000) -> dict[str,
             continue
         try:
             raw = table.to_pandas()
-            normalized = enrich_dataframe_with_metadata(normalize_documents_df(raw))
+            normalized = normalize_documents_df(raw)
+            for index, row in normalized.iterrows():
+                version = global_versions.get((row.doc_id, row.source_type, row.raw_title, row.content_sha256))
+                if version:
+                    for field in ("record_id", "version_index", "version_count", "has_duplicate_doc_id_conflict"):
+                        normalized.at[index, field] = version[field]
+            normalized = enrich_dataframe_with_metadata(normalized)
             chunks = chunk_documents_df(normalized, max_chunk_chars=2000, overlap_chars=200)
             docs_path = batches_dir / f"batch_{batch_no:05d}_documents.parquet"
             chunks_path = batches_dir / f"batch_{batch_no:05d}_chunks.parquet"

@@ -81,6 +81,8 @@ def _parse_into_sections(content: str) -> List[Tuple[str, str]]:
 
 def _split_long_text(text: str, max_chars: int, overlap_chars: int) -> List[str]:
     """Split a text block exceeding max_chars along paragraph/newline boundaries with overlap."""
+    if max_chars <= 0 or not 0 <= overlap_chars < max_chars:
+        raise ValueError("Require max_chars > overlap_chars >= 0")
     if len(text) <= max_chars:
         return [text]
 
@@ -124,6 +126,8 @@ def _split_long_text(text: str, max_chars: int, overlap_chars: int) -> List[str]
                     overlap_len += len(prev_p) + 2
                 else:
                     break
+            while overlap_list and len("\n\n".join(overlap_list + [para])) > max_chars:
+                overlap_list.pop(0)
             current = overlap_list + [para]
             current_len = sum(len(x) for x in current) + 2 * max(0, len(current) - 1)
 

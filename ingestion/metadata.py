@@ -16,6 +16,7 @@ without modifying or discarding the original text, and never guesses missing val
 from __future__ import annotations
 
 import re
+from datetime import date
 from dataclasses import asdict, dataclass
 from typing import Any, Dict, List, Optional, Sequence
 
@@ -23,13 +24,13 @@ import pandas as pd
 
 # Matches YYYY-MM-DD where year is 2020..2029, month 01..12, day 01..31
 ISO_DATE_RE = re.compile(
-    r"\b(202[0-9]-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12][0-9]|3[01]))\b"
+    r"\b((?:202[0-9]|2030)-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12][0-9]|3[01]))\b"
 )
 
 # Explicit header or revision lines that carry high-confidence document timestamps
 HIGH_CONF_DATE_LINE_RE = re.compile(
     r"(?:date|created|updated|revision\s+history|change\s*log|sent|timestamp)\s*[:\-]?"
-    r".*?\b(202[0-9]-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12][0-9]|3[01]))\b",
+    r".*?\b((?:202[0-9]|2030)-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12][0-9]|3[01]))\b",
     re.IGNORECASE,
 )
 
@@ -102,6 +103,15 @@ def extract_metadata_for_record(
             header_dates.extend(ISO_DATE_RE.findall(line))
 
     body_dates = ISO_DATE_RE.findall(raw_content or "")
+    def valid(value):
+        try:
+            date.fromisoformat(value)
+            return True
+        except ValueError:
+            return False
+    title_dates = [d for d in title_dates if valid(d)]
+    header_dates = [d for d in header_dates if valid(d)]
+    body_dates = [d for d in body_dates if valid(d)]
     all_dates = sorted(set(title_dates + header_dates + body_dates))
 
     if title_dates:
