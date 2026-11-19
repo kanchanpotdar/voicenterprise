@@ -27,7 +27,7 @@ def run(input_dir: Path, qdrant_dir: Path, batch_size: int = 4096, qdrant_url: s
                 rows = records[start:start + batch_size]
                 vecs = list(embedder.embed([str(r["contextualized_text"]) for r in rows], batch_size=batch_size))
                 points = []
-                for row, vec in zip(rows, vecs):
+                for row, vec in zip(rows, vecs, strict=True):
                     points.append(models.PointStruct(id=deterministic_point_uuid(str(row["chunk_id"])), vector={"bm25": models.SparseVector(indices=vec.indices.tolist(), values=vec.values.tolist())}, payload={"chunk_id": str(row["chunk_id"]), "record_id": str(row["record_id"]), "doc_id": str(row["doc_id"]), "chunk_index": int(row["chunk_index"]), "total_chunks_in_doc": int(row["total_chunks_in_doc"]), "source_type": str(row["source_type"]), "normalized_title": str(row["normalized_title"]), "section_title": str(row["section_title"]), "chunk_text": str(row["chunk_text"]), "latest_date": None if pd.isna(row.get("latest_date")) else str(row.get("latest_date")), "date_confidence": str(row.get("date_confidence") or "none"), "slack_channels": [] if row.get("slack_channels") is None else [str(x) for x in row["slack_channels"]], "ticket_ids": [] if row.get("ticket_ids") is None else [str(x) for x in row["ticket_ids"]], "has_duplicate_doc_id_conflict": bool(row.get("has_duplicate_doc_id_conflict", False))}))
                 last_error = None
                 for attempt in range(6):

@@ -6,7 +6,6 @@ from pathlib import Path
 import pytest
 
 from evaluation.audit_scoring import (
-    abstains,
     caveats_missing_detail,
     constraint_violation_suspected,
     fact_covered,

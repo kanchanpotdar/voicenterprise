@@ -1,5 +1,5 @@
 """Aggregate audit_full_dev_protocol_report.json into audit_full_dev_summary.json (no model calls)."""
-import json, math
+import json
 from pathlib import Path
 REP = Path(__file__).resolve().parent.parent / "evaluation" / "reports"
 r = json.loads((REP / "audit_full_dev_protocol_report.json").read_text())

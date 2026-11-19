@@ -21,18 +21,16 @@ Evaluates answers across:
 from __future__ import annotations
 
 import json
-import os
 import time
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 import pandas as pd
 
 from evaluation.eval_rag import DeterministicJudge
 from evaluation.metrics import overall_answer_score
-from rag.citation_validator import CitationValidator
 from rag.context_builder import ContextBuilder
-from rag.generator import AnswerGenerator, RAGAnswer
+from rag.generator import AnswerGenerator
 from rag.llm import OpenAICompatibleLLM, load_env_file
 from retrieval.indexer import EnterpriseRetriever
 
@@ -71,7 +69,7 @@ def run_step4_evaluation():
     results: List[Dict[str, Any]] = []
 
     print("Starting Step 4 Downstream Answer Quality Evaluation...")
-    print(f"Model: openai/gpt-oss-120b | Context Budget: 2500 tokens\n")
+    print("Model: openai/gpt-oss-120b | Context Budget: 2500 tokens\n")
 
     for qid, category_note in TARGET_QIDS:
         q_row = q_map.get(qid)

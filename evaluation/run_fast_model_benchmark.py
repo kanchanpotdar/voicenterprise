@@ -12,12 +12,9 @@ from __future__ import annotations
 import json
 import time
 from pathlib import Path
-from typing import Any, Dict, List
 
-import pandas as pd
 
-from evaluation.eval_rag import split_facts_and_constraints
-from evaluation.evaluation_harness import DIAGNOSTIC_QIDS, load_development_benchmark
+from evaluation.evaluation_harness import load_development_benchmark
 from evaluation.metrics import overall_answer_score
 from rag.citation_validator import CitationValidator
 from rag.context_builder import ContextBuilder
@@ -47,7 +44,7 @@ def run_fast_model_benchmark():
 
     results_20b = {}
 
-    for idx, row in df_group_b.iterrows():
+    for _idx, row in df_group_b.iterrows():
         qid = str(row["question_id"])
         query = str(row["question"])
         raw_f = row.get("answer_facts")
@@ -68,9 +65,6 @@ def run_fast_model_benchmark():
         val_result = validator.validate(answer.answer_text, assembled)
 
         # Correctness & completeness
-        positive_facts, prohibited_constraints = split_facts_and_constraints(raw_facts)
-        ans_lower = answer.answer_text.lower()
-        violated = [c for c in prohibited_constraints if all(w in ans_lower for w in c.lower().split() if len(w) > 3)]
         from evaluation.audit_scoring import score_answer
         audited = score_answer(qid, str(row.get("question_type", "basic")), answer.answer_text, raw_facts, assembled)
         comp_pct = audited.fact_completeness_pct

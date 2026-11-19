@@ -2,10 +2,14 @@
 
 [![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](#15-license-and-dataset-attribution)
-[![Tests](https://img.shields.io/badge/Tests-19%20Passing-brightgreen.svg)](#12-test-and-diagnostic-commands)
+[![Tests](https://img.shields.io/badge/Tests-98%20Passing-brightgreen.svg)](#12-test-and-diagnostic-commands)
 [![Benchmark](https://img.shields.io/badge/Dataset-EnterpriseRAG--Bench-purple.svg)](https://huggingface.co/datasets/onyx-dot-app/EnterpriseRAG-Bench)
 
 ---
+
+## Audit repair status
+
+See [prioritized audit assessment and repairs](AUDIT_REPAIRS.md). The full source test suite passes 98 tests and Ruff's E9/F/B/PLE checks are clean. A targeted repair restored the 11 overwritten chunks: Qdrant now contains 1,622,256 points. Earlier collection counts and retrieval results in this README are historical, before that repair. Full payload enrichment remains incomplete, and fresh quality baselines have not yet been run against the repaired collection.
 
 ## 1. Project Overview and Motivation
 
@@ -17,7 +21,7 @@ Enterprise knowledge is fragmented across heterogeneous internal systems: chat t
 
 ---
 
-## 2. What Is Implemented Through Phase 1
+## 2. Implementation Status
 
 To maintain strict technical clarity between the completed foundation and planned downstream phases:
 
@@ -33,8 +37,8 @@ To maintain strict technical clarity between the completed foundation and planne
 | **Qdrant Dense (`BGE-small-en-v1.5`) + Sparse (`BM25` IDF) Indexing (P1.4)** | **Implemented** | `retrieval/indexer.py` |
 | **BM25 vs. Dense vs. Hybrid RRF Benchmark & Diagnostics (P1.5)** | **Implemented** | `retrieval/benchmark_p1.py`, `evaluation/inspect_p1_checks.py` |
 | **Baseline Grounded Text RAG System (Phase 2)** | **Implemented** | `rag/pipeline.py`, `rag/cli.py`, `evaluation/eval_rag.py` |
-| **Multi-Hop Investigation, Conflict Resolution & Entity Graph (Phase 3)** | *Planned* | Not yet implemented |
-| **Real-Time Streaming Voice Interface — STT / TTS / LiveKit (Phase 4–5)** | *Planned* | Not yet implemented |
+| **Investigation, Conflict Resolution & Entity Graph (Phase 3)** | **Partial** | Query expansion and verification implemented; entity graph and general multi-hop remain planned |
+| **Voice Interface (Phase 4–5)** | **Partial** | STT/TTS prototype implemented; playback starts after full generation; LiveKit remains planned |
 
 ---
 
@@ -473,7 +477,7 @@ curl -L https://huggingface.co/datasets/onyx-dot-app/EnterpriseRAG-Bench/resolve
 
 ## 12. Test and Diagnostic Commands
 
-### Run the Automated Test Suite (47 Tests Across 7 Test Files)
+### Run the Automated Test Suite
 ```bash
 .venv/bin/pytest -v
 ```
@@ -514,6 +518,8 @@ Recorded in `evaluation/reports/full_dev_retrieval_comparison.json` and `evaluat
 - Expanding the parent candidate pool to `top_k_docs=40` (`candidate_chunk_limit=160`) with parent-document diversity (`max_chunks_per_doc=3`, Jaccard near-duplicate threshold `0.70`) eliminates duplicate chunks completely (`0.00%`) and nearly doubles gold recall on the 13 hardest Phase 1 failure queries (`18.30%` $\rightarrow$ `35.63%`), while Hybrid achieves the highest overall `Recall@5` (`85.18%`) and `Recall@40` (`95.30%`).
 
 ### 13.2 Grounded Answer Generation & Conflict/Completeness Verification
+
+Historical figures below used earlier heuristic scorers. They are retained for chronology and do not establish current answer correctness. The audit repairs reject truncation, fabricated answers with unrelated caveats, invalid numbers, and empty verification drafts; fresh generation-quality evaluation is required. Milestone 1.2's stored report records 58.68 overall, rather than the previously quoted 100% conflict/86.36% completeness results being a reliable overall score.
 Recorded in `evaluation/reports/milestone_1_1_evaluation.json` and `evaluation/reports/milestone_1_2_evaluation.json`:
 - **Milestone 1.1 Baseline (`5` stratified queries, `openai/gpt-oss-120b`):** `80.0%` Overall Score, `80.0%` Answer Correctness, `85.45%` Completeness, and `100.0%` Citation ID Validity.
 - **Milestone 1.2 Stress-Test (`11` hard queries including multi-doc completeness, supersession conflicts, and rank-cutoff cases):**
@@ -523,6 +529,8 @@ Recorded in `evaluation/reports/milestone_1_1_evaluation.json` and `evaluation/r
   - **Unanswerable Abstention (`info_not_found`):** `100.0%` abstention accuracy without speculation.
 
 ### 13.3 End-to-End Voice RAG Latency & Time-to-First-Audio (TTFA) Baseline
+
+The historical TTFA table below is invalidated by the timing audit. Current timing measures elapsed time to completed synthesis or playback-process launch after generation. This does not measure acoustic onset or true overlapped streaming. TTS failures now raise an error instead of writing synthetic audio bytes.
 Recorded in `evaluation/reports/voice_ttfa_report.json` via `voice/voice_pipeline.py` and `evaluation/measure_voice_ttfa.py`:
 - **Pipeline:** Spoken Audio (`.aiff`/`.wav`) $\rightarrow$ Groq Whisper (`whisper-large-v3-turbo`) $\rightarrow$ BM25 (`K=40` + Diversity) $\rightarrow$ Balanced `ContextBuilder` $\rightarrow$ Streaming `openai/gpt-oss-20b` $\rightarrow$ Streaming TTS (`StreamingTTS` with citation/markdown sanitization).
 

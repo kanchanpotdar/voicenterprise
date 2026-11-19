@@ -19,7 +19,6 @@ Metrics reported per question and in aggregate:
 from __future__ import annotations
 
 import json
-import os
 import re
 import time
 from dataclasses import asdict, dataclass
@@ -29,11 +28,10 @@ from typing import Any, Dict, List, Optional, Sequence, Tuple
 import pandas as pd
 
 from evaluation.metrics import overall_answer_score, recall_at_k
-from rag.citation_validator import CitationValidator
 from rag.generator import RAGAnswer
-from rag.llm import BaseLLMClient, MockLLM, OpenAICompatibleLLM
+from rag.llm import BaseLLMClient
 from rag.pipeline import RAGPipeline
-from retrieval.indexer import EnterpriseRetriever, RetrievalMode
+from retrieval.indexer import RetrievalMode
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -286,7 +284,7 @@ class LLMJudge:
                 comp = max(0.0, min(100.0, comp))
                 expl = str(data.get("explanation", ""))
                 return correct, comp, expl
-        except Exception as e:
+        except Exception:
             # Fallback to deterministic judge if judge API fails
             pass
 
@@ -312,7 +310,6 @@ def run_rag_evaluation(
 ) -> Dict[str, Any]:
     """Run evaluation over a questions DataFrame and compute official benchmark metrics."""
     if max_questions:
-        from rag.context_builder import ContextBuilder
 
         # Take stratified sample if max_questions specified
         from evaluation.inspect_p1_checks import get_stratified_sample
@@ -332,7 +329,7 @@ def run_rag_evaluation(
 
     t_start = time.perf_counter()
 
-    for idx, row in enumerate(records, start=1):
+    for _idx, row in enumerate(records, start=1):
         qid = str(row["question_id"])
         qtype = str(row["question_type"])
         question = str(row["question"])

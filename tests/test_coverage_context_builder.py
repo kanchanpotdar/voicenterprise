@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import pytest
 
 from rag.context_builder import ContextBuilder, estimate_tokens
 from rag.coverage_context_builder import CoverageAwareContextBuilder

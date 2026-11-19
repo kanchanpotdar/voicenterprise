@@ -28,11 +28,9 @@ from __future__ import annotations
 import json
 import time
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Tuple
 
-import pandas as pd
 
-from evaluation.eval_rag import split_facts_and_constraints
 from evaluation.evaluation_harness import (
     DIAGNOSTIC_QIDS,
     load_development_benchmark,
@@ -141,7 +139,7 @@ def run_phase6_evaluation():
         print(f"\n================ Running Configuration: {cfg_name} ================", flush=True)
         t_cfg0 = time.perf_counter()
 
-        for idx, row in df_eval.iterrows():
+        for _idx, row in df_eval.iterrows():
             qid = str(row["question_id"])
             if qid in results_by_config[cfg_name] and "overall_score" in results_by_config[cfg_name][qid]:
                 print(f"  [{cfg_name}] {qid:<10} | (loaded from checkpoint)", flush=True)

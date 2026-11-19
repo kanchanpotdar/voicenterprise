@@ -14,9 +14,9 @@ from __future__ import annotations
 
 import re
 from dataclasses import asdict, dataclass, field
-from typing import Any, Dict, List, Optional, Sequence, Set, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 
-from rag.citation_validator import CitationValidationResult, CitationValidator, SentenceCitation
+from rag.citation_validator import CitationValidationResult, CitationValidator
 from rag.context_builder import AssembledContext
 from rag.generator import detect_abstention, detect_contradiction
 from rag.llm import BaseLLMClient, LLMResponse
@@ -92,7 +92,7 @@ class AnswerVerifier:
         for sent in val_res.sentences:
             if sent.is_cited and sent.cited_doc_ids:
                 # Strip document IDs before extracting factual quantities
-                clean_sent = re.sub(r"\[dsid_[a-f0-9]{32}(?:__c\d{3})?\]", "", sent.sentence)
+                clean_sent = re.sub(r"\[dsid_[a-f0-9]{32}(?:__v\d+)?(?:__c\d{3,})?\]", "", sent.sentence)
                 sent_nums = set(re.findall(r"\b\d+(?:\.\d+)?", clean_sent))
                 if sent_nums:
                     for doc_id in sent.cited_doc_ids:
@@ -100,7 +100,7 @@ class AnswerVerifier:
                             p.chunk_text for p in context.passages if p.doc_id == doc_id
                         ]
                         pass_text = " ".join(matching_passages)
-                        clean_pass = re.sub(r"\[dsid_[a-f0-9]{32}(?:__c\d{3})?\]", "", pass_text)
+                        clean_pass = re.sub(r"\[dsid_[a-f0-9]{32}(?:__v\d+)?(?:__c\d{3,})?\]", "", pass_text)
                         pass_nums = set(re.findall(r"\b\d+(?:\.\d+)?", clean_pass))
                         missing_nums = sent_nums - pass_nums
                         if missing_nums:
@@ -195,7 +195,7 @@ class AnswerVerifier:
         current_text = answer_text
         current_check = initial_check
 
-        for attempt in range(self.max_revisions):
+        for _attempt in range(self.max_revisions):
             revisions_done += 1
             correction_prompt = (
                 f"EVIDENCE PASSAGES:\n{context.formatted_context}\n\n"

@@ -25,7 +25,7 @@ import os
 import sys
 import time
 from pathlib import Path
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, List
 
 import pandas as pd
 
@@ -128,7 +128,7 @@ def run_comparison(sample_size: int = 30) -> Dict[str, Any]:
         question = row["question"]
         gold_ans = row["gold_answer"]
         facts = list(row["answer_facts"]) if row["answer_facts"] is not None else []
-        expected_docs = list(row["expected_doc_ids"]) if row["expected_doc_ids"] is not None else []
+        list(row["expected_doc_ids"]) if row["expected_doc_ids"] is not None else []
 
         print(f"\n[{q_idx+1}/{len(df)}] QID: {qid} ({qtype})")
         print(f"  Q: {question[:80]}...")

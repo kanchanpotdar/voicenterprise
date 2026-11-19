@@ -17,9 +17,8 @@ from __future__ import annotations
 import json
 import time
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict
 
-import pandas as pd
 
 from evaluation.evaluation_harness import (
     DIAGNOSTIC_QIDS,
@@ -75,7 +74,7 @@ def run_phase3_experiments():
         print(f"--- Running Mode: {mode_name} (expansion_mode={exp_mode}) ---")
         t0 = time.perf_counter()
         
-        for idx, row in df_targets.iterrows():
+        for _idx, row in df_targets.iterrows():
             qid = str(row["question_id"])
             query = str(row["question"])
             raw_g = row.get("expected_doc_ids")

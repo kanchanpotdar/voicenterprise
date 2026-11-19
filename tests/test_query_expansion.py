@@ -12,8 +12,6 @@ from retrieval.indexer import RetrievedChunk
 from retrieval.query_expansion import (
     MultiQueryRetriever,
     QueryExpander,
-    QueryExpansionResult,
-    SubQuestion,
 )
 
 

@@ -17,7 +17,7 @@ Strategy:
 from __future__ import annotations
 
 import re
-from dataclasses import asdict, dataclass, field
+from dataclasses import dataclass
 from typing import Any, Dict, List, Optional, Sequence, Set, Tuple
 
 from rag.context_builder import AssembledContext, ContextBuilder, EvidencePassage, _TOKENIZER, estimate_tokens
@@ -36,7 +36,7 @@ LEXICAL_STOPWORDS = {
     "were", "or", "which", "will", "would", "must", "should", "can", "could",
     "also", "each", "all", "any", "not", "have", "has", "had", "per", "than",
     "does", "been", "into", "over", "under", "both", "such", "then", "what",
-    "how", "when", "where", "who", "why", "which",
+    "how", "when", "where", "who", "why",
 }
 
 

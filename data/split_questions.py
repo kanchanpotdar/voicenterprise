@@ -15,7 +15,7 @@ import json
 import random
 from collections import defaultdict
 from pathlib import Path
-from typing import Any, Dict, List, Set, Tuple
+from typing import Any, Dict, List, Set
 
 import pandas as pd
 import pyarrow.parquet as pq

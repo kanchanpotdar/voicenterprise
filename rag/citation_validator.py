@@ -13,8 +13,8 @@ Key guarantees:
 from __future__ import annotations
 
 import re
-from dataclasses import asdict, dataclass, field
-from typing import Any, Dict, List, Optional, Sequence, Set
+from dataclasses import dataclass, field
+from typing import Any, Dict, List, Optional
 
 from rag.context_builder import AssembledContext
 
@@ -34,7 +34,7 @@ COMMON_STOPWORDS = {
     "for", "on", "with", "as", "by", "at", "from", "be", "are", "was",
     "were", "or", "which", "will", "would", "must", "should", "can", "could",
     "also", "each", "all", "any", "not", "have", "has", "had", "per", "than",
-    "must", "does", "been", "into", "over", "under", "both", "such", "then",
+    "does", "been", "into", "over", "under", "both", "such", "then",
 }
 
 

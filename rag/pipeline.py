@@ -14,9 +14,8 @@ from __future__ import annotations
 import os
 import time
 from pathlib import Path
-from typing import Any, Callable, Dict, List, Optional
+from typing import Callable, Optional
 
-from rag.citation_validator import CitationValidator
 from rag.context_builder import ContextBuilder
 from rag.generator import AnswerGenerator, RAGAnswer
 from rag.llm import BaseLLMClient, MockLLM, OpenAICompatibleLLM, is_valid_key

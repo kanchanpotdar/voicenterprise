@@ -17,13 +17,11 @@ Usage Examples:
 from __future__ import annotations
 
 import argparse
-import json
 import os
 import sys
 import time
 import warnings
 from pathlib import Path
-from typing import Optional
 
 # Suppress local SQLite warnings for clean CLI experience
 warnings.filterwarnings(
@@ -38,7 +36,7 @@ from rag.context_builder import ContextBuilder
 from rag.generator import AnswerGenerator, RAGAnswer
 from rag.llm import BaseLLMClient, MockLLM, OpenAICompatibleLLM
 from rag.pipeline import RAGPipeline
-from retrieval.indexer import EnterpriseRetriever, RetrievalMode
+from retrieval.indexer import EnterpriseRetriever
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -192,7 +190,7 @@ def handle_evaluation(pipeline: RAGPipeline, args: argparse.Namespace) -> None:
     sample_size = args.eval_sample_size or len(dev_df)
 
     print("=" * 88)
-    print(f"PHASE 2 RAG EVALUATION BENCHMARK")
+    print("PHASE 2 RAG EVALUATION BENCHMARK")
     print(f"Dataset      : {dev_path.name} (n={sample_size} of {len(dev_df)} questions)")
     print(f"Retrieval    : {args.mode.upper()}")
     print(f"Judge Type   : {args.judge.upper()}")

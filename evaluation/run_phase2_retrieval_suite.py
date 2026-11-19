@@ -22,13 +22,10 @@ from __future__ import annotations
 import json
 import time
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Sequence, Tuple
+from typing import Dict, List
 
-import pandas as pd
 
 from evaluation.evaluation_harness import (
-    DIAGNOSTIC_QIDS,
-    HARD_CASE_13_QIDS,
     load_development_benchmark,
     score_retrieval_predictions,
 )

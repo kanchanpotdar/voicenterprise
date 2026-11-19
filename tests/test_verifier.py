@@ -2,11 +2,10 @@
 
 from __future__ import annotations
 
-import pytest
 
 from rag.context_builder import AssembledContext, EvidencePassage
 from rag.llm import MockLLM
-from rag.verifier import AnswerVerifier, VerificationCheckResult
+from rag.verifier import AnswerVerifier
 
 
 def _create_mock_passage(doc_id: str, text: str) -> EvidencePassage:

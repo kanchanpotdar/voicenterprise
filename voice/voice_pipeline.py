@@ -24,17 +24,15 @@ import os
 import subprocess
 import tempfile
 import time
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Callable, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 
 import httpx
 
-from rag.context_builder import ContextBuilder
-from rag.generator import AnswerGenerator, RAGAnswer
-from rag.llm import OpenAICompatibleLLM, load_env_file
+from rag.generator import RAGAnswer
+from rag.llm import load_env_file
 from rag.pipeline import RAGPipeline
-from retrieval.indexer import EnterpriseRetriever
 
 load_env_file()
 
@@ -288,7 +286,6 @@ class VoiceRAGPipeline:
         collected_tokens: List[str] = []
         first_sentence = ""
         first_sentence_detected_time: Optional[float] = None
-        first_audio_synthesized_time: Optional[float] = None
 
         def token_stream_listener(token: str) -> None:
             nonlocal first_sentence, first_sentence_detected_time
@@ -327,7 +324,6 @@ class VoiceRAGPipeline:
 
         # Step 5: Streaming TTS for the first chunk to achieve lowest TTFA
         tts_audio_path = None
-        t_tts0 = time.perf_counter()
         if save_audio_response:
             tts_audio_path, tts_ms = self.tts.synthesize_to_file(ans.answer_text)
             metrics.tts_first_chunk_latency_ms = tts_ms

@@ -12,7 +12,7 @@ from __future__ import annotations
 
 import re
 import time
-from dataclasses import asdict, dataclass, field
+from dataclasses import dataclass
 from typing import Any, Callable, Dict, List, Optional
 
 from rag.citation_validator import CitationValidationResult, CitationValidator

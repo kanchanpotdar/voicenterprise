@@ -1,0 +1,15 @@
+{
+  "conflicting_document_ids": [
+    "dsid_8a0c5430bac64f8da21c2cee5a7f4df5",
+    "dsid_feb1e9063ebb4947bb4f935393c01f0f",
+    "dsid_f292876dbb47462d85997383af306490",
+    "dsid_6df52fdb96ae4edcb76464738bca3340"
+  ],
+  "source_rows": 8,
+  "legacy_chunk_rows": 27,
+  "legacy_unique_chunk_ids": 16,
+  "repaired_chunks": 27,
+  "applied": true,
+  "points_before": 1622255,
+  "points_after": 1622256
+}

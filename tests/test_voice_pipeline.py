@@ -12,17 +12,14 @@ from __future__ import annotations
 
 import tempfile
 from pathlib import Path
-from unittest.mock import MagicMock, patch
+from unittest.mock import MagicMock
 
-import pytest
 
-from rag.citation_validator import CitationValidator
 from rag.context_builder import ContextBuilder
 from rag.generator import AnswerGenerator
 from rag.llm import MockLLM
 from rag.pipeline import RAGPipeline
 from voice.voice_pipeline import (
-    GroqWhisperSTT,
     StreamingTTS,
     VoiceRAGMetrics,
     VoiceRAGPipeline,

@@ -16,16 +16,13 @@ dense-dependent, standard single/multi-doc, and abstentions).
 from __future__ import annotations
 
 import json
-import os
-import re
 import time
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 import pandas as pd
 
 from evaluation.eval_rag import DeterministicJudge
-from rag.citation_validator import CitationValidator
 from rag.context_builder import ContextBuilder
 from rag.generator import AnswerGenerator
 from rag.llm import OpenAICompatibleLLM
@@ -76,9 +73,9 @@ def run_fast_model_benchmark():
     results_by_model: Dict[str, List[Dict[str, Any]]] = {}
 
     for model_name, model_label in models_to_test:
-        print(f"\n==========================================", flush=True)
+        print("\n==========================================", flush=True)
         print(f"Evaluating {model_label} ({model_name})...", flush=True)
-        print(f"==========================================", flush=True)
+        print("==========================================", flush=True)
 
         llm_client = OpenAICompatibleLLM(model=model_name, timeout_seconds=90.0)
         generator = AnswerGenerator(llm_client=llm_client)
@@ -103,7 +100,7 @@ def run_fast_model_benchmark():
             answer_facts = list(raw_facts) if raw_facts is not None else []
 
             raw_expected = row.get("expected_doc_ids")
-            expected_doc_ids = (
+            (
                 [str(x) for x in raw_expected]
                 if raw_expected is not None and len(raw_expected) > 0
                 else []

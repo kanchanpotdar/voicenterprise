@@ -32,12 +32,8 @@ import pandas as pd
 
 from evaluation.eval_rag import DeterministicJudge
 from evaluation.metrics import overall_answer_score
-from rag.citation_validator import CitationValidator
-from rag.context_builder import ContextBuilder
-from rag.generator import AnswerGenerator
 from rag.llm import OpenAICompatibleLLM, load_env_file
 from rag.pipeline import RAGPipeline
-from retrieval.indexer import EnterpriseRetriever
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 

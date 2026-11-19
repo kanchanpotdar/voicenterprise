@@ -1,7 +1,6 @@
 """Unit tests for P1 ingestion: duplicate resolution, empty fields, metadata, and chunk provenance."""
 
 import pandas as pd
-import pytest
 
 from ingestion.chunker import chunk_documents_df
 from ingestion.metadata import enrich_dataframe_with_metadata, extract_metadata_for_record

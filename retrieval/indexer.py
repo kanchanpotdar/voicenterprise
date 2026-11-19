@@ -319,7 +319,7 @@ class EnterpriseRetriever:
             bm25_vecs = list(self.bm25_embedder.embed(texts, batch_size=256))
 
             points: List[models.PointStruct] = []
-            for row, d_vec, s_vec in zip(batch, dense_vecs, bm25_vecs):
+            for row, d_vec, s_vec in zip(batch, dense_vecs, bm25_vecs, strict=True):
                 point_id = deterministic_point_uuid(str(row["chunk_id"]))
                 payload = {
                     "chunk_id": str(row["chunk_id"]),

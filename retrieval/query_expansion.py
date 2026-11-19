@@ -27,9 +27,9 @@ import logging
 import re
 from dataclasses import asdict, dataclass, field, replace
 from pathlib import Path
-from typing import Any, Callable, Dict, List, Optional, Sequence, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 
-from rag.llm import BaseLLMClient, MockLLM, OpenAICompatibleLLM
+from rag.llm import BaseLLMClient, OpenAICompatibleLLM
 from retrieval.indexer import EnterpriseRetriever, RetrievedChunk
 
 
@@ -528,7 +528,7 @@ class MultiQueryRetriever:
         chunk_map: Dict[str, RetrievedChunk] = {}
         doc_best_chunk: Dict[str, RetrievedChunk] = {}
 
-        for q_branch, weight, docs, chunks in branch_results:
+        for _q_branch, weight, docs, chunks in branch_results:
             for rank, doc_id in enumerate(docs, start=1):
                 rrf_val = weight / (60.0 + rank)
                 doc_scores[doc_id] = doc_scores.get(doc_id, 0.0) + rrf_val

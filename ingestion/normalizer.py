@@ -22,7 +22,7 @@ from __future__ import annotations
 
 import hashlib
 from dataclasses import asdict, dataclass
-from typing import Any, Dict, List, Sequence
+from typing import Any, Dict, List
 
 import pandas as pd
 

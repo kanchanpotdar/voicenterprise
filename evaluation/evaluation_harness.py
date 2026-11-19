@@ -24,22 +24,14 @@ Guarantees:
 
 from __future__ import annotations
 
-import json
-from dataclasses import asdict, dataclass, field
+from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Sequence, Tuple
+from typing import Any, Dict, Optional, Sequence, Tuple
 
 import pandas as pd
 
 from evaluation.metrics import (
-    _dedupe_preserve_order,
-    _mean_ignore_none,
     evaluate_retrieval_predictions,
-    hit_at_k,
-    invalid_extra_docs_count,
-    overall_answer_score,
-    recall_at_k,
-    reciprocal_rank_at_k,
 )
 
 BASE_DIR = Path(__file__).resolve().parent.parent

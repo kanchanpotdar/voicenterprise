@@ -26,12 +26,10 @@ from __future__ import annotations
 import json
 import time
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Sequence, Tuple
+from typing import Any, Dict
 
-import pandas as pd
 
 from evaluation.evaluation_harness import (
-    DIAGNOSTIC_QIDS,
     load_development_benchmark,
 )
 from rag.context_builder import ContextBuilder
@@ -77,7 +75,7 @@ def run_phase4_experiments():
 
     for b_name, builder in builders:
         print(f"--- Evaluating {b_name} ---")
-        for idx, row in df_group_b.iterrows():
+        for _idx, row in df_group_b.iterrows():
             qid = str(row["question_id"])
             query = str(row["question"])
             raw_g = row.get("expected_doc_ids")

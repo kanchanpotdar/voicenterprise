@@ -34,7 +34,6 @@ import pandas as pd
 
 from evaluation.audit_scoring import (
     AuditScore,
-    abstains,
     evidence_fact_coverage,
     is_empty_or_truncated,
     score_answer,
@@ -42,11 +41,11 @@ from evaluation.audit_scoring import (
 from evaluation.eval_rag import DeterministicJudge, split_facts_and_constraints
 from evaluation.evaluation_harness import load_development_benchmark
 from evaluation.inspect_p1_checks import get_stratified_sample
-from evaluation.metrics import hit_at_k, overall_answer_score, recall_at_k
+from evaluation.metrics import overall_answer_score
 from rag.citation_validator import CitationValidator
 from rag.context_builder import AssembledContext, ContextBuilder, estimate_tokens
-from rag.generator import GROUNDED_SYSTEM_PROMPT, AnswerGenerator, detect_abstention, detect_contradiction
-from rag.llm import LLMResponse, OpenAICompatibleLLM, PRICING_PER_1K
+from rag.generator import GROUNDED_SYSTEM_PROMPT, detect_contradiction
+from rag.llm import LLMResponse, OpenAICompatibleLLM
 from retrieval.indexer import RetrievedChunk, fuse_bm25_and_dense_chunks
 from retrieval.query_expansion import ExpansionCache, QueryExpander
 

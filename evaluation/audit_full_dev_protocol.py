@@ -90,7 +90,6 @@ def main():
         need_gen = args.generate and qid in GEN_SUBSET and not all("generation" in rec["configs"].get(c, {}) for c in CONFIGS)
         if len(rec["configs"]) == len(CONFIGS) and not need_gen:
             continue
-        chunks_by = {}
         t = time.perf_counter()
         ids_a, ch_a = retriever.retrieve_documents(query=query, mode="bm25", top_k_docs=20)
         ids_b, ch_b = retriever.retrieve_documents(query=query, mode="bm25", top_k_docs=40)

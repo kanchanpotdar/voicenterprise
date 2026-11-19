@@ -15,7 +15,7 @@ from __future__ import annotations
 
 from dataclasses import asdict, dataclass, field
 from functools import lru_cache
-from typing import Any, Dict, List, Optional, Sequence, Set
+from typing import Any, Dict, List, Optional, Sequence
 
 from retrieval.indexer import RetrievedChunk
 
