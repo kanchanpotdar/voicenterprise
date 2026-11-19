@@ -95,6 +95,7 @@ def generation_cache_key(
             "sys_sha": _sha256(system_prompt),
             "usr_sha": _sha256(user_prompt),
             "temperature": float(temperature),
+            "max_tokens": int(max_tokens),
         },
         sort_keys=True,
     )

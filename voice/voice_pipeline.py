@@ -222,11 +222,8 @@ class StreamingTTS:
 
             latency_ms = (time.perf_counter() - t0) * 1000.0
             return output_path, latency_ms
-        except Exception:
-            # Fallback mock for non-macOS or headless environments
-            latency_ms = (time.perf_counter() - t0) * 1000.0
-            Path(output_path).write_bytes(b"RIFFmockwavheader" + b"\x00" * 100)
-            return output_path, latency_ms
+        except Exception as exc:
+            raise RuntimeError("TTS synthesis failed; no usable audio produced") from exc
 
     def speak_immediately(self, text: str) -> float:
         """Speak the text immediately asynchronously or synchronously."""
@@ -334,26 +331,19 @@ class VoiceRAGPipeline:
         if save_audio_response:
             tts_audio_path, tts_ms = self.tts.synthesize_to_file(ans.answer_text)
             metrics.tts_first_chunk_latency_ms = tts_ms
-        else:
+        elif speak_audio:
             tts_ms = self.tts.speak_immediately(first_sentence)
             metrics.tts_first_chunk_latency_ms = tts_ms
 
-        if speak_audio and not save_audio_response:
+        if speak_audio and save_audio_response:
             self.tts.speak_immediately(first_sentence)
 
         # TTFA = Time from pipeline start to first audio synthesis complete
         # = STT + Retrieval + Context + LLM TTFT + First phrase generation & TTS
-        if first_sentence_detected_time is not None:
-            time_to_first_sentence = (first_sentence_detected_time - t_pipeline_start) * 1000.0
-            metrics.total_ttfa_ms = time_to_first_sentence + metrics.tts_first_chunk_latency_ms
+        if save_audio_response or speak_audio:
+            metrics.total_ttfa_ms = (time.perf_counter() - t_pipeline_start) * 1000.0
         else:
-            metrics.total_ttfa_ms = (
-                metrics.stt_latency_ms
-                + metrics.retrieval_latency_ms
-                + metrics.context_builder_latency_ms
-                + metrics.llm_ttft_ms
-                + metrics.tts_first_chunk_latency_ms
-            )
+            metrics.total_ttfa_ms = 0.0  # No audio was requested/produced.
 
         metrics.total_e2e_ms = (time.perf_counter() - t_pipeline_start) * 1000.0
 

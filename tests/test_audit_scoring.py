@@ -55,8 +55,10 @@ def test_info_not_found_with_component_description_and_missing_detail_caveat():
     ]
     s = score_answer("qst_0485", "info_not_found", ans, facts)
     assert caveats_missing_detail(ans)
-    assert s.answer_correct_strict
-    assert s.fact_completeness_pct == 100.0
+    # A caveat alone cannot establish that the surrounding factual assertions
+    # are grounded when no source context was supplied to the scorer.
+    assert not s.answer_correct_strict
+    assert s.fact_completeness_pct == 0.0
 
 
 def test_info_not_found_hallucinating_omitted_detail_fails():

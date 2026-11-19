@@ -66,7 +66,6 @@ class RAGPipeline:
             has_api_key = bool(
                 is_valid_key(os.getenv("OPENAI_API_KEY"))
                 or is_valid_key(os.getenv("GROQ_API_KEY"))
-                or is_valid_key(os.getenv("OPENAI_BASE_URL"))
             )
             if has_api_key:
                 llm_client = OpenAICompatibleLLM(model=model_name)
@@ -127,6 +126,7 @@ class RAGPipeline:
             on_token=on_token,
         )
         answer.retrieved_chunks = list(retrieved_chunks)
+        answer.retrieved_doc_ids = list(ordered_doc_ids)
         answer.retrieval_ms = round(retrieval_ms, 2)
         answer.context_builder_ms = round(context_builder_ms, 2)
         answer.total_e2e_ms = round((time.perf_counter() - t_pipeline_start) * 1000.0, 2)

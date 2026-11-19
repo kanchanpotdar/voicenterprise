@@ -22,7 +22,7 @@ from rag.context_builder import AssembledContext
 DOC_ID_RE = re.compile(r"(?:\[|【|\b)(dsid_[a-f0-9]{32})(?:\]|】|\b)", re.IGNORECASE)
 
 # Matches chunk_id format: dsid_...__c000
-CHUNK_ID_RE = re.compile(r"(?:\[|【|\b)(dsid_[a-f0-9]{32}__c\d{3})(?:\]|】|\b)", re.IGNORECASE)
+CHUNK_ID_RE = re.compile(r"(?:\[|【|\b)(dsid_[a-f0-9]{32}(?:__v\d+)?__c\d{3,})(?:\]|】|\b)", re.IGNORECASE)
 
 # Matches passage index citation format: [Passage 1], [Evidence Passage 2], [Passage: 3], 【Passage 1】
 PASSAGE_REF_RE = re.compile(
@@ -187,6 +187,7 @@ class CitationValidator:
 
         for s in raw_sentences:
             s_docs = list(dict.fromkeys([d.lower() for d in DOC_ID_RE.findall(s)]))
+            s_docs.extend(cid.lower().split("__")[0] for cid in CHUNK_ID_RE.findall(s))
             for p_num in PASSAGE_REF_RE.findall(s):
                 p_int = int(p_num)
                 if p_int in passage_map:
@@ -209,12 +210,13 @@ class CitationValidator:
                     overlap = sum(1 for w in s_words if w in combined_cited) / len(s_words)
 
                 # Numerical consistency check: if the claim asserts specific quantities, verify they exist in cited text
-                s_numbers = re.findall(r"\b\d+(?:\.\d+)?\b", s)
+                factual_sentence = CHUNK_ID_RE.sub("", DOC_ID_RE.sub("", PASSAGE_REF_RE.sub("", s)))
+                s_numbers = re.findall(r"\b\d+(?:\.\d+)?\b", factual_sentence)
                 numbers_in_doc = True
                 if s_numbers:
                     combined_numbers = set(re.findall(r"\b\d+(?:\.\d+)?\b", combined_cited))
                     # If sentence asserts numbers, verify numbers exist in the cited document
-                    if not any(num in combined_numbers for num in s_numbers):
+                    if not all(num in combined_numbers for num in s_numbers):
                         numbers_in_doc = False
 
                 is_supported = ids_valid and (overlap >= 0.35) and numbers_in_doc

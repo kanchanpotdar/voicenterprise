@@ -55,3 +55,12 @@ Thumbs.db
 *.aiff
 *.wav
 evaluation/audio_tests/
+
+# Full-corpus stores, local recovery bundles and generated run payloads
+data/qdrant*/
+data/ingested/full_corpus/
+data/canonical/conflicting_record_repair/*.parquet
+data/canonical/payload_enrichment_v1.json
+evaluation/runs/
+VoiceEnterprise_local_checkpoint.diff
+VoiceEnterprise_local_untracked_checkpoint.tgz

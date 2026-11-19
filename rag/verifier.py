@@ -118,7 +118,7 @@ class AnswerVerifier:
         has_conflict_error = False
         conflict_msg = None
         has_supersession_evidence = any(
-            re.search(r"\b(supersed|obsolete|deprecated|draft)\b", p.chunk_text, re.IGNORECASE)
+            re.search(r"\b(supersed(?:e|es|ed|ing)?|obsolete|deprecated|draft)\b", p.chunk_text, re.IGNORECASE)
             for p in context.passages
         )
         if has_supersession_evidence and not is_abs:
@@ -140,7 +140,8 @@ class AnswerVerifier:
 
         # Determine if revision is needed
         revision_needed = (
-            val_res.has_hallucinated_citations
+            not answer_text.strip()
+            or val_res.has_hallucinated_citations
             or val_res.has_unsupported_claims
             or has_num_inconsistencies
             or has_conflict_error
@@ -213,8 +214,13 @@ class AnswerVerifier:
             revised_check = self.verify(question, revised_text, context)
 
             # Keep revision if it improved or satisfied verification
-            current_text = revised_text
-            current_check = revised_check
+            def defects(check):
+                return sum((check.has_hallucinated_citations, check.has_unsupported_claims,
+                            check.has_numerical_inconsistencies, check.has_conflict_handling_error,
+                            not check.is_verified))
+            if revised_text and (revised_check.is_verified or defects(revised_check) < defects(current_check)):
+                current_text = revised_text
+                current_check = revised_check
             if current_check.is_verified:
                 break
 

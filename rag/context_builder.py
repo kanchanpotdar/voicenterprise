@@ -386,6 +386,8 @@ class ContextBuilder:
             else:
                 break
 
+        if total_tokens > budget:
+            return AssembledContext(formatted_context="", passages=[], total_tokens=0)
         unique_doc_ids = list(dict.fromkeys(p.doc_id for p in final_passages))
         unique_chunk_ids = [p.chunk_id for p in final_passages]
 

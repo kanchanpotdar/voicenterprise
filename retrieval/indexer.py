@@ -442,7 +442,7 @@ class EnterpriseRetriever:
                 with_payload=True,
             )
         elif mode == "hybrid":
-            prefetch_limit = max(top_k_chunks * 2, 160)
+            prefetch_limit = max(top_k_chunks, 160)
             bm25_chunks = self.retrieve_chunks(
                 query=query,
                 mode="bm25",

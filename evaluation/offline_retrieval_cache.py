@@ -25,17 +25,19 @@ from retrieval.indexer import EnterpriseRetriever  # noqa: E402
 BASE = Path(__file__).resolve().parent.parent
 CACHE_DIR = BASE / "evaluation" / "reports" / "cache"
 CACHE_PATH = CACHE_DIR / "offline_retrieval_chunks.json.gz"
-SETUPS = {"bm25_k20": ("bm25", 20), "bm25_k40": ("bm25", 40), "hybrid_k40": ("hybrid", 40)}
+SETUPS = {"bm25_k20": ("bm25", 20), "bm25_k40": ("bm25", 40), "dense_k40": ("dense", 40), "hybrid_k40": ("hybrid", 40)}
 
 
 def load_cache() -> dict:
     if CACHE_PATH.exists():
         with gzip.open(CACHE_PATH, "rt", encoding="utf-8") as f:
-            return json.load(f)
+            cache = json.load(f)
+            return cache if cache.get("_protocol") == "hybrid_depth_v2" else {}
     return {}
 
 
 def save_cache(cache: dict) -> None:
+    cache["_protocol"] = "hybrid_depth_v2"
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
     tmp = CACHE_PATH.with_suffix(".tmp")
     with gzip.open(tmp, "wt", encoding="utf-8") as f:

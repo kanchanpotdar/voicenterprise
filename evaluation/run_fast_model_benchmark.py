@@ -71,9 +71,10 @@ def run_fast_model_benchmark():
         positive_facts, prohibited_constraints = split_facts_and_constraints(raw_facts)
         ans_lower = answer.answer_text.lower()
         violated = [c for c in prohibited_constraints if all(w in ans_lower for w in c.lower().split() if len(w) > 3)]
-        covered = [f for f in positive_facts if any(w in ans_lower for w in f.lower().split() if len(w) > 3)]
-        comp_pct = (len(covered) / len(positive_facts) * 100.0) if positive_facts else 100.0
-        is_corr = len(violated) == 0
+        from evaluation.audit_scoring import score_answer
+        audited = score_answer(qid, str(row.get("question_type", "basic")), answer.answer_text, raw_facts, assembled)
+        comp_pct = audited.fact_completeness_pct
+        is_corr = audited.answer_correct_strict
         score = overall_answer_score(is_corr, comp_pct)
 
         results_20b[qid] = {

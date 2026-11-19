@@ -522,6 +522,8 @@ class CoverageAwareContextBuilder(ContextBuilder):
             else:
                 break
 
+        if final_tokens > budget:
+            return AssembledContext(formatted_context="", passages=[], total_tokens=0), []
         total_passages = len(passages)
         max_conc = max((cnt / total_passages for cnt in doc_dist.values()), default=0.0)
 

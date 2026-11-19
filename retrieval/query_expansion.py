@@ -25,7 +25,7 @@ import hashlib
 import json
 import logging
 import re
-from dataclasses import asdict, dataclass, field
+from dataclasses import asdict, dataclass, field, replace
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Sequence, Tuple
 
@@ -552,6 +552,6 @@ class MultiQueryRetriever:
             for ch in doc_chunks:
                 if ch.chunk_id not in seen_chunks:
                     seen_chunks.add(ch.chunk_id)
-                    ordered_chunks.append(ch)
+                    ordered_chunks.append(replace(ch, score=doc_scores[doc_id], lexical_score=ch.lexical_score))
 
         return sorted_doc_ids, ordered_chunks, exp_res, provenance

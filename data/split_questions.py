@@ -129,11 +129,13 @@ def create_question_splits(
 
     # Assign stratified K-fold indices within dev split for repeated dev experiments
     df["dev_fold"] = -1
-    for cat in sorted(category_counts.keys()):
-        cat_dev_rows = df[(df["split"] == "dev") & (df["question_type"] == cat)].index.tolist()
-        rng.shuffle(cat_dev_rows)
-        for rank, row_idx in enumerate(cat_dev_rows):
-            df.loc[row_idx, "dev_fold"] = rank % num_dev_folds
+    fold_sizes = [0] * num_dev_folds
+    for component in sorted(components, key=lambda c: (-len(c), min(c))):
+        if component[0] not in dev_indices:
+            continue
+        fold = min(range(num_dev_folds), key=lambda k: fold_sizes[k])
+        df.loc[component, "dev_fold"] = fold
+        fold_sizes[fold] += len(component)
 
     output_dir.mkdir(parents=True, exist_ok=True)
     dev_df = df[df["split"] == "dev"].reset_index(drop=True)

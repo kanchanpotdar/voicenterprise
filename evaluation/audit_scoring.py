@@ -236,13 +236,14 @@ def score_answer(
     violated = [c for c in constraints if constraint_violation_suspected(c, answer_text)]
 
     if question_type == "info_not_found":
-        is_handled = (abst or caveats_missing_detail(answer_text)) and not flags["empty"]
+        sentences = [s.strip() for s in re.split(r"(?<=[.!?])\s+", answer_text) if s.strip()]
+        is_handled = bool(sentences) and all(abstains(s) for s in sentences) and not flags["empty"] and not flags["truncated"]
         completeness = 100.0 if is_handled else 0.0
         correct = is_handled
         covered, missing = ([], []) if correct else ([], list(positives))
     else:
         completeness = 100.0 * len(covered) / len(positives) if positives else float("nan")
-        correct = (not flags["empty"]) and (not abst) and bool(positives) and not missing and not violated
+        correct = (not flags["empty"]) and (not flags["truncated"]) and (not abst) and bool(positives) and not missing and not violated
 
     cit_valid = claim_all = unsup = None
     n_sub = 0

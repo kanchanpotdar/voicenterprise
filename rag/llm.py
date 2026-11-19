@@ -123,7 +123,7 @@ class OpenAICompatibleLLM(BaseLLMClient):
         elif groq_key and not openai_key:
             self.base_url = "https://api.groq.com/openai/v1"
             if model == "gpt-4o-mini":
-                model = "openai/gpt-oss-120b"
+                raise ValueError("Choose an explicit Groq model; gpt-4o-mini is an OpenAI model")
         else:
             self.base_url = "https://api.openai.com/v1"
 
